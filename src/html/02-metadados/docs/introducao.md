@@ -58,7 +58,8 @@ Sites também podem incluir metadados para monitoramento de visitas e segurança
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
 ```
 
-- Uma explicação melhor pode ser visto em 
+- Uma explicação melhor pode ser visto em [Explicação sobre as tags se rastreamento e segurança](tags-seguranca.md)
+- Um exemplo de página com exemplo pode ser visto em [Página com exemplo e explicação das tags](../src/exemplo_tag_privacidade_seguranca.html)
 
 ### **Metadados e sua relação com SEO**
 Os metadados desempenham um papel essencial no SEO, pois influenciam como os mecanismos de busca interpretam e ranqueiam uma página. Como mencionado no texto sobre SEO, a otimização dos metadados pode aumentar significativamente a visibilidade de um site. 
