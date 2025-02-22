@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tags de metadados de segurança e rastreamento para proteger páginas web e melhorar a privacidade.">
+    <meta name="keywords" content="segurança, rastreamento, metadados, HTML, privacidade">
+    <title>Tags de Segurança e Rastreabilidade em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #0056b3;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #e4e4e4;
+            padding: 10px;
+            overflow: auto;
+        }
+        code {
+            background: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tags de Segurança e Rastreabilidade em HTML</h1>
+        <p>As tags de metadados de <strong>segurança e rastreamento</strong> são usadas para proteger a página da web, melhorar a privacidade e controlar a forma como os motores de busca e outras ferramentas de rastreamento interagem com o conteúdo.</p>
+
+        <h2>1. Metadados de Rastreabilidade e Privacidade</h2>
+
+        <h3><code>&lt;meta name="robots" content="..."&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>robots</code> instrui os motores de busca e outros rastreadores sobre como devem interagir com a página. Ela pode ser usada para permitir ou bloquear o rastreamento e indexação da página.</li>
+            <li><strong>Uso:</strong> O conteúdo pode incluir valores como:
+                <ul>
+                    <li><code>index</code>: Permite que a página seja indexada.</li>
+                    <li><code>noindex</code>: Impede que a página seja indexada.</li>
+                    <li><code>follow</code>: Permite que links na página sejam seguidos.</li>
+                    <li><code>nofollow</code>: Impede que links na página sejam seguidos.</li>
+                    <li><code>noarchive</code>: Impede que o cache da página seja armazenado.</li>
+                    <li><code>nosnippet</code>: Impede que o snippet (resumo) da página seja exibido nos resultados de busca.</li>
+                </ul>
+            </li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta name="googlebot" content="..."&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Semelhante à tag <code>robots</code>, mas específica para o <strong>Googlebot</strong>. Ela permite controlar o comportamento do Googlebot, o rastreador do Google, de forma mais específica.</li>
+            <li><strong>Uso:</strong> Pode ter os mesmos valores que a tag <code>robots</code>, mas com a vantagem de ser direcionada apenas ao Google.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="googlebot" content="noindex, nofollow"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Especifica como os motores de busca devem exibir conteúdos de imagens, vídeos e snippets na página.
+                <ul>
+                    <li><code>max-snippet:-1</code>: Permite exibir o conteúdo completo da página no snippet.</li>
+                    <li><code>max-image-preview:large</code>: Permite que imagens grandes apareçam nas visualizações.</li>
+                    <li><code>max-video-preview:-1</code>: Permite que vídeos completos apareçam na visualização.</li>
+                </ul>
+            </li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"&gt;</code></pre>
+        </ul>
+
+        <h2>2. Metadados de Segurança</h2>
+
+        <h3><code>&lt;meta http-equiv="Content-Security-Policy" content="..."&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> A <strong>Content Security Policy (CSP)</strong> é uma medida de segurança importante para prevenir ataques de <strong>cross-site scripting (XSS)</strong>, <strong>injeção de conteúdo</strong>, e outros tipos de ataques maliciosos. Através dessa tag, você define quais fontes de conteúdo podem ser carregadas no seu site.</li>
+            <li><strong>Uso:</strong> O valor do <code>content</code> define as regras da política de segurança. Por exemplo, você pode restringir quais domínios podem carregar scripts, imagens ou estilos no seu site.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted-source.com;"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta http-equiv="X-Content-Type-Options" content="nosniff"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Esta tag ajuda a proteger seu site contra <strong>type sniffing</strong>. Isso significa que ela impede que o navegador tente adivinhar o tipo de conteúdo de arquivos que não são explicitamente declarados.</li>
+            <li><strong>Uso:</strong> Definir <code>content="nosniff"</code> impede que o navegador execute arquivos com tipos MIME incorretos.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="X-Content-Type-Options" content="nosniff"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Esta tag força o navegador a acessar o site apenas por meio de uma conexão segura HTTPS. Isso ajuda a proteger contra ataques de <strong>man-in-the-middle (MITM)</strong>.</li>
+            <li><strong>Uso:</strong> <code>max-age</code> define o tempo (em segundos) que o navegador deve se lembrar de usar apenas HTTPS. O valor <code>includeSubDomains</code> aplica essa política a todos os subdomínios do site.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta http-equiv="X-Frame-Options" content="DENY"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Esta tag previne que seu site seja carregado em um <strong>iframe</strong> em outros sites. Isso ajuda a proteger contra ataques de <strong>clickjacking</strong>, onde um site malicioso tenta enganar o usuário para clicar em algo diferente do que ele vê.</li>
+            <li><strong>Uso:</strong> O valor <code>DENY</code> impede completamente que a página seja exibida em um iframe. Outra opção é <code>SAMEORIGIN</code>, que permite que a página seja exibida em um iframe apenas se o domínio for o mesmo.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="X-Frame-Options" content="DENY"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta http-equiv="Referrer-Policy" content="no-referrer"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>Referrer-Policy</code> controla o envio do cabeçalho <strong>Referer</strong> em requisições feitas de sua página. O cabeçalho <strong>Referer</strong> é usado para indicar a origem de uma requisição, mas pode expor informações sensíveis.</li>
+            <li><strong>Uso:</strong> <code>content="no-referrer"</code> impede que qualquer informação de referer seja enviada com as requisições.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="Referrer-Policy" content="no-referrer"&gt;</code></pre>
+        </ul>
+
+        <h3><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;</code></h3>
+        <ul>
+            <li><strong>Descrição:</strong> Embora mais comumente usada para controle de responsividade, a tag <code>viewport</code> também pode melhorar a segurança ao limitar o zoom em dispositivos móveis. Definir <code>maximum-scale=1</code> impede que o usuário altere a escala da página, o que pode ser útil para evitar certos tipos de ataques baseados em zoom.</li>
+            <li><strong>Uso:</strong> Ajuste da escala do site para uma melhor visualização e prevenção de ataques em dispositivos móveis.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;</code></pre>
+        </ul>
+
+        <h2>Conclusão</h2>
+        <p>As tags de <strong>segurança</strong> e <strong>rastreamento</strong> ajudam a proteger o conteúdo da sua página, melhorar a privacidade do usuário e controlar como a página é tratada por motores de busca e ferramentas de rastreamento. Usar essas tags de maneira adequada pode aumentar a segurança contra ataques como <strong>cross-site scripting (XSS)</strong>, <strong>clickjacking</strong> e <strong>man-in-the-middle (MITM)</strong>, além de otimizar a forma como sua página é rastreada e exibida nas redes sociais e motores de busca.</p>
+
+        <a href="javascript:history.back()" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>

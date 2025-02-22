@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tags de metadados de responsividade em HTML para garantir uma experiência de usuário consistente em dispositivos móveis.">
+    <meta name="keywords" content="responsividade, metadados, HTML, dispositivos móveis">
+    <title>Tags de Responsividade em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #0056b3;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #e4e4e4;
+            padding: 10px;
+            overflow: auto;
+        }
+        code {
+            background: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tags de Responsividade em HTML</h1>
+        <p>As tags de metadados de responsabilidade são essenciais para garantir que as páginas web sejam apresentadas corretamente em diferentes dispositivos, especialmente em dispositivos móveis. Elas ajudam a controlar a aparência e o comportamento da página em telas com diferentes dimensões, ajustando o layout e a escala. Aqui, vamos explicar algumas das tags de metadados mais comuns relacionadas à responsividade em HTML.</p>
+
+        <h2>1. <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define a área visível de uma página e permite que os desenvolvedores ajustem o layout para diferentes tamanhos de tela.</li>
+            <li><strong>Uso:</strong> Indica que a tag se refere à área de visualização da página, que controla a forma como o conteúdo será exibido na tela do dispositivo.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+        </ul>
+
+        <h2>2. <code>&lt;meta name="mobile-web-app-capable" content="yes"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Permite que uma página web seja exibida em dispositivos móveis como se fosse um aplicativo nativo.</li>
+            <li><strong>Uso:</strong> Informa ao dispositivo que a página é compatível com a execução em tela cheia, o que melhora a experiência de visualização em dispositivos móveis.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="mobile-web-app-capable" content="yes"&gt;</code></pre>
+        </ul>
+
+        <h2>3. <code>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Específica para dispositivos da Apple, como iPhones e iPads. Permite personalizar a aparência da barra de status do dispositivo quando a página é executada em tela cheia.</li>
+            <li><strong>Uso:</strong> Define o estilo da barra de status.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;</code></pre>
+        </ul>
+
+        <h2>4. <code>&lt;meta name="theme-color" content="#ffffff"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Permite definir a cor da barra de navegação ou a barra de status do navegador, quando a página é visualizada em dispositivos móveis.</li>
+            <li><strong>Uso:</strong> Informa ao navegador a cor que deve ser aplicada à barra de navegação.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="theme-color" content="#ffffff"&gt;</code></pre>
+        </ul>
+
+        <h2>5. <code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Embora não esteja diretamente relacionada à responsividade, esta tag pode ser útil para garantir que a página seja exibida corretamente em navegadores mais antigos, como o Internet Explorer.</li>
+            <li><strong>Uso:</strong> Configura o comportamento do navegador em relação à renderização.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code></pre>
+        </ul>
+
+        <h2>Por que essas tags são importantes?</h2>
+        <p>As tags de metadados de responsabilidade são fundamentais para garantir uma experiência de usuário consistente em dispositivos móveis e outros dispositivos com diferentes tamanhos de tela. Elas ajudam a:</p>
+        <ul>
+            <li>Ajustar o layout e o design da página para garantir que o conteúdo seja legível sem a necessidade de zoom ou rolagem horizontal.</li>
+            <li>Otimizar a visualização em dispositivos móveis, oferecendo uma experiência mais fluida e próxima de um aplicativo nativo.</li>
+            <li>Evitar problemas de renderização em navegadores antigos, como o Internet Explorer, que podem ter dificuldades em interpretar algumas versões mais modernas de HTML.</li>
+        </ul>
+        <p>Ao utilizar corretamente essas tags, você melhora significativamente a responsividade e a experiência do usuário, especialmente em um mundo onde a navegação móvel está cada vez mais comum.</p>
+
+        <a href="javascript:history.back()" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>

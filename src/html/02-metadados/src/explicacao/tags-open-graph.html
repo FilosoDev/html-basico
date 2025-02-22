@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de tags Open Graph e seus usos para otimizar o compartilhamento de conteúdo nas redes sociais.">
+    <meta name="keywords" content="Open Graph, metadados, redes sociais, SEO">
+    <title>Tags Open Graph em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #0056b3;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #e4e4e4;
+            padding: 10px;
+            overflow: auto;
+        }
+        code {
+            background: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tags Open Graph em HTML</h1>
+        <p>As tags de metadados <strong>Open Graph (OG)</strong> são usadas para melhorar a maneira como o conteúdo de uma página web é exibido quando compartilhado em redes sociais como Facebook, LinkedIn e outras.</p>
+
+        <h2>1. <code>&lt;meta property="og:title" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define o título da página quando ela é compartilhada nas redes sociais.</li>
+            <li><strong>Uso:</strong> O título deve ser claro e conciso, refletindo o conteúdo da página. Geralmente, é o título principal ou o nome do artigo ou página.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:title" content="Guia Completo de SEO: Melhore sua Visibilidade Online"&gt;</code></pre>
+        </ul>
+
+        <h2>2. <code>&lt;meta property="og:description" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Fornece uma breve descrição do conteúdo da página. Essa descrição é exibida junto com o título e a imagem ao compartilhar o link nas redes sociais.</li>
+            <li><strong>Uso:</strong> A descrição deve ser envolvente e fornecer um resumo claro sobre o que o usuário encontrará ao acessar o link. O objetivo é atrair o interesse do usuário para clicar no link.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:description" content="Aprenda como otimizar seu site para os motores de busca e aumentar sua visibilidade com técnicas de SEO comprovadas."&gt;</code></pre>
+        </ul>
+
+        <h2>3. <code>&lt;meta property="og:image" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Especifica a URL de uma imagem que será exibida ao compartilhar o link nas redes sociais. Imagens visualmente atraentes aumentam as chances de engajamento.</li>
+            <li><strong>Uso:</strong> A imagem deve ser relevante ao conteúdo da página e de alta qualidade. Algumas plataformas, como o Facebook, recomendam imagens com dimensões mínimas de 1200x630 pixels para uma visualização ideal.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:image" content="https://exemplo.com/imagem-seo.jpg"&gt;</code></pre>
+        </ul>
+
+        <h2>4. <code>&lt;meta property="og:url" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define a URL canônica da página. É importante quando você tem conteúdo duplicado ou múltiplos links para a mesma página. Isso ajuda as redes sociais a identificar a versão correta do link para ser compartilhada.</li>
+            <li><strong>Uso:</strong> O valor dessa tag deve ser a URL final e definitiva que você deseja que seja associada ao conteúdo, independentemente de redirecionamentos ou URLs alternativas.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:url" content="https://exemplo.com/seo-guia-completo"&gt;</code></pre>
+        </ul>
+
+        <h2>5. <code>&lt;meta property="og:type" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define o tipo de conteúdo que está sendo compartilhado. Isso ajuda as redes sociais a entender melhor o conteúdo e exibi-lo de maneira adequada. Os tipos mais comuns incluem "website", "article", "video", entre outros.</li>
+            <li><strong>Uso:</strong> Se a página for um artigo, use <code>article</code>; se for um site geral, use <code>website</code>; se for um vídeo, use <code>video</code>.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:type" content="article"&gt;</code></pre>
+        </ul>
+
+        <h2>6. <code>&lt;meta property="og:site_name" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Informa o nome do site que está sendo compartilhado. Essa informação é exibida nas plataformas sociais junto com o título e a descrição.</li>
+            <li><strong>Uso:</strong> O nome do site é geralmente o nome da sua marca ou o título da sua plataforma.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:site_name" content="Exemplo Site"&gt;</code></pre>
+        </ul>
+
+        <h2>7. <code>&lt;meta property="og:locale" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define o idioma e a região do conteúdo. Isso ajuda a garantir que o conteúdo seja exibido corretamente para os usuários de diferentes regiões ou que falam diferentes idiomas.</li>
+            <li><strong>Uso:</strong> Utilize o código de idioma seguido pelo código de região (por exemplo, <code>pt_BR</code> para português do Brasil, <code>en_US</code> para inglês dos EUA).</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:locale" content="pt_BR"&gt;</code></pre>
+        </ul>
+
+        <h2>8. <code>&lt;meta property="og:audio" content="..."&gt;</code> (opcional)</h2>
+        <ul>
+            <li><strong>Descrição:</strong> Fornece a URL de um arquivo de áudio relacionado ao conteúdo, se aplicável. Pode ser usado para podcasts ou conteúdos em áudio.</li>
+            <li><strong>Uso:</strong> Se o conteúdo da página for principalmente em formato de áudio, você pode usar essa tag para incluir o link.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:audio" content="https://exemplo.com/audio-podcast.mp3"&gt;</code></pre>
+        </ul>
+
+        <h2>9. <code>&lt;meta property="og:video" content="..."&gt;</code> (opcional)</h2>
+        <ul>
+            <li><strong>Descrição:</strong> Define a URL de um vídeo associado à página. Essa tag é útil para páginas que apresentam vídeos e desejam que eles sejam exibidos ao lado do conteúdo nas redes sociais.</li>
+            <li><strong>Uso:</strong> Como o conteúdo em vídeo é cada vez mais popular, essa tag pode aumentar o engajamento quando compartilhado nas plataformas sociais.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:video" content="https://exemplo.com/video-tutorial.mp4"&gt;</code></pre>
+        </ul>
+
+        <h2>10. <code>&lt;meta property="og:determiner" content="..."&gt;</code> (opcional)</h2>
+        <ul>
+            <li><strong>Descrição:</strong> Determina a forma gramatical de uma frase ao compartilhar o conteúdo. Por exemplo, você pode escolher entre "a", "an", "the" para idiomas como inglês, onde o determinante é importante.</li>
+            <li><strong>Uso:</strong> Essencial para ajustar como o título será exibido em diferentes contextos linguísticos.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:determiner" content="a"&gt;</code></pre>
+        </ul>
+
+        <h2>Conclusão</h2>
+        <p>As tags <strong>Open Graph</strong> são essenciais para otimizar a maneira como o conteúdo de uma página é exibido nas redes sociais. Elas permitem que você controle o título, a descrição, a imagem e outros aspectos do compartilhamento, garantindo que a página seja apresentada da maneira mais atraente e envolvente possível para os usuários. Usar essas tags corretamente pode aumentar significativamente o engajamento nas redes sociais e melhorar a visibilidade do seu conteúdo.</p>
+
+        <a href="javascript:history.back()" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>
