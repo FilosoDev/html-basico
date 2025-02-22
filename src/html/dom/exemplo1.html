@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de getElement* no DOM</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplos de getElement* no DOM</h1>
+    <div id="container">
+        <p class="example">Este é um parágrafo com a classe 'example'.</p>
+        <p class="example">Outro parágrafo com a classe 'example'.</p>
+        <p>Este é um parágrafo sem classe.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <script>
+        // getElementById
+        const container = document.getElementById('container');
+        container.style.border = '2px solid black';
+
+        // getElementsByClassName
+        const examples = document.getElementsByClassName('example');
+        for (let i = 0; i < examples.length; i++) {
+            examples[i].classList.add('highlight');
+        }
+
+        // getElementsByTagName
+        const listItems = document.getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            listItems[i].style.color = 'blue';
+        }
+
+        // getElementsByName (not used in this example, but can be used for form elements)
+        // const elementsByName = document.getElementsByName('elementName');
+    </script>
+</body>
+</html>

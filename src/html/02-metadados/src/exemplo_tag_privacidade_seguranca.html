@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted-source.com;">
+    <title>Exemplo de Segurança e Rastreabilidade</title>
+</head>
+<body>
+    <h1>Exemplo de Uso de Metadados de Segurança e Rastreabilidade</h1>
+    
+    <section>
+        <h2>1. Meta Tag Robots</h2>
+        <p>
+            A tag <code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code> instrui os motores de busca a não indexar a página e a não seguir os links nela contidos.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Meta Tag Googlebot</h2>
+        <p>
+            A tag <code>&lt;meta name="googlebot" content="noindex, nofollow"&gt;</code> é específica para o Googlebot e faz com que o Google não indexe a página nem siga seus links.
+        </p>
+    </section>
+
+    <section>
+        <h2>3. Meta Tag Robots com Snippet e Preview</h2>
+        <p>
+            A tag <code>&lt;meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"&gt;</code> controla como os motores de busca exibem snippets de texto, imagens e vídeos na página de resultados.
+        </p>
+    </section>
+
+    <section>
+        <h2>4. Content-Security-Policy (CSP)</h2>
+        <p>
+            A tag <code>&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted-source.com;"&gt;</code> ajuda a proteger a página contra ataques como XSS, definindo de onde o conteúdo pode ser carregado.
+        </p>
+    </section>
+
+    <section>
+        <h2>5. X-Content-Type-Options</h2>
+        <p>
+            A tag <code>&lt;meta http-equiv="X-Content-Type-Options" content="nosniff"&gt;</code> impede que o navegador faça "type sniffing" em arquivos, aumentando a segurança contra arquivos maliciosos.
+        </p>
+    </section>
+
+    <section>
+        <h2>6. Strict-Transport-Security</h2>
+        <p>
+            A tag <code>&lt;meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains"&gt;</code> garante que o navegador só acesse o site via HTTPS, ajudando a evitar ataques MITM.
+        </p>
+    </section>
+
+    <section>
+        <h2>7. X-Frame-Options</h2>
+        <p>
+            A tag <code>&lt;meta http-equiv="X-Frame-Options" content="DENY"&gt;</code> impede que a página seja carregada em um iframe, protegendo contra ataques de clickjacking.
+        </p>
+    </section>
+
+    <section>
+        <h2>8. Referrer-Policy</h2>
+        <p>
+            A tag <code>&lt;meta http-equiv="Referrer-Policy" content="no-referrer"&gt;</code> evita o envio de informações de referência ao navegar para outras páginas.
+        </p>
+    </section>
+
+    <section>
+        <h2>9. Viewport</h2>
+        <p>
+            A tag <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;</code> controla como a página será exibida em dispositivos móveis e pode ajudar a evitar ataques de zoom.
+        </p>
+    </section>
+
+    <footer>
+        <p>
+            Estas tags são importantes para aumentar a segurança e melhorar a privacidade dos usuários ao navegar no site. Elas ajudam a controlar o comportamento dos motores de busca, impedem rastreamentos indesejados e protegem contra ataques comuns.
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        ul { list-style-type: none; }
+        li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Minha Lista de Tarefas</h1>
+    <input type="text" id="novaTarefa" placeholder="Adicionar nova tarefa">
+    <button id="adicionarBtn">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        const input = document.getElementById("novaTarefa");
+        const lista = document.getElementById("listaTarefas");
+        const botaoAdicionar = document.getElementById("adicionarBtn");
+
+        botaoAdicionar.addEventListener("click", () => {
+            const tarefaTexto = input.value.trim();
+            if (tarefaTexto) {
+                const li = document.createElement("li");
+                li.textContent = tarefaTexto;
+                lista.appendChild(li);
+                input.value = ""; // Limpa o campo de entrada
+            }
+        });
+    </script>
+</body>
+</html>

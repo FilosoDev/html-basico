@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+
+    <div class="example" id="parentNodeExample">
+        <h2>parentNode</h2>
+        <p>Acessa o nó pai de um elemento.</p>
+        <p>Exemplo: <code>elemento.parentNode</code></p>
+        <button onclick="acessarPai()">Acessar Pai</button>
+    </div>
+
+    <div class="example" id="childrenExample">
+        <h2>children</h2>
+        <p>Obtém a coleção de filhos de um elemento.</p>
+        <p>Exemplo: <code>elemento.children</code></p>
+        <button onclick="acessarFilhos()">Acessar Filhos</button>
+    </div>
+
+    <div class="example" id="firstChildExample">
+        <h2>firstChild / lastChild</h2>
+        <p>Acessa o primeiro ou último filho de um elemento.</p>
+        <p>Exemplo: <code>elemento.firstChild</code> ou <code>elemento.lastChild</code></p>
+        <button onclick="acessarPrimeiroFilho()">Acessar Primeiro Filho</button>
+        <button onclick="acessarUltimoFilho()">Acessar Último Filho</button>
+    </div>
+
+    <div class="example" id="siblingExample">
+        <h2>nextSibling / previousSibling</h2>
+        <p>Acessa o próximo ou o anterior irmão de um nó.</p>
+        <p>Exemplo: <code>elemento.nextSibling</code> ou <code>elemento.previousSibling</code></p>
+        <button onclick="acessarProximoIrmao()">Acessar Próximo Irmão</button>
+        <button onclick="acessarIrmaoAnterior()">Acessar Irmão Anterior</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        function acessarPai() {
+            const filho = document.getElementById('parentNodeExample');
+            const pai = filho.parentNode;
+            document.getElementById('output').innerText = `O nó pai é: ${pai.tagName}`;
+        }
+
+        function acessarFilhos() {
+            const pai = document.getElementById('childrenExample');
+            const filhos = pai.children;
+            let textoFilhos = 'Filhos: ';
+            for (let i = 0; i < filhos.length; i++) {
+                textoFilhos += `${filhos[i].tagName} `;
+            }
+            document.getElementById('output').innerText = textoFilhos;
+        }
+
+        function acessarPrimeiroFilho() {
+            const elemento = document.getElementById('firstChildExample');
+            const primeiroFilho = elemento.firstChild;
+            document.getElementById('output').innerText = `O primeiro filho é: ${primeiroFilho.nodeType === 1 ? primeiroFilho.tagName : 'Nenhum filho ou nó de texto'}`;
+        }
+
+        function acessarUltimoFilho() {
+            const elemento = document.getElementById('firstChildExample');
+            const ultimoFilho = elemento.lastChild;
+            document.getElementById('output').innerText = `O último filho é: ${ultimoFilho.nodeType === 1 ? ultimoFilho.tagName : 'Nenhum filho ou nó de texto'}`;
+        }
+
+        function acessarProximoIrmao() {
+            const elemento = document.getElementById('nextSiblingExample');
+            const proximoIrmao = elemento.nextSibling;
+            document.getElementById('output').innerText = `O próximo irmão é: ${proximoIrmao ? proximoIrmao.tagName : 'Nenhum próximo irmão'}`;
+        }
+
+        function acessarIrmaoAnterior() {
+            const elemento = document.getElementById('nextSiblingExample');
+            const irmaoAnterior = elemento.previousSibling;
+            document.getElementById('output').innerText = `O irmão anterior é: ${irmaoAnterior ? irmaoAnterior.tagName : 'Nenhum irmão anterior'}`;
+        }
+    </script>
+</body>
+</html>

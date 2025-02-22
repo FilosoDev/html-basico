@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Home",
+        "link": "#home",
+        "subMenu": [
+            { "name": "Home 1", "link": "#home-1" },
+            { "name": "Home 2", "link": "#home-2" }
+        ]
+    },
+    {
+        "name": "Sobre",
+        "link": "#about",
+        "subMenu": [
+            { "name": "Nossa História", "link": "#about-1" },
+            { "name": "Equipe", "link": "#about-2" }
+        ]
+    },
+    {
+        "name": "Serviços",
+        "link": "#services",
+        "subMenu": [
+            { "name": "Consultoria", "link": "#service-1" },
+            { "name": "Desenvolvimento", "link": "#service-2" },
+            { "name": "Suporte", "link": "#service-3" }
+        ]
+    },
+    {
+        "name": "Contato",
+        "link": "#contact",
+        "subMenu": [
+            { "name": "Email", "link": "#contact-1" },
+            { "name": "Telefone", "link": "#contact-2" }
+        ]
+    }
+]

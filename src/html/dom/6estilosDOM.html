@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+
+    <div class="example" id="styleExample">
+        <h2>style</h2>
+        <p>Acessa ou altera o estilo CSS de um elemento.</p>
+        <button onclick="mudarCor()">Mudar Cor de Fundo</button>
+        <button onclick="resetarEstilo()">Resetar Estilo</button>
+        <p id="estiloOutput">Este texto terá seu estilo alterado.</p>
+    </div>
+
+    <div class="example" id="classListExample">
+        <h2>classList</h2>
+        <p>Manipula classes CSS de um elemento (adicionar, remover, alternar).</p>
+        <button onclick="adicionarClasse()">Adicionar Classe</button>
+        <button onclick="removerClasse()">Remover Classe</button>
+        <button onclick="alternarClasse()">Alternar Classe</button>
+        <p id="classeOutput">Este texto terá suas classes alteradas.</p>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        function mudarCor() {
+            const output = document.getElementById('estiloOutput');
+            output.style.backgroundColor = 'lightblue';
+            output.style.color = 'darkblue';
+            output.innerText = 'O fundo foi mudado para azul claro!';
+        }
+
+        function resetarEstilo() {
+            const output = document.getElementById('estiloOutput');
+            output.style.backgroundColor = '';
+            output.style.color = '';
+            output.innerText = 'O estilo foi resetado.';
+        }
+
+        function adicionarClasse() {
+            const output = document.getElementById('classeOutput');
+            output.classList.add('highlight');
+            output.innerText = 'A classe "highlight" foi adicionada.';
+        }
+
+        function removerClasse() {
+            const output = document.getElementById('classeOutput');
+            output.classList.remove('highlight');
+            output.innerText = 'A classe "highlight" foi removida.';
+        }
+
+        function alternarClasse() {
+            const output = document.getElementById('classeOutput');
+            output.classList.toggle('highlight');
+            const estado = output.classList.contains('highlight') ? 'adicionada' : 'removida';
+            output.innerText = `A classe "highlight" foi ${estado}.`;
+        }
+    </script>
+</body>
+</html>
