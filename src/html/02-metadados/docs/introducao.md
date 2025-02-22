@@ -1,45 +1,64 @@
-**Metadados em Desenvolvimento Web: O que são e por que são importantes?**
+# **Metadados em Desenvolvimento Web: O que são e por que são importantes?**
 
 Os **metadados** são informações embutidas no código de uma página da web que ajudam os navegadores, motores de busca e redes sociais a entender melhor o conteúdo da página. Eles são declarados dentro da seção `<head>` do HTML e desempenham um papel essencial na usabilidade, acessibilidade e otimização para mecanismos de busca (SEO).
 
-### **Principais tipos de metadados**
-Os metadados podem ser divididos em diferentes categorias, dependendo de sua função. Abaixo estão alguns dos mais utilizados no desenvolvimento web:
+### Principais tipos de metadados
 
-#### **1. Metadados para definição do conjunto de caracteres**
-```html
-<meta charset="UTF-8">
-```
-Este metadado define a codificação de caracteres do site. O `UTF-8` é amplamente utilizado porque suporta caracteres especiais e acentos, garantindo que o site seja exibido corretamente para diferentes idiomas.
+No HTML, os metadados relacionados à **definição do conjunto de caracteres** são utilizados para especificar a codificação de caracteres da página. Isso garante que os caracteres especiais sejam interpretados corretamente pelo navegador. A principal tag utilizada para essa função é `<meta charset>`, mas existem outras formas menos comuns.
 
-#### **2. Metadados de responsividade**
+1. **Tag de Metadados para Conjunto de Caracteres**
+
+ **`<meta charset="UTF-8">`** *(Mais comum e recomendado)*
+   - Define a codificação da página como UTF-8, que suporta caracteres especiais e acentos. Mais detalhes em [Exemplo do conjunto de caracteres](tags-caracter.md)
+   - **Exemplo**:
+     ```html
+     <meta charset="UTF-8">
+     ```
+   - Exemplo de html [Página com exemplo caractere](../src/exemplo_chart_set.html) e [Página com exemplo caractere antigo](../src/exemplo_chart_set_antigo.html)
+
+2.  **Tag de Metadados de responsividade**
+
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
-Este metadado garante que a página seja exibida corretamente em dispositivos móveis, ajustando a escala de exibição para melhorar a experiência do usuário.
 
-#### **3. Metadados de SEO**
+- Este metadado garante que a página seja exibida corretamente em dispositivos móveis, ajustando a escala de exibição para melhorar a experiência do usuário. Detalhes maiores podem ser visto em [Explicação de tags responsivas](tags-responsividade.md)
+
+- Exemplo usando html [Página com exemplo de metadados de responsividade](../src/exemplo_tag_responsividade.html)
+
+3. **Tags de Metadados de SEO**
+
 Os motores de busca utilizam certos metadados para indexar as páginas corretamente e melhorar seu ranqueamento nos resultados de busca. Os mais comuns são:
 ```html
 <meta name="description" content="Saiba tudo sobre metadados e como eles impactam no desenvolvimento web e SEO.">
 <meta name="keywords" content="metadados, desenvolvimento web, SEO, otimização de sites">
 ```
-O `description` define uma breve descrição da página que pode aparecer nos resultados de pesquisa, enquanto `keywords` ajuda a informar sobre os principais termos relacionados ao conteúdo do site.
 
-#### **4. Metadados para redes sociais (Open Graph e Twitter Cards)**
-As redes sociais utilizam metadados específicos para definir como um link será exibido quando compartilhado. O protocolo **Open Graph (OG)** do Facebook e o **Twitter Cards** são amplamente utilizados:
+O description define uma breve descrição da página que pode aparecer nos resultados de pesquisa, enquanto keywords ajuda a informar sobre os principais termos relacionados ao conteúdo do site. Uma explicação mais detalhadas pode ser visto em [Explicação sobre metadados de SEO](../src/exemplo_tag_seo.html)
+
+4. **Metadados para redes sociais (Open Graph e Twitter Cards)**
+
+As redes sociais utilizam metadados específicos para definir como um link será exibido quando compartilhado. O protocolo Open Graph (OG) do Facebook e o Twitter Cards são amplamente utilizados:
+
 ```html
 <meta property="og:title" content="O que são metadados?">
 <meta property="og:description" content="Entenda a importância dos metadados para SEO e redes sociais.">
 <meta property="og:image" content="https://exemplo.com/imagem.jpg">
 <meta property="og:url" content="https://exemplo.com/artigo-sobre-metadados">
 ```
+- Uma explicação melhor pode ser visto em [Explicação das tags para redes sociais](tags-open-graph.md)
 
-#### **5. Metadados para rastreamento e segurança**
-Sites também podem incluir metadados para monitoramento de visitas e segurança, como os usados pelo Google Analytics e pela diretriz de segurança `Content Security Policy` (CSP):
+- Podem ser visto em [Página com exemplos de tags para redes sociais](../src/exemplo_tag_open_graph.html)
+
+5. **Metadados para rastreamento e segurança**
+
+Sites também podem incluir metadados para monitoramento de visitas e segurança, como os usados pelo Google Analytics e pela diretriz de segurança Content Security Policy (CSP):
 ```html
 <meta name="google-site-verification" content="codigo_de_verificacao">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
 ```
+
+- Uma explicação melhor pode ser visto em 
 
 ### **Metadados e sua relação com SEO**
 Os metadados desempenham um papel essencial no SEO, pois influenciam como os mecanismos de busca interpretam e ranqueiam uma página. Como mencionado no texto sobre SEO, a otimização dos metadados pode aumentar significativamente a visibilidade de um site. 
@@ -93,54 +112,3 @@ Se você deseja otimizar um site para os motores de busca, siga estes passos ini
 
 ### **Conclusão**
 SEO é uma estratégia essencial para qualquer site que deseja se destacar na internet. Com técnicas bem aplicadas, é possível melhorar significativamente o posicionamento nos mecanismos de busca, aumentando a visibilidade e atraindo mais visitantes qualificados. Seja você um criador de conteúdo, dono de e-commerce ou blogueiro, investir em SEO pode ser a chave para o crescimento do seu projeto online
-
-# Principais tipos de metadados
-
-No HTML, os metadados relacionados à **definição do conjunto de caracteres** são utilizados para especificar a codificação de caracteres da página. Isso garante que os caracteres especiais sejam interpretados corretamente pelo navegador. A principal tag utilizada para essa função é `<meta charset>`, mas existem outras formas menos comuns.
-
-1. **Tag de Metadados para Conjunto de Caracteres**
-
- **`<meta charset="UTF-8">`** *(Mais comum e recomendado)*
-   - Define a codificação da página como UTF-8, que suporta caracteres especiais e acentos.
-   - **Exemplo**:
-     ```html
-     <meta charset="UTF-8">
-     ```
-> Mais detalhes em [Exemplo do conjunto de caracteres](tipos-metadados.md)
-
-2.  **Tag de Metadados de responsividade**
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-Este metadado garante que a página seja exibida corretamente em dispositivos móveis, ajustando a escala de exibição para melhorar a experiência do usuário.
-
-3. **Tags de Metadados de SEO**
-
-Os motores de busca utilizam certos metadados para indexar as páginas corretamente e melhorar seu ranqueamento nos resultados de busca. Os mais comuns são:
-
-<meta name="description" content="Saiba tudo sobre metadados e como eles impactam no desenvolvimento web e SEO.">
-<meta name="keywords" content="metadados, desenvolvimento web, SEO, otimização de sites">
-
-O description define uma breve descrição da página que pode aparecer nos resultados de pesquisa, enquanto keywords ajuda a informar sobre os principais termos relacionados ao conteúdo do site.
-
-4. **Metadados para redes sociais (Open Graph e Twitter Cards)**
-
-As redes sociais utilizam metadados específicos para definir como um link será exibido quando compartilhado. O protocolo Open Graph (OG) do Facebook e o Twitter Cards são amplamente utilizados:
-
-<meta property="og:title" content="O que são metadados?">
-<meta property="og:description" content="Entenda a importância dos metadados para SEO e redes sociais.">
-<meta property="og:image" content="https://exemplo.com/imagem.jpg">
-<meta property="og:url" content="https://exemplo.com/artigo-sobre-metadados">
-
-5. **Metadados para rastreamento e segurança**
-
-Sites também podem incluir metadados para monitoramento de visitas e segurança, como os usados pelo Google Analytics e pela diretriz de segurança Content Security Policy (CSP):
-
-<meta name="google-site-verification" content="codigo_de_verificacao">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';">
-
-Metadados e sua relação com SEO
-
-Os metadados desempenham um papel essencial no SEO, pois influenciam como os mecanismos de busca interpretam e ranqueiam uma página. Como mencionado no texto sobre SEO, a otimização dos metadados pode aumentar significativamente a visibilidade de um site.
-
-Ao utilizar metadados corretamente, você melhora não apenas a indexação da sua página nos motores de busca, mas também a aparência dos seus links quando compartilhados, aumentando o engajamento e o tráfego do site. Assim, para quem busca otimizar seu site, entender e aplicar metadados corretamente é um dos primeiros passos rumo a um melhor desempenho online.
