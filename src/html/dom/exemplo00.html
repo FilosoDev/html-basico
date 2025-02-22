@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #dom-content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Presentation</h1>
+    <button id="show-dom">Exibir conteúdo gerado por DOM</button>
+    <div id="dom-content"></div>
+    
+    <script>
+        document.getElementById('show-dom').addEventListener('click', function() {
+            const domContent = document.getElementById('dom-content');
+            domContent.innerHTML = `
+                <h2>Exemplo de DOM</h2>
+                <p>O DOM is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.</p>
+                <ul>
+                    <li><strong>Document:</strong> The entire HTML document.</li>
+                    <li><strong>Element:</strong> Each individual HTML element.</li>
+                    <li><strong>Attribute:</strong> Attributes of HTML elements.</li>
+                    <li><strong>Text:</strong> The text content within HTML elements.</li>
+                </ul>
+            `;
+        });
+    </script>
+</body>
+</html>

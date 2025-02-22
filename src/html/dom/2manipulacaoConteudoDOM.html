@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+    <div class="grid-container">
+
+        <div class="example" id="textContentExample">
+            <h2>textContent</h2>
+            <p>A altera ou obtém o texto de um elemento.</p>
+            <p>Exemplo: <code>elemento.textContent = 'Novo texto'</code></p>
+            <button onclick="alterarTexto()">Alterar Texto</button>
+            <button onclick="obterTexto()">Obter Texto</button>
+        </div>
+        
+        <div class="example" id="innerHTMLExample">
+            <h2>innerHTML</h2>
+            <p>Altera ou obtém o conteúdo HTML de um elemento.</p>
+            <p>Exemplo: <code>elemento.innerHTML = '<strong>Texto em negrito</strong>'</code></p>
+            <button onclick="alterarInnerHTML()">Alterar InnerHTML</button>
+            <button onclick="obterInnerHTML()">Obter InnerHTML</button>
+        </div>
+        
+        <div class="example" id="setAttributeExample">
+            <h2>setAttribute()</h2>
+            <p>Define um atributo de um elemento.</p>
+            <p>Exemplo: <code>elemento.setAttribute('data-atributo', 'valor')</code></p>
+            <button onclick="definirAtributo()">Definir Atributo</button>
+        </div>
+        
+        <div class="example" id="getAttributeExample">
+            <h2>getAttribute()</h2>
+            <p>Obtém o valor de um atributo.</p>
+            <p>Exemplo: <code>elemento.getAttribute('data-atributo')</code></p>
+            <button onclick="obterAtributo()">Obter Atributo</button>
+        </div>
+    </div>
+    
+    <div id="output"></div>
+
+    <script>
+        function alterarTexto() {
+            const elemento = document.getElementById('textContentExample').querySelector('p');
+            elemento.textContent = 'Texto alterado com textContent!';
+            document.getElementById('output').innerText = `Texto alterado: ${elemento.textContent}`;
+        }
+
+        function obterTexto() {
+            const elemento = document.getElementById('textContentExample').querySelector('p');
+            document.getElementById('output').innerText = `Texto atual: ${elemento.textContent}`;
+        }
+
+        function alterarInnerHTML() {
+            const elemento = document.getElementById('innerHTMLExample').querySelector('p');
+            elemento.innerHTML = '<strong>Conteúdo HTML alterado!</strong>';
+            document.getElementById('output').innerText = `InnerHTML alterado: ${elemento.innerHTML}`;
+        }
+
+        function obterInnerHTML() {
+            const elemento = document.getElementById('innerHTMLExample').querySelector('p');
+            document.getElementById('output').innerText = `InnerHTML atual: ${elemento.innerHTML}`;
+        }
+
+        function definirAtributo() {
+            const elemento = document.getElementById('setAttributeExample');
+            elemento.setAttribute('data-atributo', 'valorExemplo');
+            document.getElementById('output').innerText = `Atributo definido: ${elemento.getAttribute('data-atributo')}`;
+        }
+
+        function obterAtributo() {
+            const elemento = document.getElementById('setAttributeExample');
+            const valor = elemento.getAttribute('data-atributo');
+            document.getElementById('output').innerText = `Valor do atributo: ${valor}`;
+        }
+    </script>
+</body>
+</html>

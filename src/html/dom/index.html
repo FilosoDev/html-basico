@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Página</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Bem-vindo ao Meu Site</h1>
+        <p>Navegue pelo nosso conteúdo</p>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Conteúdo Principal</h2>
+            <p>Este é o corpo do site onde as principais informações são exibidas.</p>
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="1acessoDOM.html">Acesso DOM</a>
+            <a href="2manipulacaoConteudoDOM.html">Manipulação conteúdo DOM</a>
+            <a href="3manipulacaoEventos.html">Manipulação Eventos DOM</a>
+            <a href="4estruturaDOM.html">Estrutura DOM</a>
+            <a href="5eventosDOM.html">Eventos DOM</a>
+            <a href="6estilosDOM.html">Estilos DOM</a>
+
+        </div>
+
+        <span class="openbtn" onclick="openNav()">&#9776; Abrir Menu</span>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

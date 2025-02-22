@@ -1,0 +1,70 @@
+/* Estilo básico para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Estilo para o contêiner principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo para os títulos */
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os parágrafos */
+p {
+    margin-bottom: 10px;
+}
+
+/* Estilo para os exemplos */
+.example {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o código */
+code {
+    background-color: #e9ecef;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Estilo para o contêiner da grade */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}

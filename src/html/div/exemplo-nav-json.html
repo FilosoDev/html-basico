@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Menu de Navegação com Submenu Dinâmico</title>
+    <link rel="stylesheet" href="css/style4.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h1>MeuSite</h1>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <!-- O menu será adicionado dinamicamente aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Função para criar os menus dinamicamente
+        function createMenu(menuData) {
+            const navLinks = document.getElementById('nav-links');
+
+            // Itera sobre o vetor de menus
+            menuData.forEach(menu => {
+                // Cria o contêiner do item do menu
+                const navItem = document.createElement('div');
+                navItem.classList.add('nav-item');
+
+                // Cria o link principal do menu
+                const mainLink = document.createElement('a');
+                mainLink.href = menu.link;
+                mainLink.textContent = menu.name;
+                navItem.appendChild(mainLink);
+
+                // Cria o submenu
+                const subMenuContainer = document.createElement('div');
+                subMenuContainer.classList.add('submenu');
+
+                menu.subMenu.forEach(subMenuItem => {
+                    const subMenuLink = document.createElement('a');
+                    subMenuLink.href = subMenuItem.link;
+                    subMenuLink.textContent = subMenuItem.name;
+                    subMenuContainer.appendChild(subMenuLink);
+                });
+
+                navItem.appendChild(subMenuContainer);
+                navLinks.appendChild(navItem);
+            });
+        }
+
+        // Função para buscar o menu a partir de um JSON externo
+        async function fetchMenuData() {
+            try {
+                // Substitua pela URL onde seu JSON está hospedado
+                const response = await fetch('https://raw.githubusercontent.com/luiscarlosjunior/simula-db/refs/heads/main/menu.json');
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados do menu');
+                }
+
+                const menuData = await response.json();
+                createMenu(menuData); // Chama a função para criar o menu com os dados
+            } catch (error) {
+                console.error('Erro ao buscar os dados do menu:', error);
+            }
+        }
+
+        // Chama a função para buscar o JSON e criar o menu ao carregar a página
+        fetchMenuData();
+    </script>
+</body>
+</html>

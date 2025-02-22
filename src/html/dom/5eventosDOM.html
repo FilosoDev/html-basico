@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+
+    <div class="example" id="addEventListenerExample">
+        <h2>addEventListener()</h2>
+        <p>Adiciona um ouvinte de evento a um elemento.</p>
+        <button onclick="adicionarListener()">Adicionar Listener de Click</button>
+        <button onclick="removerListener()">Remover Listener de Click</button>
+    </div>
+
+    <div class="example" id="eventosComuns">
+        <h2>Eventos Comuns</h2>
+        <p>Eventos comuns: click, mouseover, keydown, etc.</p>
+        <p>Experimente clicar no botão abaixo para ver o evento click em ação.</p>
+        <button onclick="ativarClick()">Clique em mim!</button>
+        <br>
+        <p id="eventoClickOutput"></p>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        let listenerAdicionado = false;
+
+        function adicionarListener() {
+            const button = document.getElementById('addEventListenerExample');
+            if (!listenerAdicionado) {
+                button.addEventListener('click', function() {
+                    document.getElementById('output').innerText = 'Ouvinte de evento adicionado! Clique novamente para ver.';
+                });
+                listenerAdicionado = true;
+                document.getElementById('output').innerText = 'Listener de click adicionado.';
+            }
+        }
+
+        function removerListener() {
+            const button = document.getElementById('addEventListenerExample');
+            if (listenerAdicionado) {
+                button.removeEventListener('click', function() {
+                    document.getElementById('output').innerText = 'Ouvinte de evento adicionado! Clique novamente para ver.';
+                });
+                listenerAdicionado = false;
+                document.getElementById('output').innerText = 'Listener de click removido.';
+            } else {
+                document.getElementById('output').innerText = 'Nenhum listener para remover.';
+            }
+        }
+
+        function ativarClick() {
+            document.getElementById('eventoClickOutput').innerText = 'O botão foi clicado!';
+        }
+    </script>
+</body>
+</html>

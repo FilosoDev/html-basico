@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+
+    <div class="example" id="createElementExample">
+        <h2>createElement()</h2>
+        <p>Criamos um novo elemento.</p>
+        <p>Exemplo: <code>document.createElement('div')</code></p>
+        <button onclick="criarElemento()">Criar Elemento</button>
+    </div>
+
+    <div class="example" id="appendChildExample">
+        <h2>appendChild()</h2>
+        <p>Adiciona um elemento como filho de outro.</p>
+        <p>Exemplo: <code>pai.appendChild(filho)</code></p>
+        <button onclick="adicionarFilho()">Adicionar Filho</button>
+    </div>
+
+    <div class="example" id="removeChildExample">
+        <h2>removeChild()</h2>
+        <p>Remove um elemento filho de um pai.</p>
+        <p>Exemplo: <code>pai.removeChild(filho)</code></p>
+        <button onclick="removerFilho()">Remover Filho</button>
+    </div>
+
+    <div class="example" id="replaceChildExample">
+        <h2>replaceChild()</h2>
+        <p>Substitui um filho por outro.</p>
+        <p>Exemplo: <code>pai.replaceChild(novoFilho, filhoAntigo)</code></p>
+        <button onclick="substituirFilho()">Substituir Filho</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        let filhoAdicionado = null; // Para armazenar o filho adicionado
+        let filhoAntigo = null; // Para armazenar o filho a ser substituído
+
+        function criarElemento() {
+            const novoElemento = document.createElement('div');
+            novoElemento.textContent = 'Novo Elemento Criado!';
+            novoElemento.className = 'novo-elemento';
+            document.getElementById('output').appendChild(novoElemento);
+            document.getElementById('output').innerText = 'Elemento criado com sucesso!';
+        }
+
+        function adicionarFilho() {
+            const pai = document.getElementById('appendChildExample');
+            if (!filhoAdicionado) {
+                filhoAdicionado = document.createElement('p');
+                filhoAdicionado.textContent = 'Filho Adicionado!';
+                pai.appendChild(filhoAdicionado);
+                document.getElementById('output').innerText = 'Filho adicionado!';
+            } else {
+                document.getElementById('output').innerText = 'Filho já adicionado!';
+            }
+        }
+
+        function removerFilho() {
+            const pai = document.getElementById('appendChildExample');
+            if (filhoAdicionado) {
+                pai.removeChild(filhoAdicionado);
+                filhoAdicionado = null; // Limpa a referência após remover
+                document.getElementById('output').innerText = 'Filho removido!';
+            } else {
+                document.getElementById('output').innerText = 'Nenhum filho para remover!';
+            }
+        }
+
+        function substituirFilho() {
+            const pai = document.getElementById('replaceChildExample');
+            if (!filhoAntigo) {
+                filhoAntigo = document.createElement('p');
+                filhoAntigo.textContent = 'Filho Antigo!';
+                pai.appendChild(filhoAntigo);
+                document.getElementById('output').innerText = 'Filho antigo adicionado, clique para substituir!';
+            } else {
+                const novoFilho = document.createElement('p');
+                novoFilho.textContent = 'Novo Filho Substituto!';
+                pai.replaceChild(novoFilho, filhoAntigo);
+                filhoAntigo = novoFilho; // Atualiza a referência do filho antigo
+                document.getElementById('output').innerText = 'Filho substituído!';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos de Acesso ao DOM</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Conceitos de Acesso ao DOM</h1>
+    
+    <div class="grid-container">
+        <div class="example" id="getElementById">
+            <h2>document.getElementById()</h2>
+            <p>Acessa um elemento pelo seu ID.</p>
+            <p>Exemplo: <code>document.getElementById('meuId')</code></p>
+            <button onclick="exibirElementoById()">Mostrar Elemento</button>
+        </div>
+        
+        <div class="example" id="getElementsByClassName">
+            <h2>document.getElementsByClassName()</h2>
+            <p>Acessa elementos por classe.</p>
+            <p>Exemplo: <code>document.getElementsByClassName('minhaClasse')</code></p>
+            <button onclick="exibirElementosByClassName()">Mostrar Elementos</button>
+        </div>
+        
+        <div class="example" id="getElementsByTagName">
+            <h2>document.getElementsByTagName()</h2>
+            <p>Acessa elementos por tag.</p>
+            <p>Exemplo: <code>document.getElementsByTagName('div')</code></p>
+            <button onclick="exibirElementosByTagName()">Mostrar Elementos</button>
+        </div>
+        
+        <div class="example" id="querySelector">
+            <h2>document.querySelector()</h2>
+            <p>Acessa o primeiro elemento que corresponde a um seletor CSS.</p>
+            <p>Exemplo: <code>document.querySelector('.minhaClasse')</code></p>
+            <button onclick="exibirElementoQuerySelector()">Mostrar Elemento</button>
+        </div>
+        
+        <div class="example" id="querySelectorAll">
+            <h2>document.querySelectorAll()</h2>
+            <p>Acessa todos os elementos que correspondem a um seletor CSS.</p>
+            <p>Exemplo: <code>document.querySelectorAll('div.minhaClasse')</code></p>
+            <button onclick="exibirElementosQuerySelectorAll()">Mostrar Elementos</button>
+        </div>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        function exibirElementoById() {
+            const elemento = document.getElementById('getElementById');
+            document.getElementById('output').innerText = `Elemento: ${elemento.innerHTML}`;
+        }
+
+        function exibirElementosByClassName() {
+            const elementos = document.getElementsByClassName('example');
+            let resultado = 'Elementos por classe "example":\n';
+            for (let i = 0; i < elementos.length; i++) {
+                resultado += `- ${elementos[i].innerHTML}\n`;
+            }
+            document.getElementById('output').innerText = resultado;
+        }
+
+        function exibirElementosByTagName() {
+            const elementos = document.getElementsByTagName('div');
+            let resultado = 'Elementos por tag "div":\n';
+            for (let i = 0; i < elementos.length; i++) {
+                resultado += `- ${elementos[i].innerHTML}\n`;
+            }
+            document.getElementById('output').innerText = resultado;
+        }
+
+        function exibirElementoQuerySelector() {
+            const elemento = document.querySelector('.example');
+            document.getElementById('output').innerText = `Primeiro elemento com a classe "example": ${elemento.innerHTML}`;
+        }
+
+        function exibirElementosQuerySelectorAll() {
+            const elementos = document.querySelectorAll('div.example');
+            let resultado = 'Elementos por seletor ".example":\n';
+            elementos.forEach((elemento) => {
+                resultado += `- ${elemento.innerHTML}\n`;
+            });
+            document.getElementById('output').innerText = resultado;
+        }
+    </script>
+</body>
+</html>

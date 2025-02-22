@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Acesso ao DOM</title>
+</head>
+<body>
+    <div id="pai">
+        <p id="elemento">Este é o elemento</p>
+        <p>Outro filho</p>
+    </div>
+
+    <script>
+        const elemento = document.getElementById('elemento');
+        const pai = elemento.parentNode; // Acessa o pai
+        const filhos = pai.childNodes; // Acessa todos os filhos
+        const primeiroFilho = pai.firstChild; // Acessa o primeiro filho
+
+        console.log('Pai:', pai);
+        console.log('Filhos:', filhos);
+        console.log('Primeiro Filho:', primeiroFilho);
+    </script>
+</body>
+</html>
