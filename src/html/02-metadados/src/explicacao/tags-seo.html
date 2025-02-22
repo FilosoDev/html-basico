@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tags de metadados de SEO em HTML para otimizar a visibilidade de uma página nos motores de busca.">
+    <meta name="keywords" content="SEO, metadados, HTML, otimização, motores de busca">
+    <title>Tags de SEO em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #0056b3;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #e4e4e4;
+            padding: 10px;
+            overflow: auto;
+        }
+        code {
+            background: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tags de SEO em HTML</h1>
+        <p>As tags de metadados de SEO (Search Engine Optimization) são elementos fundamentais para otimizar a visibilidade de uma página nos motores de busca e melhorar a experiência do usuário. Elas ajudam os motores de busca a entender o conteúdo de uma página, seu contexto e como ela deve ser indexada. Vamos explorar algumas das tags mais importantes de metadados que são usadas para otimização de SEO em HTML.</p>
+
+        <h2>1. <code>&lt;meta name="description" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta name="description"&gt;</code> fornece uma breve descrição do conteúdo da página, que pode ser exibida nos resultados de busca, ao lado do título da página. Uma descrição bem escrita pode aumentar a taxa de cliques (CTR) nos resultados de busca.</li>
+            <li><strong>Uso:</strong> Define que o conteúdo da tag é a descrição da página.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="description" content="Aprenda tudo sobre HTML, desde o básico até as melhores práticas para otimização em SEO."&gt;</code></pre>
+        </ul>
+
+        <h2>2. <code>&lt;meta name="keywords" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Embora sua importância tenha diminuído ao longo do tempo, a tag <code>&lt;meta name="keywords"&gt;</code> ainda pode ser útil para indicar algumas palavras-chave relevantes para a página. No entanto, hoje em dia, os motores de busca não atribuem tanto peso a esta tag em relação à otimização do ranking, pois foi amplamente abusada no passado.</li>
+            <li><strong>Uso:</strong> Define que o conteúdo da tag são as palavras-chave relacionadas à página.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="keywords" content="HTML, SEO, otimização, metadados, desenvolvimento web"&gt;</code></pre>
+        </ul>
+
+        <h2>3. <code>&lt;meta name="robots" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta name="robots"&gt;</code> permite controlar como os motores de busca interagem com a página. Ela pode ser usada para impedir que o conteúdo da página seja indexado ou para impedir que links na página sejam seguidos pelos bots de busca.</li>
+            <li><strong>Uso:</strong> Informa aos motores de busca como devem lidar com a página.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="robots" content="index, follow"&gt;</code></pre>
+        </ul>
+
+        <h2>4. <code>&lt;meta property="og:title" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta property="og:title"&gt;</code> é parte do conjunto de metadados Open Graph, que foi criado para melhorar a integração de conteúdo web com plataformas sociais, como o Facebook, Twitter e LinkedIn. A tag Open Graph permite que as páginas da web definam como serão exibidas quando compartilhadas nas redes sociais.</li>
+            <li><strong>Uso:</strong> Define o título da página quando ela for compartilhada em redes sociais.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:title" content="Guia Completo de SEO para Iniciantes"&gt;</code></pre>
+        </ul>
+
+        <h2>5. <code>&lt;meta property="og:description" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> Assim como a tag <code>description</code>, mas específica para redes sociais, a tag <code>&lt;meta property="og:description"&gt;</code> define a descrição da página que será exibida quando a página for compartilhada em plataformas sociais.</li>
+            <li><strong>Uso:</strong> Define a descrição da página para redes sociais.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:description" content="Entenda como otimizar sua página web para motores de busca e aumentar a visibilidade na internet."&gt;</code></pre>
+        </ul>
+
+        <h2>6. <code>&lt;meta property="og:image" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta property="og:image"&gt;</code> especifica a imagem que será exibida junto com o link da página nas redes sociais. As imagens são importantes para atrair a atenção do usuário e aumentar o engajamento.</li>
+            <li><strong>Uso:</strong> Define a URL da imagem que será exibida nas plataformas sociais.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta property="og:image" content="https://exemplo.com/imagem.jpg"&gt;</code></pre>
+        </ul>
+
+        <h2>7. <code>&lt;meta name="author" content="..."&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta name="author"&gt;</code> permite que você defina o autor do conteúdo da página. Embora não tenha um grande impacto no SEO, ela pode ser útil para fins organizacionais ou para sites de autoria.</li>
+            <li><strong>Uso:</strong> Define o autor da página.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="author" content="Luis Caparroz"&gt;</code></pre>
+        </ul>
+
+        <h2>8. <code>&lt;meta name="robots" content="noarchive"&gt;</code></h2>
+        <ul>
+            <li><strong>Descrição:</strong> A tag <code>&lt;meta name="robots" content="noarchive"&gt;</code> impede que os motores de busca armazenem uma cópia em cache da página. Isso pode ser útil quando o conteúdo de uma página muda com frequência e você não quer que uma versão antiga apareça nos resultados de busca.</li>
+            <li><strong>Uso:</strong> Define o comportamento dos bots de busca.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta name="robots" content="noarchive"&gt;</code></pre>
+        </ul>
+
+        <h2>Por que essas tags são importantes para SEO?</h2>
+        <p>As tags de metadados de SEO são fundamentais para melhorar o ranking de uma página nos motores de busca e para a apresentação do conteúdo nas plataformas sociais. Elas ajudam a:</p>
+        <ul>
+            <li>Melhorar a visibilidade da página nos resultados de busca, proporcionando descrições claras e palavras-chave relevantes.</li>
+            <li>Controlar a indexação e o rastreamento da página pelos motores de busca, garantindo que apenas conteúdo relevante seja indexado.</li>
+            <li>Definir como o conteúdo será apresentado nas redes sociais, o que pode aumentar a taxa de cliques (CTR) e o engajamento.</li>
+        </ul>
+        <p>Ao usar as tags de SEO corretamente, você pode melhorar significativamente o desempenho da sua página na web e garantir que ela seja mais facilmente descoberta pelos usuários e motores de busca.</p>
+
+        <a href="javascript:history.back()" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>

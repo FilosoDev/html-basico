@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de valores possíveis para o atributo charset e seus usos.">
+    <meta name="keywords" content="charset, codificação de caracteres, HTML, metadados">
+    <title>Valores de Charset em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e4e4e4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #0056b3;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #e4e4e4;
+            padding: 10px;
+            overflow: auto;
+        }
+        code {
+            background: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Valores de Charset em HTML</h1>
+        <p>A tag <code>&lt;meta charset="..."&gt;</code> define a <strong>codificação de caracteres</strong> que o navegador deve usar ao interpretar o conteúdo da página. Essa configuração é essencial para garantir que caracteres especiais, como acentos e símbolos, sejam exibidos corretamente.</p>
+        <p>Aqui está uma <strong>lista de valores possíveis</strong> para o atributo <code>charset</code> e seus usos:</p>
+
+        <h2>1. UTF-8 (Unicode Transformation Format - 8-bit)</h2>
+        <p><strong>Recomendado para a maioria dos sites modernos</strong></p>
+        <ul>
+            <li>Suporta quase todos os caracteres usados no mundo (incluindo acentos, emojis e símbolos especiais).</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            <li><strong>Uso:</strong> Ideal para qualquer página web, garantindo compatibilidade global.</li>
+        </ul>
+
+        <h2>2. ISO-8859-1 (Latin-1)</h2>
+        <ul>
+            <li>Padrão antigo que suporta apenas caracteres latinos ocidentais (como português, espanhol, francês, alemão).</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="ISO-8859-1"&gt;</code></pre>
+            <li><strong>Uso:</strong> Antigamente usado para sites em português e espanhol, mas <strong>não recomendado hoje</strong> devido a suas limitações.</li>
+        </ul>
+
+        <h2>3. ISO-8859-2 (Latin-2)</h2>
+        <ul>
+            <li>Similar ao ISO-8859-1, mas suporta idiomas da Europa Central, como polonês, tcheco e húngaro.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="ISO-8859-2"&gt;</code></pre>
+        </ul>
+
+        <h2>4. ISO-8859-5 (Cirílico)</h2>
+        <ul>
+            <li>Usado para idiomas que usam o alfabeto cirílico, como russo, búlgaro e sérvio.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="ISO-8859-5"&gt;</code></pre>
+        </ul>
+
+        <h2>5. ISO-8859-15 (Latin-9)</h2>
+        <ul>
+            <li>Atualização do ISO-8859-1 com suporte ao símbolo do euro (€) e outras melhorias.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="ISO-8859-15"&gt;</code></pre>
+        </ul>
+
+        <h2>6. Windows-1252</h2>
+        <ul>
+            <li>Similar ao ISO-8859-1, mas com algumas diferenças nos caracteres especiais.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="Windows-1252"&gt;</code></pre>
+        </ul>
+
+        <h2>7. Windows-1251 (Cirílico)</h2>
+        <ul>
+            <li>Versão alternativa ao ISO-8859-5 para suportar idiomas que usam o alfabeto cirílico.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="Windows-1251"&gt;</code></pre>
+        </ul>
+
+        <h2>8. Shift_JIS (Japonês)</h2>
+        <ul>
+            <li>Codificação usada para caracteres japoneses.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="Shift_JIS"&gt;</code></pre>
+        </ul>
+
+        <h2>9. GB2312 (Chinês Simplificado)</h2>
+        <ul>
+            <li>Usado para o idioma chinês simplificado.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="GB2312"&gt;</code></pre>
+        </ul>
+
+        <h2>10. Big5 (Chinês Tradicional)</h2>
+        <ul>
+            <li>Codificação para caracteres chineses tradicionais, usados em Taiwan e Hong Kong.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="Big5"&gt;</code></pre>
+        </ul>
+
+        <h2>11. EUC-KR (Coreano)</h2>
+        <ul>
+            <li>Codificação para caracteres coreanos.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="EUC-KR"&gt;</code></pre>
+        </ul>
+
+        <h2>12. KOI8-R (Russo)</h2>
+        <ul>
+            <li>Outra codificação popular para caracteres russos.</li>
+            <li><strong>Exemplo:</strong></li>
+            <pre><code>&lt;meta charset="KOI8-R"&gt;</code></pre>
+        </ul>
+
+        <h2>Conclusão</h2>
+        <p>O <strong>UTF-8 é o mais recomendado</strong> hoje, pois suporta a maioria dos caracteres e evita problemas de compatibilidade. Outros conjuntos de caracteres, como ISO-8859-1 e Windows-1252, são considerados <strong>obsoletos</strong> e podem causar problemas em sites modernos.</p>
+        <p>Se estiver criando um site, <strong>sempre use</strong>:</p>
+        <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+        <a href="javascript:history.back()" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>
