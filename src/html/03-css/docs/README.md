@@ -795,6 +795,46 @@ h1 {
 }
 ```
 
+### **Indicando o Caminho de um Arquivo CSS**
+Para que o CSS externo funcione corretamente, é essencial especificar o caminho do arquivo de forma precisa dentro do HTML.
+
+#### Caminhos Absolutos e Relativos
+Os caminhos podem ser especificados de duas formas principais:
+
+1. **Caminho absoluto:** Especifica o endereço completo do arquivo CSS.
+   ```html
+   <link rel="stylesheet" href="https://meusite.com/css/styles.css">
+   ```
+   Vantagem: Pode ser usado para carregar arquivos de um servidor externo.
+   Desvantagem: Se o servidor mudar de domínio ou estrutura, o link pode quebrar.
+
+2. **Caminho relativo:** Relaciona-se à estrutura de diretórios do próprio projeto.
+   ```html
+   <link rel="stylesheet" href="css/styles.css">
+   ```
+   Vantagem: Funciona independentemente do domínio.
+   Desvantagem: Requer atenção à estrutura de pastas.
+
+#### Exemplos de Caminhos Relativos
+Dependendo da estrutura de diretórios do projeto, o caminho pode variar:
+
+- Se o arquivo HTML e o CSS estiverem na mesma pasta:
+  ```html
+  <link rel="stylesheet" href="styles.css">
+  ```
+- Se o CSS estiver dentro de uma pasta `css`:
+  ```html
+  <link rel="stylesheet" href="css/styles.css">
+  ```
+- Se precisar voltar um nível na hierarquia de pastas:
+  ```html
+  <link rel="stylesheet" href="../styles.css">
+  ```
+
+Usar caminhos corretos garante que os estilos sejam aplicados corretamente, evitando problemas de carregamento.
+
+---
+
 ### Vantagens do Uso de CSS Externo
 #### Melhor Organização
 Separa a estrutura (HTML) da apresentação (CSS), tornando o código mais limpo e modular.
