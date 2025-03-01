@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificidade no CSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 1️⃣ Seletor Universal → Peso (0,0,0,0) */
+        * {
+            color: gray;
+        }
+
+        /* 2️⃣ Seletor de Elemento → Peso (0,0,0,1) */
+        p {
+            color: blue;
+        }
+
+        /* 3️⃣ Seletor de Classe → Peso (0,0,1,0) */
+        .destaque {
+            color: green;
+        }
+
+        /* 4️⃣ Seletor de ID → Peso (0,1,0,0) */
+        #importante {
+            color: red;
+        }
+
+        /* 5️⃣ Seletor Inline → Peso (1,0,0,0) */
+        /* Será inserido diretamente na tag no HTML */
+
+        /* 6️⃣ Uso de !important → Ignora tudo */
+        .forcado {
+            color: purple !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplo de Especificidade no CSS</h1>
+
+    <p>1️⃣ Este parágrafo segue o **seletor universal (`*`)**, então será **cinza**.</p>
+
+    <p>2️⃣ Este parágrafo segue o **seletor de elemento (`p`)**, então será **azul**.</p>
+
+    <p class="destaque">3️⃣ Este parágrafo tem uma **classe (`.destaque`)**, que é mais específica que `p`, então será **verde**.</p>
+
+    <p id="importante" class="destaque">4️⃣ Este parágrafo tem um **ID (`#importante`)**, que é mais específico que a classe `.destaque`, então será **vermelho**.</p>
+
+    <p id="importante" class="destaque" class="forcado">
+        5️⃣ Este parágrafo tem um **ID (`#importante`)** e uma **classe (`.forcado`)** com `!important`. Como `!important` tem a prioridade máxima, ele será **roxo**.
+    </p>
+
+    <p style="color: orange;">
+        6️⃣ Este parágrafo tem um **estilo inline (`style="color: orange;"`)**, que normalmente tem a maior prioridade, **mas `!important` ainda pode sobrescrevê-lo**.
+    </p>
+
+</body>
+</html>

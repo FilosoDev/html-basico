@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Syntax Explanation</title>
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .internal-style {
+            color: blue;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .example {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            margin: 20px 0;
+            padding: 10px;
+        }
+    </style>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CSS Syntax Explanation</h1>
+    </header>
+    <div class="content">
+        <h2>O que é CSS?</h2>
+        <p>CSS significa Cascading Style Sheets. É usado para estilizar e fazer layout de páginas da web.</p>
+
+        <h2>CSS Syntax</h2>
+        <p>A sintaxe de uma regra CSS consiste em um seletor e um bloco de declaração.</p>
+        <div class="example">
+            <strong>Exenplo:</strong>
+            <pre>
+                selector {
+                    property: value;
+                }
+            </pre>
+        </div>
+
+        <h2>Seletores</h2>
+        <p>Um seletor aponta para o elemento HTML que você deseja estilizar.</p>
+        <p class="internal-style">Este parágrafo é estilizado com CSS interno.</p>
+
+        <h2>Declaração</h2>
+        <p>Um bloco de declaração contém uma ou mais declarações separadas por ponto e vírgula.</p>
+        <div class="example">
+            <strong>Exemplo:</strong>
+            <pre>
+                selector {
+                    color: red;
+                    font-size: 20px;
+                }
+            </pre>
+        </div>
+
+        <h2>Tipos de CSS</h2>
+        <ul>
+            <li><strong>Inline CSS:</strong> Use o atributo <code>style</code> dentro da tag.</li>
+            <li><strong>Internal CSS:</strong> Use a tage <code>&lt;style&gt;</code> dentro do elemento <code>&lt;head&gt;</code></li>
+            <li><strong>External CSS:</strong> Use um arquive externo referenciado via o elemento <code>&lt;link&gt;</code> </li>
+        </ul>
+
+        <p class="external-style">Esse parágrafo é estilizado por um arquivo externo</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* Define estilos para o título principal (h1) */
+h1 {
+    color: red;
+    font-size: 24px;
+}
+
+/* Define estilos para parágrafos comuns */
+p {
+    color: blue;
+    font-size: 18px;
+}
+
+/* Define um fundo amarelo para elementos com a classe "destacado" */
+.destacado {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Define um estilo específico para o ID "titulo-principal" */
+#titulo-principal {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+/* Remove margens e preenchimentos de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplica o mesmo estilo para h2 e h3 */
+h2, h3 {
+    font-family: Arial, sans-serif;
+    color: purple;
+}
+
+/* Altera a cor dos parágrafos dentro de um article */
+article p {
+    color: gray;
+}
