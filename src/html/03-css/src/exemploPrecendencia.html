@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Precedência CSS</title>
+    <style>
+        /* Estilo global */
+        p {
+            color: blue;
+        }
+
+        /* Estilo de classe */
+        .important {
+            color: red;
+        }
+
+        /* Estilo de ID */
+        #unique {
+            color: green;
+        }
+
+        /* Estilo inline */
+    </style>
+</head>
+<body>
+    <p>Este parágrafo é azul devido ao estilo global.</p>
+    <p class="important">Este parágrafo é vermelho devido ao estilo de classe.</p>
+    <p id="unique">Este parágrafo é verde devido ao estilo de ID.</p>
+    <p class="important" id="unique">Este parágrafo é verde devido ao estilo de ID ter maior precedência que o estilo de classe.</p>
+    <p style="color: purple;">Este parágrafo é roxo devido ao estilo inline ter a maior precedência de todas.</p>
+</body>
+</html>

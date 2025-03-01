@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hierarquia de Precedência no CSS</title>
+    <style>
+        /* Regra 1: Estilização por tag */
+        p {
+            color: blue;
+        }
+
+        /* Regra 2: Estilização por classe */
+        .paragrafo {
+            color: green;
+        }
+
+        /* Regra 3: Estilização por ID */
+        #exemplo {
+            color: red;
+        }
+
+        /* Regra 4: !important para sobrescrever tudo */
+        .forcado {
+            color: purple !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hierarquia de Precedência no CSS</h1>
+    <p>Este parágrafo segue a regra da tag `<p>` (azul).</p>
+    <p class="paragrafo">
+        Este parágrafo tem uma classe aplicada (`.paragrafo`, verde) que tem maior peso que a tag `<p>`.
+    </p>
+
+    <p id="exemplo" class="paragrafo">
+        Este parágrafo tem um ID aplicado (`#exemplo`, vermelho), que tem maior peso que a classe `.paragrafo`.
+    </p>
+
+    <p id="exemplo" class="paragrafo forcado">
+        Este parágrafo tem `!important` (`.forcado`, roxo), que ignora todas as regras anteriores!
+    </p>
+
+    <p style="color: orange;">
+        Este parágrafo tem um estilo inline (`style="color: orange;"`), que normalmente sobrescreveria as regras CSS externas e internas, exceto se `!important` for usado.
+    </p>
+</body>
+</html>
