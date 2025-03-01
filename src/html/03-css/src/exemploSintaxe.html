@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Syntax Explanation</title>
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .internal-style {
+            color: blue;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .example {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            margin: 20px 0;
+            padding: 10px;
+        }
+    </style>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CSS Syntax Explanation</h1>
+    </header>
+    <div class="content">
+        <h2>What is CSS?</h2>
+        <p>CSS stands for Cascading Style Sheets. It is used to style and layout web pages.</p>
+
+        <h2>CSS Syntax</h2>
+        <p>The syntax for a CSS rule consists of a selector and a declaration block.</p>
+        <div class="example">
+            <strong>Example:</strong>
+            <pre>
+selector {
+    property: value;
+}
+            </pre>
+        </div>
+
+        <h2>Selectors</h2>
+        <p>A selector points to the HTML element you want to style.</p>
+        <p class="internal-style">This paragraph is styled with internal CSS.</p>
+
+        <h2>Declarations</h2>
+        <p>A declaration block contains one or more declarations separated by semicolons.</p>
+        <div class="example">
+            <strong>Example:</strong>
+            <pre>
+selector {
+    color: red;
+    font-size: 20px;
+}
+            </pre>
+        </div>
+
+        <h2>Types of CSS</h2>
+        <ul>
+            <li><strong>Inline CSS:</strong> Uses the <code>style</code> attribute within HTML elements.</li>
+            <li><strong>Internal CSS:</strong> Uses a <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> section.</li>
+            <li><strong>External CSS:</strong> Uses an external CSS file linked via the <code>&lt;link&gt;</code> element.</li>
+        </ul>
+
+        <p class="external-style">This paragraph is styled with external CSS.</p>
+    </div>
+</body>
+</html>
