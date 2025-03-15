@@ -1288,7 +1288,7 @@ Aqui está um **exemplo HTML + CSS** demonstrando a **hierarquia de precedência
 
 ---
 
-### **💡 Explicação do Resultado**
+### ** Explicação do Resultado**
 - O **primeiro parágrafo** é azul porque segue a regra de **seletor de tag (`p`)**.
 - O **segundo parágrafo** é verde porque a **classe (`.paragrafo`)** tem mais prioridade que a tag.
 - O **terceiro parágrafo** é vermelho porque um **ID (`#exemplo`)** tem mais peso que uma classe.
@@ -1330,14 +1330,14 @@ Aqui está um exemplo **prático** de **especificidade no CSS**, demonstrando co
 
 ---
 
-### **📌 O que esse exemplo mostra?**
+### ** O que esse exemplo mostra?**
 - **Cada `<p>` tem um estilo diferente** baseado na **especificidade dos seletores**.
 - O CSS segue uma **ordem de precedência**, onde regras mais específicas sobrescrevem regras menos específicas.
 - O **uso de `!important`** ignora todas as regras e prevalece sobre tudo.
 
 ---
 
-## **📜 Código HTML + CSS**
+## **Código HTML + CSS**
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">

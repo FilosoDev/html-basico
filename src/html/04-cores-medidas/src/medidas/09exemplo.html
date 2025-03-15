@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamanho de Imagens e Vídeos</title>
+    <style>
+        /* Estilo global para a página */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Estilo para a imagem com object-fit e object-position */
+        .image-container {
+            width: 80%;
+            height: 300px;
+            border: 2px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* A imagem cobre todo o espaço, com possível corte */
+            object-position: center;  /* A imagem é centralizada */
+        }
+
+        /* Estilo para o vídeo com object-fit e object-position */
+        .video-container {
+            width: 80%;
+            height: 300px;
+            border: 2px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* O vídeo cobre o container, com corte se necessário */
+            object-position: top right;  /* O vídeo é posicionado no canto superior direito */
+        }
+
+        /* Imagem responsiva com max-width e max-height */
+        .responsive-image {
+            max-width: 100%;   /* Imagem responsiva, ajustando-se ao tamanho da tela */
+            max-height: 400px; /* Limita a altura da imagem */
+            height: auto;      /* Mantém a proporção original */
+            margin-bottom: 20px;
+        }
+
+        /* Vídeo responsivo */
+        .responsive-video {
+            max-width: 100%;   /* Vídeo responsivo */
+            max-height: 400px; /* Limita a altura do vídeo */
+            height: auto;      /* Mantém a proporção original */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplo de Tamanho de Imagens e Vídeos</h1>
+
+    <!-- Imagem com object-fit e object-position -->
+    <div class="image-container">
+        <img src="https://via.placeholder.com/600x400" alt="Imagem com object-fit e object-position">
+    </div>
+
+    <!-- Vídeo com object-fit e object-position -->
+    <div class="video-container">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
+    </div>
+
+    <!-- Imagem responsiva com max-width e max-height -->
+    <img class="responsive-image" src="https://via.placeholder.com/800x600" alt="Imagem responsiva com max-width e max-height">
+
+    <!-- Vídeo responsivo -->
+    <video class="responsive-video" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Seu navegador não suporta o vídeo.
+    </video>
+
+</body>
+</html>

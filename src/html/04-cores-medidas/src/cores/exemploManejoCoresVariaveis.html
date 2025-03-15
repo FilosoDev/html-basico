@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Variáveis CSS</title>
+  <style>
+    /* Definindo variáveis de cor no :root */
+    :root {
+      --cor-primaria: #3498db;    /* Azul */
+      --cor-secundaria: #2ecc71;  /* Verde */
+      --cor-terciaria: #e74c3c;   /* Vermelho */
+      --cor-fundo: #ecf0f1;       /* Cinza claro */
+      --cor-texto: #2c3e50;       /* Texto escuro */
+    }
+
+    /* Aplicando as variáveis em diferentes partes do CSS */
+    body {
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--cor-primaria);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    button {
+      background-color: var(--cor-secundaria);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: var(--cor-terciaria);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bem-vindo ao Meu Site</h1>
+  </header>
+
+  <main>
+    <p>Este é um exemplo de como utilizar variáveis CSS para manejar as cores de forma eficiente.</p>
+    <button>Click me</button>
+  </main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Formatos de Definição de Cores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      display: inline-block;
+    }
+    .named {
+      background-color: red; /* Cor nomeada */
+    }
+    .hex {
+      background-color: #FF5733; /* Cor hexadecimal */
+    }
+    .rgb {
+      background-color: rgb(255, 87, 51); /* Cor RGB */
+    }
+    .rgba {
+      background-color: rgba(255, 87, 51, 0.5); /* Cor RGBA (com transparência) */
+    }
+    .hsl {
+      background-color: hsl(9, 100%, 60%); /* Cor HSL */
+    }
+    .hsla {
+      background-color: hsla(9, 100%, 60%, 0.5); /* Cor HSLA (com transparência) */
+    }
+  </style>
+</head>
+<body>
+  <h1>Exemplos de Formatos de Definição de Cores</h1>
+  <div class="box named"></div>
+  <p>Cor Nomeada: red</p>
+  
+  <div class="box hex"></div>
+  <p>Cor Hexadecimal: #FF5733</p>
+  
+  <div class="box rgb"></div>
+  <p>Cor RGB: rgb(255, 87, 51)</p>
+  
+  <div class="box rgba"></div>
+  <p>Cor RGBA: rgba(255, 87, 51, 0.5)</p>
+  
+  <div class="box hsl"></div>
+  <p>Cor HSL: hsl(9, 100%, 60%)</p>
+  
+  <div class="box hsla"></div>
+  <p>Cor HSLA: hsla(9, 100%, 60%, 0.5)</p>
+</body>
+</html>

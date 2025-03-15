@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores com Opacidade</title>
+    <style>
+        /* Estilo do corpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Box com cores e transparências */
+        .box {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        /* Cores com Opacidade - Usando RGB e RGBA */
+        .rgb-box {
+            background-color: rgb(255, 99, 71); /* Cor de fundo sólida (Tom de vermelho) */
+        }
+
+        .rgba-box {
+            background-color: rgba(255, 99, 71, 0.5); /* Cor de fundo com 50% de transparência */
+        }
+
+        /* Cores com Opacidade - Usando HSL e HSLA */
+        .hsl-box {
+            background-color: hsl(9, 100%, 64%); /* Cor de fundo em HSL (vermelho) */
+        }
+
+        .hsla-box {
+            background-color: hsla(9, 100%, 64%, 0.5); /* Cor de fundo com 50% de transparência em HSLA */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box rgb-box">
+        RGB (Sem Opacidade)
+    </div>
+
+    <div class="box rgba-box">
+        RGBA (Com 50% de Opacidade)
+    </div>
+
+    <div class="box hsl-box">
+        HSL (Sem Opacidade)
+    </div>
+
+    <div class="box hsla-box">
+        HSLA (Com 50% de Opacidade)
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades de Tamanho em CSS</title>
+    <style>
+        /* Container principal */
+        .container {
+            width: 80%;
+            max-width: 600px;
+            min-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Caixa com largura e altura fixas */
+        .box-fixed {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+
+        /* Caixa com largura e altura máxima/mínima */
+        .box-flexible {
+            max-width: 400px;
+            min-width: 150px;
+            max-height: 150px;
+            min-height: 80px;
+            background-color: lightgreen;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Texto com tamanhos relativos */
+        .text-relative {
+            font-size: 1.5rem;  /* 1.5x o tamanho base */
+            line-height: 1.8;   /* 1.8x a altura padrão da linha */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Exemplo de Propriedades de Tamanho</h2>
+        
+        <div class="box-fixed">Tamanho Fixo</div>
+
+        <div class="box-flexible">
+            <p>Caixa com Tamanhos Mínimos e Máximos</p>
+        </div>
+
+        <p class="text-relative">
+            Este texto usa `font-size` com `rem` e um `line-height` de 1.8, 
+            o que melhora a legibilidade em telas pequenas.
+        </p>
+    </div>
+
+</body>
+</html>

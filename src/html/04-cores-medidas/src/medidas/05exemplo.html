@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Flexbox</title>
+  <style>
+    .container {
+      display: flex;
+      height: 200px;
+      background-color: lightgray;
+      justify-content: space-between; /* Alinhamento horizontal */
+      align-items: center; /* Alinhamento vertical */
+    }
+
+    .item {
+      background-color: #4CAF50;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .flex-grow {
+      flex-grow: 2; /* Aumenta a largura do item */
+    }
+
+    .flex-shrink {
+      flex-shrink: 1; /* Permite que o item encolha */
+    }
+
+    .flex-basis {
+      flex-basis: 100px; /* Tamanho inicial do item */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="item flex-grow">Flex Grow</div>
+    <div class="item flex-shrink">Flex Shrink</div>
+    <div class="item flex-basis">Flex Basis</div>
+  </div>
+
+</body>
+</html>

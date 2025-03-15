@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Transição de Cor</title>
+  <style>
+    /* Estilos iniciais do botão */
+    .botao {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #4CAF50; /* Cor de fundo inicial */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Transições de cor e transformação */
+    }
+
+    /* Efeito de hover - cor de fundo e escala */
+    .botao:hover {
+      background-color: #45a049; /* Nova cor de fundo */
+      transform: scale(1.1); /* Aumenta o tamanho do botão */
+    }
+  </style>
+</head>
+<body>
+
+  <button class="botao">Passar o mouse aqui!</button>
+
+</body>
+</html>
