@@ -119,6 +119,29 @@ div {
 }
 ```
 
+### Exemplo simples HTML
+
+```html
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Cores</title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+        h1 {
+            color: #FF5733;
+        }
+    </style>
+</head>
+<body>
+    <h1>Este é um exemplo de uso de cores</h1>
+</body>
+</html>
+```
+
 As cores desempenham um papel essencial no design web, não apenas por sua função estética, mas também pela sua capacidade de influenciar a usabilidade e a experiência do usuário. Em HTML e CSS, você pode aplicar cores de várias maneiras, usando diferentes formatos e propriedades para personalizar a aparência de sua página. É importante entender a psicologia das cores e como garantir a acessibilidade através do contraste adequado e da escolha inteligente de combinações de cores.
 
 # **Formatos de Definição de Cores em CSS**
@@ -721,6 +744,82 @@ Uma paleta monocromática é composta por diferentes tons e matizes de uma únic
 **Desvantagens:**
 - **Falta de Variedade**: A principal limitação de uma paleta monocromática é a falta de contrastes fortes, o que pode deixar o design visualmente monótono se não for trabalhado adequadamente.
 
+#### Exemplo HTML
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta Monocromática Azul</title>
+    <style>
+        :root {
+            --azul-claro: #D0E7FF;
+            --azul-medio: #6FA3E5;
+            --azul-escuro: #1E6091;
+            --azul-principal: #0A369D;
+            --azul-destaque: #023E8A;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--azul-principal);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        section {
+            background-color: var(--azul-medio);
+            color: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: var(--azul-destaque);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--azul-principal);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Tema: Paleta Monocromática Azul
+    </header>
+
+    <section>
+        <h2>Bem-vindo à nossa página azul!</h2>
+        <p>Esta página utiliza uma paleta monocromática baseada em tons de azul para criar um visual coeso e harmonioso.</p>
+        <button>Clique Aqui</button>
+    </section>
+
+</body>
+</html>
+```
+
 #### **2. Paleta Análoga**
 Uma paleta análoga é composta por cores que estão próximas umas das outras na roda de cores. Por exemplo, se você escolher o azul, uma paleta análoga pode incluir tons de azul, azul-esverdeado e azul-roxo.
 
@@ -737,6 +836,82 @@ Uma paleta análoga é composta por cores que estão próximas umas das outras n
 **Desvantagens:**
 - **Falta de Contraste**: Se a paleta análoga não for equilibrada, ela pode acabar parecendo monótona ou sem destaque. Para evitar isso, é importante garantir que uma cor sirva como base e outra para destacar elementos importantes (como botões ou links).
 
+### Exemplo HTML
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta Análoga Azul</title>
+    <style>
+        /* Definição da paleta de cores */
+        :root {
+            --azul-principal: #0077b6;
+            --azul-arroxeado: #4a47a3;
+            --azul-esverdeado: #00a6a6;
+            --azul-pastel: #90e0ef;
+            --azul-claro: #caf0f8;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--azul-claro);
+            color: var(--azul-principal);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            background-color: var(--azul-principal);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--azul-arroxeado);
+        }
+
+        .box {
+            background-color: var(--azul-pastel);
+            color: var(--azul-principal);
+            padding: 15px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            background-color: var(--azul-esverdeado);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--azul-principal);
+        }
+    </style>
+</head>
+<body>
+    <h1>Paleta Análoga Azul</h1>
+    <p>As cores análogas são harmoniosas e criam um design agradável.</p>
+
+    <div class="box">
+        <p>Este é um exemplo de uma seção destacada usando um tom pastel de azul.</p>
+        <a href="#" class="button">Saiba Mais</a>
+    </div>
+</body>
+</html>
+```
+
 #### **3. Paleta Complementar**
 Uma paleta complementar usa cores que estão opostas na roda de cores. Essas cores criam um alto contraste e podem ser muito impactantes quando usadas corretamente. Um exemplo clássico seria a combinação de vermelho e verde, ou azul e laranja.
 
@@ -752,6 +927,101 @@ Uma paleta complementar usa cores que estão opostas na roda de cores. Essas cor
 **Desvantagens:**
 - **Potencial para Confusão**: O contraste elevado pode ser difícil de equilibrar. Usado de forma excessiva, pode tornar o design excessivamente intenso e até cansativo aos olhos do usuário.
 - **Difícil de Harmonizar**: A combinação de cores opostas pode ser desafiadora, especialmente para quem está começando no design, pois é fácil exagerar na intensidade.
+
+### Exemplo HTML
+```html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema Complementar: Vermelho, Verde, Azul e Laranja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F4F4;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #E63946; /* Vermelho */
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        nav {
+            background-color: #457B9D; /* Azul */
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .box {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            color: white;
+            font-size: 18px;
+            line-height: 150px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .red { background-color: #E63946; } /* Vermelho */
+        .green { background-color: #2A9D8F; } /* Verde */
+        .blue { background-color: #457B9D; } /* Azul */
+        .orange { background-color: #F4A261; } /* Laranja */
+
+        footer {
+            background-color: #2A9D8F; /* Verde */
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Tema de Cores Complementares
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <section>
+        <h2>Paleta de Cores</h2>
+        <div class="box red">Vermelho</div>
+        <div class="box green">Verde</div>
+        <div class="box blue">Azul</div>
+        <div class="box orange">Laranja</div>
+    </section>
+
+    <footer>
+        &copy; 2025 - Exemplo de Cores Complementares
+    </footer>
+
+</body>
+</html>
+```
 
 ### **Ferramentas para Gerar Paletas de Cores**
 
@@ -786,6 +1056,94 @@ O **Paletton** é uma ferramenta online para a criação de paletas de cores bas
 - **Visualização Interativa**: A interface interativa permite visualizar instantaneamente como as cores escolhidas se combinam entre si.
 - **Modo de Visualização para Web**: O Paletton mostra como as cores escolhidas se comportarão em designs de sites e fornece sugestões de contraste para facilitar a legibilidade.
 
+### Exemplo em HTML
+
+```html
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Paleta de Cores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .palette {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .palette div {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        .mono {
+            background-color: #3498db;
+        }
+
+        .analogous {
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+        }
+
+        .complementary {
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+        }
+
+        .triadic {
+            background: linear-gradient(45deg, #3498db, #9b59b6, #f39c12);
+        }
+
+        .split-complementary {
+            background: linear-gradient(45deg, #3498db, #f1c40f, #e74c3c);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplos de Paletas de Cores</h1>
+    <p>Esta página exibe diferentes tipos de paletas de cores com gradientes e cores sólidas.</p>
+
+    <div class="palette">
+        <div class="mono">
+            Monocromática
+        </div>
+        <div class="analogous">
+            Análoga
+        </div>
+        <div class="complementary">
+            Complementar
+        </div>
+        <div class="triadic">
+            Triádica
+        </div>
+        <div class="split-complementary">
+            Complementar Dividida
+        </div>
+    </div>
+</body>
+</html>
+```
+
+### Explicação das Paletas:
+1. **Monocromática**: Usa apenas uma cor com variações de tonalidade.
+2. **Análoga**: Cores que estão próximas no círculo cromático (gradiente de azul para verde).
+3. **Complementar**: Cores opostas no círculo cromático (gradiente de azul para vermelho).
+4. **Triádica**: Três cores equidistantes no círculo cromático (azul, roxo e amarelo).
+5. **Complementar Dividida**: Combina uma cor com duas cores adjacentes à sua complementar.
 
 Escolher a paleta de cores certa é uma das partes mais importantes do design web. Seja usando uma paleta monocromática para simplicidade, uma paleta análoga para harmonia suave, ou uma paleta complementar para criar impacto visual, a escolha das cores deve ser cuidadosa e estratégica. Ferramentas como o **Adobe Color**, **Coolors** e **Paletton** podem ajudar a gerar paletas de cores de forma eficiente, oferecendo flexibilidade e criatividade no processo de design. Com a escolha certa de cores, você pode melhorar a estética, a usabilidade e a acessibilidade do seu projeto, garantindo uma experiência agradável e coerente para os usuários.
 
@@ -877,7 +1235,105 @@ Além do contraste de cores, você pode verificar a legibilidade do texto consid
 - **Espaçamento**: Verifique se há espaçamento adequado entre linhas de texto (interlinha), o que facilita a leitura.
 - **Fontes legíveis**: Usar fontes sem serifa e bem espaçadas pode melhorar a legibilidade do texto.
 
-### **Conclusão**
+#### 5. Exemplo HTML
+Aqui está um exemplo de uma página HTML que demonstra boas práticas de acessibilidade de cores, com foco no contraste entre o texto e o fundo para garantir que seja legível para todos os usuários:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade de Cores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Texto com alto contraste */
+        .high-contrast {
+            color: #000000;
+            background-color: #FFFFFF;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        /* Texto com contraste moderado */
+        .moderate-contrast {
+            color: #333333;
+            background-color: #E0E0E0;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        /* Texto com baixo contraste */
+        .low-contrast {
+            color: #B0B0B0;
+            background-color: #F0F0F0;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        /* Exemplo de contraste entre texto e links */
+        a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para garantir boa legibilidade */
+        .highlight {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Acessibilidade de Cores</h1>
+
+    <h2>Exemplos de Contraste de Cores</h2>
+
+    <div class="high-contrast">
+        <p><strong>Alto Contraste:</strong> Este texto tem um contraste alto, com texto preto sobre fundo branco.</p>
+    </div>
+
+    <div class="moderate-contrast">
+        <p><strong>Contraste Moderado:</strong> Este texto tem contraste moderado, com texto cinza escuro sobre fundo cinza claro.</p>
+    </div>
+
+    <div class="low-contrast">
+        <p><strong>Baixo Contraste:</strong> Este texto tem baixo contraste, com texto cinza claro sobre fundo cinza muito claro.</p>
+    </div>
+
+    <h2>Links e Acessibilidade</h2>
+    <p><a href="#">Este é um link de exemplo. Passe o mouse sobre ele para ver o efeito de foco.</a></p>
+
+    <h2>Texto Destacado</h2>
+    <div class="highlight">
+        <p><strong>Texto com bom contraste para destaque:</strong> Este texto tem bom contraste, tornando-o fácil de ser lido por pessoas com deficiência visual.</p>
+    </div>
+
+    <h2>Importância do Contraste de Cores</h2>
+    <p>Manter um bom contraste entre o texto e o fundo é essencial para garantir que o conteúdo seja acessível a todos, especialmente para pessoas com deficiências visuais como daltonismo ou baixa visão. Certifique-se de usar ferramentas de verificação de contraste de cores para testar se sua página está em conformidade com as diretrizes WCAG (Web Content Accessibility Guidelines).</p>
+
+</body>
+</html>
+```
+
+### Explicação do código:
+1. **Alto Contraste:** O texto preto sobre fundo branco oferece excelente legibilidade.
+2. **Contraste Moderado:** O texto cinza escuro sobre fundo cinza claro ainda é legível, mas oferece menos contraste que o anterior.
+3. **Baixo Contraste:** O texto cinza claro sobre fundo cinza muito claro tem baixo contraste, o que pode dificultar a leitura, especialmente para pessoas com dificuldades visuais.
+4. **Links:** Links têm cor azul e o efeito de hover foi adicionado para garantir que sejam acessíveis.
+5. **Texto Destacado:** Um exemplo de como usar cores contrastantes para destacar informações importantes.
+
+Este exemplo demonstra como aplicar boas práticas de acessibilidade ao escolher combinações de cores para garantir que todos os usuários, incluindo os com deficiências visuais, possam acessar o conteúdo da página com facilidade.
 
 A acessibilidade de cores é um aspecto essencial do design web, garantindo que pessoas com diferentes capacidades visuais possam acessar e interagir com o conteúdo de maneira eficaz. O contraste de cores, a consideração do daltonismo e a realização de testes adequados são essenciais para criar experiências digitais inclusivas. Ao usar ferramentas de teste de contraste, simuladores de daltonismo e realizar testes com usuários reais, você pode garantir que seu site seja acessível para todos, proporcionando uma experiência mais inclusiva e funcional.
 
@@ -1649,6 +2105,151 @@ document.documentElement.style.setProperty('--cor-primaria', '#e74c3c'); /* Alte
 
 Isso permite que você crie experiências de usuário mais dinâmicas, como temas que mudam automaticamente com base nas preferências do usuário ou em eventos no navegador.
 
+### Exemplo completo HTML
+
+Aqui está um exemplo de uma página HTML que alterna entre os temas claro e escuro usando variáveis CSS e JavaScript para manipular o atributo `data-tema`.  
+
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema Claro e Escuro com Variáveis CSS</title>
+    <style>
+        /* Tema Claro */
+        :root {
+            --cor-fundo: #ffffff;  /* Branco */
+            --cor-texto: #2c3e50;  /* Cinza Escuro */
+            --cor-primaria: #3498db; /* Azul */
+        }
+
+        /* Tema Escuro */
+        [data-tema="escuro"] {
+            --cor-fundo: #2c3e50;  /* Cinza Escuro */
+            --cor-texto: #ecf0f1;  /* Branco */
+            --cor-primaria: #2980b9; /* Azul Escuro */
+        }
+
+        /* Aplicando as variáveis */
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            color: var(--cor-primaria);
+        }
+
+        .botao {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .botao:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Alternando entre Tema Claro e Escuro</h1>
+    <p>Clique no botão abaixo para alternar entre os temas.</p>
+
+    <button class="botao" onclick="alternarTema()">Alternar Tema</button>
+
+    <script>
+        function alternarTema() {
+            const html = document.documentElement;
+            if (html.getAttribute("data-tema") === "escuro") {
+                html.removeAttribute("data-tema"); // Volta para o tema claro
+            } else {
+                html.setAttribute("data-tema", "escuro"); // Ativa o tema escuro
+            }
+        }
+    </script>
+
+</body>
+</html>
+```
+
+### Como funciona:
+1. **Definição de variáveis CSS:**  
+   - O `:root` define as cores do tema claro.  
+   - O `[data-tema="escuro"]` define as cores do tema escuro.  
+
+2. **Aplicação das variáveis no CSS:**  
+   - O `body`, `h1` e `.botao` usam `var(--cor-fundo)`, `var(--cor-texto)` e `var(--cor-primaria)`, garantindo que a troca de tema afete toda a página.  
+
+3. **Troca de tema com JavaScript:**  
+   - O botão chama `alternarTema()`, que adiciona ou remove o atributo `data-tema="escuro"` na tag `<html>`.  
+   - O CSS aplica as cores do tema conforme a presença desse atributo.  
+
+O seletor `[data-tema="escuro"]` no CSS é um **seletor de atributo**. Ele aplica estilos apenas quando o elemento HTML correspondente contém esse atributo com o valor especificado.  
+
+### O que isso significa?
+No código anterior, ele verifica se o elemento **HTML** possui o atributo `data-tema="escuro"` e, caso tenha, aplica os estilos definidos dentro desse seletor.  
+
+### Como funciona na prática?
+1. **Tema claro (padrão)**  
+   O `:root` define as cores padrão (tema claro).  
+
+2. **Tema escuro (ativado por JavaScript)**  
+   Quando o usuário clica no botão, o JavaScript adiciona `data-tema="escuro"` ao `<html>`, ativando os estilos do seletor `[data-tema="escuro"]`.  
+
+3. **Troca dinâmica**  
+   - Se `data-tema="escuro"` estiver presente, o CSS dentro desse seletor será aplicado.  
+   - Se `data-tema="escuro"` for removido, os estilos voltam ao padrão do `:root` (tema claro).  
+
+---
+
+### Exemplo simples de uso do seletor de atributo:
+```css
+/* Estilos padrão (tema claro) */
+:root {
+    --cor-fundo: white;
+    --cor-texto: black;
+}
+
+/* Se o atributo data-tema="escuro" estiver presente no HTML, aplica esses estilos */
+[data-tema="escuro"] {
+    --cor-fundo: black;
+    --cor-texto: white;
+}
+
+/* Aplicando as variáveis no body */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+```
+```html
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+</body>
+</html>
+```
+
+Se o HTML for assim:
+```html
+<html data-tema="escuro">
+```
+O fundo será preto e o texto branco. Se removemos `data-tema="escuro"`, o fundo volta a ser branco e o texto preto.
+
 ### **Conclusão**
 
 O uso de **variáveis CSS** é uma técnica poderosa para tornar seu código mais modular, organizado e fácil de manter. Com as variáveis, você pode gerenciar cores e outros valores com facilidade, tornando o design mais consistente e a manutenção do código mais simples. Além disso, a flexibilidade de variáveis CSS para manipulação de temas e integração com JavaScript abre novas oportunidades para criar interfaces de usuário interativas e personalizadas.
@@ -1759,11 +2360,104 @@ Neste caso, a cor vermelha se mistura com a imagem de fundo, escurecendo a image
 
 ---
 
+### Exemplo em HTML
+O código do botão precisa aplicar o efeito `hue-rotate()` corretamente à imagem, garantindo que o filtro seja aplicado dinamicamente e de forma contínua. Aqui está a versão corrigida e funcional:  
+
+---
+
+### **Código HTML + CSS + JavaScript Corrigido**
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de hue-rotate() no CSS</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .imagem {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: filter 0.5s ease-in-out;
+        }
+
+        /* Botão para aplicar hue-rotate dinamicamente */
+        .botao {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplo de hue-rotate() no CSS</h1>
+    <p>Clique no botão para alterar dinamicamente a cor da imagem.</p>
+
+    <div class="container">
+        <img id="imagem-dinamica" src="https://www.w3schools.com/w3images/fjords.jpg" alt="Imagem Original" class="imagem">
+    </div>
+
+    <button class="botao" onclick="aplicarHueRotate()">Aplicar hue-rotate</button>
+
+    <script>
+        let rotacaoAtual = 0; // Valor inicial do hue-rotate
+
+        function aplicarHueRotate() {
+            rotacaoAtual += 45; // Incrementa a rotação em 45° a cada clique
+            document.getElementById('imagem-dinamica').style.filter = `hue-rotate(${rotacaoAtual}deg)`; // Aplica o filtro
+        }
+    </script>
+
+</body>
+</html>
+
+```
+
+---
+
+### **O que acontece nesse código?**
+- A imagem original é exibida sem filtros.  
+- Quando o botão é clicado, a imagem sofre um `hue-rotate()` de 45° a cada clique.  
+- Isso faz com que as cores mudem dinamicamente sem alterar a imagem original.  
+
+
 ### **Considerações Finais**
 
 Manipular cores de imagens e aplicar efeitos com CSS é uma poderosa ferramenta para design web, permitindo ajustes dinâmicos de tonalidade e contraste sem a necessidade de editar a imagem diretamente em softwares gráficos. O filtro `hue-rotate` é ideal para mudanças rápidas de tonalidade, enquanto a combinação de propriedades como `background-color` e `background-blend-mode` oferece controle total sobre como as cores interagem com as imagens de fundo.
 
 Essas técnicas não apenas oferecem flexibilidade no design, mas também são eficientes em termos de desempenho, pois evitam a necessidade de carregar diferentes versões de imagens ou usar programas externos para edição de imagens.
+
+---
 
 # **Medidas de tamanho**
 
@@ -1857,6 +2551,107 @@ Os percentuais são uma unidade relativa que representa uma proporção do valor
   
 **Desvantagens:**
 - O uso de "ex" e "ch" não é muito comum, e sua precisão depende da escolha da fonte, o que pode tornar o layout menos previsível quando se usa fontes diferentes.
+
+Aqui está um conjunto de exemplos HTML e CSS para ilustrar cada unidade de medida listada.  
+
+---
+
+### **1. Pixels (`px`)**  
+Os pixels são unidades fixas, usadas para definir tamanhos precisos.  
+
+```html
+<div style="width: 200px; height: 100px; background-color: lightblue;">
+    Este quadrado tem 200px de largura e 100px de altura.
+</div>
+```
+
+---
+
+### **2. EM (`em`)**  
+A unidade `em` é relativa ao tamanho da fonte do elemento pai.  
+
+```html
+<div style="font-size: 16px;">
+    <p style="font-size: 2em;">Este texto tem 2 vezes o tamanho do texto do pai.</p>
+</div>
+```
+
+---
+
+### **3. REM (`rem`)**  
+A unidade `rem` é relativa ao tamanho da fonte do elemento raiz (`html`).  
+
+```html
+<style>
+    html {
+        font-size: 16px;
+    }
+    .rem-example {
+        font-size: 2rem; /* 2 * 16px = 32px */
+    }
+</style>
+<p class="rem-example">Este texto tem 32px (2rem).</p>
+```
+
+---
+
+### **4. Percentual (`%`)**  
+O tamanho percentual depende do elemento pai.  
+
+```html
+<div style="width: 50%; height: 100px; background-color: coral;">
+    Esta div ocupa 50% da largura do elemento pai.
+</div>
+```
+
+---
+
+### **5. Viewport Width (`vw`) e Viewport Height (`vh`)**  
+- `vw` → % da largura da viewport  
+- `vh` → % da altura da viewport  
+
+```html
+<div style="width: 50vw; height: 30vh; background-color: lightgreen;">
+    50vw de largura e 30vh de altura (relativo à tela).
+</div>
+```
+
+---
+
+### **6. Outras unidades físicas**  
+Essas unidades são mais usadas para impressão.  
+
+```html
+<div style="width: 2in; height: 1in; background-color: lightgray;">
+    2 polegadas de largura e 1 polegada de altura.
+</div>
+```
+**Conversões aproximadas:**  
+- `1in` = 96px  
+- `1cm` = 37.8px  
+- `1mm` = 3.78px  
+- `1pc` = 16px  
+- `1pt` = 1.33px  
+
+---
+
+### **7. EX (`ex`) e CH (`ch`)**  
+- `ex` → Altura da letra "x" da fonte atual.  
+- `ch` → Largura do caractere "0" da fonte atual.  
+
+```html
+<div style="font-size: 20px;">
+    <p style="width: 10ex; background-color: lightyellow;">
+        Largura de 10ex
+    </p>
+    <p style="width: 10ch; background-color: lightcoral;">
+        Largura de 10ch
+    </p>
+</div>
+```
+
+---
+
 
 ### Conclusão
 
@@ -2148,7 +2943,7 @@ Exemplo:
     box-sizing: content-box;
 }
 ```
-📌 **Tamanho total:** 260px × 160px
+ **Tamanho total:** 260px × 160px
 
 ---
 
@@ -2166,7 +2961,7 @@ Exemplo:
     box-sizing: border-box;
 }
 ```
-📌 **Tamanho total:** 200px × 100px (o `padding` e a `border` estão inclusos na medida).
+ **Tamanho total:** 200px × 100px (o `padding` e a `border` estão inclusos na medida).
 
 **Dica:** Para evitar problemas com tamanhos inesperados, é comum usar:
 ```css
@@ -3061,7 +3856,7 @@ img {
 }
 ```
 
-📌 **Explicação:**  
+ **Explicação:**  
 - Se a tela for maior que 500px, a imagem terá no máximo 500px.  
 - Se for menor, a imagem se ajusta automaticamente ao tamanho da tela.  
 
@@ -3077,7 +3872,7 @@ img {
 }
 ```
 
-📌 **Explicação:**  
+ **Explicação:**  
 - Se a imagem for muito alta, ela será limitada a 300px, sem distorção.  
 
 ### **Combinação de `max-width` e `max-height`**  
@@ -3091,7 +3886,7 @@ img {
 }
 ```
 
-📌 **Vantagens:**  
+ **Vantagens:**  
 - Mantém a proporção original da imagem.  
 - Evita que a imagem fique maior do que o necessário.  
 - Garante um layout responsivo.  

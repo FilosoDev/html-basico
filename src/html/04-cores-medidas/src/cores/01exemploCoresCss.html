@@ -34,26 +34,29 @@
     .hsla {
       background-color: hsla(9, 100%, 60%, 0.5); /* Cor HSLA (com transparência) */
     }
+
+    div {
+      background-color: #f0f0f0; /* Cor de fundo */
+      color: #333; /* Cor do texto */
+      border: 2px solid #ccc; /* Cor da borda */
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor da
+      caixa */
+      }
   </style>
 </head>
 <body>
   <h1>Exemplos de Formatos de Definição de Cores</h1>
-  <div class="box named"></div>
-  <p>Cor Nomeada: red</p>
-  
-  <div class="box hex"></div>
-  <p>Cor Hexadecimal: #FF5733</p>
-  
-  <div class="box rgb"></div>
-  <p>Cor RGB: rgb(255, 87, 51)</p>
-  
-  <div class="box rgba"></div>
-  <p>Cor RGBA: rgba(255, 87, 51, 0.5)</p>
-  
-  <div class="box hsl"></div>
-  <p>Cor HSL: hsl(9, 100%, 60%)</p>
-  
-  <div class="box hsla"></div>
-  <p>Cor HSLA: hsla(9, 100%, 60%, 0.5)</p>
+  <div style="align-items: center;">
+    <div style="display: center;">
+      <div class="box named"><p>Cor Nomeada: red</p></div>
+      <div class="box hex"><p>Cor Hexadecimal: #FF5733</p></div>
+      <div class="box rgb"><p>Cor RGB: rgb(255, 87, 51)</p></div>
+    </div>
+    <div style="display: center;">
+      <div class="box rgba"><p>Cor RGBA: rgba(255, 87, 51, 0.5)</p></div>
+      <div class="box hsl"><p>Cor HSL: hsl(9, 100%, 60%)</p></div>
+      <div class="box hsla"><p>Cor HSLA: hsla(9, 100%, 60%, 0.5)</p></div>
+    </div>
+  </div>
 </body>
 </html>

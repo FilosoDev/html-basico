@@ -468,6 +468,26 @@ A psicologia das cores é importante para alinhar o design com a mensagem e os v
   <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">3px</span> <span class="hljs-number">3px</span> <span class="hljs-number">10px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>); <span class="hljs-comment">/* Sombra ao redor da caixa */</span>
 }
 </div></code></pre>
+<h3 id="exemplo-simples-html">Exemplo simples HTML</h3>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Exemplo de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">background-color</span>: lightgray;
+        }
+        <span class="hljs-selector-tag">h1</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#FF5733</span>;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Este é um exemplo de uso de cores<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
 <p>As cores desempenham um papel essencial no design web, não apenas por sua função estética, mas também pela sua capacidade de influenciar a usabilidade e a experiência do usuário. Em HTML e CSS, você pode aplicar cores de várias maneiras, usando diferentes formatos e propriedades para personalizar a aparência de sua página. É importante entender a psicologia das cores e como garantir a acessibilidade através do contraste adequado e da escolha inteligente de combinações de cores.</p>
 <h1 id="formatos-de-defini%C3%A7%C3%A3o-de-cores-em-css"><strong>Formatos de Definição de Cores em CSS</strong></h1>
 <p>No CSS, as cores podem ser definidas de várias maneiras, cada uma com suas vantagens e casos de uso. Esses formatos permitem ao desenvolvedor ter controle sobre a aparência visual de elementos na página. Vamos explorar os principais formatos de cores usados em CSS: <strong>nomes de cores</strong>, <strong>hexadecimais</strong>, <strong>RGB</strong>, <strong>RGBA</strong>, <strong>HSL</strong>, e <strong>HSLA</strong>.</p>
@@ -1553,6 +1573,80 @@ A propriedade CSS <code>opacity</code> pode ser aplicada a um elemento inteiro, 
 <ul>
 <li><strong>Falta de Variedade</strong>: A principal limitação de uma paleta monocromática é a falta de contrastes fortes, o que pode deixar o design visualmente monótono se não for trabalhado adequadamente.</li>
 </ul>
+<h4 id="exemplo-html">Exemplo HTML</h4>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Paleta Monocromática Azul<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-pseudo">:root</span> {
+            <span class="hljs-attribute">--azul-claro</span>: <span class="hljs-number">#D0E7FF</span>;
+            <span class="hljs-attribute">--azul-medio</span>: <span class="hljs-number">#6FA3E5</span>;
+            <span class="hljs-attribute">--azul-escuro</span>: <span class="hljs-number">#1E6091</span>;
+            <span class="hljs-attribute">--azul-principal</span>: <span class="hljs-number">#0A369D</span>;
+            <span class="hljs-attribute">--azul-destaque</span>: <span class="hljs-number">#023E8A</span>;
+        }
+
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-claro);
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--azul-escuro);
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">text-align</span>: center;
+        }
+
+        <span class="hljs-selector-tag">header</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;
+            <span class="hljs-attribute">font-weight</span>: bold;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;
+        }
+
+        <span class="hljs-selector-tag">section</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-medio);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span> auto;
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">80%</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">2px</span> <span class="hljs-number">2px</span> <span class="hljs-number">10px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>);
+        }
+
+        <span class="hljs-selector-tag">button</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-destaque);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">border</span>: none;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+            <span class="hljs-attribute">cursor</span>: pointer;
+            <span class="hljs-attribute">transition</span>: background <span class="hljs-number">0.3s</span>;
+        }
+
+        <span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:hover</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+        Tema: Paleta Monocromática Azul
+    <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Bem-vindo à nossa página azul!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Esta página utiliza uma paleta monocromática baseada em tons de azul para criar um visual coeso e harmonioso.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Clique Aqui<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
 <h4 id="2-paleta-an%C3%A1loga"><strong>2. Paleta Análoga</strong></h4>
 <p>Uma paleta análoga é composta por cores que estão próximas umas das outras na roda de cores. Por exemplo, se você escolher o azul, uma paleta análoga pode incluir tons de azul, azul-esverdeado e azul-roxo.</p>
 <p><strong>Exemplo:</strong></p>
@@ -1574,6 +1668,80 @@ A propriedade CSS <code>opacity</code> pode ser aplicada a um elemento inteiro, 
 <ul>
 <li><strong>Falta de Contraste</strong>: Se a paleta análoga não for equilibrada, ela pode acabar parecendo monótona ou sem destaque. Para evitar isso, é importante garantir que uma cor sirva como base e outra para destacar elementos importantes (como botões ou links).</li>
 </ul>
+<h3 id="exemplo-html">Exemplo HTML</h3>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Paleta Análoga Azul<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-comment">/* Definição da paleta de cores */</span>
+        <span class="hljs-selector-pseudo">:root</span> {
+            <span class="hljs-attribute">--azul-principal</span>: <span class="hljs-number">#0077b6</span>;
+            <span class="hljs-attribute">--azul-arroxeado</span>: <span class="hljs-number">#4a47a3</span>;
+            <span class="hljs-attribute">--azul-esverdeado</span>: <span class="hljs-number">#00a6a6</span>;
+            <span class="hljs-attribute">--azul-pastel</span>: <span class="hljs-number">#90e0ef</span>;
+            <span class="hljs-attribute">--azul-claro</span>: <span class="hljs-number">#caf0f8</span>;
+        }
+
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-claro);
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+            <span class="hljs-attribute">text-align</span>: center;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-selector-tag">h1</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+        }
+
+        <span class="hljs-selector-tag">p</span> {
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--azul-arroxeado);
+        }
+
+        <span class="hljs-selector-class">.box</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-pastel);
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+            <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span> auto;
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">80%</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">3px</span> <span class="hljs-number">3px</span> <span class="hljs-number">10px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>);
+        }
+
+        <span class="hljs-selector-class">.button</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-esverdeado);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">text-decoration</span>: none;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+            <span class="hljs-attribute">display</span>: inline-block;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">transition</span>: background-color <span class="hljs-number">0.3s</span> ease;
+        }
+
+        <span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:hover</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--azul-principal);
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Paleta Análoga Azul<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>As cores análogas são harmoniosas e criam um design agradável.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Este é um exemplo de uma seção destacada usando um tom pastel de azul.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span>Saiba Mais<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
 <h4 id="3-paleta-complementar"><strong>3. Paleta Complementar</strong></h4>
 <p>Uma paleta complementar usa cores que estão opostas na roda de cores. Essas cores criam um alto contraste e podem ser muito impactantes quando usadas corretamente. Um exemplo clássico seria a combinação de vermelho e verde, ou azul e laranja.</p>
 <p><strong>Exemplo:</strong></p>
@@ -1595,6 +1763,99 @@ A propriedade CSS <code>opacity</code> pode ser aplicada a um elemento inteiro, 
 <li><strong>Potencial para Confusão</strong>: O contraste elevado pode ser difícil de equilibrar. Usado de forma excessiva, pode tornar o design excessivamente intenso e até cansativo aos olhos do usuário.</li>
 <li><strong>Difícil de Harmonizar</strong>: A combinação de cores opostas pode ser desafiadora, especialmente para quem está começando no design, pois é fácil exagerar na intensidade.</li>
 </ul>
+<h3 id="exemplo-html">Exemplo HTML</h3>
+<pre class="hljs"><code><div>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Tema Complementar: Vermelho, Verde, Azul e Laranja<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#F4F4F4</span>;
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#333</span>;
+            <span class="hljs-attribute">text-align</span>: center;
+        }
+
+        <span class="hljs-selector-tag">header</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#E63946</span>; <span class="hljs-comment">/* Vermelho */</span>
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;
+        }
+
+        <span class="hljs-selector-tag">nav</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#457B9D</span>; <span class="hljs-comment">/* Azul */</span>
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+        }
+
+        <span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">a</span> {
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">text-decoration</span>: none;
+            <span class="hljs-attribute">font-weight</span>: bold;
+            <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">15px</span>;
+        }
+
+        <span class="hljs-selector-tag">section</span> {
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-selector-class">.box</span> {
+            <span class="hljs-attribute">display</span>: inline-block;
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+            <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;
+            <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+            <span class="hljs-attribute">line-height</span>: <span class="hljs-number">150px</span>;
+            <span class="hljs-attribute">text-transform</span>: uppercase;
+            <span class="hljs-attribute">font-weight</span>: bold;
+        }
+
+        <span class="hljs-selector-class">.red</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#E63946</span>; } <span class="hljs-comment">/* Vermelho */</span>
+        <span class="hljs-selector-class">.green</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2A9D8F</span>; } <span class="hljs-comment">/* Verde */</span>
+        <span class="hljs-selector-class">.blue</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#457B9D</span>; } <span class="hljs-comment">/* Azul */</span>
+        <span class="hljs-selector-class">.orange</span> { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#F4A261</span>; } <span class="hljs-comment">/* Laranja */</span>
+
+        <span class="hljs-selector-tag">footer</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2A9D8F</span>; <span class="hljs-comment">/* Verde */</span>
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+        Tema de Cores Complementares
+    <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Início<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Sobre<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Contato<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Paleta de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box red"</span>&gt;</span>Vermelho<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box green"</span>&gt;</span>Verde<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box blue"</span>&gt;</span>Azul<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"box orange"</span>&gt;</span>Laranja<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+        <span class="hljs-symbol">&amp;copy;</span> 2025 - Exemplo de Cores Complementares
+    <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
 <h3 id="ferramentas-para-gerar-paletas-de-cores"><strong>Ferramentas para Gerar Paletas de Cores</strong></h3>
 <p>Escolher a paleta de cores certa é um processo criativo e, muitas vezes, desafiador. Felizmente, há várias ferramentas online que podem ajudar a gerar e visualizar paletas de cores baseadas em regras de design. Algumas das mais populares incluem:</p>
 <h4 id="1-adobe-color"><strong>1. Adobe Color</strong></h4>
@@ -1627,6 +1888,93 @@ A propriedade CSS <code>opacity</code> pode ser aplicada a um elemento inteiro, 
 <li><strong>Visualização Interativa</strong>: A interface interativa permite visualizar instantaneamente como as cores escolhidas se combinam entre si.</li>
 <li><strong>Modo de Visualização para Web</strong>: O Paletton mostra como as cores escolhidas se comportarão em designs de sites e fornece sugestões de contraste para facilitar a legibilidade.</li>
 </ul>
+<h3 id="exemplo-em-html">Exemplo em HTML</h3>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt_BR"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Exemplo de Paleta de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-selector-tag">h1</span> {
+            <span class="hljs-attribute">text-align</span>: center;
+        }
+
+        <span class="hljs-selector-class">.palette</span> {
+            <span class="hljs-attribute">display</span>: flex;
+            <span class="hljs-attribute">justify-content</span>: space-around;
+            <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-selector-class">.palette</span> <span class="hljs-selector-tag">div</span> {
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
+            <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+            <span class="hljs-attribute">text-align</span>: center;
+            <span class="hljs-attribute">line-height</span>: <span class="hljs-number">100px</span>;
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">font-weight</span>: bold;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+        }
+
+        <span class="hljs-selector-class">.mono</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#3498db</span>;
+        }
+
+        <span class="hljs-selector-class">.analogous</span> {
+            <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, #<span class="hljs-number">3498</span>db, #<span class="hljs-number">2</span>ecc71);
+        }
+
+        <span class="hljs-selector-class">.complementary</span> {
+            <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, #<span class="hljs-number">3498</span>db, #e74c3c);
+        }
+
+        <span class="hljs-selector-class">.triadic</span> {
+            <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, #<span class="hljs-number">3498</span>db, #<span class="hljs-number">9</span>b59b6, #f39c12);
+        }
+
+        <span class="hljs-selector-class">.split-complementary</span> {
+            <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">45deg</span>, #<span class="hljs-number">3498</span>db, #f1c40f, #e74c3c);
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Exemplos de Paletas de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Esta página exibe diferentes tipos de paletas de cores com gradientes e cores sólidas.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mono"</span>&gt;</span>
+            Monocromática
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"analogous"</span>&gt;</span>
+            Análoga
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"complementary"</span>&gt;</span>
+            Complementar
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"triadic"</span>&gt;</span>
+            Triádica
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"split-complementary"</span>&gt;</span>
+            Complementar Dividida
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h3 id="explica%C3%A7%C3%A3o-das-paletas">Explicação das Paletas:</h3>
+<ol>
+<li><strong>Monocromática</strong>: Usa apenas uma cor com variações de tonalidade.</li>
+<li><strong>Análoga</strong>: Cores que estão próximas no círculo cromático (gradiente de azul para verde).</li>
+<li><strong>Complementar</strong>: Cores opostas no círculo cromático (gradiente de azul para vermelho).</li>
+<li><strong>Triádica</strong>: Três cores equidistantes no círculo cromático (azul, roxo e amarelo).</li>
+<li><strong>Complementar Dividida</strong>: Combina uma cor com duas cores adjacentes à sua complementar.</li>
+</ol>
 <p>Escolher a paleta de cores certa é uma das partes mais importantes do design web. Seja usando uma paleta monocromática para simplicidade, uma paleta análoga para harmonia suave, ou uma paleta complementar para criar impacto visual, a escolha das cores deve ser cuidadosa e estratégica. Ferramentas como o <strong>Adobe Color</strong>, <strong>Coolors</strong> e <strong>Paletton</strong> podem ajudar a gerar paletas de cores de forma eficiente, oferecendo flexibilidade e criatividade no processo de design. Com a escolha certa de cores, você pode melhorar a estética, a usabilidade e a acessibilidade do seu projeto, garantindo uma experiência agradável e coerente para os usuários.</p>
 <hr>
 <h1 id="acessibilidade-de-cores"><strong>Acessibilidade de Cores</strong></h1>
@@ -1718,7 +2066,103 @@ A propriedade CSS <code>opacity</code> pode ser aplicada a um elemento inteiro, 
 <li><strong>Espaçamento</strong>: Verifique se há espaçamento adequado entre linhas de texto (interlinha), o que facilita a leitura.</li>
 <li><strong>Fontes legíveis</strong>: Usar fontes sem serifa e bem espaçadas pode melhorar a legibilidade do texto.</li>
 </ul>
-<h3 id="conclus%C3%A3o"><strong>Conclusão</strong></h3>
+<h4 id="5-exemplo-html">5. Exemplo HTML</h4>
+<p>Aqui está um exemplo de uma página HTML que demonstra boas práticas de acessibilidade de cores, com foco no contraste entre o texto e o fundo para garantir que seja legível para todos os usuários:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Acessibilidade de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-comment">/* Texto com alto contraste */</span>
+        <span class="hljs-selector-class">.high-contrast</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#000000</span>;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FFFFFF</span>;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+        }
+
+        <span class="hljs-comment">/* Texto com contraste moderado */</span>
+        <span class="hljs-selector-class">.moderate-contrast</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#333333</span>;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#E0E0E0</span>;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+        }
+
+        <span class="hljs-comment">/* Texto com baixo contraste */</span>
+        <span class="hljs-selector-class">.low-contrast</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#B0B0B0</span>;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#F0F0F0</span>;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+        }
+
+        <span class="hljs-comment">/* Exemplo de contraste entre texto e links */</span>
+        <span class="hljs-selector-tag">a</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#0066CC</span>;
+            <span class="hljs-attribute">text-decoration</span>: none;
+        }
+
+        <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> {
+            <span class="hljs-attribute">text-decoration</span>: underline;
+        }
+
+        <span class="hljs-comment">/* Estilo para garantir boa legibilidade */</span>
+        <span class="hljs-selector-class">.highlight</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF5733</span>;
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Acessibilidade de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Exemplos de Contraste de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"high-contrast"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Alto Contraste:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> Este texto tem um contraste alto, com texto preto sobre fundo branco.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"moderate-contrast"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Contraste Moderado:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> Este texto tem contraste moderado, com texto cinza escuro sobre fundo cinza claro.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"low-contrast"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Baixo Contraste:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> Este texto tem baixo contraste, com texto cinza claro sobre fundo cinza muito claro.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Links e Acessibilidade<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Este é um link de exemplo. Passe o mouse sobre ele para ver o efeito de foco.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Texto Destacado<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"highlight"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Texto com bom contraste para destaque:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> Este texto tem bom contraste, tornando-o fácil de ser lido por pessoas com deficiência visual.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Importância do Contraste de Cores<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Manter um bom contraste entre o texto e o fundo é essencial para garantir que o conteúdo seja acessível a todos, especialmente para pessoas com deficiências visuais como daltonismo ou baixa visão. Certifique-se de usar ferramentas de verificação de contraste de cores para testar se sua página está em conformidade com as diretrizes WCAG (Web Content Accessibility Guidelines).<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h3 id="explica%C3%A7%C3%A3o-do-c%C3%B3digo">Explicação do código:</h3>
+<ol>
+<li><strong>Alto Contraste:</strong> O texto preto sobre fundo branco oferece excelente legibilidade.</li>
+<li><strong>Contraste Moderado:</strong> O texto cinza escuro sobre fundo cinza claro ainda é legível, mas oferece menos contraste que o anterior.</li>
+<li><strong>Baixo Contraste:</strong> O texto cinza claro sobre fundo cinza muito claro tem baixo contraste, o que pode dificultar a leitura, especialmente para pessoas com dificuldades visuais.</li>
+<li><strong>Links:</strong> Links têm cor azul e o efeito de hover foi adicionado para garantir que sejam acessíveis.</li>
+<li><strong>Texto Destacado:</strong> Um exemplo de como usar cores contrastantes para destacar informações importantes.</li>
+</ol>
+<p>Este exemplo demonstra como aplicar boas práticas de acessibilidade ao escolher combinações de cores para garantir que todos os usuários, incluindo os com deficiências visuais, possam acessar o conteúdo da página com facilidade.</p>
 <p>A acessibilidade de cores é um aspecto essencial do design web, garantindo que pessoas com diferentes capacidades visuais possam acessar e interagir com o conteúdo de maneira eficaz. O contraste de cores, a consideração do daltonismo e a realização de testes adequados são essenciais para criar experiências digitais inclusivas. Ao usar ferramentas de teste de contraste, simuladores de daltonismo e realizar testes com usuários reais, você pode garantir que seu site seja acessível para todos, proporcionando uma experiência mais inclusiva e funcional.</p>
 <h1 id="propriedades-de-cor-no-css"><strong>Propriedades de Cor no CSS</strong></h1>
 <p>No CSS, a manipulação de cores é essencial para criar designs atraentes e funcionais. As cores podem ser aplicadas de várias maneiras, afetando diferentes elementos de uma página web, como o texto, o fundo, bordas e sombras. Cada propriedade relacionada à cor tem seu uso específico, o que permite um controle detalhado sobre o estilo visual da página. Vamos explorar as principais propriedades de cor no CSS.</p>
@@ -2324,6 +2768,157 @@ Se você precisar alterar a cor principal do site de <code>#3498db</code> (azul)
 <pre class="hljs"><code><div><span class="hljs-built_in">document</span>.documentElement.style.setProperty(<span class="hljs-string">'--cor-primaria'</span>, <span class="hljs-string">'#e74c3c'</span>); <span class="hljs-comment">/* Alterando a cor principal */</span>
 </div></code></pre>
 <p>Isso permite que você crie experiências de usuário mais dinâmicas, como temas que mudam automaticamente com base nas preferências do usuário ou em eventos no navegador.</p>
+<h3 id="exemplo-completo-html">Exemplo completo HTML</h3>
+<p>Aqui está um exemplo de uma página HTML que alterna entre os temas claro e escuro usando variáveis CSS e JavaScript para manipular o atributo <code>data-tema</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Tema Claro e Escuro com Variáveis CSS<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-comment">/* Tema Claro */</span>
+        <span class="hljs-selector-pseudo">:root</span> {
+            <span class="hljs-attribute">--cor-fundo</span>: <span class="hljs-number">#ffffff</span>;  <span class="hljs-comment">/* Branco */</span>
+            <span class="hljs-attribute">--cor-texto</span>: <span class="hljs-number">#2c3e50</span>;  <span class="hljs-comment">/* Cinza Escuro */</span>
+            <span class="hljs-attribute">--cor-primaria</span>: <span class="hljs-number">#3498db</span>; <span class="hljs-comment">/* Azul */</span>
+        }
+
+        <span class="hljs-comment">/* Tema Escuro */</span>
+        <span class="hljs-selector-attr">[data-tema=<span class="hljs-string">"escuro"</span>]</span> {
+            <span class="hljs-attribute">--cor-fundo</span>: <span class="hljs-number">#2c3e50</span>;  <span class="hljs-comment">/* Cinza Escuro */</span>
+            <span class="hljs-attribute">--cor-texto</span>: <span class="hljs-number">#ecf0f1</span>;  <span class="hljs-comment">/* Branco */</span>
+            <span class="hljs-attribute">--cor-primaria</span>: <span class="hljs-number">#2980b9</span>; <span class="hljs-comment">/* Azul Escuro */</span>
+        }
+
+        <span class="hljs-comment">/* Aplicando as variáveis */</span>
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--cor-fundo);
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--cor-texto);
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">text-align</span>: center;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">transition</span>: background-color <span class="hljs-number">0.3s</span>, color <span class="hljs-number">0.3s</span>;
+        }
+
+        <span class="hljs-selector-tag">h1</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--cor-primaria);
+        }
+
+        <span class="hljs-selector-class">.botao</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--cor-primaria);
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">border</span>: none;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">cursor</span>: pointer;
+            <span class="hljs-attribute">transition</span>: background-color <span class="hljs-number">0.3s</span>;
+        }
+
+        <span class="hljs-selector-class">.botao</span><span class="hljs-selector-pseudo">:hover</span> {
+            <span class="hljs-attribute">background-color</span>: darkblue;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Alternando entre Tema Claro e Escuro<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Clique no botão abaixo para alternar entre os temas.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"botao"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"alternarTema()"</span>&gt;</span>Alternar Tema<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">alternarTema</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">const</span> html = <span class="hljs-built_in">document</span>.documentElement;
+            <span class="hljs-keyword">if</span> (html.getAttribute(<span class="hljs-string">"data-tema"</span>) === <span class="hljs-string">"escuro"</span>) {
+                html.removeAttribute(<span class="hljs-string">"data-tema"</span>); <span class="hljs-comment">// Volta para o tema claro</span>
+            } <span class="hljs-keyword">else</span> {
+                html.setAttribute(<span class="hljs-string">"data-tema"</span>, <span class="hljs-string">"escuro"</span>); <span class="hljs-comment">// Ativa o tema escuro</span>
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h3 id="como-funciona">Como funciona:</h3>
+<ol>
+<li>
+<p><strong>Definição de variáveis CSS:</strong></p>
+<ul>
+<li>O <code>:root</code> define as cores do tema claro.</li>
+<li>O <code>[data-tema=&quot;escuro&quot;]</code> define as cores do tema escuro.</li>
+</ul>
+</li>
+<li>
+<p><strong>Aplicação das variáveis no CSS:</strong></p>
+<ul>
+<li>O <code>body</code>, <code>h1</code> e <code>.botao</code> usam <code>var(--cor-fundo)</code>, <code>var(--cor-texto)</code> e <code>var(--cor-primaria)</code>, garantindo que a troca de tema afete toda a página.</li>
+</ul>
+</li>
+<li>
+<p><strong>Troca de tema com JavaScript:</strong></p>
+<ul>
+<li>O botão chama <code>alternarTema()</code>, que adiciona ou remove o atributo <code>data-tema=&quot;escuro&quot;</code> na tag <code>&lt;html&gt;</code>.</li>
+<li>O CSS aplica as cores do tema conforme a presença desse atributo.</li>
+</ul>
+</li>
+</ol>
+<p>O seletor <code>[data-tema=&quot;escuro&quot;]</code> no CSS é um <strong>seletor de atributo</strong>. Ele aplica estilos apenas quando o elemento HTML correspondente contém esse atributo com o valor especificado.</p>
+<h3 id="o-que-isso-significa">O que isso significa?</h3>
+<p>No código anterior, ele verifica se o elemento <strong>HTML</strong> possui o atributo <code>data-tema=&quot;escuro&quot;</code> e, caso tenha, aplica os estilos definidos dentro desse seletor.</p>
+<h3 id="como-funciona-na-pr%C3%A1tica">Como funciona na prática?</h3>
+<ol>
+<li>
+<p><strong>Tema claro (padrão)</strong><br>
+O <code>:root</code> define as cores padrão (tema claro).</p>
+</li>
+<li>
+<p><strong>Tema escuro (ativado por JavaScript)</strong><br>
+Quando o usuário clica no botão, o JavaScript adiciona <code>data-tema=&quot;escuro&quot;</code> ao <code>&lt;html&gt;</code>, ativando os estilos do seletor <code>[data-tema=&quot;escuro&quot;]</code>.</p>
+</li>
+<li>
+<p><strong>Troca dinâmica</strong></p>
+<ul>
+<li>Se <code>data-tema=&quot;escuro&quot;</code> estiver presente, o CSS dentro desse seletor será aplicado.</li>
+<li>Se <code>data-tema=&quot;escuro&quot;</code> for removido, os estilos voltam ao padrão do <code>:root</code> (tema claro).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="exemplo-simples-de-uso-do-seletor-de-atributo">Exemplo simples de uso do seletor de atributo:</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">/* Estilos padrão (tema claro) */</span>
+<span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--cor-fundo</span>: white;
+    <span class="hljs-attribute">--cor-texto</span>: black;
+}
+
+<span class="hljs-comment">/* Se o atributo data-tema="escuro" estiver presente no HTML, aplica esses estilos */</span>
+<span class="hljs-selector-attr">[data-tema=<span class="hljs-string">"escuro"</span>]</span> {
+    <span class="hljs-attribute">--cor-fundo</span>: black;
+    <span class="hljs-attribute">--cor-texto</span>: white;
+}
+
+<span class="hljs-comment">/* Aplicando as variáveis no body */</span>
+<span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--cor-fundo);
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--cor-texto);
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Olá, Mundo!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>Se o HTML for assim:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">data-tema</span>=<span class="hljs-string">"escuro"</span>&gt;</span>
+</div></code></pre>
+<p>O fundo será preto e o texto branco. Se removemos <code>data-tema=&quot;escuro&quot;</code>, o fundo volta a ser branco e o texto preto.</p>
 <h3 id="conclus%C3%A3o"><strong>Conclusão</strong></h3>
 <p>O uso de <strong>variáveis CSS</strong> é uma técnica poderosa para tornar seu código mais modular, organizado e fácil de manter. Com as variáveis, você pode gerenciar cores e outros valores com facilidade, tornando o design mais consistente e a manutenção do código mais simples. Além disso, a flexibilidade de variáveis CSS para manipulação de temas e integração com JavaScript abre novas oportunidades para criar interfaces de usuário interativas e personalizadas.</p>
 <h3 id="cores-e-imagens-no-design-web"><strong>Cores e Imagens no Design Web</strong></h3>
@@ -2400,9 +2995,96 @@ Se você precisar alterar a cor principal do site de <code>#3498db</code> (azul)
 </div></code></pre>
 <p>Neste caso, a cor vermelha se mistura com a imagem de fundo, escurecendo a imagem devido ao modo de mistura <code>multiply</code>.</p>
 <hr>
+<h3 id="exemplo-em-html">Exemplo em HTML</h3>
+<p>O código do botão precisa aplicar o efeito <code>hue-rotate()</code> corretamente à imagem, garantindo que o filtro seja aplicado dinamicamente e de forma contínua. Aqui está a versão corrigida e funcional:</p>
+<hr>
+<h3 id="c%C3%B3digo-html--css--javascript-corrigido"><strong>Código HTML + CSS + JavaScript Corrigido</strong></h3>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Exemplo de hue-rotate() no CSS<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+            <span class="hljs-attribute">text-align</span>: center;
+            <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f0f0f0</span>;
+        }
+
+        <span class="hljs-selector-tag">h1</span> {
+            <span class="hljs-attribute">color</span>: <span class="hljs-number">#333</span>;
+        }
+
+        <span class="hljs-selector-class">.container</span> {
+            <span class="hljs-attribute">display</span>: flex;
+            <span class="hljs-attribute">justify-content</span>: center;
+            <span class="hljs-attribute">gap</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">flex-wrap</span>: wrap;
+            <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;
+        }
+
+        <span class="hljs-selector-class">.imagem</span> {
+            <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+            <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;
+            <span class="hljs-attribute">object-fit</span>: cover;
+            <span class="hljs-attribute">transition</span>: filter <span class="hljs-number">0.5s</span> ease-in-out;
+        }
+
+        <span class="hljs-comment">/* Botão para aplicar hue-rotate dinamicamente */</span>
+        <span class="hljs-selector-class">.botao</span> {
+            <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+            <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+            <span class="hljs-attribute">cursor</span>: pointer;
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#3498db</span>;
+            <span class="hljs-attribute">color</span>: white;
+            <span class="hljs-attribute">border</span>: none;
+            <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+            <span class="hljs-attribute">transition</span>: background <span class="hljs-number">0.3s</span>;
+        }
+
+        <span class="hljs-selector-class">.botao</span><span class="hljs-selector-pseudo">:hover</span> {
+            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2980b9</span>;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Exemplo de hue-rotate() no CSS<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Clique no botão para alterar dinamicamente a cor da imagem.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"imagem-dinamica"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.w3schools.com/w3images/fjords.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Imagem Original"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"imagem"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"botao"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"aplicarHueRotate()"</span>&gt;</span>Aplicar hue-rotate<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">let</span> rotacaoAtual = <span class="hljs-number">0</span>; <span class="hljs-comment">// Valor inicial do hue-rotate</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aplicarHueRotate</span>(<span class="hljs-params"></span>) </span>{
+            rotacaoAtual += <span class="hljs-number">45</span>; <span class="hljs-comment">// Incrementa a rotação em 45° a cada clique</span>
+            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'imagem-dinamica'</span>).style.filter = <span class="hljs-string">`hue-rotate(<span class="hljs-subst">${rotacaoAtual}</span>deg)`</span>; <span class="hljs-comment">// Aplica o filtro</span>
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+
+</div></code></pre>
+<hr>
+<h3 id="o-que-acontece-nesse-c%C3%B3digo"><strong>O que acontece nesse código?</strong></h3>
+<ul>
+<li>A imagem original é exibida sem filtros.</li>
+<li>Quando o botão é clicado, a imagem sofre um <code>hue-rotate()</code> de 45° a cada clique.</li>
+<li>Isso faz com que as cores mudem dinamicamente sem alterar a imagem original.</li>
+</ul>
 <h3 id="considera%C3%A7%C3%B5es-finais"><strong>Considerações Finais</strong></h3>
 <p>Manipular cores de imagens e aplicar efeitos com CSS é uma poderosa ferramenta para design web, permitindo ajustes dinâmicos de tonalidade e contraste sem a necessidade de editar a imagem diretamente em softwares gráficos. O filtro <code>hue-rotate</code> é ideal para mudanças rápidas de tonalidade, enquanto a combinação de propriedades como <code>background-color</code> e <code>background-blend-mode</code> oferece controle total sobre como as cores interagem com as imagens de fundo.</p>
 <p>Essas técnicas não apenas oferecem flexibilidade no design, mas também são eficientes em termos de desempenho, pois evitam a necessidade de carregar diferentes versões de imagens ou usar programas externos para edição de imagens.</p>
+<hr>
 <h1 id="medidas-de-tamanho"><strong>Medidas de tamanho</strong></h1>
 <p>Em CSS, as unidades de medida são fundamentais para definir o tamanho de elementos, como largura, altura, margens, fontes, e outros. Elas determinam como o tamanho será calculado e exibido na tela do usuário. Existem diferentes tipos de unidades que se aplicam de maneiras variadas, e cada uma tem suas peculiaridades e melhores usos, dependendo do contexto. Vamos explorar cada uma delas em detalhes.</p>
 <h3 id="1-pixels-px">1. <strong>Pixels (px)</strong></h3>
@@ -2500,6 +3182,82 @@ Os percentuais são uma unidade relativa que representa uma proporção do valor
 <ul>
 <li>O uso de &quot;ex&quot; e &quot;ch&quot; não é muito comum, e sua precisão depende da escolha da fonte, o que pode tornar o layout menos previsível quando se usa fontes diferentes.</li>
 </ul>
+<p>Aqui está um conjunto de exemplos HTML e CSS para ilustrar cada unidade de medida listada.</p>
+<hr>
+<h3 id="1-pixels-px"><strong>1. Pixels (<code>px</code>)</strong></h3>
+<p>Os pixels são unidades fixas, usadas para definir tamanhos precisos.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 200px; height: 100px; background-color: lightblue;"</span>&gt;</span>
+    Este quadrado tem 200px de largura e 100px de altura.
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h3 id="2-em-em"><strong>2. EM (<code>em</code>)</strong></h3>
+<p>A unidade <code>em</code> é relativa ao tamanho da fonte do elemento pai.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"font-size: 16px;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"font-size: 2em;"</span>&gt;</span>Este texto tem 2 vezes o tamanho do texto do pai.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h3 id="3-rem-rem"><strong>3. REM (<code>rem</code>)</strong></h3>
+<p>A unidade <code>rem</code> é relativa ao tamanho da fonte do elemento raiz (<code>html</code>).</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">html</span> {
+        <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+    }
+    <span class="hljs-selector-class">.rem-example</span> {
+        <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2rem</span>; <span class="hljs-comment">/* 2 * 16px = 32px */</span>
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rem-example"</span>&gt;</span>Este texto tem 32px (2rem).<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h3 id="4-percentual"><strong>4. Percentual (<code>%</code>)</strong></h3>
+<p>O tamanho percentual depende do elemento pai.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50%; height: 100px; background-color: coral;"</span>&gt;</span>
+    Esta div ocupa 50% da largura do elemento pai.
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h3 id="5-viewport-width-vw-e-viewport-height-vh"><strong>5. Viewport Width (<code>vw</code>) e Viewport Height (<code>vh</code>)</strong></h3>
+<ul>
+<li><code>vw</code> → % da largura da viewport</li>
+<li><code>vh</code> → % da altura da viewport</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50vw; height: 30vh; background-color: lightgreen;"</span>&gt;</span>
+    50vw de largura e 30vh de altura (relativo à tela).
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h3 id="6-outras-unidades-f%C3%ADsicas"><strong>6. Outras unidades físicas</strong></h3>
+<p>Essas unidades são mais usadas para impressão.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 2in; height: 1in; background-color: lightgray;"</span>&gt;</span>
+    2 polegadas de largura e 1 polegada de altura.
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<p><strong>Conversões aproximadas:</strong></p>
+<ul>
+<li><code>1in</code> = 96px</li>
+<li><code>1cm</code> = 37.8px</li>
+<li><code>1mm</code> = 3.78px</li>
+<li><code>1pc</code> = 16px</li>
+<li><code>1pt</code> = 1.33px</li>
+</ul>
+<hr>
+<h3 id="7-ex-ex-e-ch-ch"><strong>7. EX (<code>ex</code>) e CH (<code>ch</code>)</strong></h3>
+<ul>
+<li><code>ex</code> → Altura da letra &quot;x&quot; da fonte atual.</li>
+<li><code>ch</code> → Largura do caractere &quot;0&quot; da fonte atual.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"font-size: 20px;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 10ex; background-color: lightyellow;"</span>&gt;</span>
+        Largura de 10ex
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 10ch; background-color: lightcoral;"</span>&gt;</span>
+        Largura de 10ch
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<hr>
 <h3 id="conclus%C3%A3o">Conclusão</h3>
 <p>As unidades de medida em CSS têm um impacto significativo no comportamento e no design das páginas web. Enquanto unidades fixas como o pixel podem ser úteis para elementos precisos, unidades relativas como em, rem, e porcentagens são melhores para designs responsivos que se adaptam a diferentes dispositivos e resoluções. Compreender quando e como usar cada tipo de unidade permite criar layouts mais flexíveis e escaláveis, além de melhorar a experiência do usuário.</p>
 <h1 id="propriedades-para-definir-tamanho-em-css"><strong>Propriedades para Definir Tamanho em CSS</strong></h1>
@@ -2738,7 +3496,7 @@ Os percentuais são uma unidade relativa que representa uma proporção do valor
     <span class="hljs-attribute">box-sizing</span>: content-box;
 }
 </div></code></pre>
-<p>📌 <strong>Tamanho total:</strong> 260px × 160px</p>
+<p><strong>Tamanho total:</strong> 260px × 160px</p>
 <hr>
 <h3 id="b-box-sizing-border-box"><strong>b) <code>box-sizing: border-box</code></strong></h3>
 <ul>
@@ -2754,7 +3512,7 @@ Os percentuais são uma unidade relativa que representa uma proporção do valor
     <span class="hljs-attribute">box-sizing</span>: border-box;
 }
 </div></code></pre>
-<p>📌 <strong>Tamanho total:</strong> 200px × 100px (o <code>padding</code> e a <code>border</code> estão inclusos na medida).</p>
+<p><strong>Tamanho total:</strong> 200px × 100px (o <code>padding</code> e a <code>border</code> estão inclusos na medida).</p>
 <p><strong>Dica:</strong> Para evitar problemas com tamanhos inesperados, é comum usar:</p>
 <pre class="hljs"><code><div>* {
     <span class="hljs-attribute">box-sizing</span>: border-box;
@@ -3545,7 +4303,7 @@ O <code>font-size</code> impacta diretamente a acessibilidade e a experiência d
     <span class="hljs-attribute">max-width</span>: <span class="hljs-number">500px</span>;
 }
 </div></code></pre>
-<p>📌 <strong>Explicação:</strong></p>
+<p><strong>Explicação:</strong></p>
 <ul>
 <li>Se a tela for maior que 500px, a imagem terá no máximo 500px.</li>
 <li>Se for menor, a imagem se ajusta automaticamente ao tamanho da tela.</li>
@@ -3560,7 +4318,7 @@ O <code>font-size</code> impacta diretamente a acessibilidade e a experiência d
     <span class="hljs-attribute">max-height</span>: <span class="hljs-number">300px</span>;
 }
 </div></code></pre>
-<p>📌 <strong>Explicação:</strong></p>
+<p><strong>Explicação:</strong></p>
 <ul>
 <li>Se a imagem for muito alta, ela será limitada a 300px, sem distorção.</li>
 </ul>
@@ -3572,7 +4330,7 @@ O <code>font-size</code> impacta diretamente a acessibilidade e a experiência d
     <span class="hljs-attribute">max-height</span>: <span class="hljs-number">400px</span>;
 }
 </div></code></pre>
-<p>📌 <strong>Vantagens:</strong></p>
+<p><strong>Vantagens:</strong></p>
 <ul>
 <li>Mantém a proporção original da imagem.</li>
 <li>Evita que a imagem fique maior do que o necessário.</li>

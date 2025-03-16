@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sombra</title>
+    <style>
+        /* Sombra no elemento pai */
+        div {
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        /* O parágrafo não herda a sombra do div */
+        p {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Este parágrafo tem uma sombra de texto, mas não herda a sombra da caixa do div.</p>
+    </div>
+</body>
+</html>

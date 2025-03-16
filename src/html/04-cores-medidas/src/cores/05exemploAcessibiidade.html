@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Cores Acessíveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #222;
+        }
+
+        .exemplo {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Exemplo Acessível: Alto Contraste */
+        .acessivel {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        /* Exemplo com contraste aceitável */
+        .contraste-moderado {
+            background-color: #37474F;
+            color: #FAFAFA;
+        }
+
+        /* Exemplo Não Acessível: Baixo Contraste */
+        .nao-acessivel {
+            background-color: #D3D3D3;
+            color: #A8A8A8;
+        }
+
+        /* Exemplo de Acessibilidade para Daltonismo (Uso de Ícones) */
+        .daltonismo {
+            background-color: #0044CC;
+            color: #FFFF00;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .daltonismo::before {
+            content: "✔ ";
+            font-size: 22px;
+        }
+
+        /* Exemplo de Botão Acessível */
+        .botao {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
+        }
+
+        .botao:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplos de Cores para Acessibilidade</h1>
+
+    <h2>1. Alto Contraste (Acessível)</h2>
+    <div class="exemplo acessivel">
+        Este é um exemplo de alto contraste, adequado para acessibilidade.
+    </div>
+
+    <h2>2. Contraste Moderado</h2>
+    <div class="exemplo contraste-moderado">
+        Este contraste ainda é aceitável, mas menos ideal do que o alto contraste.
+    </div>
+
+    <h2>3. Baixo Contraste (Não Acessível)</h2>
+    <div class="exemplo nao-acessivel">
+        Este texto tem baixo contraste e pode ser difícil de ler.
+    </div>
+
+    <h2>4. Acessibilidade para Daltonismo</h2>
+    <div class="exemplo daltonismo">
+        Uso de cores e ícones para garantir acessibilidade.
+    </div>
+
+    <h2>5. Botão Acessível</h2>
+    <button class="botao">Clique Aqui</button>
+
+    <h2>Importância do Contraste</h2>
+    <p>É essencial garantir que o contraste entre o fundo e o texto seja suficiente para leitura confortável. O contraste recomendado pelo WCAG (Web Content Accessibility Guidelines) é de pelo menos <strong>4.5:1</strong> para texto normal e <strong>3:1</strong> para texto grande.</p>
+
+</body>
+</html>

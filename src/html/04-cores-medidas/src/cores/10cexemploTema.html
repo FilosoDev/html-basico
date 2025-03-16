@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema Claro e Escuro com Variáveis CSS</title>
+    <style>
+        /* Tema Claro */
+        :root {
+            --cor-fundo: #ffffff;  /* Branco */
+            --cor-texto: #2c3e50;  /* Cinza Escuro */
+            --cor-primaria: #3498db; /* Azul */
+        }
+
+        /* Tema Escuro */
+        [data-tema="escuro"] {
+            --cor-fundo: #2c3e50;  /* Cinza Escuro */
+            --cor-texto: #ecf0f1;  /* Branco */
+            --cor-primaria: #2980b9; /* Azul Escuro */
+        }
+
+        /* Aplicando as variáveis */
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            color: var(--cor-primaria);
+        }
+
+        .botao {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .botao:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Alternando entre Tema Claro e Escuro</h1>
+    <p>Clique no botão abaixo para alternar entre os temas.</p>
+
+    <button class="botao" onclick="alternarTema()">Alternar Tema</button>
+
+    <script>
+        function alternarTema() {
+            const html = document.documentElement;
+            if (html.getAttribute("data-tema") === "escuro") {
+                html.removeAttribute("data-tema"); // Volta para o tema claro
+            } else {
+                html.setAttribute("data-tema", "escuro"); // Ativa o tema escuro
+            }
+        }
+    </script>
+
+</body>
+</html>

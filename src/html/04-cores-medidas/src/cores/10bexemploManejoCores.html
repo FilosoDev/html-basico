@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Variáveis no CSS</title>
+    <style>
+        /* Definição das variáveis globais */
+        :root {
+            --cor-primaria: #007BFF;
+            --cor-secundaria: #6C757D;
+            --cor-texto: #333;
+            --cor-fundo: #F8F9FA;
+            --tamanho-fonte: 18px;
+            --espacamento: 10px;
+            --borda-arredondada: 5px;
+        }
+
+        /* Aplicando as variáveis */
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-size: var(--tamanho-fonte);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--cor-primaria);
+        }
+
+        .caixa {
+            background-color: var(--cor-secundaria);
+            color: white;
+            padding: var(--espacamento);
+            border-radius: var(--borda-arredondada);
+            margin: var(--espacamento) 0;
+        }
+
+        .botao {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: var(--espacamento);
+            border: none;
+            border-radius: var(--borda-arredondada);
+            cursor: pointer;
+            font-size: var(--tamanho-fonte);
+        }
+
+        .botao:hover {
+            background-color: darken(var(--cor-primaria), 10%);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplo de Variáveis no CSS</h1>
+
+    <p>As variáveis no CSS permitem definir valores reutilizáveis, tornando o código mais organizado e fácil de manter.</p>
+
+    <h2>Exemplo de Uso</h2>
+
+    <div class="caixa">
+        Este bloco usa a variável <code>--cor-secundaria</code> para o fundo e <code>--cor-texto</code> para o texto.
+    </div>
+
+    <button class="botao">Clique Aqui</button>
+
+</body>
+</html>
