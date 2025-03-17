@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+        .box-content-box {
+            width: 300px;
+            padding: 20px;
+            border: 10px solid #333;
+            margin: 30px;
+            box-sizing: content-box; /* O tamanho da caixa é calculado apenas com o conteúdo */
+            background-color: #f0f0f0;
+        }
+
+        .box-border-box {
+            width: 300px;
+            padding: 20px;
+            border: 10px solid #333;
+            margin: 30px;
+            box-sizing: border-box; /* O tamanho da caixa inclui o conteúdo, padding e border */
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box box-content-box">
+        <p>box-sizing: content-box</p>
+        <p>Width: 300px</p>
+        <p>Padding: 20px</p>
+        <p>Border: 10px</p>
+        <p>Margin: 30px</p>
+    </div>
+
+    <div class="box box-border-box">
+        <p>box-sizing: border-box</p>
+        <p>Width: 300px</p>
+        <p>Padding: 20px</p>
+        <p>Border: 10px</p>
+        <p>Margin: 30px</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Fundo claro */
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .adequate-contrast {
+    color: #333333; /* Cor escura para o texto */
+    background-color: #ffffff; /* Fundo claro */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .insufficient-contrast {
+    color: #b0b0b0; /* Cor clara para o texto */
+    background-color: #ffffff; /* Fundo claro */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  

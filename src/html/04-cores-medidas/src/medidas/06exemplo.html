@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Layout Responsivo</title>
+    <style>
+        /* Reset básico para margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Definindo um fundo e cor de texto padrão */
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Container principal */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3vw; /* Tamanho adaptável ao tamanho da tela */
+        }
+
+        /* Seção de conteúdo */
+        .content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 48%; /* Usando porcentagem para elementos fluidos */
+            background-color: #7fbf7f;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .box img {
+            width: 100%; /* Faz com que as imagens se ajustem ao tamanho do container */
+            border-radius: 8px;
+        }
+
+        /* Media Query para telas menores que 768px */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 5vw; /* Ajuste do tamanho do título para telas menores */
+            }
+
+            .box {
+                width: 100%; /* Faz com que os boxes ocupem 100% da largura em telas pequenas */
+            }
+
+            .container {
+                width: 95%; /* Container ocupa 95% da tela em dispositivos menores */
+            }
+        }
+
+        /* Media Query para telas menores que 480px */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 6vw; /* Maior ajuste do título para telas ainda menores */
+            }
+
+            .box {
+                width: 100%; /* Mantém os boxes ocupando toda a largura */
+            }
+
+            .container {
+                width: 100%; /* Container ocupa toda a tela em dispositivos muito pequenos */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Exemplo de Layout Responsivo</h1>
+        </header>
+
+        <div class="content">
+            <div class="box">
+                <img src="https://via.placeholder.com/500x300" alt="Imagem 1">
+                <p>Box 1</p>
+            </div>
+            <div class="box">
+                <img src="https://via.placeholder.com/500x300" alt="Imagem 2">
+                <p>Box 2</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

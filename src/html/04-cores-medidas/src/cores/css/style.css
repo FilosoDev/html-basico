@@ -1,0 +1,66 @@
+/* Resetando margens e preenchimento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo do corpo */
+    color: #333; /* Cor do texto */
+    padding: 20px;
+  }
+  
+  /* Cabeçalho */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  h1 {
+    color: #2c3e50; /* Cor do título */
+  }
+  
+  /* Seção principal */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Descrição */
+  .description {
+    font-size: 1.2em;
+    color: #7f8c8d; /* Cor de texto mais suave */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para as caixas */
+  .box {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: white; /* Cor do texto dentro das caixas */
+    font-size: 1.1em;
+  }
+  
+  .red-box {
+    background-color: #e74c3c; /* Fundo vermelho */
+  }
+  
+  .blue-box {
+    background-color: #3498db; /* Fundo azul */
+  }
+  
+  .green-box {
+    background-color: #2ecc71; /* Fundo verde */
+  }
+  
+  /* Rodapé */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+  }  

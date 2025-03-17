@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Aspect Ratio</title>
+    <style>
+        /* Definindo um container com aspecto 16:9 */
+        .container-16x9 {
+            width: 100%; /* O container vai ocupar 100% da largura disponível */
+            aspect-ratio: 16 / 9; /* A relação de aspecto é 16:9 */
+            background-color: #4CAF50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Definindo um container com aspecto 1:1 (quadrado) */
+        .container-1x1 {
+            width: 100%; /* O container vai ocupar 100% da largura disponível */
+            aspect-ratio: 1 / 1; /* A relação de aspecto é 1:1 (quadrado) */
+            background-color: #FF6347;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Exemplo de imagem com aspecto fixo */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* A imagem irá cobrir o espaço do container */
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Uso da Propriedade aspect-ratio</h1>
+
+    <div class="container-16x9">
+        <p>Container 16:9</p>
+    </div>
+
+    <div class="container-1x1">
+        <p>Container 1:1 (Quadrado)</p>
+    </div>
+
+    <!-- Exemplo de uma imagem com aspecto 4:3 -->
+    <div style="width: 100%; aspect-ratio: 4 / 3; background-color: #add8e6; display: flex; justify-content: center; align-items: center;">
+        <img src="https://via.placeholder.com/800x600" alt="Imagem com aspecto 4:3">
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulação de Cores em Imagens</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+    }
+
+    /* Contêiner principal */
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 90%;
+      height: 80%;
+    }
+
+    /* Primeira imagem com filtro hue-rotate */
+    .image-container {
+      width: 45%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #ddd;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: filter 0.5s ease;
+    }
+
+    /* Aplicando o filtro hue-rotate */
+    .image-container img {
+      filter: hue-rotate(45deg); /* Rotacionando as cores da imagem em 90 graus */
+    }
+
+    /* Imagem de fundo com cor e blend mode */
+    .background-container {
+      width: 45%;
+      height: 100%;
+      background-image: url('https://www.w3schools.com/w3images/lights.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      background-color: rgba(255, 0, 0, 0.4); /* Cor vermelha com transparência */
+      background-blend-mode: overlay; /* Mistura a cor com a imagem */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Primeira imagem com filter hue-rotate -->
+    <div class="image-container">
+      <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Imagem Manipulada">
+    </div>
+
+    <!-- Segunda imagem de fundo com cor e blend mode -->
+    <div class="background-container">
+      Texto sobre a imagem de fundo
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* Definindo a cor no elemento pai */
+.pai {
+    color: #2c3e50; /* Cor azul escuro */
+    background-color: #ecf0f1; /* Cor de fundo para contraste */
+    padding: 20px;
+  }
+  
+  /* Mudando a cor de um elemento filho específico */
+  .filho {
+    color: #e74c3c; /* Cor vermelha para o texto no filho */
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #bdc3c7; /* Borda para distinguir o filho */
+  }
+  
+  /* Estilo para o título */
+  h1, h2 {
+    font-family: Arial, sans-serif;
+  }
+  

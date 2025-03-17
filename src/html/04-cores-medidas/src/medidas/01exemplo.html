@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades de Medida em CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Pixels (px) */
+        .px {
+            font-size: 20px;
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        /* Em (em) */
+        .em {
+            font-size: 2em; /* 2 vezes o tamanho da fonte do elemento pai */
+            background-color: lightcoral;
+            padding: 1em;
+        }
+
+        /* Rem (rem) */
+        .rem {
+            font-size: 1.5rem; /* 1.5 vezes o tamanho da fonte raiz (default: 16px) */
+            background-color: lightgreen;
+            padding: 1rem;
+        }
+
+        /* Percentuais (%) */
+        .percentual {
+            width: 50%;
+            background-color: lightgoldenrodyellow;
+            padding: 2%;
+        }
+
+        /* Viewport Width (vw) e Viewport Height (vh) */
+        .viewport {
+            width: 50vw; /* 50% da largura da viewport */
+            height: 20vh; /* 20% da altura da viewport */
+            background-color: lightpink;
+            padding: 1vw;
+        }
+
+        /* Pontos (pt), Picas (pc), Inches (in), Centímetros (cm) e Milímetros (mm) */
+        .pt {
+            font-size: 15pt;
+            background-color: lightgray;
+            padding: 5pt;
+        }
+
+        .pc {
+            font-size: 2pc; /* 1pc = 12pt */
+            background-color: lightsteelblue;
+            padding: 1pc;
+        }
+
+        .inch {
+            font-size: 1in; /* 1in = 96px */
+            background-color: lightseagreen;
+            padding: 0.5in;
+        }
+
+        .cm {
+            font-size: 2cm;
+            background-color: lightsalmon;
+            padding: 1cm;
+        }
+
+        .mm {
+            font-size: 20mm;
+            background-color: lightcyan;
+            padding: 5mm;
+        }
+
+        /* Ex (ex) e Ch (ch) */
+        .ex {
+            font-size: 2ex; /* Altura relativa à altura do 'x' da fonte */
+            background-color: lightskyblue;
+            padding: 1ex;
+        }
+
+        .ch {
+            font-size: 10ch; /* Largura baseada no caractere "0" da fonte */
+            background-color: lightgoldenrodyellow;
+            padding: 1ch;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Unidades de Medida em CSS</h2>
+
+    <div class="px">Este texto tem tamanho definido em pixels (px).</div>
+    <div class="em">Este texto usa unidade relativa em (em).</div>
+    <div class="rem">Este texto usa rem, baseado na raiz.</div>
+    <div class="percentual">Este bloco tem largura e padding em percentual (%).</div>
+    <div class="viewport">Este bloco usa viewport width (vw) e height (vh).</div>
+    <div class="pt">Este texto tem tamanho definido em pontos (pt).</div>
+    <div class="pc">Este texto usa picas (pc).</div>
+    <div class="inch">Este texto tem tamanho definido em polegadas (in).</div>
+    <div class="cm">Este texto tem tamanho em centímetros (cm).</div>
+    <div class="mm">Este texto tem tamanho em milímetros (mm).</div>
+    <div class="ex">Este texto usa ex (altura do 'x').</div>
+    <div class="ch">Este texto usa ch (largura do '0').</div>
+
+</body>
+</html>
