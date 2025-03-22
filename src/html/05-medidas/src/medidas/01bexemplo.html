@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Unidades de Medida</title>
+    <style>
+        :root {--tamanho-altura: 200px; --tamanho-largura: 200px;}
+        .box {
+            border: 2px solid black;
+            margin: 10px; padding: 10px;
+            display: flex; /* Usa flexbox para centralizar o conteúdo */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+        }
+        .linha {
+            display: flex; /* Cria uma linha flexível */
+            justify-content: space-around; /* Distribui o espaço entre as divs */
+            margin-bottom: 20px; /* Espaço entre as linhas */
+        }
+        .tamanho { width: var(--tamanho-largura); height: var(--tamanho-altura); }
+        .pt { font-size: 12pt; background-color: lightblue; }
+        .pc { font-size: 1pc; background-color: lightgreen; }
+        .in { font-size: 1in; background-color: lightcoral; }
+        .cm { font-size: 1cm; background-color: lightgoldenrodyellow; }
+        .mm { font-size: 10mm; background-color: lightgray; }
+    </style>
+</head>
+<body>
+    <h2>Exemplo de Unidades de Medida</h2>
+    <div class="linha">
+        <div class="box tamanho pt">12pt</div>
+        <div class="box tamanho pc">1pc</div>
+        <div class="box tamanho in">1in</div>
+    </div>
+    <div class="linha">
+        <div class="box tamanho cm">1cm</div>
+        <div class="box tamanho mm">10mm</div>
+    </div>
+</body>
+</html>
