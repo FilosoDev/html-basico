@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de ex e ch</title>
+    <style>
+        body {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 20ch; /* Baseado na largura do "0" */
+            height: 10ex; /* Baseado na altura do "x" */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            margin: 10px;
+        }
+
+        .arial { font-family: Arial, sans-serif; background-color: lightblue; }
+        .times { font-family: "Times New Roman", serif; background-color: lightcoral; }
+        .monospace { font-family: "Courier New", monospace; background-color: lightgreen; }
+    </style>
+</head>
+<body>
+
+    <h2>Comparação de ex e ch em Diferentes Fontes</h2>
+    <p>As caixas abaixo têm <strong>20ch</strong> de largura e <strong>10ex</strong> de altura, mas variam dependendo da fonte.</p>
+
+    <div class="container">
+        <div class="box arial">Arial</div>
+        <div class="box times">Times New Roman</div>
+        <div class="box monospace">Courier New</div>
+    </div>
+
+</body>
+</html>
