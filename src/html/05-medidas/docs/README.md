@@ -602,6 +602,165 @@ Exemplo:
 ```
 Agora, o elemento tem **30px de margem em todas as direções**, o que significa que ele estará mais afastado de outros elementos ao seu redor.
 
+
+### Propriedade Position
+
+O `position` no CSS é uma propriedade usada para definir como um elemento deve ser posicionado na página. Ele possui cinco valores principais:
+
+1. **`static`** (padrão)  
+2. **`relative`** (relativo)  
+3. **`absolute`** (absoluto)  
+4. **`fixed`** (fixo)  
+5. **`sticky`** (grudado)  
+
+---
+
+### 1. `static` (padrão)
+Os elementos com `position: static;` seguem o fluxo normal da página e **não podem ser deslocados** usando `top`, `left`, `right` ou `bottom`.
+
+```css
+.box {
+  position: static;
+  background-color: lightblue;
+  width: 200px;
+  height: 100px;
+}
+```
+
+---
+
+### 2. `relative` (relativo)
+O elemento fica **no mesmo lugar que teria com `static`**, mas pode ser deslocado com `top`, `left`, `right` ou `bottom`.
+
+```css
+.box {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background-color: lightgreen;
+  width: 200px;
+  height: 100px;
+}
+```
+📌 *O elemento é deslocado 20px para baixo e 30px para a direita, mas ainda ocupa seu espaço original na página.*
+
+---
+
+### 3. `absolute` (absoluto)
+O elemento **sai do fluxo normal da página** e é posicionado **em relação ao elemento pai mais próximo que não seja `static`**. Se não houver um ancestral posicionado, ele será relativo ao `<html>`.
+
+```css
+.container {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-color: lightgray;
+}
+
+.box {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-color: coral;
+  width: 100px;
+  height: 100px;
+}
+```
+
+📌 *Aqui, `.box` está posicionado 50px abaixo e 50px à direita dentro de `.container`.*
+
+---
+
+### 4. `fixed` (fixo)
+O elemento fica fixo na tela, independente do scroll.
+
+```css
+.box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: yellow;
+  width: 100px;
+  height: 50px;
+}
+```
+
+📌 *Esse elemento ficará sempre no canto superior direito, mesmo que a página role.*
+
+---
+
+### 5. `sticky` (grudado)
+O elemento age como `relative` até atingir um determinado ponto da página, depois se torna `fixed`.
+
+```css
+.box {
+  position: sticky;
+  top: 10px;
+  background-color: pink;
+  width: 100px;
+  height: 50px;
+}
+```
+
+📌 *O elemento se move com a página até chegar a `top: 10px`, depois fica fixo.*
+
+---
+
+### Exemplo Completo:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Position</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: lightgray;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: coral;
+            width: 100px;
+            height: 100px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: yellow;
+            width: 100px;
+            height: 50px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 20px;
+            background-color: pink;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="absolute">Absolute</div>
+    </div>
+    <div class="fixed">Fixed</div>
+    <div class="sticky">Sticky</div>
+    <p style="height: 1000px;">Role a página para ver o efeito do sticky e fixed!</p>
+</body>
+</html>
+```
+
 ---
 
 ## **3. A Propriedade `box-sizing`**
