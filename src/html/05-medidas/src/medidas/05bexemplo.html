@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Shrink Explicação</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: lightgray;
+            padding: 10px;
+            width: 300px; /* Container pequeno para forçar a redução */
+            border: 2px solid black;
+            overflow: hidden; /* Para evitar scroll */
+        }
+
+        .item {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            width: 150px; /* Tamanho inicial maior que o container */
+        }
+
+        .item:nth-child(1) { flex-shrink: 1; } /* Reduz normal */
+        .item:nth-child(2) { flex-shrink: 2; } /* Reduz o dobro dos outros */
+        .item:nth-child(3) { flex-shrink: 1; } /* Reduz normal */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item">Item 1 (1x)</div>
+        <div class="item">Item 2 (2x)</div>
+        <div class="item">Item 3 (1x)</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Position</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: lightgray;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: coral;
+            width: 100px;
+            height: 100px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: yellow;
+            width: 100px;
+            height: 50px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 10px;
+            background-color: pink;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="absolute">Absolute</div>
+    </div>
+    <div class="fixed">Fixed</div>
+    <div class="sticky">Sticky</div>
+    <p style="height: 1000px;">Role a página para ver o efeito do sticky e fixed!</p>
+</body>
+</html>
