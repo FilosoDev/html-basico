@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de align-items</title>
+    <style>
+        .container {
+            display: flex;
+            height: 200px;
+            border: 2px solid #000;
+            align-items: center; /* Alinha os itens no centro verticalmente */
+            justify-content: center; /* Alinha os itens no centro horizontalmente */
+        }
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: lightblue;
+            margin: 5px;
+        }
+        .container-stretch {
+            display: flex;
+            height: 200px;
+            border: 2px solid #000;
+            align-items: stretch; /* Estica os itens para preencher o container verticalmente */
+            justify-content: center; /* Alinha os itens no centro horizontalmente */
+        }
+        .item-stretch {
+            width: 50px;
+            background-color: lightcoral;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="container-stretch">
+        <div class="item-stretch"></div>
+        <div class="item-stretch"></div>
+        <div class="item-stretch"></div>
+</body>
+</html>
