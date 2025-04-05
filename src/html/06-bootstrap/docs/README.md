@@ -1935,3 +1935,87 @@ Agora você está no nível **avançado** no Bootstrap! 🚀
 ✅ **Otimizamos o CSS para desempenho**  
 ✅ **Usamos JavaScript para criar modais dinâmicos**  
 ✅ **Aplicamos Bootstrap em dashboards empresariais**  
+
+## Arquivos boostrap
+
+Claro! Ao baixar o **Bootstrap** (por exemplo, a versão 5.3.5), o pacote vem normalmente com a seguinte estrutura de pastas e arquivos.
+
+---
+
+## 📦 Estrutura típica do Bootstrap baixado manualmente
+
+```plaintext
+bootstrap-5.3.5-dist/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   ├── bootstrap.min.css.map
+│   ├── bootstrap-grid.css
+│   ├── bootstrap-grid.css.map
+│   ├── bootstrap-grid.min.css
+│   ├── bootstrap-grid.min.css.map
+│   ├── bootstrap-reboot.css
+│   ├── bootstrap-reboot.css.map
+│   ├── bootstrap-reboot.min.css
+│   ├── bootstrap-reboot.min.css.map
+│   ├── bootstrap-utilities.css
+│   ├── bootstrap-utilities.css.map
+│   ├── bootstrap-utilities.min.css
+│   ├── bootstrap-utilities.min.css.map
+├── js/
+│   ├── bootstrap.js
+│   ├── bootstrap.js.map
+│   ├── bootstrap.min.js
+│   ├── bootstrap.min.js.map
+│   ├── bootstrap.bundle.js
+│   ├── bootstrap.bundle.js.map
+│   ├── bootstrap.bundle.min.js
+│   ├── bootstrap.bundle.min.js.map
+```
+
+---
+
+## 📁 Explicação dos diretórios e arquivos
+
+### 📁 `css/` – Arquivos de Estilo
+
+| Arquivo                         | Descrição |
+|----------------------------------|-----------|
+| `bootstrap.css`                 | Versão **completa não minificada** do CSS do Bootstrap |
+| `bootstrap.min.css`             | Versão **completa e minificada** para produção |
+| `bootstrap-grid.css`            | Apenas o sistema de **grid/layout**, não minificado |
+| `bootstrap-grid.min.css`        | Grid minificado |
+| `bootstrap-reboot.css`          | CSS de **reset/reboot** (estiliza elementos padrão) |
+| `bootstrap-reboot.min.css`      | Reboot minificado |
+| `bootstrap-utilities.css`       | Somente **utilitários CSS** (ex: `.p-3`, `.d-none`, `.text-center`) |
+| `bootstrap-utilities.min.css`   | Utilitários minificados |
+| `*.map`                         | Arquivos de **source map** (para depuração em dev tools) |
+
+---
+
+### 📁 `js/` – Scripts JavaScript
+
+| Arquivo                           | Descrição |
+|----------------------------------|-----------|
+| `bootstrap.js`                   | Código JavaScript completo, não minificado |
+| `bootstrap.min.js`               | JavaScript minificado (❌ **não** inclui Popper.js) |
+| `bootstrap.bundle.js`            | JS **+ Popper.js incluído**, não minificado |
+| `bootstrap.bundle.min.js`        | Bundle minificado (**✅ recomendado**) |
+| `*.map`                          | Source map para depuração JS |
+
+---
+
+## ✅ Recomendado para uso básico:
+
+- CSS:  
+  ```html
+  <link href="bootstrap-5.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+  ```
+
+- JS:  
+  ```html
+  <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+  ```
+
+---
