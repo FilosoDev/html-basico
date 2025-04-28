@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo getElementById</title>
+</head>
+<body>
+    <h1 id="titulo">Olá, Mundo!</h1>
+    <button id="botao" onclick="exibirMensagem()">Clique aqui</button>
+
+    <script>
+        function exibirMensagem() {
+            const titulo = document.getElementById('titulo');
+            console.log(titulo);  // Exibe o elemento <h1 id="titulo">
+
+            const botao = document.getElementById('botao');
+            console.log(botao);  // Exibe o elemento <button id="botao">
+        }
+    </script>
+</body>
+</html>
