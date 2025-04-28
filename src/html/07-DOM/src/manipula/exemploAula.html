@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <title>Manipulação de Estilos com DOM</title>
+  <meta charset="UTF-8">
+  <title>Exemplo de Remoção</title>
 </head>
 <body>
-  <h1>Exemplos de Alteração de Estilo com DOM</h1>
 
-  <style>
-    .ativo {
-      background-color: green;
-      color: white;
-      padding: 10px;
-    }
-  </style>
-  
-  <button id="alternar">Ativar/Desativar Estilo</button>
-  
-  <script>
-    const botao = document.getElementById('alternar');
-  
-    botao.addEventListener('click', function() {
-      botao.classList.toggle('ativo');
-    });
-  </script>  
-  
+<div id="container">
+  <p id="paragrafo">Este parágrafo será removido!</p>
+  <button id="removerBtn">Remover Parágrafo</button>
+</div>
+
+<script>
+  const botao = document.getElementById('removerBtn');
+  const paragrafo = document.getElementById('paragrafo');
+
+  botao.addEventListener('click', function() {
+    // Remove o parágrafo quando o botão for clicado
+    paragrafo.remove(); 
+  });
+</script>
+
 </body>
 </html>

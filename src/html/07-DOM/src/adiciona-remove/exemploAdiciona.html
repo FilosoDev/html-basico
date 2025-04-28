@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de Adicionar Elementos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 10px;
+    }
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Adicionar Elementos no DOM</h1>
+
+<button id="addParagrafo">Adicionar Parágrafo</button>
+<button id="addLista">Adicionar Item na Lista</button>
+<button id="addImagem">Adicionar Imagem</button>
+
+<div id="container">
+  <h2>Área para novos elementos:</h2>
+  <ul id="lista">
+    <!-- Itens novos serão adicionados aqui -->
+  </ul>
+</div>
+
+<script>
+  // Adicionar um parágrafo novo
+  const botaoParagrafo = document.getElementById('addParagrafo');
+  botaoParagrafo.addEventListener('click', function() {
+    const novoParagrafo = document.createElement('p');
+    novoParagrafo.textContent = 'Este é um novo parágrafo criado dinamicamente!';
+    const container = document.getElementById('container');
+    container.appendChild(novoParagrafo);
+  });
+
+  // Adicionar um novo item à lista
+  const botaoLista = document.getElementById('addLista');
+  botaoLista.addEventListener('click', function() {
+    const novoItem = document.createElement('li');
+    novoItem.textContent = 'Novo item de lista adicionado!';
+    const lista = document.getElementById('lista');
+    lista.appendChild(novoItem);
+  });
+
+  // Adicionar uma nova imagem
+  const botaoImagem = document.getElementById('addImagem');
+  botaoImagem.addEventListener('click', function() {
+    const novaImagem = document.createElement('img');
+    novaImagem.src = 'https://via.placeholder.com/120';
+    novaImagem.alt = 'Imagem dinâmica';
+    novaImagem.style.display = 'block';
+    novaImagem.style.marginTop = '10px';
+    const container = document.getElementById('container');
+    container.appendChild(novaImagem);
+  });
+</script>
+
+</body>
+</html>
