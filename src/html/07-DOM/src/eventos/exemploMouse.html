@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos de Mouse - Exemplo Completo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .caixa {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      display: inline-block;
+      text-align: center;
+      line-height: 200px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    #click { background-color: #3498db; }
+    #dblclick { background-color: #e67e22; }
+    #mousedown { background-color: #2ecc71; }
+    #mouseup { background-color: #9b59b6; }
+    #mouseover { background-color: #1abc9c; }
+    #mouseout { background-color: #f1c40f; color: black; }
+    #mousemove { background-color: #e74c3c; }
+    #contextmenu { background-color: #34495e; }
+    #info {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Exemplos de Eventos de Mouse</h1>
+  <p id="info">Interaja com os quadrados para ver os eventos.</p>
+
+  <div id="click" class="caixa">Click</div>
+  <div id="dblclick" class="caixa">Double Click</div>
+  <div id="mousedown" class="caixa">Mouse Down</div>
+  <div id="mouseup" class="caixa">Mouse Up</div>
+  <div id="mouseover" class="caixa">Mouse Over</div>
+  <div id="mouseout" class="caixa">Mouse Out</div>
+  <div id="mousemove" class="caixa">Mouse Move</div>
+  <div id="contextmenu" class="caixa">Botão Direito</div>
+
+  
+  <script>
+    const info = document.getElementById('info');
+
+    // Click
+    document.getElementById('click').addEventListener('click', function() {
+      info.textContent = 'Você clicou no quadrado azul!';
+    });
+
+    // Double Click
+    document.getElementById('dblclick').addEventListener('dblclick', function() {
+      info.textContent = 'Você deu um duplo clique no quadrado laranja!';
+    });
+
+    // Mouse Down
+    document.getElementById('mousedown').addEventListener('mousedown', function() {
+      info.textContent = 'Você pressionou o mouse no quadrado verde!';
+    });
+
+    // Mouse Up
+    document.getElementById('mouseup').addEventListener('mouseup', function() {
+      info.textContent = 'Você soltou o botão do mouse no quadrado roxo!';
+    });
+
+    // Mouse Over
+    document.getElementById('mouseover').addEventListener('mouseover', function() {
+      info.textContent = 'O mouse entrou no quadrado verde água!';
+    });
+
+    // Mouse Out
+    document.getElementById('mouseout').addEventListener('mouseout', function() {
+      info.textContent = 'O mouse saiu do quadrado amarelo!';
+    });
+
+    // Mouse Move
+    document.getElementById('mousemove').addEventListener('mousemove', function(event) {
+      info.textContent = `Movendo o mouse no quadrado vermelho! (X: ${event.offsetX}, Y: ${event.offsetY})`;
+    });
+
+    // Context Menu (Botão Direito)
+    document.getElementById('contextmenu').addEventListener('contextmenu', function(event) {
+      event.preventDefault(); // Impede abrir o menu padrão
+      info.textContent = 'Você clicou com o botão direito no quadrado cinza!';
+    });
+  </script>
+
+</body>
+</html>
