@@ -1607,7 +1607,150 @@ Com a manipulação desse evento, você pode:
 2. Impedir o envio do formulário caso os dados não sejam válidos.
 3. Enviar os dados via Ajax para um servidor sem recarregar a página.
 
-Essa abordagem ajuda a criar formulários mais rápidos e eficientes, melhorando a experiência do usuário.
+Aqui está um exemplo completo em HTML que utiliza o evento de envio de formulário (`submit`) com validação de dados e envio via Ajax. Este exemplo inclui um formulário de feedback que valida os campos antes de enviar os dados para o servidor usando a **Fetch API**.
+
+### **Exemplo Completo: Formulário de Feedback com Validação e Envio via Ajax**
+
+#### **HTML (index.html)**:
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Formulário com Ajax</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #mensagem {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulário de Feedback</h2>
+    <div class="form-container">
+        <form id="formulario">
+            <label for="feedback">Seu Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br><br>
+            <button type="submit">Enviar Feedback</button>
+        </form>
+
+        <div id="mensagem"></div> <!-- Aqui será exibida a resposta do servidor -->
+    </div>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const mensagemDiv = document.getElementById('mensagem');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const feedback = document.getElementById('feedback').value.trim();
+
+            // Verificando se o campo de feedback está vazio
+            if (!feedback) {
+                mensagemDiv.textContent = 'Por favor, insira seu feedback!';
+                mensagemDiv.style.color = 'red';
+                return;
+            }
+
+            // Limpar a mensagem de erro
+            mensagemDiv.textContent = '';
+
+            // Enviando os dados via Fetch API (Ajax)
+            fetch('processar_feedback.php', {
+                method: 'POST',
+                body: JSON.stringify({ feedback: feedback }),  // Enviando dados em formato JSON
+                headers: {
+                    'Content-Type': 'application/json'  // Informando que estamos enviando JSON
+                }
+            })
+            .then(response => response.json())  // Processando a resposta JSON do servidor
+            .then(data => {
+                // Exibindo a mensagem retornada pelo servidor
+                if (data.sucesso) {
+                    mensagemDiv.textContent = data.mensagem;
+                    mensagemDiv.style.color = 'green';
+                } else {
+                    mensagemDiv.textContent = data.mensagem;
+                    mensagemDiv.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                mensagemDiv.textContent = 'Erro ao enviar feedback. Tente novamente mais tarde.';
+                mensagemDiv.style.color = 'red';
+            });
+        });
+    </script>
+
+</body>
+</html>
+```
+
+#### **PHP (processar_feedback.php)**:
+O código PHP a seguir simula o processamento do feedback no servidor. Ele responde com uma mensagem JSON indicando se o envio foi bem-sucedido.
+
+```php
+<?php
+// Definindo o cabeçalho para JSON
+header('Content-Type: application/json');
+
+// Obtendo os dados JSON enviados
+$data = json_decode(file_get_contents('php://input'), true);
+
+// Verificando se o feedback foi recebido
+if (isset($data['feedback']) && !empty($data['feedback'])) {
+    // Simulando processamento bem-sucedido
+    echo json_encode([
+        'sucesso' => true,
+        'mensagem' => 'Obrigado pelo seu feedback! Ele foi enviado com sucesso.'
+    ]);
+} else {
+    // Caso o feedback não tenha sido enviado ou esteja vazio
+    echo json_encode([
+        'sucesso' => false,
+        'mensagem' => 'Erro: O feedback não pode estar vazio.'
+    ]);
+}
+?>
+```
+
+### **O que acontece neste exemplo?**
+
+1. **HTML**: O formulário contém um campo de texto (`<textarea>`) onde o usuário pode digitar seu feedback e um botão de envio. O formulário é interceptado pelo JavaScript para validar e enviar os dados via Ajax sem recarregar a página.
+   
+2. **JavaScript**:
+   - O evento `submit` é capturado pelo `addEventListener`. Dentro da função de callback, a validação é realizada para garantir que o campo de feedback não esteja vazio.
+   - Se o campo estiver vazio, uma mensagem de erro é exibida. Caso contrário, a mensagem de erro é limpa e os dados são enviados ao servidor utilizando a **Fetch API**.
+   - A resposta do servidor é manipulada no método `then`, onde a mensagem de sucesso ou erro é exibida na página, dependendo da resposta do servidor.
+
+3. **PHP**: O servidor (simulado com PHP) processa o feedback, retorna uma mensagem de sucesso ou erro e responde em formato JSON. O JavaScript captura e exibe essa mensagem na página.
+
+Este exemplo completo demonstra como usar o evento de envio de formulário para capturar a interação do usuário, validar os dados do formulário, e enviar os dados ao servidor utilizando Ajax para melhorar a experiência do usuário sem recarregar a página.
 
 ---
 
