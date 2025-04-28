@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos de Alteração de DOM</title>
+  <style>
+    .destaque {
+      background-color: yellow;
+    }
+    .ativo {
+      border: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="titulo">Título original</h1>
+  <p id="paragrafo">Texto original do parágrafo.</p>
+
+  <input id="inputExemplo" type="text" value="Valor inicial">
+  <br><br>
+
+  <button onclick="alterarInnerText()">Alterar innerText</button>
+  <button onclick="alterarInnerHTML()">Alterar innerHTML</button>
+  <button onclick="alterarTextContent()">Alterar textContent</button>
+  <button onclick="alterarStyle()">Alterar Estilo</button>
+  <button onclick="alterarAtributo()">Alterar Atributo</button>
+  <button onclick="adicionarClasse()">Adicionar Classe</button>
+  <button onclick="removerClasse()">Remover Classe</button>
+  <button onclick="alterarValorInput()">Alterar Valor do Input</button>
+
+  <script>
+    function alterarInnerText() {
+      const titulo = document.getElementById("titulo");
+      titulo.innerText = "Texto alterado com innerText";
+    }
+
+    function alterarInnerHTML() {
+      const paragrafo = document.getElementById("paragrafo");
+      paragrafo.innerHTML = "<strong>Texto em negrito com innerHTML</strong>";
+    }
+
+    function alterarTextContent() {
+      const paragrafo = document.getElementById("paragrafo");
+      paragrafo.textContent = "Texto alterado usando textContent (sem HTML)";
+    }
+
+    function alterarStyle() {
+      const titulo = document.getElementById("titulo");
+      titulo.style.color = "blue";
+      titulo.style.fontSize = "30px";
+    }
+
+    function alterarAtributo() {
+      const titulo = document.getElementById("titulo");
+      titulo.setAttribute("title", "Título atualizado com atributo 'title'");
+      alert("Atributo 'title' adicionado! Passe o mouse sobre o título.");
+    }
+
+    function adicionarClasse() {
+      const paragrafo = document.getElementById("paragrafo");
+      paragrafo.classList.add("destaque");
+    }
+
+    function removerClasse() {
+      const paragrafo = document.getElementById("paragrafo");
+      paragrafo.classList.remove("destaque");
+    }
+
+    function alterarValorInput() {
+      const input = document.getElementById("inputExemplo");
+      input.value = "Novo valor no input!";
+    }
+  </script>
+
+</body>
+</html>
