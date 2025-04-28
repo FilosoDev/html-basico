@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos de Manipulação de Conteúdo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .caixa {
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+    button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="titulo">Título Original</h1>
+
+  <div class="caixa" id="caixa">
+    Aqui é a caixa de texto inicial.
+  </div>
+
+  <input type="text" id="campoTexto" value="Valor Inicial">
+  <br><br>
+
+  <button onclick="mudarTitulo()">Alterar Título (textContent)</button>
+  <button onclick="alterarCaixa()">Alterar Caixa (innerHTML)</button>
+  <button onclick="alterarCampo()">Alterar Campo (value)</button>
+  <button onclick="mostrarCampo()">Mostrar Valor do Campo</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function mudarTitulo() {
+      const titulo = document.getElementById('titulo');
+      titulo.textContent = 'Título alterado com textContent!';
+    }
+
+    function alterarCaixa() {
+      const caixa = document.getElementById('caixa');
+      caixa.innerHTML = '<strong>Texto mudado com HTML!</strong> Agora tem <em>formatação</em>.';
+    }
+
+    function alterarCampo() {
+      const campo = document.getElementById('campoTexto');
+      campo.value = 'Novo valor definido via JavaScript';
+    }
+
+    function mostrarCampo() {
+      const campo = document.getElementById('campoTexto');
+      const resultado = document.getElementById('resultado');
+      resultado.textContent = 'Valor atual do campo: ' + campo.value;
+    }
+  </script>
+
+</body>
+</html>

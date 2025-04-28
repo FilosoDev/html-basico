@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Manipulação de Estilos com DOM</title>
+</head>
+<body>
+  <h1>Exemplos de Alteração de Estilo com DOM</h1>
+
+  <style>
+    .ativo {
+      background-color: green;
+      color: white;
+      padding: 10px;
+    }
+  </style>
+  
+  <button id="alternar">Ativar/Desativar Estilo</button>
+  
+  <script>
+    const botao = document.getElementById('alternar');
+  
+    botao.addEventListener('click', function() {
+      botao.classList.toggle('ativo');
+    });
+  </script>  
+  
+</body>
+</html>
