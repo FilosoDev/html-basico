@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Formulário com Ajax</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #mensagem {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulário de Feedback</h2>
+    <div class="form-container">
+        <form id="formulario">
+            <label for="feedback">Seu Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br><br>
+            <button type="submit">Enviar Feedback</button>
+        </form>
+
+        <div id="mensagem"></div> <!-- Aqui será exibida a resposta do servidor -->
+    </div>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const mensagemDiv = document.getElementById('mensagem');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const feedback = document.getElementById('feedback').value.trim();
+
+            // Verificando se o campo de feedback está vazio
+            if (!feedback) {
+                mensagemDiv.textContent = 'Por favor, insira seu feedback!';
+                mensagemDiv.style.color = 'red';
+                return;
+            }
+
+            // Limpar a mensagem de erro
+            mensagemDiv.textContent = '';
+
+            // Enviando os dados via Fetch API (Ajax)
+            fetch('processar_feedback.php', {
+                method: 'POST',
+                body: JSON.stringify({ feedback: feedback }),  // Enviando dados em formato JSON
+                headers: {
+                    'Content-Type': 'application/json'  // Informando que estamos enviando JSON
+                }
+            })
+            .then(response => response.json())  // Processando a resposta JSON do servidor
+            .then(data => {
+                // Exibindo a mensagem retornada pelo servidor
+                if (data.sucesso) {
+                    mensagemDiv.textContent = data.mensagem;
+                    mensagemDiv.style.color = 'green';
+                } else {
+                    mensagemDiv.textContent = data.mensagem;
+                    mensagemDiv.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                mensagemDiv.textContent = 'Erro ao enviar feedback. Tente novamente mais tarde.';
+                mensagemDiv.style.color = 'red';
+            });
+        });
+    </script>
+
+</body>
+</html>

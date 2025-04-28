@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo getElementsByClassName</title>
+</head>
+<body>
+    <p class="paragrafo">Parágrafo 1</p>
+    <p class="paragrafo">Parágrafo 2</p>
+    <p class="paragrafo">Parágrafo 3</p>
+
+    <button id="botao" onclick="exibirMensagem()">Clique aqui</button>
+
+    <script>
+        function exibirMensagem() {
+            const paragrafos = document.getElementsByClassName('paragrafo');
+            // Retorna uma coleção de todos os elementos com a classe "paragrafo"
+            console.log(paragrafos);  
+            
+            // Acessando um item específico na coleção
+            console.log(paragrafos[1]);  // Exibe o segundo parágrafo
+
+            // Acessando um item específico na coleção
+            console.log(paragrafos[2]);  // Exibe o terceiro parágrafo
+        }
+    </script>
+</body>
+</html>

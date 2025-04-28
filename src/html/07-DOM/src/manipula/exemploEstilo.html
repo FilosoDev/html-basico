@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulação de Estilos com DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    .estilo-destacado {
+      background-color: yellow;
+      color: red;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .ativo {
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .bloco {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Exemplos de Alteração de Estilo com DOM</h1>
+
+  <!-- Exemplo 1: Mudando Estilo com .style -->
+  <div class="bloco">
+    <h2>1. Alterando Estilo Diretamente</h2>
+    <button id="botao-style">Clique para mudar cor</button>
+  </div>
+
+  <!-- Exemplo 2: Adicionando Classe com classList.add -->
+  <div class="bloco">
+    <h2>2. Adicionando Classe CSS</h2>
+    <p id="texto-classe">Este é um texto normal.</p>
+    <button id="botao-classe">Destacar Texto</button>
+  </div>
+
+  <!-- Exemplo 3: Alternando Classe com classList.toggle -->
+  <div class="bloco">
+    <h2>3. Alternando Classe (Ativar/Desativar)</h2>
+    <button id="botao-toggle">Ativar/Desativar Estilo</button>
+  </div>
+
+  <script>
+    // Exemplo 1: Alterando estilo diretamente
+    const botaoStyle = document.getElementById('botao-style');
+    botaoStyle.addEventListener('click', function() {
+      botaoStyle.style.backgroundColor = 'blue';
+      botaoStyle.style.color = 'white';
+      botaoStyle.style.fontSize = '20px';
+      botaoStyle.style.padding = '10px';
+    });
+
+    // Exemplo 2: Adicionando uma classe
+    const textoClasse = document.getElementById('texto-classe');
+    const botaoClasse = document.getElementById('botao-classe');
+    botaoClasse.addEventListener('click', function() {
+      textoClasse.classList.add('estilo-destacado');
+    });
+
+    // Exemplo 3: Alternando uma classe
+    const botaoToggle = document.getElementById('botao-toggle');
+    botaoToggle.addEventListener('click', function() {
+      botaoToggle.classList.toggle('ativo');
+    });
+  </script>
+
+</body>
+</html>

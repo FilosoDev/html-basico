@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo querySelector</title>
+</head>
+<body>
+    <div class="caixa">Caixa 1</div>
+    <div class="caixa">Caixa 2</div>
+    <div class="caixa">Caixa 3</div>
+    <button id="botao" onclick="exibirMensagem()">Clique aqui</button>
+    <script>
+        function exibirMensagem() {
+            // Exibe o **primeiro** <div class="caixa">
+            const caixa = document.querySelector('.caixa');
+            console.log(caixa);  
+            // Retorna uma NodeList de todos os elementos com a classe "caixa"
+            const caixas = document.querySelectorAll('.caixa');
+            // Exibe todos os elementos com a classe "caixa"
+            console.log(caixas);   
+            
+            // Acessando um item específico na NodeList
+            // Exibe o segundo elemento com a classe "caixa"
+            console.log(caixas[1]);  
+        }
+    </script>
+</body>
+</html>

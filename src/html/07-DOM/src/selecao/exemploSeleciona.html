@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo getElementById</title>
+</head>
+<body>
+    <h1 id="titulo">Olá, Mundo!</h1>
+    <button id="botao">Clique aqui</button>
+
+    <p class="paragrafo">Parágrafo 1</p>
+    <p class="paragrafo">Parágrafo 2</p>
+    <p class="paragrafo">Parágrafo 3</p>
+
+    <div class="caixa">Caixa 1</div>
+    <div class="caixa">Caixa 2</div>
+    <div class="caixa">Caixa 3</div>
+
+    <script>
+        // Selecionando elementos do DOM por querySelector e getElementsByClassName
+        // querySelector retorna o **primeiro** elemento que corresponde ao seletor CSS
+        const caixa = document.querySelector('.caixa');
+        console.log(caixa);  // Exibe o **primeiro** <div class="caixa">
+        // querySelectorAll retorna uma **NodeList** com todos os elementos que correspondem ao seletor CSS
+        const caixas = document.querySelectorAll('.caixa');
+        console.log(caixas);  // Retorna uma NodeList com todos os elementos <div class="caixa">
+        // Acessando um item específico na NodeList
+        console.log(caixas[1]);  // Exibe o segundo <div class="caixa">
+            
+        const paragrafos = document.getElementsByClassName('paragrafo');
+        console.log(paragrafos);  // Retorna uma coleção de todos os elementos <p> com a classe "paragrafo"
+        
+        // Acessando um item específico na coleção
+        console.log(paragrafos[1]);  // Exibe o segundo parágrafo
+
+        const titulo = document.getElementById('titulo');
+        console.log(titulo);  // Exibe o elemento <h1 id="titulo">
+        
+        const botao = document.getElementById('botao');
+        console.log(botao);  // Exibe o elemento <button id="botao">
+    </script>
+</body>
+</html>

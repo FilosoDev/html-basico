@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos de Remover Elementos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .item {
+      background-color: #f0f0f0;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Exemplos de Remover Elementos</h1>
+
+<!-- Primeiro exemplo: Remover com .remove() -->
+<div id="item1" class="item">
+  Item 1 - <button onclick="removerItem1()">Remover (com .remove())</button>
+</div>
+
+<!-- Segundo exemplo: Remover com parentNode.removeChild() -->
+<div id="item2" class="item">
+  Item 2 - <button onclick="removerItem2()">Remover (com parentNode.removeChild())</button>
+</div>
+
+<!-- Terceiro exemplo: Remover o primeiro item da lista -->
+<ul id="lista" class="item">
+  <li>Item da Lista 1</li>
+  <li>Item da Lista 2</li>
+  <li>Item da Lista 3</li>
+</ul>
+<button onclick="removerPrimeiroDaLista()">Remover Primeiro da Lista</button>
+
+<!-- Quarto exemplo: Remover todos os itens -->
+<div id="itensParaRemover" class="item">
+  <p>Item A</p>
+  <p>Item B</p>
+  <p>Item C</p>
+</div>
+<button onclick="removerTodosItens()">Remover Todos Itens</button>
+
+<script>
+  // Removendo usando .remove()
+  function removerItem1() {
+    const item1 = document.getElementById('item1');
+    item1.remove();
+  }
+
+  // Removendo usando parentNode.removeChild()
+  function removerItem2() {
+    const item2 = document.getElementById('item2');
+    if (item2.parentNode) {
+      item2.parentNode.removeChild(item2);
+    }
+  }
+
+  // Remover o primeiro item da lista
+  function removerPrimeiroDaLista() {
+    const lista = document.getElementById('lista');
+    const primeiroItem = lista.querySelector('li');
+    if (primeiroItem) {
+      lista.removeChild(primeiroItem);
+    }
+  }
+
+  // Remover todos os itens dentro de um container
+  function removerTodosItens() {
+    const container = document.getElementById('itensParaRemover');
+    container.innerHTML = ''; // Limpa tudo dentro
+  }
+</script>
+
+</body>
+</html>

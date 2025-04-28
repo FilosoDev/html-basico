@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos de Digitação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #campoTexto {
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    #contador {
+      font-size: 14px;
+      color: #333;
+    }
+
+    #aviso {
+      color: red;
+      font-size: 14px;
+    }
+
+    #sugestoes {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #sugestoes li {
+      padding: 5px;
+      background-color: #f0f0f0;
+      margin-top: 5px;
+      border-radius: 4px;
+    }
+
+    #sugestoes li:hover {
+      background-color: #dcdcdc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulário de Digitação com Eventos</h1>
+
+  <!-- Input para digitar o nome -->
+  <input type="text" id="campoTexto" placeholder="Digite seu nome" />
+  
+  <p id="contador">Caracteres digitados: 0</p>
+  <p id="aviso"></p>
+
+  <!-- Sugestões dinâmicas de nomes -->
+  <p><strong>Sugestões de nomes:</strong></p>
+  <ul id="sugestoes"></ul>
+
+  <!-- Exibir a tecla pressionada -->
+  <p><strong>Tecla pressionada:</strong> <span id="tecla"></span></p>
+
+  <script>
+    const campoTexto = document.getElementById('campoTexto');
+    const contador = document.getElementById('contador');
+    const aviso = document.getElementById('aviso');
+    const sugestoes = document.getElementById('sugestoes');
+    const teclaDisplay = document.getElementById('tecla');
+
+    const nomes = ['João', 'José', 'Juliana', 'Maria', 'Marcus', 'Carlos', 'Cláudia'];
+
+    // Evento para contar caracteres enquanto digita
+    campoTexto.addEventListener('input', function() {
+      contador.textContent = 'Caracteres digitados: ' + campoTexto.value.length;
+
+      // Exibir sugestões dinâmicas de nomes
+      const filtro = campoTexto.value.toLowerCase();
+      sugestoes.innerHTML = ''; // Limpar sugestões anteriores
+      if (filtro) {
+        nomes.filter(nome => nome.toLowerCase().includes(filtro)).forEach(function(nome) {
+          const item = document.createElement('li');
+          item.textContent = nome;
+          sugestoes.appendChild(item);
+        });
+      }
+    });
+
+    // Evento para impedir digitação de números
+    campoTexto.addEventListener('keydown', function(evento) {
+      if (evento.key >= '0' && evento.key <= '9') {
+        evento.preventDefault(); // Impede digitar números
+        aviso.textContent = 'Números não são permitidos!';
+      } else {
+        aviso.textContent = ''; // Limpa a mensagem
+      }
+
+      // Exibir a tecla pressionada
+      teclaDisplay.textContent = evento.key;
+    });
+
+    // Evento de digitação - mostrar tecla pressionada
+    campoTexto.addEventListener('keyup', function(evento) {
+      teclaDisplay.textContent = evento.key; // Exibe a tecla que foi pressionada
+    });
+  </script>
+
+</body>
+</html>
