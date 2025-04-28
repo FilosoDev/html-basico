@@ -3,10 +3,7 @@
         "name": "Home",
         "link": "#home",
         "subMenu": [
-            { "name": "Home 1", "link": "#home-1" },
-            { "name": "Home 2", "link": "#home-2" },
-            { "name": "Home 3", "link": "#home-3" },
-            { "name": "Home 4", "link": "#home-4" }
+            { "name": "Home 1", "link": "#home-1" }
         ]
     },
     {
@@ -33,6 +30,13 @@
         "subMenu": [
             { "name": "Email", "link": "#contact-1" },
             { "name": "Telefone", "link": "#contact-2" }
+        ]
+    },
+    {
+        "name": "Login",
+        "link": "#contact",
+        "subMenu": [
+            { "name": "Logout", "link": "#contact-1" }
         ]
     }
 ]
