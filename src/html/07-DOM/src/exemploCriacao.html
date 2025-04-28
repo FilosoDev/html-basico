@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Criação de Itens com DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Criação de Itens com DOM</h1>
+    <input type="text" id="itemInput" placeholder="Digite um item" />
+    <button id="addItemButton">Adicionar Item</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        const input = document.getElementById('itemInput');
+        const button = document.getElementById('addItemButton');
+        const itemList = document.getElementById('itemList');
+
+        button.addEventListener('click', () => {
+            const itemText = input.value.trim();
+            if (itemText !== '') {
+                const listItem = document.createElement('li');
+                listItem.textContent = itemText;
+                itemList.appendChild(listItem);
+                input.value = '';
+            } else {
+                alert('Por favor, digite um item.');
+            }
+        });
+    </script>
+</body>
+</html>
