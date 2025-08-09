@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<!-- Exemplo avançado de componentes Bootstrap -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta viewport ESSENCIAL para responsividade do Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bootstrap Avançado - Componentes e Grid System</title>
+    
+    <!-- Bootstrap CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        /* Estilos customizados que complementam o Bootstrap */
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        
+        /* Customização do carousel */
+        .carousel-indicators [data-bs-target] {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        /* Animações customizadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Media queries para responsividade adicional */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    ========================================
+    NAVBAR RESPONSIVA COM DROPDOWN E BUSCA
+    ========================================
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- 
+        Classes Bootstrap explicadas:
+        - navbar: classe base para navegação
+        - navbar-expand-lg: expande menu em telas large+ (≥992px)
+        - navbar-dark: tema escuro com texto branco
+        - bg-dark: fundo escuro
+        - fixed-top: fixa no topo da página
+        -->
+        
+        <div class="container">
+            <!-- Container Bootstrap para centralizar conteúdo -->
+            
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-bootstrap"></i> BootstrapPro
+            </a>
+            <!-- navbar-brand: estilo especial para logo/nome -->
+            
+            <!-- Botão hambúrguer para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <!-- 
+                navbar-toggler: estilo do botão hambúrguer
+                data-bs-toggle: especifica que vai alternar collapse
+                data-bs-target: elemento que será alternado
+                -->
+                <span class="navbar-toggler-icon"></span>
+                <!-- Ícone do hambúrguer -->
+            </button>
+            
+            <!-- Menu colapsável -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- 
+                collapse: oculta por padrão em telas pequenas
+                navbar-collapse: estilos específicos para menu navbar
+                -->
+                
+                <ul class="navbar-nav me-auto">
+                    <!-- 
+                    navbar-nav: estilo para lista de navegação
+                    me-auto: margin-end auto (empurra próximo elemento para direita)
+                    -->
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                        <!-- nav-link: estilo para links de navegação -->
+                        <!-- active: indica página/seção atual -->
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <!-- dropdown: item com submenu -->
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Serviços
+                        </a>
+                        <!-- dropdown-toggle: adiciona seta indicativa -->
+                        
+                        <ul class="dropdown-menu">
+                            <!-- dropdown-menu: submenu que aparece ao clicar -->
+                            <li><a class="dropdown-item" href="#grid">Grid System</a></li>
+                            <li><a class="dropdown-item" href="#components">Componentes</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <!-- dropdown-divider: linha separadora -->
+                            <li><a class="dropdown-item" href="#forms">Formulários</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+                
+                <!-- Formulário de busca -->
+                <form class="d-flex" role="search">
+                    <!-- d-flex: display flex para alinhar elementos -->
+                    
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                    <!-- 
+                    form-control: estilo padrão para inputs Bootstrap
+                    me-2: margin-end de 0.5rem
+                    -->
+                    
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <!-- btn-outline-light: botão com borda branca -->
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 
+    ========================================
+    SEÇÃO HERO COM CAROUSEL
+    ========================================
+    -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- 
+                row: linha do grid system Bootstrap
+                align-items-center: alinha verticalmente no centro
+                -->
+                
+                <div class="col-lg-6">
+                    <!-- 
+                    col-lg-6: ocupa 6 colunas (50%) em telas large+
+                    Em telas menores, ocupa 100% da largura
+                    -->
+                    
+                    <div class="fade-in-up">
+                        <h1 class="display-4 fw-bold text-shadow">
+                            Bootstrap Avançado
+                        </h1>
+                        <!-- 
+                        display-4: classe tipográfica para títulos grandes
+                        fw-bold: font-weight bold
+                        text-shadow: classe customizada
+                        -->
+                        
+                        <p class="lead mb-4">
+                            Explore componentes avançados, sistema de grid responsivo 
+                            e melhores práticas do framework mais popular do mundo.
+                        </p>
+                        <!-- 
+                        lead: destaca parágrafo com fonte maior
+                        mb-4: margin-bottom de 1.5rem
+                        -->
+                        
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <!-- 
+                            d-flex: display flex
+                            flex-column: direção coluna por padrão
+                            flex-sm-row: direção linha em telas small+
+                            gap-3: espaçamento entre elementos flex
+                            -->
+                            
+                            <a href="#components" class="btn btn-light btn-lg">
+                                <i class="bi bi-rocket-takeoff me-2"></i>
+                                Ver Componentes
+                            </a>
+                            <!-- btn-lg: botão grande -->
+                            
+                            <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+                                <i class="bi bi-play-circle me-2"></i>
+                                Demo Interativa
+                            </button>
+                            <!-- 
+                            data-bs-toggle="modal": indica que abre modal
+                            data-bs-target: ID do modal a ser aberto
+                            -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <!-- Segunda coluna: carousel de imagens -->
+                    
+                    <!-- Carousel Bootstrap -->
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <!-- 
+                        carousel slide: classes base do carousel
+                        data-bs-ride="carousel": inicia automaticamente
+                        -->
+                        
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <!-- carousel-item: cada slide individual -->
+                                <!-- active: slide inicial -->
+                                
+                                <div class="bg-light rounded p-5 text-center text-dark">
+                                    <i class="bi bi-grid-3x3-gap service-icon"></i>
+                                    <h3>Grid System</h3>
+                                    <p>Sistema de 12 colunas responsivo</p>
+                                </div>
+                                
+                                <div class="carousel-caption d-none d-md-block">
+                                    <!-- 
+                                    carousel-caption: legenda sobre o slide
+                                    d-none d-md-block: oculto por padrão, visível em md+
+                                    -->
+                                    <h5>Layout Responsivo</h5>
+                                    <p>Crie layouts que se adaptam a qualquer tela</p>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="bg-light rounded p-5 text-center text-dark">
+                                    <i class="bi bi-palette service-icon"></i>
+                                    <h3>Componentes</h3>
+                                    <p>Mais de 20 componentes prontos</p>
+                                </div>
+                                
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Componentes Ricos</h5>
+                                    <p>Modals, carousels, dropdowns e muito mais</p>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="bg-light rounded p-5 text-center text-dark">
+                                    <i class="bi bi-phone service-icon"></i>
+                                    <h3>Mobile First</h3>
+                                    <p>Otimizado para dispositivos móveis</p>
+                                </div>
+                                
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Mobile First</h5>
+                                    <p>Perfeito em qualquer dispositivo</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Controles de navegação -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Anterior</span>
+                            <!-- visually-hidden: oculto visualmente mas acessível para leitores de tela -->
+                        </button>
+                        
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Próximo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 
+    ========================================
+    GRID SYSTEM DEMONSTRATION
+    ========================================
+    -->
+    <section id="grid" class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold mb-3">Sistema de Grid</h2>
+                    <p class="lead text-muted">
+                        O Bootstrap usa um sistema flexível de 12 colunas que se adapta a diferentes tamanhos de tela
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Demonstração do Grid -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4>Colunas Iguais</h4>
+                    <p class="text-muted">Todas as colunas têm a mesma largura</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <!-- Colunas iguais -->
+                <div class="col">
+                    <div class="bg-primary text-white p-3 rounded text-center">
+                        <code>.col</code><br>
+                        Largura automática
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg-secondary text-white p-3 rounded text-center">
+                        <code>.col</code><br>
+                        Largura automática
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg-success text-white p-3 rounded text-center">
+                        <code>.col</code><br>
+                        Largura automática
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colunas específicas -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4>Larguras Específicas</h4>
+                    <p class="text-muted">Controle exato da largura das colunas</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="bg-info text-white p-3 rounded text-center">
+                        <code>.col-md-4</code><br>
+                        4/12 colunas (33.33%)
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="bg-warning text-dark p-3 rounded text-center">
+                        <code>.col-md-8</code><br>
+                        8/12 colunas (66.67%)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Responsividade -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4>Layout Responsivo</h4>
+                    <p class="text-muted">Diferentes layouts para diferentes tamanhos de tela</p>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="bg-danger text-white p-3 rounded text-center">
+                        <code>.col-12 .col-md-6 .col-lg-3</code><br>
+                        <small>
+                            100% → 50% → 25%
+                        </small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="bg-primary text-white p-3 rounded text-center">
+                        <code>.col-12 .col-md-6 .col-lg-3</code><br>
+                        <small>
+                            100% → 50% → 25%
+                        </small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="bg-success text-white p-3 rounded text-center">
+                        <code>.col-12 .col-md-6 .col-lg-3</code><br>
+                        <small>
+                            100% → 50% → 25%
+                        </small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="bg-dark text-white p-3 rounded text-center">
+                        <code>.col-12 .col-md-6 .col-lg-3</code><br>
+                        <small>
+                            100% → 50% → 25%
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Breakpoints -->
+            <div class="alert alert-info">
+                <h5><i class="bi bi-info-circle me-2"></i>Breakpoints do Bootstrap</h5>
+                <ul class="mb-0">
+                    <li><strong>xs:</strong> &lt;576px (Extra small)</li>
+                    <li><strong>sm:</strong> ≥576px (Small)</li>
+                    <li><strong>md:</strong> ≥768px (Medium)</li>
+                    <li><strong>lg:</strong> ≥992px (Large)</li>
+                    <li><strong>xl:</strong> ≥1200px (Extra large)</li>
+                    <li><strong>xxl:</strong> ≥1400px (Extra extra large)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 
+    ========================================
+    COMPONENTES AVANÇADOS
+    ========================================
+    -->
+    <section id="components" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold mb-3">Componentes Bootstrap</h2>
+                    <p class="lead text-muted">
+                        Componentes ricos e interativos para acelerar o desenvolvimento
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Cards com Hover Effects -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4">
+                    <h3>Cards Interativos</h3>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <!-- 
+                        h-100: altura 100% (cards de mesma altura)
+                        shadow-sm: sombra sutil
+                        card-hover: classe customizada para efeito hover
+                        -->
+                        
+                        <div class="card-header bg-primary text-white">
+                            <i class="bi bi-speedometer2 me-2"></i>Performance
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Otimização</h5>
+                            <p class="card-text">
+                                CSS e JavaScript otimizados para máxima performance 
+                                e experiência do usuário.
+                            </p>
+                            
+                            <!-- Progress bars -->
+                            <div class="mb-2">
+                                <small class="text-muted">CSS: 95%</small>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <small class="text-muted">JS: 88%</small>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-info" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-graph-up me-1"></i>Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <div class="card-header bg-success text-white">
+                            <i class="bi bi-phone me-2"></i>Responsivo
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile First</h5>
+                            <p class="card-text">
+                                Design que funciona perfeitamente em todos os 
+                                dispositivos, do mobile ao desktop.
+                            </p>
+                            
+                            <!-- Badges -->
+                            <div class="mb-3">
+                                <span class="badge bg-success me-1">Mobile</span>
+                                <span class="badge bg-info me-1">Tablet</span>
+                                <span class="badge bg-primary me-1">Desktop</span>
+                                <span class="badge bg-warning text-dark">4K</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <button class="btn btn-success btn-sm">
+                                <i class="bi bi-eye me-1"></i>Preview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <div class="card-header bg-warning text-dark">
+                            <i class="bi bi-puzzle me-2"></i>Componentes
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Flexibilidade</h5>
+                            <p class="card-text">
+                                Mais de 20 componentes prontos para uso, 
+                                totalmente customizáveis.
+                            </p>
+                            
+                            <!-- List group in card -->
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0 py-1">
+                                    <i class="bi bi-check-circle text-success me-2"></i>Modals
+                                </li>
+                                <li class="list-group-item px-0 py-1">
+                                    <i class="bi bi-check-circle text-success me-2"></i>Carousels
+                                </li>
+                                <li class="list-group-item px-0 py-1">
+                                    <i class="bi bi-check-circle text-success me-2"></i>Dropdowns
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <button class="btn btn-warning">
+                                <i class="bi bi-list-ul me-1"></i>Ver Todos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accordion -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4">
+                    <h3>Accordion (Acordeão)</h3>
+                    <p class="text-muted">Organiza conteúdo de forma expansível</p>
+                </div>
+                
+                <div class="col-12">
+                    <div class="accordion" id="bootstrapAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="bi bi-grid-3x3-gap me-2"></i>
+                                    Grid System
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#bootstrapAccordion">
+                                <div class="accordion-body">
+                                    <p>
+                                        O sistema de grid do Bootstrap é baseado em Flexbox e permite criar 
+                                        layouts responsivos rapidamente. Ele consiste em:
+                                    </p>
+                                    <ul>
+                                        <li><strong>Container:</strong> centraliza e limita a largura máxima</li>
+                                        <li><strong>Row:</strong> agrupa colunas horizontalmente</li>
+                                        <li><strong>Col:</strong> colunas flexíveis que se adaptam</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-primary">
+                                        <i class="bi bi-lightbulb me-2"></i>
+                                        <strong>Dica:</strong> Sempre use .container > .row > .col para estrutura correta
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="bi bi-palette me-2"></i>
+                                    Utilitários CSS
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+                                <div class="accordion-body">
+                                    <p>Classes utilitárias para espaçamento, cores, flexbox e muito mais:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Espaçamento:</h6>
+                                            <ul>
+                                                <li><code>m-*</code> - margin</li>
+                                                <li><code>p-*</code> - padding</li>
+                                                <li><code>mt-*</code> - margin-top</li>
+                                                <li><code>mb-*</code> - margin-bottom</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Display:</h6>
+                                            <ul>
+                                                <li><code>d-flex</code> - display flex</li>
+                                                <li><code>d-block</code> - display block</li>
+                                                <li><code>d-none</code> - display none</li>
+                                                <li><code>d-*-block</code> - responsivo</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="bi bi-code-slash me-2"></i>
+                                    Customização
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+                                <div class="accordion-body">
+                                    <p>Várias formas de customizar o Bootstrap:</p>
+                                    
+                                    <ol>
+                                        <li><strong>CSS Customizado:</strong> sobrescrever estilos específicos</li>
+                                        <li><strong>Variáveis Sass:</strong> modificar cores, tamanhos, breakpoints</li>
+                                        <li><strong>Bootstrap Build:</strong> incluir apenas componentes necessários</li>
+                                        <li><strong>Themes:</strong> usar themes prontos da comunidade</li>
+                                    </ol>
+                                    
+                                    <div class="bg-light p-3 rounded">
+                                        <h6>Exemplo de variável Sass:</h6>
+                                        <code>
+                                            $primary: #custom-color;<br>
+                                            $border-radius: 0.75rem;
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabs -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4">
+                    <h3>Tabs (Abas)</h3>
+                    <p class="text-muted">Organiza conteúdo em abas navegáveis</p>
+                </div>
+                
+                <div class="col-12">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="components-tab" data-bs-toggle="tab" data-bs-target="#components-pane">
+                                <i class="bi bi-puzzle me-2"></i>Componentes
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="utilities-tab" data-bs-toggle="tab" data-bs-target="#utilities-pane">
+                                <i class="bi bi-tools me-2"></i>Utilitários
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="examples-tab" data-bs-toggle="tab" data-bs-target="#examples-pane">
+                                <i class="bi bi-code-square me-2"></i>Exemplos
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="components-pane">
+                            <div class="p-4 bg-light">
+                                <h5>Componentes Principais</h5>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul>
+                                            <li>Buttons & Button Groups</li>
+                                            <li>Cards</li>
+                                            <li>Carousel</li>
+                                            <li>Dropdown</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul>
+                                            <li>Modal</li>
+                                            <li>Navbar</li>
+                                            <li>Pagination</li>
+                                            <li>Progress</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul>
+                                            <li>Spinner</li>
+                                            <li>Tooltip</li>
+                                            <li>Toast</li>
+                                            <li>Offcanvas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="utilities-pane">
+                            <div class="p-4 bg-light">
+                                <h5>Classes Utilitárias</h5>
+                                <p>Bootstrap oferece centenas de classes utilitárias para:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Layout:</h6>
+                                        <span class="badge bg-primary me-1">d-flex</span>
+                                        <span class="badge bg-primary me-1">justify-content-center</span>
+                                        <span class="badge bg-primary me-1">align-items-center</span>
+                                        
+                                        <h6 class="mt-3">Espaçamento:</h6>
+                                        <span class="badge bg-success me-1">m-3</span>
+                                        <span class="badge bg-success me-1">p-4</span>
+                                        <span class="badge bg-success me-1">mt-auto</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Texto:</h6>
+                                        <span class="badge bg-warning text-dark me-1">text-center</span>
+                                        <span class="badge bg-warning text-dark me-1">fw-bold</span>
+                                        <span class="badge bg-warning text-dark me-1">text-muted</span>
+                                        
+                                        <h6 class="mt-3">Cores:</h6>
+                                        <span class="badge bg-danger me-1">bg-primary</span>
+                                        <span class="badge bg-danger me-1">text-white</span>
+                                        <span class="badge bg-danger me-1">border-success</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="examples-pane">
+                            <div class="p-4 bg-light">
+                                <h5>Exemplos de Código</h5>
+                                
+                                <h6>Grid Responsivo:</h6>
+                                <pre class="bg-dark text-white p-3 rounded"><code>&lt;div class="row"&gt;
+  &lt;div class="col-md-6 col-lg-4"&gt;Conteúdo&lt;/div&gt;
+  &lt;div class="col-md-6 col-lg-8"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                
+                                <h6>Card com Imagem:</h6>
+                                <pre class="bg-dark text-white p-3 rounded"><code>&lt;div class="card"&gt;
+  &lt;img src="..." class="card-img-top" alt="..."&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Título&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Descrição...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 
+    ========================================
+    FORMULÁRIOS BOOTSTRAP
+    ========================================
+    -->
+    <section id="forms" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- mx-auto: margin horizontal automática (centraliza) -->
+                    
+                    <div class="text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">Formulários Bootstrap</h2>
+                        <p class="lead text-muted">
+                            Formulários responsivos com validação e feedback visual
+                        </p>
+                    </div>
+                    
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">
+                                <i class="bi bi-person-plus me-2"></i>
+                                Cadastro de Usuário
+                            </h4>
+                        </div>
+                        
+                        <div class="card-body">
+                            <form id="userForm" novalidate>
+                                <!-- novalidate: desabilita validação HTML5 nativa para usar Bootstrap -->
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">Nome *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                        <div class="valid-feedback">
+                                            Perfeito!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Por favor, informe seu nome.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Sobrenome *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                        <div class="valid-feedback">
+                                            Perfeito!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Por favor, informe seu sobrenome.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <div class="input-group">
+                                        <!-- input-group: agrupa input com outros elementos -->
+                                        <span class="input-group-text">
+                                            <i class="bi bi-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="valid-feedback">
+                                            Email válido!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Por favor, informe um email válido.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Telefone</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-telephone"></i>
+                                        </span>
+                                        <input type="tel" class="form-control" id="phone" placeholder="(11) 99999-9999">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="country" class="form-label">País *</label>
+                                    <select class="form-select" id="country" required>
+                                        <!-- form-select: estilo para elementos select -->
+                                        <option value="">Escolha...</option>
+                                        <option value="BR">Brasil</option>
+                                        <option value="US">Estados Unidos</option>
+                                        <option value="CA">Canadá</option>
+                                        <option value="MX">México</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor, selecione um país.
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="bio" class="form-label">Bio</label>
+                                    <textarea class="form-control" id="bio" rows="3" placeholder="Conte-nos sobre você..."></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Interesses</label>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <!-- form-check: container para checkbox/radio -->
+                                                <input class="form-check-input" type="checkbox" id="tech">
+                                                <label class="form-check-label" for="tech">
+                                                    Tecnologia
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="sports">
+                                                <label class="form-check-label" for="sports">
+                                                    Esportes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="music">
+                                                <label class="form-check-label" for="music">
+                                                    Música
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="travel">
+                                                <label class="form-check-label" for="travel">
+                                                    Viagens
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="food">
+                                                <label class="form-check-label" for="food">
+                                                    Culinária
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="art">
+                                                <label class="form-check-label" for="art">
+                                                    Arte
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Experiência com Bootstrap</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="experience" id="beginner" value="beginner">
+                                        <label class="form-check-label" for="beginner">
+                                            Iniciante
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="experience" id="intermediate" value="intermediate">
+                                        <label class="form-check-label" for="intermediate">
+                                            Intermediário
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="experience" id="advanced" value="advanced">
+                                        <label class="form-check-label" for="advanced">
+                                            Avançado
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            Aceito os <a href="#" class="text-decoration-none">termos de uso</a> *
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            Você deve aceitar os termos antes de enviar.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <!-- d-grid: torna botão full-width -->
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-person-check me-2"></i>
+                                        Cadastrar
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary">
+                                        <i class="bi bi-arrow-clockwise me-2"></i>
+                                        Limpar Formulário
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 
+    ========================================
+    MODAL DE DEMONSTRAÇÃO
+    ========================================
+    -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <!-- 
+        modal fade: classes base do modal com transição
+        tabindex="-1": remove do fluxo de tabulação
+        aria-labelledby: conecta com título do modal
+        aria-hidden: indica que está oculto inicialmente
+        -->
+        
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <!-- 
+            modal-lg: modal grande
+            modal-dialog-centered: centraliza verticalmente
+            -->
+            
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="demoModalLabel">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Demo Interativa do Bootstrap
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- btn-close-white: versão branca do botão fechar -->
+                </div>
+                
+                <div class="modal-body">
+                    <p class="lead">
+                        Explore alguns componentes Bootstrap em ação!
+                    </p>
+                    
+                    <!-- Progress bars animadas -->
+                    <h6>Barras de Progresso:</h6>
+                    <div class="mb-3">
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                 style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                HTML/CSS: 75%
+                            </div>
+                        </div>
+                        
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" 
+                                 style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                JavaScript: 60%
+                            </div>
+                        </div>
+                        
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" 
+                                 style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                Bootstrap: 90%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spinner -->
+                    <h6>Spinners de Carregamento:</h6>
+                    <div class="d-flex gap-3 mb-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                        <div class="spinner-grow text-success" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Alerts -->
+                    <h6>Alertas:</h6>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        <div>
+                            Formulário enviado com sucesso!
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <div>
+                            Atenção: Verifique suas informações.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-2"></i>Fechar
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-bookmark-plus me-2"></i>Salvar Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <!-- 
+        position-fixed: posição fixa
+        bottom-0 end-0: canto inferior direito
+        -->
+        
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-bell-fill text-primary me-2"></i>
+                <strong class="me-auto">Bootstrap</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Bem-vindo ao exemplo avançado de Bootstrap!
+            </div>
+        </div>
+    </div>
+    
+    <!-- 
+    ========================================
+    RODAPÉ
+    ========================================
+    -->
+    <footer class="bg-dark text-white section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>
+                        <i class="bi bi-bootstrap me-2"></i>
+                        BootstrapPro
+                    </h5>
+                    <p class="text-muted">
+                        Exemplos avançados e boas práticas do framework 
+                        CSS mais popular do mundo.
+                    </p>
+                    
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Componentes</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Cards</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Modals</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Navbar</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Forms</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Layout</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Grid</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Flexbox</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Utilities</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Breakpoints</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h6>Newsletter</h6>
+                    <p class="text-muted">
+                        Receba dicas e atualizações sobre Bootstrap.
+                    </p>
+                    
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Seu email">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <small class="text-muted">
+                        © 2024 BootstrapPro. Exemplo educacional.
+                    </small>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        Feito com <i class="bi bi-heart-fill text-danger"></i> e Bootstrap 5.3
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 
+    ========================================
+    SCRIPTS JAVASCRIPT
+    ========================================
+    -->
+    
+    <!-- Bootstrap JavaScript Bundle (inclui Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ==========================================
+        // VALIDAÇÃO DE FORMULÁRIO BOOTSTRAP
+        // ==========================================
+        
+        // Validação customizada do formulário
+        (function() {
+            'use strict';
+            
+            // Seleciona o formulário
+            const form = document.getElementById('userForm');
+            
+            form.addEventListener('submit', function(event) {
+                // Previne envio se inválido
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                
+                // Adiciona classes Bootstrap de validação
+                form.classList.add('was-validated');
+                
+                // Se válido, simula envio
+                if (form.checkValidity()) {
+                    event.preventDefault();
+                    
+                    // Mostra toast de sucesso
+                    showToast('Formulário enviado com sucesso!', 'success');
+                    
+                    // Reset após 2 segundos
+                    setTimeout(() => {
+                        form.reset();
+                        form.classList.remove('was-validated');
+                    }, 2000);
+                }
+            }, false);
+        })();
+        
+        // ==========================================
+        // TOAST NOTIFICATIONS
+        // ==========================================
+        
+        function showToast(message, type = 'primary') {
+            const toastElement = document.getElementById('liveToast');
+            const toastBody = toastElement.querySelector('.toast-body');
+            const toastIcon = toastElement.querySelector('.bi');
+            
+            // Atualiza conteúdo
+            toastBody.textContent = message;
+            
+            // Atualiza ícone baseado no tipo
+            toastIcon.className = `bi me-2 ${getToastIcon(type)}`;
+            
+            // Mostra o toast
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+        
+        function getToastIcon(type) {
+            const icons = {
+                'primary': 'bi-info-circle-fill text-primary',
+                'success': 'bi-check-circle-fill text-success',
+                'warning': 'bi-exclamation-triangle-fill text-warning',
+                'danger': 'bi-x-circle-fill text-danger'
+            };
+            return icons[type] || icons['primary'];
+        }
+        
+        // ==========================================
+        // SMOOTH SCROLLING PARA LINKS INTERNOS
+        // ==========================================
+        
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calcula offset da navbar fixa
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ==========================================
+        // HIGHLIGHT MENU ATIVO DURANTE SCROLL
+        // ==========================================
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            // Adiciona background ao navbar no scroll
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Atualiza link ativo baseado na seção visível
+            let currentSection = '';
+            sections.forEach(function(section) {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && 
+                    window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            // Remove classe active de todos os links
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                
+                // Adiciona active ao link correspondente
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // ==========================================
+        // INICIALIZAÇÃO
+        // ==========================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostra toast de boas-vindas
+            setTimeout(() => {
+                showToast('Bem-vindo ao Bootstrap Avançado!', 'primary');
+            }, 1000);
+            
+            // Inicializa tooltips (se houver)
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+    
+    <style>
+        /* Estilos adicionais para navbar no scroll */
+        .navbar-scrolled {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Smooth scroll para toda a página */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Offset para links internos devido à navbar fixa */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</body>
+</html>

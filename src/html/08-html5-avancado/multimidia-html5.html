@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!-- Exemplo de elementos multimídia HTML5 -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Multimídia - Áudio, Vídeo e Canvas</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+        
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .media-container {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .controls {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        canvas {
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML5 Multimídia</h1>
+        <p style="text-align: center; font-size: 1.2rem; color: #666;">
+            Explore os recursos nativos de áudio, vídeo e gráficos do HTML5
+        </p>
+        
+        <!-- Seção de Áudio -->
+        <div class="section">
+            <h2>🎵 Elemento &lt;audio&gt;</h2>
+            
+            <div class="info-box">
+                <strong>O elemento &lt;audio&gt;</strong> permite incorporar conteúdo de áudio diretamente na página 
+                sem necessidade de plugins externos como Flash.
+            </div>
+            
+            <div class="media-container">
+                <h3>Áudio Básico com Controles Nativos</h3>
+                
+                <!-- Áudio com controles padrão -->
+                <audio controls preload="metadata" style="width: 100%;">
+                    <!-- 
+                    controls: exibe controles padrão (play, pause, volume)
+                    preload="metadata": carrega apenas metadados (duração, etc.)
+                    Múltiplas fontes para compatibilidade com diferentes navegadores
+                    -->
+                    <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N+QQAoUXrTp66hVFApGn+DyvmgfCEOX2+/BdCEELIfU8duZNQYfart");" type="audio/wav">
+                    <source src="#" type="audio/mpeg">
+                    <source src="#" type="audio/ogg">
+                    
+                    <!-- Fallback para navegadores sem suporte -->
+                    <p>Seu navegador não suporta o elemento audio. 
+                       <a href="#">Baixe o arquivo de áudio</a>.</p>
+                </audio>
+                
+                <div class="warning-box">
+                    <strong>Nota:</strong> Este exemplo usa um áudio de demonstração sintético. 
+                    Em um projeto real, você forneceria URLs válidas de arquivos de áudio.
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>Player de Áudio Personalizado</h3>
+                
+                <!-- Áudio sem controles para customização via JavaScript -->
+                <audio id="custom-audio" preload="metadata">
+                    <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N+QQAoUXrTp66hVFApGn+DyvmgfCEOX2+/BdCEELIfU8duZNQYfart");" type="audio/wav">
+                </audio>
+                
+                <!-- Controles customizados -->
+                <div class="controls">
+                    <button id="play-pause-btn">▶️ Play</button>
+                    <button id="stop-btn">⏹️ Stop</button>
+                    <button id="mute-btn">🔊 Mute</button>
+                    
+                    <div style="margin-top: 10px;">
+                        <label for="progress">Progresso:</label>
+                        <input type="range" id="progress" min="0" max="100" value="0">
+                        <span id="time-display">0:00 / 0:00</span>
+                    </div>
+                    
+                    <div>
+                        <label for="volume">Volume:</label>
+                        <input type="range" id="volume" min="0" max="100" value="50">
+                        <span id="volume-display">50%</span>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <strong>Vantagens dos controles customizados:</strong>
+                    <ul class="feature-list">
+                        <li>Design consistente entre navegadores</li>
+                        <li>Integração com design do site</li>
+                        <li>Funcionalidades adicionais</li>
+                        <li>Controle total via JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de Vídeo -->
+        <div class="section">
+            <h2>🎬 Elemento &lt;video&gt;</h2>
+            
+            <div class="info-box">
+                <strong>O elemento &lt;video&gt;</strong> permite incorporar vídeos nativamente, 
+                substituindo plugins como Flash Player. Suporta múltiplos formatos e legendas.
+            </div>
+            
+            <div class="media-container">
+                <h3>Vídeo com Poster e Múltiplas Fontes</h3>
+                
+                <!-- Vídeo com poster (imagem de preview) -->
+                <video controls width="100%" height="auto" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjgwMHg0NTA8L3RleHQ+PC9zdmc+">
+                    <!-- 
+                    poster: imagem mostrada antes do vídeo carregar
+                    controls: controles nativos do navegador
+                    width/height: dimensões do player
+                    -->
+                    
+                    <!-- Múltiplas fontes para compatibilidade -->
+                    <source src="#video.mp4" type="video/mp4">
+                    <source src="#video.webm" type="video/webm">
+                    <source src="#video.ogv" type="video/ogg">
+                    
+                    <!-- Legendas/subtítulos -->
+                    <track kind="subtitles" src="#legendas-pt.vtt" srclang="pt" label="Português" default>
+                    <track kind="subtitles" src="#subtitles-en.vtt" srclang="en" label="English">
+                    
+                    <!-- Fallback -->
+                    <p>Seu navegador não suporta vídeo HTML5. 
+                       <a href="#video.mp4">Baixe o vídeo</a>.</p>
+                </video>
+                
+                <div class="warning-box">
+                    <strong>Demonstração:</strong> Este exemplo não possui vídeos reais. 
+                    As URLs seriam substituídas por caminhos válidos para arquivos de vídeo.
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>Vídeo em Loop para Background</h3>
+                
+                <!-- Vídeo automático para background -->
+                <video id="bg-video" muted loop autoplay style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    <!-- 
+                    muted: sem som (necessário para autoplay)
+                    loop: repete infinitamente
+                    autoplay: inicia automaticamente
+                    object-fit: cover - mantém proporção preenchendo container
+                    -->
+                    
+                    <!-- Simulação com canvas animado -->
+                </video>
+                
+                <div class="controls">
+                    <button id="bg-play-pause">⏸️ Pausar</button>
+                    <button id="bg-restart">🔄 Reiniciar</button>
+                </div>
+                
+                <div class="info-box">
+                    <strong>Boas práticas para vídeo background:</strong>
+                    <ul class="feature-list">
+                        <li>Sempre incluir atributo muted</li>
+                        <li>Otimizar arquivo para web (compressão)</li>
+                        <li>Considerar dados móveis do usuário</li>
+                        <li>Fornecer controles para pausar</li>
+                        <li>Respeitar preferência de movimento reduzido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de Canvas -->
+        <div class="section">
+            <h2>🎨 Elemento &lt;canvas&gt;</h2>
+            
+            <div class="info-box">
+                <strong>O elemento &lt;canvas&gt;</strong> fornece uma área de desenho programável via JavaScript, 
+                permitindo criar gráficos, animações, jogos e visualizações de dados.
+            </div>
+            
+            <div class="grid">
+                <div class="media-container">
+                    <h3>Canvas Básico - Formas Geométricas</h3>
+                    
+                    <div class="canvas-container">
+                        <canvas id="basic-canvas" width="300" height="200">
+                            <!-- Fallback para navegadores sem suporte -->
+                            Seu navegador não suporta canvas.
+                        </canvas>
+                    </div>
+                    
+                    <div class="controls">
+                        <button onclick="drawBasicShapes()">Desenhar Formas</button>
+                        <button onclick="clearCanvas('basic-canvas')">Limpar</button>
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>Funcionalidades do Canvas 2D:</strong>
+                        <ul class="feature-list">
+                            <li>Desenho de formas básicas</li>
+                            <li>Gradientes e padrões</li>
+                            <li>Transformações (rotação, escala)</li>
+                            <li>Manipulação de pixels</li>
+                            <li>Texto e imagens</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="media-container">
+                    <h3>Canvas Interativo - Desenho Livre</h3>
+                    
+                    <div class="canvas-container">
+                        <canvas id="drawing-canvas" width="300" height="200" style="cursor: crosshair;">
+                            Canvas não suportado.
+                        </canvas>
+                    </div>
+                    
+                    <div class="controls">
+                        <label for="brush-size">Tamanho:</label>
+                        <input type="range" id="brush-size" min="1" max="20" value="5">
+                        
+                        <label for="brush-color">Cor:</label>
+                        <input type="color" id="brush-color" value="#007bff">
+                        
+                        <button onclick="clearCanvas('drawing-canvas')">Limpar</button>
+                        <button onclick="saveCanvas()">Salvar</button>
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>Interatividade no Canvas:</strong>
+                        <ul class="feature-list">
+                            <li>Eventos de mouse e touch</li>
+                            <li>Detecção de colisões</li>
+                            <li>Animações com requestAnimationFrame</li>
+                            <li>Exportação como imagem</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>Canvas com Animação</h3>
+                
+                <div class="canvas-container">
+                    <canvas id="animation-canvas" width="600" height="300">
+                        Canvas não suportado.
+                    </canvas>
+                </div>
+                
+                <div class="controls">
+                    <button id="start-animation">▶️ Iniciar Animação</button>
+                    <button id="stop-animation">⏹️ Parar</button>
+                    <button id="reset-animation">🔄 Reset</button>
+                    
+                    <div style="margin-top: 10px;">
+                        <label for="animation-speed">Velocidade:</label>
+                        <input type="range" id="animation-speed" min="0.5" max="3" step="0.5" value="1">
+                        <span id="speed-display">1x</span>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <strong>Animação com Canvas:</strong>
+                    <ul class="feature-list">
+                        <li>Loop de animação com requestAnimationFrame</li>
+                        <li>Física simples (movimento, gravidade)</li>
+                        <li>Controle de FPS</li>
+                        <li>Otimização para performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de Web APIs relacionadas -->
+        <div class="section">
+            <h2>🔗 APIs Web Relacionadas</h2>
+            
+            <div class="grid">
+                <div class="media-container">
+                    <h3>Web Audio API</h3>
+                    <p>API avançada para processamento e síntese de áudio.</p>
+                    
+                    <div class="controls">
+                        <button onclick="playTone(440)">Lá (440Hz)</button>
+                        <button onclick="playTone(523)">Dó (523Hz)</button>
+                        <button onclick="playTone(659)">Mi (659Hz)</button>
+                        <button onclick="stopTone()">Parar</button>
+                    </div>
+                    
+                    <ul class="feature-list">
+                        <li>Síntese de áudio em tempo real</li>
+                        <li>Efeitos e filtros</li>
+                        <li>Análise de frequência</li>
+                        <li>Audio 3D posicional</li>
+                    </ul>
+                </div>
+                
+                <div class="media-container">
+                    <h3>MediaRecorder API</h3>
+                    <p>Gravação de áudio e vídeo diretamente no navegador.</p>
+                    
+                    <div class="controls">
+                        <button onclick="startRecording()">🎤 Gravar Áudio</button>
+                        <button onclick="stopRecording()">⏹️ Parar</button>
+                        <button onclick="playRecording()" disabled>▶️ Reproduzir</button>
+                    </div>
+                    
+                    <div id="recording-status" style="margin-top: 10px; font-weight: bold;"></div>
+                    
+                    <ul class="feature-list">
+                        <li>Gravação de mídia em tempo real</li>
+                        <li>Múltiplos formatos de saída</li>
+                        <li>Controle de qualidade</li>
+                        <li>Stream de dados progressivo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>WebRTC - Transmissão em Tempo Real</h3>
+                <p>Comunicação peer-to-peer para videochamadas e compartilhamento de tela.</p>
+                
+                <div class="controls">
+                    <button onclick="startWebcam()">📷 Ativar Webcam</button>
+                    <button onclick="stopWebcam()">📷 Desativar</button>
+                    <button onclick="takePhoto()">📸 Capturar Foto</button>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem;">
+                    <video id="webcam-video" width="200" height="150" autoplay muted style="border-radius: 8px; background: #000;"></video>
+                    <canvas id="photo-canvas" width="200" height="150" style="border-radius: 8px; background: #f0f0f0;"></canvas>
+                </div>
+                
+                <ul class="feature-list">
+                    <li>Acesso a câmera e microfone</li>
+                    <li>Transmissão peer-to-peer</li>
+                    <li>Compartilhamento de tela</li>
+                    <li>Comunicação em tempo real</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ==================== ÁUDIO PERSONALIZADO ====================
+        
+        const customAudio = document.getElementById('custom-audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const muteBtn = document.getElementById('mute-btn');
+        const progressBar = document.getElementById('progress');
+        const volumeBar = document.getElementById('volume');
+        const timeDisplay = document.getElementById('time-display');
+        const volumeDisplay = document.getElementById('volume-display');
+        
+        let isPlaying = false;
+        let isMuted = false;
+        
+        // Eventos do player de áudio
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                customAudio.pause();
+                playPauseBtn.textContent = '▶️ Play';
+                isPlaying = false;
+            } else {
+                customAudio.play();
+                playPauseBtn.textContent = '⏸️ Pause';
+                isPlaying = true;
+            }
+        });
+        
+        stopBtn.addEventListener('click', () => {
+            customAudio.pause();
+            customAudio.currentTime = 0;
+            playPauseBtn.textContent = '▶️ Play';
+            isPlaying = false;
+        });
+        
+        muteBtn.addEventListener('click', () => {
+            if (isMuted) {
+                customAudio.muted = false;
+                muteBtn.textContent = '🔊 Mute';
+                isMuted = false;
+            } else {
+                customAudio.muted = true;
+                muteBtn.textContent = '🔇 Unmute';
+                isMuted = true;
+            }
+        });
+        
+        // Atualizar progresso
+        customAudio.addEventListener('timeupdate', () => {
+            if (customAudio.duration) {
+                const progress = (customAudio.currentTime / customAudio.duration) * 100;
+                progressBar.value = progress;
+                
+                const currentTime = formatTime(customAudio.currentTime);
+                const duration = formatTime(customAudio.duration);
+                timeDisplay.textContent = `${currentTime} / ${duration}`;
+            }
+        });
+        
+        // Controle de progresso
+        progressBar.addEventListener('input', () => {
+            const time = (progressBar.value / 100) * customAudio.duration;
+            customAudio.currentTime = time;
+        });
+        
+        // Controle de volume
+        volumeBar.addEventListener('input', () => {
+            customAudio.volume = volumeBar.value / 100;
+            volumeDisplay.textContent = `${volumeBar.value}%`;
+        });
+        
+        // Formatar tempo em mm:ss
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // ==================== CANVAS BÁSICO ====================
+        
+        function drawBasicShapes() {
+            const canvas = document.getElementById('basic-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Limpar canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Retângulo preenchido
+            ctx.fillStyle = '#007bff';
+            ctx.fillRect(20, 20, 60, 40);
+            
+            // Retângulo com borda
+            ctx.strokeStyle = '#dc3545';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(100, 20, 60, 40);
+            
+            // Círculo
+            ctx.beginPath();
+            ctx.arc(200, 40, 25, 0, 2 * Math.PI);
+            ctx.fillStyle = '#28a745';
+            ctx.fill();
+            
+            // Linha
+            ctx.beginPath();
+            ctx.moveTo(20, 80);
+            ctx.lineTo(260, 120);
+            ctx.strokeStyle = '#ffc107';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+            
+            // Texto
+            ctx.fillStyle = '#6f42c1';
+            ctx.font = '20px Arial';
+            ctx.fillText('Canvas HTML5', 20, 160);
+        }
+        
+        function clearCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        // ==================== CANVAS INTERATIVO ====================
+        
+        const drawingCanvas = document.getElementById('drawing-canvas');
+        const drawingCtx = drawingCanvas.getContext('2d');
+        let isDrawing = false;
+        
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', draw);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
+        
+        // Suporte para touch (mobile)
+        drawingCanvas.addEventListener('touchstart', handleTouch);
+        drawingCanvas.addEventListener('touchmove', handleTouch);
+        drawingCanvas.addEventListener('touchend', stopDrawing);
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = drawingCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            drawingCtx.lineWidth = document.getElementById('brush-size').value;
+            drawingCtx.lineCap = 'round';
+            drawingCtx.strokeStyle = document.getElementById('brush-color').value;
+            
+            drawingCtx.lineTo(x, y);
+            drawingCtx.stroke();
+            drawingCtx.beginPath();
+            drawingCtx.moveTo(x, y);
+        }
+        
+        function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+            drawingCtx.beginPath();
+        }
+        
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            drawingCanvas.dispatchEvent(mouseEvent);
+        }
+        
+        function saveCanvas() {
+            const link = document.createElement('a');
+            link.download = 'meu-desenho.png';
+            link.href = drawingCanvas.toDataURL();
+            link.click();
+        }
+        
+        // ==================== CANVAS ANIMAÇÃO ====================
+        
+        const animationCanvas = document.getElementById('animation-canvas');
+        const animationCtx = animationCanvas.getContext('2d');
+        let animationId;
+        let balls = [];
+        let animationSpeed = 1;
+        
+        class Ball {
+            constructor(x, y, radius, color, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.vx = vx;
+                this.vy = vy;
+            }
+            
+            update() {
+                this.x += this.vx * animationSpeed;
+                this.y += this.vy * animationSpeed;
+                
+                // Colisão com bordas
+                if (this.x + this.radius > animationCanvas.width || this.x - this.radius < 0) {
+                    this.vx = -this.vx;
+                }
+                if (this.y + this.radius > animationCanvas.height || this.y - this.radius < 0) {
+                    this.vy = -this.vy;
+                }
+            }
+            
+            draw() {
+                animationCtx.beginPath();
+                animationCtx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                animationCtx.fillStyle = this.color;
+                animationCtx.fill();
+            }
+        }
+        
+        function initAnimation() {
+            balls = [];
+            const colors = ['#007bff', '#28a745', '#dc3545', '#ffc107', '#6f42c1'];
+            
+            for (let i = 0; i < 5; i++) {
+                balls.push(new Ball(
+                    Math.random() * (animationCanvas.width - 40) + 20,
+                    Math.random() * (animationCanvas.height - 40) + 20,
+                    10 + Math.random() * 10,
+                    colors[i],
+                    (Math.random() - 0.5) * 4,
+                    (Math.random() - 0.5) * 4
+                ));
+            }
+        }
+        
+        function animate() {
+            animationCtx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
+            
+            balls.forEach(ball => {
+                ball.update();
+                ball.draw();
+            });
+            
+            animationId = requestAnimationFrame(animate);
+        }
+        
+        document.getElementById('start-animation').addEventListener('click', () => {
+            if (!animationId) {
+                if (balls.length === 0) initAnimation();
+                animate();
+            }
+        });
+        
+        document.getElementById('stop-animation').addEventListener('click', () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        });
+        
+        document.getElementById('reset-animation').addEventListener('click', () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            animationCtx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
+            initAnimation();
+        });
+        
+        document.getElementById('animation-speed').addEventListener('input', (e) => {
+            animationSpeed = parseFloat(e.target.value);
+            document.getElementById('speed-display').textContent = `${animationSpeed}x`;
+        });
+        
+        // ==================== WEB AUDIO API ====================
+        
+        let audioContext;
+        let oscillator;
+        
+        function initAudioContext() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+        
+        function playTone(frequency) {
+            initAudioContext();
+            stopTone(); // Para o tom anterior se existir
+            
+            oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.1);
+            gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 1);
+        }
+        
+        function stopTone() {
+            if (oscillator) {
+                try {
+                    oscillator.stop();
+                } catch (e) {
+                    // Oscillator já foi parado
+                }
+                oscillator = null;
+            }
+        }
+        
+        // ==================== MEDIARECORDER API ====================
+        
+        let mediaRecorder;
+        let recordedChunks = [];
+        let recordedAudio;
+        
+        async function startRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                
+                mediaRecorder = new MediaRecorder(stream);
+                recordedChunks = [];
+                
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
+                
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+                    recordedAudio = URL.createObjectURL(blob);
+                    document.querySelector('button[onclick="playRecording()"]').disabled = false;
+                    document.getElementById('recording-status').textContent = 'Gravação concluída!';
+                    
+                    // Para todas as tracks do stream
+                    stream.getTracks().forEach(track => track.stop());
+                };
+                
+                mediaRecorder.start();
+                document.getElementById('recording-status').textContent = 'Gravando... 🔴';
+                
+            } catch (error) {
+                console.error('Erro ao acessar microfone:', error);
+                document.getElementById('recording-status').textContent = 'Erro: Microfone não disponível';
+            }
+        }
+        
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+            }
+        }
+        
+        function playRecording() {
+            if (recordedAudio) {
+                const audio = new Audio(recordedAudio);
+                audio.play();
+            }
+        }
+        
+        // ==================== WEBRTC ====================
+        
+        let webcamStream;
+        
+        async function startWebcam() {
+            try {
+                webcamStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { width: 320, height: 240 } 
+                });
+                
+                const video = document.getElementById('webcam-video');
+                video.srcObject = webcamStream;
+                
+            } catch (error) {
+                console.error('Erro ao acessar webcam:', error);
+                alert('Não foi possível acessar a webcam');
+            }
+        }
+        
+        function stopWebcam() {
+            if (webcamStream) {
+                webcamStream.getTracks().forEach(track => track.stop());
+                document.getElementById('webcam-video').srcObject = null;
+                webcamStream = null;
+            }
+        }
+        
+        function takePhoto() {
+            const video = document.getElementById('webcam-video');
+            const canvas = document.getElementById('photo-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            if (webcamStream) {
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            } else {
+                alert('Ative a webcam primeiro');
+            }
+        }
+        
+        // ==================== INICIALIZAÇÃO ====================
+        
+        // Inicializar animação de fundo para o vídeo
+        const bgVideo = document.getElementById('bg-video');
+        const bgCanvas = document.createElement('canvas');
+        bgCanvas.width = 800;
+        bgCanvas.height = 200;
+        const bgCtx = bgCanvas.getContext('2d');
+        
+        // Criar stream do canvas para simular vídeo
+        function createBackgroundAnimation() {
+            const particles = [];
+            
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * bgCanvas.width,
+                    y: Math.random() * bgCanvas.height,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2,
+                    radius: Math.random() * 3 + 1,
+                    color: `hsl(${Math.random() * 360}, 70%, 60%)`
+                });
+            }
+            
+            function animateBg() {
+                bgCtx.fillStyle = 'rgba(0, 20, 40, 0.1)';
+                bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > bgCanvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > bgCanvas.height) particle.vy *= -1;
+                    
+                    bgCtx.beginPath();
+                    bgCtx.arc(particle.x, particle.y, particle.radius, 0, 2 * Math.PI);
+                    bgCtx.fillStyle = particle.color;
+                    bgCtx.fill();
+                });
+                
+                requestAnimationFrame(animateBg);
+            }
+            
+            animateBg();
+        }
+        
+        // Simular vídeo com canvas
+        bgVideo.srcObject = bgCanvas.captureStream(30);
+        createBackgroundAnimation();
+        
+        // Controles do vídeo background
+        document.getElementById('bg-play-pause').addEventListener('click', function() {
+            if (bgVideo.paused) {
+                bgVideo.play();
+                this.textContent = '⏸️ Pausar';
+            } else {
+                bgVideo.pause();
+                this.textContent = '▶️ Reproduzir';
+            }
+        });
+        
+        document.getElementById('bg-restart').addEventListener('click', function() {
+            bgVideo.currentTime = 0;
+        });
+    </script>
+</body>
+</html>

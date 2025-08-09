@@ -1,66 +1,96 @@
 <!DOCTYPE html>
+<!-- Declaração HTML5 -->
 <html lang="pt-BR">
+<!-- Idioma português brasileiro para acessibilidade -->
 <head>
     <meta charset="UTF-8">
+    <!-- Codificação UTF-8 para caracteres especiais -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta viewport para responsividade em dispositivos móveis -->
+    
     <title>Introdução ao HTML</title>
+    <!-- Título que aparece na aba do navegador -->
+    
     <style>
+        /* CSS interno - estilos definidos dentro do próprio HTML */
+        
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;  /* Define fonte padrão da página */
+            line-height: 1.6;                /* Espaçamento entre linhas para melhor leitura */
+            margin: 0;                       /* Remove margem padrão do navegador */
+            padding: 0;                      /* Remove padding padrão do navegador */
+            background-color: #f4f4f4;       /* Cor de fundo cinza claro */
         }
+        
         header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+            background: #333;                /* Fundo escuro para contraste */
+            color: #fff;                     /* Texto branco */
+            padding: 1rem 0;                 /* Espaçamento interno (1rem = 16px) */
+            text-align: center;              /* Centraliza o texto */
         }
+        
         main {
-            padding: 1rem;
+            padding: 1rem;                   /* Espaçamento interno */
         }
+        
         section {
-            background: #fff;
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;                /* Fundo branco para as seções */
+            margin: 1rem 0;                  /* Margem vertical entre seções */
+            padding: 1rem;                   /* Espaçamento interno */
+            border-radius: 5px;              /* Bordas arredondadas */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+            /* rgba(0,0,0,0.1) = preto com 10% de opacidade */
         }
+        
         footer {
-            background: #333;
+            background: #333;                /* Mesmo estilo do header */
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            position: fixed;                 /* Posição fixa na tela */
+            width: 100%;                     /* Largura total */
+            bottom: 0;                       /* Fixado na parte inferior */
         }
+        
         h1, h2 {
-            color: #333;
+            color: #333;                     /* Cor dos títulos */
         }
+        
         p {
-            color: #666;
+            color: #666;                     /* Cor do texto dos parágrafos */
         }
     </style>
 </head>
 <body>
+    <!-- Estrutura semântica HTML5 para melhor organização e acessibilidade -->
+    
     <header>
+        <!-- Cabeçalho principal da página -->
         <h1>Bem-vindo ao HTML</h1>
     </header>
+    
     <main>
+        <!-- Conteúdo principal da página -->
+        
         <section>
+            <!-- Primeira seção: definição do HTML -->
             <h2>O que é HTML?</h2>
             <p>HTML significa HyperText Markup Language. É a linguagem padrão para criar páginas web.</p>
         </section>
+        
         <section>
+            <!-- Segunda seção: estrutura básica -->
             <h2>Estrutura Básica</h2>
             <p>Um documento HTML básico é composto por elementos como <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, e <code>&lt;body&gt;</code>.</p>
+            <!-- Entidades HTML: &lt; = < e &gt; = > -->
         </section>
     </main>
+    
     <footer>
+        <!-- Rodapé fixo da página -->
         <p>&copy; 2023 Introdução ao HTML</p>
+        <!-- &copy; = símbolo de copyright © -->
     </footer>
 </body>
 </html>
