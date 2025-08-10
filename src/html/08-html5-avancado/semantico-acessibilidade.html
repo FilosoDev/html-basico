@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!-- Exemplo de HTML5 semântico e acessibilidade -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags importantes para SEO e acessibilidade -->
+    <meta name="description" content="Demonstração de HTML5 semântico com foco em acessibilidade e boas práticas">
+    <meta name="keywords" content="HTML5, semântico, acessibilidade, ARIA, web development">
+    <meta name="author" content="Curso de Desenvolvimento Web">
+    
+    <title>HTML5 Semântico e Acessibilidade</title>
+    
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Skip link para acessibilidade */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: #333;
+            padding: 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover,
+        nav a:focus {
+            background-color: #555;
+            outline: 2px solid #fff;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+        
+        /* Conteúdo principal */
+        main {
+            background: white;
+        }
+        
+        /* Aside (barra lateral) */
+        aside {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+        
+        /* Artigos */
+        article {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Seções */
+        section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Títulos */
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        /* Parágrafos */
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 2px solid #007bff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            background: #0056b3;
+            border-color: #0056b3;
+            outline: 2px solid #ffc107;
+        }
+        
+        /* Figuras */
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        figcaption {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Rodapé */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Elementos de destaque */
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+        
+        /* Alto contraste para acessibilidade */
+        @media (prefers-contrast: high) {
+            body {
+                background: black;
+                color: white;
+            }
+            
+            .btn {
+                background: yellow;
+                color: black;
+            }
+        }
+        
+        /* Redução de movimento para acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link para usuários de leitores de tela -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <!-- Cabeçalho da página -->
+    <header role="banner">
+        <!-- role="banner" ajuda leitores de tela a identificar o cabeçalho principal -->
+        
+        <h1>HTML5 Semântico e Acessibilidade</h1>
+        <p>Demonstração de boas práticas em desenvolvimento web</p>
+    </header>
+    
+    <!-- Navegação principal -->
+    <nav role="navigation" aria-label="Navegação principal">
+        <!-- 
+        role="navigation": identifica área de navegação
+        aria-label: descrição para leitores de tela
+        -->
+        
+        <ul>
+            <li><a href="#introducao" aria-describedby="nav-help">Introdução</a></li>
+            <li><a href="#elementos-semanticos">Elementos Semânticos</a></li>
+            <li><a href="#acessibilidade">Acessibilidade</a></li>
+            <li><a href="#boas-praticas">Boas Práticas</a></li>
+        </ul>
+        
+        <!-- Texto de ajuda oculto para leitores de tela -->
+        <div id="nav-help" style="position: absolute; left: -9999px;">
+            Use as setas do teclado para navegar pelos links
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Conteúdo principal -->
+        <main id="main-content" role="main">
+            <!-- 
+            role="main": identifica o conteúdo principal
+            id="main-content": destino do skip link
+            -->
+            
+            <!-- Artigo sobre introdução -->
+            <article id="introducao" aria-labelledby="intro-title">
+                <!-- aria-labelledby: conecta o artigo ao seu título -->
+                
+                <header>
+                    <h2 id="intro-title">Introdução ao HTML5 Semântico</h2>
+                    <!-- Metadados do artigo -->
+                    <div class="article-meta">
+                        <time datetime="2024-01-15" aria-label="Publicado em 15 de janeiro de 2024">
+                            15 de janeiro de 2024
+                        </time>
+                        <!-- 
+                        <time>: elemento semântico para datas/horários
+                        datetime: formato ISO para máquinas
+                        aria-label: descrição para leitores de tela
+                        -->
+                    </div>
+                </header>
+                
+                <section>
+                    <p>O HTML5 introduziu elementos semânticos que dão significado ao conteúdo, 
+                    melhorando a acessibilidade e SEO. Estes elementos substituem as tradicionais 
+                    &lt;div&gt; genéricas por tags com propósito específico.</p>
+                    
+                    <div class="highlight" role="note" aria-label="Informação importante">
+                        <!-- role="note": indica informação complementar -->
+                        <strong>Importante:</strong> Elementos semânticos não apenas organizam o código, 
+                        mas também comunicam estrutura e significado para navegadores, leitores de tela 
+                        e motores de busca.
+                    </div>
+                </section>
+            </article>
+            
+            <!-- Artigo sobre elementos semânticos -->
+            <article id="elementos-semanticos" aria-labelledby="semantic-title">
+                <header>
+                    <h2 id="semantic-title">Principais Elementos Semânticos</h2>
+                </header>
+                
+                <section aria-labelledby="estrutura-title">
+                    <h3 id="estrutura-title">Elementos de Estrutura</h3>
+                    
+                    <dl>
+                        <!-- <dl>: lista de definições - semântico para glossários -->
+                        
+                        <dt><code>&lt;header&gt;</code></dt>
+                        <dd>Define o cabeçalho de uma página ou seção</dd>
+                        
+                        <dt><code>&lt;nav&gt;</code></dt>
+                        <dd>Contém links de navegação principais</dd>
+                        
+                        <dt><code>&lt;main&gt;</code></dt>
+                        <dd>Conteúdo principal único da página</dd>
+                        
+                        <dt><code>&lt;section&gt;</code></dt>
+                        <dd>Agrupa conteúdo relacionado tematicamente</dd>
+                        
+                        <dt><code>&lt;article&gt;</code></dt>
+                        <dd>Conteúdo independente que pode ser distribuído</dd>
+                        
+                        <dt><code>&lt;aside&gt;</code></dt>
+                        <dd>Conteúdo relacionado mas não essencial</dd>
+                        
+                        <dt><code>&lt;footer&gt;</code></dt>
+                        <dd>Rodapé de página ou seção</dd>
+                    </dl>
+                </section>
+                
+                <section aria-labelledby="conteudo-title">
+                    <h3 id="conteudo-title">Elementos de Conteúdo</h3>
+                    
+                    <ul>
+                        <li><code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code> - Imagens com legendas</li>
+                        <li><code>&lt;time&gt;</code> - Datas e horários</li>
+                        <li><code>&lt;mark&gt;</code> - <mark>Texto destacado</mark></li>
+                        <li><code>&lt;details&gt;</code> e <code>&lt;summary&gt;</code> - Conteúdo expansível</li>
+                    </ul>
+                    
+                    <!-- Exemplo de details/summary -->
+                    <details>
+                        <summary>Clique para ver exemplo de código HTML5</summary>
+                        <pre><code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Título do Artigo&lt;/h2&gt;
+        &lt;time datetime="2024-01-15"&gt;15 de janeiro de 2024&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;Conteúdo do artigo...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    </details>
+                </section>
+                
+                <!-- Exemplo de figura com legenda -->
+                <figure aria-labelledby="fig-caption">
+                    <!-- Simulando uma imagem com div colorida -->
+                    <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #3498db, #2c3e50); 
+                               border-radius: 8px; display: flex; align-items: center; justify-content: center; 
+                               color: white; font-size: 1.2rem;">
+                        Exemplo de Imagem Semântica
+                    </div>
+                    <figcaption id="fig-caption">
+                        Figura 1: Exemplo de como usar &lt;figure&gt; e &lt;figcaption&gt; 
+                        para associar imagens com suas descrições de forma semântica.
+                    </figcaption>
+                </figure>
+            </article>
+            
+            <!-- Artigo sobre acessibilidade -->
+            <article id="acessibilidade" aria-labelledby="access-title">
+                <header>
+                    <h2 id="access-title">Acessibilidade Web (WCAG)</h2>
+                </header>
+                
+                <section aria-labelledby="aria-title">
+                    <h3 id="aria-title">Atributos ARIA (Accessible Rich Internet Applications)</h3>
+                    
+                    <p>ARIA fornece informações semânticas adicionais para tecnologias assistivas:</p>
+                    
+                    <table role="table" aria-label="Principais atributos ARIA">
+                        <!-- 
+                        role="table": confirma que é uma tabela
+                        aria-label: descrição da tabela
+                        -->
+                        
+                        <caption>Principais Atributos ARIA</caption>
+                        <!-- <caption>: título semântico da tabela -->
+                        
+                        <thead>
+                            <tr>
+                                <th scope="col">Atributo</th>
+                                <th scope="col">Função</th>
+                                <th scope="col">Exemplo</th>
+                            </tr>
+                            <!-- scope="col": indica que é cabeçalho de coluna -->
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><code>aria-label</code></th>
+                                <!-- scope="row": indica que é cabeçalho de linha -->
+                                <td>Fornece nome acessível</td>
+                                <td><code>aria-label="Fechar modal"</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><code>aria-labelledby</code></th>
+                                <td>Referencia elemento que rotula</td>
+                                <td><code>aria-labelledby="title-id"</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><code>aria-describedby</code></th>
+                                <td>Referencia descrição adicional</td>
+                                <td><code>aria-describedby="help-text"</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><code>aria-expanded</code></th>
+                                <td>Estado de elemento expansível</td>
+                                <td><code>aria-expanded="false"</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><code>aria-hidden</code></th>
+                                <td>Oculta elemento de leitores de tela</td>
+                                <td><code>aria-hidden="true"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section aria-labelledby="landmarks-title">
+                    <h3 id="landmarks-title">Marcos de Navegação (Landmarks)</h3>
+                    
+                    <p>Marcos ajudam usuários de leitores de tela a navegar rapidamente:</p>
+                    
+                    <ul role="list">
+                        <!-- role="list" garante que seja lida como lista -->
+                        <li><code>role="banner"</code> - Cabeçalho principal</li>
+                        <li><code>role="navigation"</code> - Área de navegação</li>
+                        <li><code>role="main"</code> - Conteúdo principal</li>
+                        <li><code>role="complementary"</code> - Conteúdo relacionado</li>
+                        <li><code>role="contentinfo"</code> - Informações da página (rodapé)</li>
+                    </ul>
+                </section>
+            </article>
+            
+            <!-- Artigo sobre boas práticas -->
+            <article id="boas-praticas" aria-labelledby="practices-title">
+                <header>
+                    <h2 id="practices-title">Boas Práticas de Desenvolvimento</h2>
+                </header>
+                
+                <section aria-labelledby="checklist-title">
+                    <h3 id="checklist-title">Checklist de Acessibilidade</h3>
+                    
+                    <ol role="list" aria-label="Lista de verificação de acessibilidade">
+                        <li>
+                            <strong>Estrutura semântica:</strong> Use elementos HTML5 apropriados
+                            <ul>
+                                <li>header, nav, main, section, article, aside, footer</li>
+                                <li>h1-h6 em hierarquia lógica</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <strong>Texto alternativo:</strong> Todas as imagens devem ter alt
+                            <ul>
+                                <li><code>alt=""</code> para imagens decorativas</li>
+                                <li>Descrição concisa para imagens informativas</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <strong>Navegação por teclado:</strong> Todos os elementos interativos acessíveis
+                            <ul>
+                                <li>Ordem lógica de tabulação</li>
+                                <li>Indicadores visuais de foco</li>
+                                <li>Skip links para conteúdo principal</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <strong>Contraste de cores:</strong> Mínimo 4.5:1 para texto normal
+                            <ul>
+                                <li>7:1 para texto pequeno (melhor prática)</li>
+                                <li>3:1 para textos grandes (18pt+ ou 14pt+ negrito)</li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <strong>Formulários acessíveis:</strong>
+                            <ul>
+                                <li>Labels associados a todos os inputs</li>
+                                <li>Mensagens de erro claras</li>
+                                <li>Instruções e validação em tempo real</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                
+                <section aria-labelledby="tools-title">
+                    <h3 id="tools-title">Ferramentas de Teste</h3>
+                    
+                    <div class="highlight" role="region" aria-labelledby="tools-heading">
+                        <h4 id="tools-heading">Ferramentas Recomendadas:</h4>
+                        <ul>
+                            <li><strong>axe DevTools:</strong> Extensão para análise automática</li>
+                            <li><strong>WAVE:</strong> Web Accessibility Evaluation Tool</li>
+                            <li><strong>Lighthouse:</strong> Auditoria built-in no Chrome</li>
+                            <li><strong>Screen readers:</strong> NVDA (Windows), VoiceOver (Mac)</li>
+                        </ul>
+                    </div>
+                </section>
+            </article>
+        </main>
+        
+        <!-- Barra lateral -->
+        <aside role="complementary" aria-labelledby="sidebar-title">
+            <!-- role="complementary": conteúdo relacionado mas não essencial -->
+            
+            <h3 id="sidebar-title">Recursos Adicionais</h3>
+            
+            <nav aria-labelledby="quick-nav-title">
+                <h4 id="quick-nav-title">Navegação Rápida</h4>
+                <ul>
+                    <li><a href="#introducao">Introdução</a></li>
+                    <li><a href="#elementos-semanticos">Elementos Semânticos</a></li>
+                    <li><a href="#acessibilidade">Acessibilidade</a></li>
+                    <li><a href="#boas-praticas">Boas Práticas</a></li>
+                </ul>
+            </nav>
+            
+            <section aria-labelledby="links-title">
+                <h4 id="links-title">Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-describedby="external-link-help">
+                        WCAG 2.1 Quick Reference
+                        <span aria-hidden="true"> ↗</span>
+                    </a></li>
+                    
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                        MDN ARIA Guide
+                        <span aria-hidden="true"> ↗</span>
+                    </a></li>
+                    
+                    <li><a href="https://webaim.org/" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                        WebAIM Resources
+                        <span aria-hidden="true"> ↗</span>
+                    </a></li>
+                </ul>
+                
+                <!-- Texto de ajuda para links externos -->
+                <div id="external-link-help" style="position: absolute; left: -9999px;">
+                    Link externo, abre em nova aba
+                </div>
+            </section>
+            
+            <section aria-labelledby="stats-title">
+                <h4 id="stats-title">Estatísticas de Acessibilidade</h4>
+                <dl>
+                    <dt>Pessoas com deficiência no mundo:</dt>
+                    <dd>Mais de 1 bilhão (15% da população)</dd>
+                    
+                    <dt>Usuários de leitores de tela:</dt>
+                    <dd>Aproximadamente 21 milhões</dd>
+                    
+                    <dt>Sites com barreiras de acessibilidade:</dt>
+                    <dd>98% dos sites têm problemas detectáveis</dd>
+                </dl>
+            </section>
+        </aside>
+    </div>
+    
+    <!-- Rodapé -->
+    <footer role="contentinfo" aria-labelledby="footer-title">
+        <!-- role="contentinfo": informações sobre a página/site -->
+        
+        <div id="footer-title" style="position: absolute; left: -9999px;">
+            Informações do rodapé
+        </div>
+        
+        <p>&copy; 2024 Curso de Desenvolvimento Web. 
+           Exemplo educacional de HTML5 semântico e acessibilidade.</p>
+        
+        <p>
+            <a href="#" aria-label="Política de privacidade">Privacidade</a> | 
+            <a href="#" aria-label="Termos de uso">Termos</a> | 
+            <a href="#" aria-label="Entre em contato conosco">Contato</a>
+        </p>
+        
+        <!-- Informação sobre acessibilidade -->
+        <div class="accessibility-statement">
+            <p>
+                <small>
+                    Este site foi desenvolvido seguindo as diretrizes WCAG 2.1 AA. 
+                    Para relatar problemas de acessibilidade, 
+                    <a href="mailto:acessibilidade@exemplo.com">entre em contato</a>.
+                </small>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript para melhorar a experiência -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona navegação por teclado melhorada
+            document.addEventListener('keydown', function(e) {
+                // Atalho Alt+1 para ir ao conteúdo principal
+                if (e.altKey && e.key === '1') {
+                    e.preventDefault();
+                    document.getElementById('main-content').focus();
+                }
+                
+                // Atalho Alt+2 para ir à navegação
+                if (e.altKey && e.key === '2') {
+                    e.preventDefault();
+                    document.querySelector('nav a').focus();
+                }
+            });
+            
+            // Melhora a navegação por links internos
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start' 
+                        });
+                        // Foca no elemento de destino para leitores de tela
+                        target.setAttribute('tabindex', '-1');
+                        target.focus();
+                    }
+                });
+            });
+            
+            // Anuncia mudanças dinâmicas para leitores de tela
+            function announceToScreenReader(message) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.style.position = 'absolute';
+                announcement.style.left = '-9999px';
+                announcement.textContent = message;
+                document.body.appendChild(announcement);
+                
+                setTimeout(() => {
+                    document.body.removeChild(announcement);
+                }, 1000);
+            }
+            
+            // Exemplo de uso quando seção é carregada
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const title = entry.target.querySelector('h2, h3');
+                        if (title) {
+                            announceToScreenReader(`Seção ${title.textContent} está agora visível`);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observa artigos principais
+            document.querySelectorAll('article').forEach(function(article) {
+                observer.observe(article);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,84 +1,463 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Exemplo completo de sintaxe CSS com explicações detalhadas -->
+<html lang="pt-BR">
+<!-- Idioma alterado para português brasileiro para consistência -->
 <head>
     <meta charset="UTF-8">
+    <!-- Codificação UTF-8 para caracteres especiais -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Syntax Explanation</title>
-    <!-- Internal CSS -->
+    <!-- Meta tag viewport para responsividade -->
+    
+    <title>Sintaxe CSS - Explicação Completa</title>
+    <!-- Título descritivo em português -->
+    
+    <!-- ========== CSS INTERNO ========== -->
     <style>
+        /* 
+        CSS INTERNO: definido dentro da tag <style> no <head>
+        Vantagem: não precisa de arquivo externo
+        Desvantagem: não é reutilizável em outras páginas
+        */
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            /* Seletor de elemento: aplica a todos os elementos <body> */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* font-family: define a fonte, com fallbacks caso não esteja disponível */
+            
+            background-color: #f4f6f8;
+            /* background-color: cor de fundo em hexadecimal */
+            
             margin: 0;
             padding: 0;
+            /* Reseta margens e padding padrão do navegador */
+            
+            line-height: 1.6;
+            /* line-height: espaçamento entre linhas para melhor leitura */
+            
+            color: #333;
+            /* color: cor do texto padrão */
         }
+        
         header {
-            background-color: #4CAF50;
+            /* Seletor de elemento: estiliza todos os <header> */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* background: gradiente CSS3 - mais moderno que cor sólida */
+            
             color: white;
-            padding: 10px 0;
+            /* Texto branco para contrastar com fundo escuro */
+            
+            padding: 2rem 0;
+            /* padding: espaçamento interno - 2rem = 32px (assumindo 16px base) */
+            
             text-align: center;
+            /* Centraliza o texto horizontalmente */
+            
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            /* box-shadow: sombra sutil - x y blur spread color */
         }
-        .internal-style {
-            color: blue;
-            text-align: center;
-            margin-top: 20px;
+        
+        .container {
+            /* Seletor de classe: aplica a elementos com class="container" */
+            max-width: 1200px;
+            /* max-width: largura máxima responsiva */
+            
+            margin: 0 auto;
+            /* margin: 0 auto centraliza horizontalmente */
+            
+            padding: 2rem;
+            /* Espaçamento interno */
         }
-        .content {
-            padding: 20px;
+        
+        .destaque-interno {
+            /* Classe específica para demonstrar CSS interno */
+            background-color: #e8f4fd;
+            /* Fundo azul claro */
+            
+            border-left: 4px solid #2196F3;
+            /* border-left: borda esquerda azul de 4px */
+            
+            padding: 1rem;
+            /* Espaçamento interno */
+            
+            margin: 1rem 0;
+            /* margin: espaçamento externo - vertical de 1rem */
+            
+            border-radius: 4px;
+            /* border-radius: bordas arredondadas */
+            
+            font-weight: 500;
+            /* font-weight: espessura da fonte (500 = medium) */
         }
-        .example {
-            background-color: #e7f3fe;
-            border-left: 6px solid #2196F3;
-            margin: 20px 0;
-            padding: 10px;
+        
+        #secao-principal {
+            /* Seletor de ID: aplica apenas ao elemento com id="secao-principal" */
+            /* IDs devem ser únicos na página */
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .exemplo-codigo {
+            /* Classe para exibir código */
+            background-color: #2d3748;
+            /* Fundo escuro para código */
+            
+            color: #e2e8f0;
+            /* Texto claro */
+            
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            /* overflow-x: auto adiciona scroll horizontal se necessário */
+            
+            font-family: 'Courier New', monospace;
+            /* Fonte monoespaçada para código */
+            
+            font-size: 0.9rem;
+            /* Fonte um pouco menor */
+            
+            line-height: 1.4;
+            margin: 1rem 0;
+        }
+        
+        /* Pseudo-seletores: aplicam estilos em estados específicos */
+        .botao-exemplo {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* transition: animação suave nas mudanças */
+            
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .botao-exemplo:hover {
+            /* :hover aplica quando o mouse está sobre o elemento */
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            /* transform: move o elemento para cima */
+            
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+        
+        .botao-exemplo:active {
+            /* :active aplica quando o elemento está sendo clicado */
+            transform: translateY(0);
+        }
+        
+        /* Seletores compostos */
+        .lista-tipos li {
+            /* Seletor descendente: li dentro de elemento com classe lista-tipos */
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .lista-tipos li:first-child {
+            /* :first-child seleciona o primeiro elemento filho */
+            border-left-color: #dc3545;
+        }
+        
+        .lista-tipos li:nth-child(2) {
+            /* :nth-child(2) seleciona o segundo elemento filho */
+            border-left-color: #ffc107;
+        }
+        
+        .lista-tipos li:last-child {
+            /* :last-child seleciona o último elemento filho */
+            border-left-color: #6f42c1;
+        }
+        
+        /* Media Queries: CSS responsivo */
+        @media (max-width: 768px) {
+            /* Aplica apenas em telas menores que 768px (tablets/celulares) */
+            
+            .container {
+                padding: 1rem;
+                /* Reduz padding em telas pequenas */
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+                /* Reduz tamanho da fonte em mobile */
+            }
+            
+            .exemplo-codigo {
+                font-size: 0.8rem;
+                /* Fonte menor para código em mobile */
+            }
+        }
+        
+        /* Animações com keyframes */
+        @keyframes fadeInUp {
+            /* Define uma animação customizada */
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animado {
+            animation: fadeInUp 0.6s ease-out;
+            /* Aplica a animação fadeInUp */
         }
     </style>
-    <!-- Link to External CSS -->
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- ========== CSS EXTERNO ========== -->
+    <link rel="stylesheet" href="css/estilo-externo.css">
+    <!-- 
+    CSS EXTERNO: referencia arquivo separado
+    Vantagem: reutilizável, mantém HTML limpo, cache do navegador
+    Melhor prática para projetos maiores
+    -->
 </head>
 <body>
     <header>
-        <h1>CSS Syntax Explanation</h1>
+        <h1>Sintaxe CSS - Guia Completo</h1>
+        <p>Aprenda como funciona a estrutura e sintaxe do CSS com exemplos práticos</p>
     </header>
-    <div class="content">
-        <h2>O que é CSS?</h2>
-        <p>CSS significa Cascading Style Sheets. É usado para estilizar e fazer layout de páginas da web.</p>
+    
+    <div class="container">
+        <section id="secao-principal" class="animado">
+            <!-- id: identificador único, class: pode ser reutilizada -->
+            
+            <h2>📚 O que é CSS?</h2>
+            <p>
+                <strong>CSS (Cascading Style Sheets)</strong> é a linguagem usada para 
+                estilizar documentos HTML. O termo "Cascading" se refere à forma como 
+                as regras são aplicadas em cascata, com prioridades específicas.
+            </p>
+            
+            <div class="destaque-interno">
+                <!-- Elemento estilizado com CSS interno -->
+                🎨 <strong>Este elemento é estilizado com CSS interno!</strong><br>
+                Repare na borda azul à esquerda e no fundo colorido.
+            </div>
+            
+            <h3>🔧 Anatomia de uma Regra CSS</h3>
+            <p>Toda regra CSS segue esta estrutura básica:</p>
+            
+            <div class="exemplo-codigo">
+/* Comentário CSS: explicações que não afetam o estilo */
 
-        <h2>CSS Syntax</h2>
-        <p>A sintaxe de uma regra CSS consiste em um seletor e um bloco de declaração.</p>
-        <div class="example">
-            <strong>Exenplo:</strong>
-            <pre>
-                selector {
-                    property: value;
-                }
-            </pre>
-        </div>
+seletor {
+    propriedade: valor;
+    /* Cada declaração termina com ponto e vírgula */
+    outra-propriedade: outro-valor;
+}
 
-        <h2>Seletores</h2>
-        <p>Um seletor aponta para o elemento HTML que você deseja estilizar.</p>
-        <p class="internal-style">Este parágrafo é estilizado com CSS interno.</p>
+/* Exemplo prático: */
+h1 {
+    color: blue;           /* Cor do texto */
+    font-size: 2rem;       /* Tamanho da fonte */
+    text-align: center;    /* Alinhamento */
+}
+            </div>
+            
+            <h3>🎯 Tipos de Seletores CSS</h3>
+            <ul class="lista-tipos">
+                <!-- Lista estilizada com seletores compostos -->
+                <li>
+                    <strong>Elemento:</strong> <code>p { }</code> - Seleciona todas as tags &lt;p&gt;
+                </li>
+                <li>
+                    <strong>Classe:</strong> <code>.minha-classe { }</code> - Seleciona elementos com class="minha-classe"
+                </li>
+                <li>
+                    <strong>ID:</strong> <code>#meu-id { }</code> - Seleciona elemento com id="meu-id"
+                </li>
+                <li>
+                    <strong>Universal:</strong> <code>* { }</code> - Seleciona todos os elementos
+                </li>
+            </ul>
+            
+            <h3>📋 Formas de Aplicar CSS</h3>
+            
+            <h4>1. CSS Inline (dentro da tag HTML)</h4>
+            <p style="background-color: #ffeb3b; padding: 10px; border-radius: 4px; color: #333;">
+                <!-- CSS INLINE: aplicado diretamente na tag -->
+                ⚡ Este parágrafo usa <strong>CSS inline</strong> com style="..."<br>
+                <small>Vantagem: prioridade alta | Desvantagem: difícil manutenção</small>
+            </p>
+            
+            <div class="exemplo-codigo">
+&lt;p style="color: red; font-size: 18px;"&gt;
+    Texto estilizado inline
+&lt;/p&gt;
+            </div>
+            
+            <h4>2. CSS Interno (na tag &lt;style&gt;)</h4>
+            <div class="destaque-interno">
+                📝 Este elemento usa <strong>CSS interno</strong> definido no &lt;head&gt;<br>
+                <small>Vantagem: mantém estilos no mesmo arquivo | Desvantagem: não reutilizável</small>
+            </div>
+            
+            <div class="exemplo-codigo">
+&lt;style&gt;
+.destaque-interno {
+    background-color: #e8f4fd;
+    border-left: 4px solid #2196F3;
+    padding: 1rem;
+}
+&lt;/style&gt;
+            </div>
+            
+            <h4>3. CSS Externo (arquivo separado)</h4>
+            <p class="estilo-externo">
+                <!-- Esta classe seria definida no arquivo CSS externo -->
+                🔗 Este parágrafo seria estilizado por um arquivo CSS externo<br>
+                <small>Melhor prática: reutilizável, organizador, cacheable</small>
+            </p>
+            
+            <div class="exemplo-codigo">
+&lt;!-- No HTML --&gt;
+&lt;link rel="stylesheet" href="estilos.css"&gt;
 
-        <h2>Declaração</h2>
-        <p>Um bloco de declaração contém uma ou mais declarações separadas por ponto e vírgula.</p>
-        <div class="example">
-            <strong>Exemplo:</strong>
-            <pre>
-                selector {
-                    color: red;
-                    font-size: 20px;
-                }
-            </pre>
-        </div>
+/* No arquivo estilos.css */
+.estilo-externo {
+    background-color: #d4edda;
+    padding: 1rem;
+}
+            </div>
+            
+            <h3>⚡ Especificidade CSS (Ordem de Prioridade)</h3>
+            <p>Quando múltiplas regras se aplicam ao mesmo elemento, o CSS usa esta ordem de prioridade:</p>
+            
+            <ol>
+                <li><strong>Inline styles</strong> (style="...") - Prioridade máxima</li>
+                <li><strong>IDs</strong> (#meu-id) - Alta prioridade</li>
+                <li><strong>Classes</strong> (.minha-classe) - Média prioridade</li>
+                <li><strong>Elementos</strong> (p, h1, div) - Baixa prioridade</li>
+            </ol>
+            
+            <div class="exemplo-codigo">
+/* Especificidade crescente: */
+p { color: black; }              /* Especificidade: 1 */
+.texto { color: blue; }          /* Especificidade: 10 */
+#titulo { color: green; }        /* Especificidade: 100 */
+style="color: red;"              /* Especificidade: 1000 */
+            </div>
+            
+            <h3>🎨 Propriedades CSS Essenciais</h3>
+            
+            <div class="exemplo-codigo">
+/* TEXTO */
+color: #333;                    /* Cor do texto */
+font-family: Arial, sans-serif; /* Família da fonte */
+font-size: 16px;               /* Tamanho da fonte */
+font-weight: bold;             /* Espessura (normal, bold, 100-900) */
+text-align: center;            /* Alinhamento (left, center, right, justify) */
+line-height: 1.5;              /* Altura da linha */
 
-        <h2>Tipos de CSS</h2>
-        <ul>
-            <li><strong>Inline CSS:</strong> Use o atributo <code>style</code> dentro da tag.</li>
-            <li><strong>Internal CSS:</strong> Use a tage <code>&lt;style&gt;</code> dentro do elemento <code>&lt;head&gt;</code></li>
-            <li><strong>External CSS:</strong> Use um arquive externo referenciado via o elemento <code>&lt;link&gt;</code> </li>
-        </ul>
+/* FUNDO */
+background-color: #f0f0f0;     /* Cor de fundo */
+background-image: url('img.jpg'); /* Imagem de fundo */
+background-size: cover;        /* Tamanho da imagem */
 
-        <p class="external-style">Esse parágrafo é estilizado por um arquivo externo</p>
+/* BORDAS */
+border: 1px solid #ccc;        /* Borda: largura estilo cor */
+border-radius: 8px;            /* Bordas arredondadas */
+border-top: 2px solid red;     /* Borda específica */
+
+/* ESPAÇAMENTO */
+margin: 10px;                  /* Margem externa (4 lados) */
+margin: 10px 20px;             /* Margem: vertical horizontal */
+margin: 5px 10px 15px 20px;    /* Margem: top right bottom left */
+padding: 15px;                 /* Espaçamento interno */
+
+/* DIMENSÕES */
+width: 300px;                  /* Largura fixa */
+width: 50%;                    /* Largura percentual */
+width: 100vw;                  /* Largura: 100% da viewport */
+height: 200px;                 /* Altura */
+max-width: 800px;              /* Largura máxima */
+min-height: 400px;             /* Altura mínima */
+
+/* LAYOUT */
+display: block;                /* Tipo de exibição */
+display: flex;                 /* Flexbox */
+display: grid;                 /* CSS Grid */
+display: none;                 /* Ocultar elemento */
+position: relative;            /* Posicionamento */
+position: absolute;            /* Posição absoluta */
+position: fixed;               /* Fixo na tela */
+
+/* EFEITOS */
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Sombra */
+opacity: 0.8;                  /* Transparência (0-1) */
+transform: rotate(45deg);      /* Transformação */
+transition: all 0.3s ease;    /* Transição suave */
+            </div>
+            
+            <h3>📱 CSS Responsivo com Media Queries</h3>
+            <p>Media queries permitem aplicar estilos diferentes baseados no tamanho da tela:</p>
+            
+            <div class="exemplo-codigo">
+/* Mobile First: estilos base para mobile */
+.container {
+    padding: 1rem;
+}
+
+/* Tablets (768px e acima) */
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
+}
+
+/* Desktop (1024px e acima) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Apenas para impressão */
+@media print {
+    body {
+        font-size: 12pt;
+        color: black;
+    }
+}
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="botao-exemplo" onclick="alert('Botão estilizado com CSS!')">
+                    🚀 Testar Interatividade
+                </button>
+                <p><small>Este botão demonstra efeitos :hover e :active</small></p>
+            </div>
+        </section>
     </div>
+    
+    <!-- Script para demonstrar interatividade -->
+    <script>
+        // Adiciona classe animada aos elementos quando carregam
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementos = document.querySelectorAll('h3, .lista-tipos li');
+            elementos.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animado');
+                }, index * 200);
+            });
+        });
+    </script>
 </body>
 </html>

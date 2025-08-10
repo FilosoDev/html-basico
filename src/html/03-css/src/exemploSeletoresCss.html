@@ -1,34 +1,752 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<!-- Demonstração completa de seletores CSS com exemplos práticos -->
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplos de Sintaxe CSS</title>
+    <title>Seletores CSS - Guia Completo</title>
+    
+    <!-- CSS Externo: referencia arquivo para demonstrar uso -->
     <link rel="stylesheet" href="css/styles1.css">
+    
+    <style>
+        /* CSS interno para demonstrar seletores em ação */
+        
+        /* SELETORES BÁSICOS */
+        
+        /* 1. Seletor Universal (*) - Aplica a TODOS os elementos */
+        * {
+            box-sizing: border-box;
+            /* Inclui padding e border no cálculo da largura/altura */
+        }
+        
+        /* 2. Seletor de Elemento - Aplica a todas as tags do tipo especificado */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        
+        h1 {
+            /* Seletor de elemento: aplica a TODOS os h1 da página */
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        p {
+            /* Seletor de elemento: aplica a TODOS os parágrafos */
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* 3. Seletor de Classe (.) - Aplica a elementos com class específica */
+        .container {
+            /* Classe container: pode ser reutilizada em vários elementos */
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .destacado {
+            /* Classe destacado: pode ser aplicada a qualquer elemento */
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        .destacado::before {
+            /* Pseudo-elemento: adiciona conteúdo antes do elemento */
+            content: "⭐ ";
+            font-size: 1.2rem;
+        }
+        
+        .texto-azul {
+            color: #007bff;
+            font-weight: 600;
+        }
+        
+        .fundo-cinza {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #6c757d;
+        }
+        
+        /* 4. Seletor de ID (#) - Aplica a UM elemento específico com id único */
+        #titulo-principal {
+            /* ID deve ser único na página - apenas UM elemento pode ter este ID */
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 2rem;
+        }
+        
+        #secao-especial {
+            border: 3px solid #28a745;
+            background-color: #d4edda;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        /* SELETORES AGRUPADOS */
+        
+        /* 5. Seletor Agrupado (,) - Aplica o mesmo estilo a vários seletores */
+        h2, h3, h4 {
+            /* Aplica a todos os h2, h3 E h4 */
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .exemplo, .demonstracao, .ilustracao {
+            /* Aplica às três classes diferentes */
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+        
+        /* SELETORES DE COMBINAÇÃO */
+        
+        /* 6. Seletor Descendente (espaço) - Elemento dentro de outro */
+        article p {
+            /* TODOS os <p> que estão DENTRO de <article> (em qualquer nível) */
+            color: #6c757d;
+            font-style: italic;
+            border-left: 3px solid #17a2b8;
+            padding-left: 1rem;
+            margin-left: 1rem;
+        }
+        
+        .lista-especial li {
+            /* TODOS os <li> que estão DENTRO de elementos com classe lista-especial */
+            background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border-left: 4px solid #2196f3;
+            transition: transform 0.2s ease;
+        }
+        
+        .lista-especial li:hover {
+            transform: translateX(10px);
+            /* Move o item 10px para a direita no hover */
+        }
+        
+        /* 7. Seletor Filho Direto (>) - Apenas filhos diretos */
+        .container > h2 {
+            /* APENAS h2 que são filhos DIRETOS de container */
+            /* Não afeta h2 que estão dentro de outros elementos dentro de container */
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 5px solid #fd7e14;
+        }
+        
+        /* 8. Seletor Irmão Adjacente (+) - Elemento imediatamente após outro */
+        h3 + p {
+            /* Primeiro <p> que vem IMEDIATAMENTE APÓS um <h3> */
+            font-weight: 600;
+            color: #495057;
+            background: #fff8e1;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid #ff9800;
+        }
+        
+        /* 9. Seletor Irmão Geral (~) - Todos os irmãos que vêm depois */
+        h4 ~ ul {
+            /* TODAS as <ul> que são irmãos de <h4> e vêm DEPOIS dele */
+            background: #f3e5f5;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #9c27b0;
+        }
+        
+        /* PSEUDO-CLASSES - Aplicam estilos baseados no estado do elemento */
+        
+        /* 10. :first-child - Primeiro filho */
+        .lista-cores li:first-child {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+            font-weight: bold;
+        }
+        
+        /* 11. :last-child - Último filho */
+        .lista-cores li:last-child {
+            background-color: #e8f5e8;
+            border-left-color: #4caf50;
+            font-weight: bold;
+        }
+        
+        /* 12. :nth-child(n) - Enésimo filho */
+        .lista-cores li:nth-child(2) {
+            background-color: #fff3e0;
+            border-left-color: #ff9800;
+        }
+        
+        .lista-cores li:nth-child(odd) {
+            /* Elementos ímpares (1º, 3º, 5º...) */
+            background: linear-gradient(45deg, #f5f5f5, #eeeeee);
+        }
+        
+        .lista-cores li:nth-child(even) {
+            /* Elementos pares (2º, 4º, 6º...) */
+            background: linear-gradient(45deg, #e3f2fd, #f3e5f5);
+        }
+        
+        /* 13. :hover - Quando mouse está sobre o elemento */
+        .interativo:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.02);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        /* 14. :focus - Quando elemento tem foco (teclado ou clique) */
+        .input-exemplo:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+        
+        /* 15. :not() - Negação (todos EXCETO o especificado) */
+        .lista-negacao li:not(.especial) {
+            /* Todos os <li> EXCETO os que têm classe "especial" */
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+        
+        /* PSEUDO-ELEMENTOS - Criam elementos virtuais */
+        
+        /* 16. ::before - Adiciona conteúdo ANTES do elemento */
+        .com-icone::before {
+            content: "🎯 ";
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        
+        /* 17. ::after - Adiciona conteúdo DEPOIS do elemento */
+        .com-seta::after {
+            content: " →";
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        /* 18. ::first-letter - Primeira letra */
+        .capitular::first-letter {
+            float: left;
+            font-size: 3rem;
+            line-height: 1;
+            margin-right: 0.5rem;
+            margin-top: 0.2rem;
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        /* 19. ::first-line - Primeira linha */
+        .primeira-linha::first-line {
+            font-weight: bold;
+            color: #495057;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* SELETORES DE ATRIBUTO */
+        
+        /* 20. [atributo] - Elementos que TÊM o atributo */
+        [title] {
+            cursor: help;
+            border-bottom: 1px dotted #6c757d;
+        }
+        
+        /* 21. [atributo="valor"] - Atributo com valor específico */
+        [data-tipo="importante"] {
+            background: #fff5f5;
+            border: 2px solid #dc3545;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        
+        /* 22. [atributo^="valor"] - Atributo que INICIA com valor */
+        [class^="btn"] {
+            /* Classes que começam com "btn" */
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* 23. [atributo$="valor"] - Atributo que TERMINA com valor */
+        [class$="azul"] {
+            /* Classes que terminam com "azul" */
+            background-color: #007bff;
+            color: white;
+        }
+        
+        /* 24. [atributo*="valor"] - Atributo que CONTÉM valor */
+        [class*="especial"] {
+            /* Classes que contêm "especial" */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [class*="especial"]::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        [class*="especial"]:hover::before {
+            left: 100%;
+        }
+        
+        /* Estilos para demonstração visual */
+        .exemplo-visual {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .codigo-exemplo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .input-exemplo {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 0 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .codigo-exemplo {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Exemplo de seletor de elemento -->
-    <h1>Este é um título principal (h1)</h1>
-    <p>Este é um parágrafo comum.</p>
-    
-    <!-- Exemplo de seletor de classe -->
-    <p class="destacado">Este parágrafo tem fundo amarelo.</p>
-    
-    <!-- Exemplo de seletor de ID -->
-    <h2 id="titulo-principal">Título com ID específico</h2>
-    
-    <!-- Exemplo de seletor universal -->
-    <div>
-        <p>Este parágrafo está dentro de uma div.</p>
+    <div class="container">
+        <h1>🎯 Guia Completo de Seletores CSS</h1>
+        
+        <p class="destacado">
+            Este exemplo demonstra todos os tipos de seletores CSS com aplicações práticas. 
+            Cada seletor está sendo usado em tempo real nesta página!
+        </p>
+        
+        <!-- Exemplo de seletor de elemento -->
+        <section class="exemplo-visual">
+            <h2>1. Seletores Básicos</h2>
+            
+            <h3>Seletor de Elemento</h3>
+            <p>Este parágrafo usa estilo aplicado ao seletor <code>p { }</code> que afeta TODOS os parágrafos.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* HTML */
+&lt;p&gt;Este parágrafo é estilizado&lt;/p&gt;
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor de classe -->
+        <section class="exemplo-visual">
+            <h3>Seletor de Classe</h3>
+            <p class="texto-azul">Este parágrafo tem a classe "texto-azul" e aparece em azul.</p>
+            <div class="fundo-cinza">Esta div tem a classe "fundo-cinza" e tem fundo acinzentado.</div>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.texto-azul {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* HTML */
+&lt;p class="texto-azul"&gt;Texto em azul&lt;/p&gt;
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor de ID -->
+        <div id="titulo-principal">
+            Este elemento tem ID "titulo-principal" - único na página
+        </div>
+        
+        <section class="exemplo-visual">
+            <h3>Seletor de ID</h3>
+            <p>O elemento acima usa ID único. IDs devem ser únicos por página!</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+#titulo-principal {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem;
+}
+
+/* HTML */
+&lt;div id="titulo-principal"&gt;Elemento único&lt;/div&gt;
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor agrupado -->
+        <section class="exemplo-visual">
+            <h2>2. Seletores Agrupados</h2>
+            <h3>Este h3 está estilizado</h3>
+            <h4>Este h4 também está estilizado</h4>
+            <p>Os títulos acima usam seletor agrupado: <code>h2, h3, h4 { }</code></p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+h2, h3, h4 {
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.5rem;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor descendente -->
+        <section class="exemplo-visual">
+            <h2>3. Seletores de Combinação</h2>
+            
+            <h3>Seletor Descendente</h3>
+            <article>
+                <p>Este parágrafo está dentro de um article e tem estilo especial (texto cinza e itálico).</p>
+                <div>
+                    <p>Este parágrafo também está "dentro" do article (aninhado) e recebe o mesmo estilo.</p>
+                </div>
+            </article>
+            
+            <p>Este parágrafo NÃO está dentro de um article, então mantém o estilo normal.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+article p {
+    color: #6c757d;
+    font-style: italic;
+    border-left: 3px solid #17a2b8;
+}
+
+/* HTML */
+&lt;article&gt;
+    &lt;p&gt;Parágrafo dentro do article&lt;/p&gt;
+&lt;/article&gt;
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor filho direto -->
+        <section class="exemplo-visual">
+            <h3>Seletor Filho Direto (&gt;)</h3>
+            <p>Os títulos h2 que são filhos diretos de .container têm fundo cinza e borda laranja.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.container > h2 {
+    background: #e9ecef;
+    border-left: 5px solid #fd7e14;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletor irmão adjacente -->
+        <section class="exemplo-visual">
+            <h3>Este h3 tem um parágrafo especial logo após</h3>
+            <p>Este parágrafo vem IMEDIATAMENTE após o h3 e tem estilo especial (fundo amarelo).</p>
+            <p>Este parágrafo NÃO tem estilo especial pois não é o primeiro após o h3.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+h3 + p {
+    background: #fff8e1;
+    border-left: 3px solid #ff9800;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de pseudo-classes -->
+        <section class="exemplo-visual">
+            <h2>4. Pseudo-classes</h2>
+            
+            <h3>:first-child, :last-child, :nth-child()</h3>
+            <ul class="lista-cores">
+                <li>Primeiro item (vermelho) - :first-child</li>
+                <li>Segundo item (laranja) - :nth-child(2)</li>
+                <li>Terceiro item (normal)</li>
+                <li>Quarto item (normal)</li>
+                <li>Último item (verde) - :last-child</li>
+            </ul>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.lista-cores li:first-child {
+    border-left-color: #f44336;
+}
+
+.lista-cores li:nth-child(2) {
+    border-left-color: #ff9800;
+}
+
+.lista-cores li:last-child {
+    border-left-color: #4caf50;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de :hover -->
+        <section class="exemplo-visual">
+            <h3>:hover - Interatividade</h3>
+            <div class="interativo" style="padding: 1rem; background: #f8f9fa; border-radius: 6px; text-align: center;">
+                Passe o mouse sobre mim! Vou mudar de cor e tamanho.
+            </div>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.interativo:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.02);
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de :focus -->
+        <section class="exemplo-visual">
+            <h3>:focus - Foco em Formulários</h3>
+            <input type="text" class="input-exemplo" placeholder="Clique aqui e veja o efeito de foco">
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.input-exemplo:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de :not() -->
+        <section class="exemplo-visual">
+            <h3>:not() - Seletor de Negação</h3>
+            <ul class="lista-negacao">
+                <li>Item normal (opaco)</li>
+                <li class="especial">Item especial (normal)</li>
+                <li>Item normal (opaco)</li>
+                <li class="especial">Item especial (normal)</li>
+            </ul>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.lista-negacao li:not(.especial) {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de pseudo-elementos -->
+        <section class="exemplo-visual">
+            <h2>5. Pseudo-elementos</h2>
+            
+            <h3>::before e ::after</h3>
+            <p class="com-icone">Este parágrafo tem um ícone adicionado via ::before</p>
+            <p class="com-seta">Este parágrafo tem uma seta adicionada via ::after</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.com-icone::before {
+    content: "🎯 ";
+    margin-right: 0.5rem;
+}
+
+.com-seta::after {
+    content: " →";
+    color: #007bff;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de ::first-letter -->
+        <section class="exemplo-visual">
+            <h3>::first-letter - Capitular</h3>
+            <p class="capitular">Esta frase demonstra o efeito de capitular na primeira letra. A primeira letra fica maior e se destaca do resto do texto, criando um efeito visual interessante.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.capitular::first-letter {
+    float: left;
+    font-size: 3rem;
+    color: #dc3545;
+    margin-right: 0.5rem;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de ::first-line -->
+        <section class="exemplo-visual">
+            <h3>::first-line - Primeira Linha</h3>
+            <p class="primeira-linha">A primeira linha deste parágrafo está em negrito e maiúscula através do pseudo-elemento first-line. O resto do texto mantém a formatação normal e demonstra como apenas a primeira linha é afetada pelo estilo especial.</p>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.primeira-linha::first-line {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletores de atributo -->
+        <section class="exemplo-visual">
+            <h2>6. Seletores de Atributo</h2>
+            
+            <h3>Elementos com Atributos Específicos</h3>
+            <p title="Este é um tooltip!">Elemento com atributo title (passe o mouse)</p>
+            <div data-tipo="importante">Elemento com data-tipo="importante"</div>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+[title] {
+    cursor: help;
+    border-bottom: 1px dotted #6c757d;
+}
+
+[data-tipo="importante"] {
+    background: #fff5f5;
+    border: 2px solid #dc3545;
+}
+            </div>
+        </section>
+        
+        <!-- Exemplo de seletores de atributo com padrões -->
+        <section class="exemplo-visual">
+            <h3>Padrões de Atributos</h3>
+            <a href="#" class="btn-azul">Botão Azul</a>
+            <a href="#" class="btn-verde">Botão Verde</a>
+            <a href="#" class="botao-especial-azul">Botão Especial</a>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+[class^="btn"] {          /* Classe INICIA com "btn" */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+[class$="azul"] {         /* Classe TERMINA com "azul" */
+    background-color: #007bff;
+    color: white;
+}
+
+[class*="especial"] {     /* Classe CONTÉM "especial" */
+    position: relative;   /* Efeito brilho no hover */
+}
+            </div>
+        </section>
+        
+        <!-- Lista especial para demonstrar efeitos -->
+        <section class="exemplo-visual">
+            <h3>Lista com Efeitos Interativos</h3>
+            <ul class="lista-especial">
+                <li>Item 1 - Passe o mouse para ver o efeito de movimento</li>
+                <li>Item 2 - Cada item se move ao receber hover</li>
+                <li>Item 3 - Demonstra seletor descendente em ação</li>
+            </ul>
+            
+            <div class="codigo-exemplo">
+/* CSS */
+.lista-especial li {
+    transition: transform 0.2s ease;
+}
+
+.lista-especial li:hover {
+    transform: translateX(10px);
+}
+            </div>
+        </section>
+        
+        <div id="secao-especial">
+            <h3>🎉 Seção com ID Especial</h3>
+            <p>Esta seção tem um ID único e estilos específicos aplicados apenas a ela.</p>
+        </div>
+        
+        <section class="exemplo-visual">
+            <h2>📚 Resumo da Especificidade</h2>
+            <ol>
+                <li><strong>Inline styles (style="...")</strong> - Prioridade 1000</li>
+                <li><strong>IDs (#id)</strong> - Prioridade 100</li>
+                <li><strong>Classes (.class), pseudo-classes (:hover), atributos ([attr])</strong> - Prioridade 10</li>
+                <li><strong>Elementos (div, p, h1) e pseudo-elementos (::before)</strong> - Prioridade 1</li>
+            </ol>
+            
+            <div class="codigo-exemplo">
+/* Exemplo de especificidade: */
+p { color: black; }                    /* Especificidade: 1 */
+.texto { color: blue; }                /* Especificidade: 10 */
+p.texto { color: green; }              /* Especificidade: 11 */
+#titulo { color: red; }                /* Especificidade: 100 */
+#titulo.texto { color: purple; }       /* Especificidade: 110 */
+            </div>
+            
+            <p class="destacado">
+                💡 <strong>Dica:</strong> Prefira classes ao invés de IDs para estilos CSS. 
+                Use IDs apenas para JavaScript ou links internos. Isso torna o CSS mais flexível e reutilizável!
+            </p>
+        </section>
     </div>
-    
-    <!-- Exemplo de seletor agrupado -->
-    <h2>Subtítulo 1</h2>
-    <h3>Subtítulo 2</h3>
-    
-    <!-- Exemplo de seletor descendente -->
-    <article>
-        <p>Este parágrafo dentro de um article ficará cinza.</p>
-    </article>
 </body>
 </html>

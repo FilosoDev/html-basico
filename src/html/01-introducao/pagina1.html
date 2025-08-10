@@ -1,26 +1,53 @@
 <!DOCTYPE html>
+<!-- Declaração HTML5 - sempre deve ser a primeira linha do documento -->
 <html lang="pt-BR">
+<!-- Tag html com atributo lang especificando idioma para acessibilidade e SEO -->
 <head>
+    <!-- Cabeçalho do documento - contém metadados invisíveis ao usuário -->
     <meta charset="UTF-8">
+    <!-- Codificação de caracteres UTF-8 - suporta acentos e caracteres especiais -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tag viewport essencial para responsividade:
+         - width=device-width: largura igual à do dispositivo
+         - initial-scale=1.0: zoom inicial de 100% -->
+    
     <title>Introdução ao HTML</title>
+    <!-- Título que aparece na aba do navegador e em resultados de busca -->
 </head>
 <body>
+    <!-- Corpo do documento - todo conteúdo visível fica aqui -->
+    
     <header>
+        <!-- Tag semântica HTML5 - identifica o cabeçalho principal da página -->
         <h1>Bem-vindo ao HTML</h1>
+        <!-- h1 = título principal (heading 1) - deve ser único por página para SEO -->
     </header>
+    
     <main>
+        <!-- Tag semântica HTML5 - contém o conteúdo principal da página -->
+        
         <section>
+            <!-- Tag semântica HTML5 - define uma seção temática do conteúdo -->
             <h2>O que é HTML?</h2>
+            <!-- h2 = título secundário (heading 2) - hierarquia de títulos -->
+            
             <p>HTML significa HyperText Markup Language. É a linguagem padrão para criar páginas web.</p>
+            <!-- Parágrafo - elemento fundamental para texto corrido -->
         </section>
+        
         <section>
             <h2>Estrutura Básica</h2>
             <p>Um documento HTML básico é composto por elementos como <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, e <code>&lt;body&gt;</code>.</p>
+            <!-- Tag <code> destaca código ou elementos técnicos -->
+            <!-- &lt; e &gt; são entidades HTML para < e > (evita interpretação como tags) -->
         </section>
     </main>
+    
     <footer>
+        <!-- Tag semântica HTML5 - rodapé da página -->
         <p>&copy; 2023 Introdução ao HTML</p>
+        <!-- &copy; é uma entidade HTML que produz o símbolo © -->
     </footer>
 </body>
 </html>

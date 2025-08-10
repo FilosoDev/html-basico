@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Índice dos exemplos de HTML5 avançado -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Avançado - Índice dos Exemplos</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .intro {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .example-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .example-card h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .example-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features li {
+            padding: 0.25rem 0;
+            color: #555;
+        }
+        
+        .features li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #dee2e6;
+        }
+        
+        .navigation a {
+            margin: 0 1rem;
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 HTML5 Avançado</h1>
+        
+        <div class="intro">
+            <p>
+                Explore exemplos avançados de HTML5 que demonstram as funcionalidades mais modernas 
+                da linguagem, incluindo formulários interativos, semântica avançada, multimídia e 
+                componentes Bootstrap sofisticados.
+            </p>
+        </div>
+        
+        <div class="examples-grid">
+            <!-- Formulários Avançados -->
+            <div class="example-card">
+                <h3>
+                    <span class="icon">📋</span>
+                    Formulários HTML5 Avançados
+                </h3>
+                <p>
+                    Demonstração completa dos novos tipos de input HTML5, validação nativa 
+                    e formulários interativos com JavaScript.
+                </p>
+                
+                <ul class="features">
+                    <li>Novos tipos de input (email, tel, url, date, color, range)</li>
+                    <li>Validação em tempo real com JavaScript</li>
+                    <li>Feedback visual de validação</li>
+                    <li>Autocompletar com datalist</li>
+                    <li>Formulários acessíveis com ARIA</li>
+                </ul>
+                
+                <a href="formularios-avancados.html" class="btn">Ver Exemplo</a>
+            </div>
+            
+            <!-- HTML Semântico e Acessibilidade -->
+            <div class="example-card">
+                <h3>
+                    <span class="icon">♿</span>
+                    HTML5 Semântico e Acessibilidade
+                </h3>
+                <p>
+                    Exemplo completo de HTML5 semântico seguindo as diretrizes WCAG 2.1 
+                    com elementos ARIA e boas práticas de acessibilidade.
+                </p>
+                
+                <ul class="features">
+                    <li>Elementos semânticos HTML5 (header, nav, main, section, article)</li>
+                    <li>Atributos ARIA para acessibilidade</li>
+                    <li>Navegação por teclado otimizada</li>
+                    <li>Leitores de tela compatíveis</li>
+                    <li>Skip links e landmarks</li>
+                </ul>
+                
+                <a href="semantico-acessibilidade.html" class="btn btn-success">Ver Exemplo</a>
+            </div>
+            
+            <!-- Multimídia HTML5 -->
+            <div class="example-card">
+                <h3>
+                    <span class="icon">🎬</span>
+                    Multimídia HTML5
+                </h3>
+                <p>
+                    Explore as capacidades multimídia do HTML5 com áudio, vídeo, canvas 
+                    e APIs web avançadas como Web Audio e MediaRecorder.
+                </p>
+                
+                <ul class="features">
+                    <li>Player de áudio customizado</li>
+                    <li>Vídeo responsivo com controles</li>
+                    <li>Canvas 2D interativo</li>
+                    <li>Web Audio API para síntese</li>
+                    <li>MediaRecorder para gravação</li>
+                    <li>WebRTC para webcam</li>
+                </ul>
+                
+                <a href="multimidia-html5.html" class="btn btn-secondary">Ver Exemplo</a>
+            </div>
+            
+            <!-- Bootstrap Avançado -->
+            <div class="example-card">
+                <h3>
+                    <span class="icon">🎨</span>
+                    Bootstrap Avançado
+                </h3>
+                <p>
+                    Exemplo completo de site utilizando componentes avançados do Bootstrap 5, 
+                    demonstrando grid system, componentes interativos e boas práticas.
+                </p>
+                
+                <ul class="features">
+                    <li>Grid system responsivo completo</li>
+                    <li>Navbar com dropdown e busca</li>
+                    <li>Carousel com indicadores</li>
+                    <li>Cards interativos com hover</li>
+                    <li>Modal, accordion e tabs</li>
+                    <li>Formulários com validação Bootstrap</li>
+                    <li>Toast notifications</li>
+                </ul>
+                
+                <a href="../06-bootstrap/src/bootstrap-avancado.html" class="btn">Ver Exemplo</a>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <h3>🔗 Navegação</h3>
+            <a href="../01-introducao/index.html" class="btn btn-secondary">Voltar ao Início</a>
+            <a href="../../README.md" class="btn btn-success">Documentação</a>
+            <a href="../06-bootstrap/src/" class="btn">Exemplos Bootstrap</a>
+        </div>
+        
+        <div style="margin-top: 2rem; padding: 1rem; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #007bff;">
+            <h4>💡 Dicas de Estudo</h4>
+            <ul>
+                <li><strong>Ordem sugerida:</strong> Comece com formulários, depois semântica e por último multimídia</li>
+                <li><strong>Pratique:</strong> Modifique os exemplos e teste em diferentes navegadores</li>
+                <li><strong>Validação:</strong> Use as ferramentas de desenvolvedor para inspecionar o código</li>
+                <li><strong>Acessibilidade:</strong> Teste com leitores de tela como NVDA ou VoiceOver</li>
+                <li><strong>Responsividade:</strong> Redimensione a janela para ver os layouts se adaptarem</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center; color: #666; font-size: 0.9rem;">
+            <p>
+                📚 <strong>Curso de Desenvolvimento Web com HTML</strong><br>
+                Exemplos criados para demonstrar conceitos avançados de HTML5, CSS3 e JavaScript
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,29 +1,686 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<!-- Exemplo completo de DIV com CSS e layout flexível -->
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo de DIV com CSS</title>
+    <title>DIV e CSS - Layout Flexível</title>
+    
     <style>
+        /* Reset básico para consistência entre navegadores */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* box-sizing: inclui padding e border no cálculo da largura */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            /* min-height: 100vh garante altura mínima da viewport */
+            padding: 2rem;
+        }
+        
+        /* ========== CONTAINER PRINCIPAL ========== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* margin: 0 auto centraliza horizontalmente */
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            /* box-shadow: x y blur spread color */
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        /* ========== EXEMPLO 1: DIV BÁSICA ========== */
         .container {
-            width: 300px;
+            /* Container flexível e responsivo */
+            width: 100%;
+            max-width: 400px;
+            /* max-width: limita largura máxima */
             height: 200px;
-            background-color: lightblue;
-            border: 2px solid blue;
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+            /* background: gradiente ao invés de cor sólida */
+            border: 3px solid #2d3436;
+            border-radius: 12px;
+            /* border-radius: bordas arredondadas */
+            
+            /* FLEXBOX: sistema moderno de layout */
+            display: flex;
+            /* display: flex transforma em container flexível */
+            align-items: center;
+            /* align-items: center centraliza verticalmente */
+            justify-content: center;
+            /* justify-content: center centraliza horizontalmente */
+            
+            margin: 20px auto;
+            /* margin: auto centraliza o container */
+            
+            transition: all 0.3s ease;
+            /* transition: animação suave nas mudanças de propriedade */
+            
+            cursor: pointer;
+            /* cursor: pointer indica que é clicável */
+        }
+        
+        .container:hover {
+            /* :hover aplica estilos quando mouse está sobre o elemento */
+            transform: scale(1.05) rotate(2deg);
+            /* transform: aumenta 5% e rotaciona 2 graus */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .content {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            /* text-shadow: sombra no texto para melhor contraste */
+        }
+        
+        /* ========== EXEMPLO 2: LAYOUT COM MÚLTIPLAS DIVS ========== */
+        .layout-exemplo {
+            margin: 3rem 0;
+        }
+        
+        .grid-container {
+            /* CSS Grid: sistema de layout bidimensional */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            /* grid-template-columns: colunas responsivas 
+               - repeat(auto-fit, ...): repete colunas automaticamente
+               - minmax(250px, 1fr): mínimo 250px, máximo 1 fração do espaço */
+            gap: 1.5rem;
+            /* gap: espaçamento entre itens do grid */
+            margin: 2rem 0;
+        }
+        
+        .card {
+            /* Card individual dentro do grid */
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #00b894;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            /* translateY: move verticalmente */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #2d3436;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .card p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+        
+        /* ========== EXEMPLO 3: LAYOUT FLEXBOX ========== */
+        .flex-exemplo {
+            margin: 3rem 0;
+        }
+        
+        .flex-container {
+            display: flex;
+            /* Propriedades principais do Flexbox: */
+            flex-direction: row;
+            /* flex-direction: direção dos itens (row, column) */
+            justify-content: space-between;
+            /* justify-content: alinhamento horizontal */
+            align-items: stretch;
+            /* align-items: alinhamento vertical */
+            flex-wrap: wrap;
+            /* flex-wrap: permite quebra de linha */
+            gap: 1rem;
+            
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .flex-item {
+            /* Itens individuais do flex container */
+            flex: 1;
+            /* flex: 1 faz todos os itens ocuparem espaço igual */
+            min-width: 200px;
+            /* min-width: largura mínima antes de quebrar linha */
+            
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            
+            transition: flex 0.3s ease;
+        }
+        
+        .flex-item:hover {
+            flex: 1.2;
+            /* flex: 1.2 faz o item crescer quando hover */
+        }
+        
+        /* ========== EXEMPLO 4: POSICIONAMENTO ========== */
+        .posicionamento-exemplo {
+            position: relative;
+            /* position: relative permite posicionar filhos absolute */
+            height: 300px;
+            background: #ddd;
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+            /* overflow: hidden esconde conteúdo que sai dos limites */
+        }
+        
+        .elemento-absoluto {
+            position: absolute;
+            /* position: absolute posiciona relativo ao pai relative */
+            top: 20px;
+            right: 20px;
+            /* top, right: posição exata */
+            
+            width: 100px;
+            height: 100px;
+            background: #e17055;
+            border-radius: 50%;
+            /* border-radius: 50% cria círculo perfeito */
+            
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px auto;
+            color: white;
+            font-weight: bold;
+            
+            animation: float 3s ease-in-out infinite;
+            /* animation: aplica animação CSS */
         }
-        .content {
-            font-size: 20px;
-            color: darkblue;
+        
+        .elemento-fixo {
+            position: fixed;
+            /* position: fixed fica fixo na tela */
+            bottom: 20px;
+            right: 20px;
+            
+            width: 60px;
+            height: 60px;
+            background: #00b894;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,184,148,0.4);
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            /* z-index: controla sobreposição (quanto maior, mais na frente) */
+        }
+        
+        .elemento-fixo:hover {
+            transform: scale(1.1);
+        }
+        
+        /* ========== ANIMAÇÕES ========== */
+        @keyframes float {
+            /* @keyframes define animações customizadas */
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animado {
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        /* ========== SEÇÃO DE CÓDIGO ========== */
+        .codigo-exemplo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        .secao {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+        
+        .secao h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 768px) {
+            /* Media query para tablets e celulares */
+            
+            .main-container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .flex-container {
+                flex-direction: column;
+                /* Em mobile, itens ficam em coluna */
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+                /* Em mobile, apenas 1 coluna */
+            }
+            
+            .container {
+                max-width: 100%;
+                height: 150px;
+            }
+            
+            .codigo-exemplo {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Media query para celulares pequenos */
+            
+            .main-container {
+                padding: 0.5rem;
+                margin: 0.5rem;
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .elemento-fixo {
+                width: 50px;
+                height: 50px;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">Conteúdo da DIV</div>
+    <div class="main-container">
+        <h1>🎨 DIV e CSS - Layouts Modernos</h1>
+        
+        <!-- ========== EXEMPLO 1: DIV BÁSICA ========== -->
+        <section class="secao animado">
+            <h2>1. DIV Básica com Flexbox</h2>
+            <p>Uma div simples centralizada usando Flexbox com efeitos visuais:</p>
+            
+            <div class="container" onclick="alert('DIV clicada! 🎉')">
+                <!-- 
+                Esta DIV demonstra:
+                - Flexbox para centralização
+                - Gradiente de fundo
+                - Bordas arredondadas
+                - Efeitos hover com transform
+                - Transições suaves
+                -->
+                <div class="content">✨ Clique em mim!</div>
+            </div>
+            
+            <div class="codigo-exemplo">
+/* CSS para DIV centralizada com Flexbox */
+.container {
+    display: flex;              /* Ativa Flexbox */
+    align-items: center;        /* Centraliza verticalmente */
+    justify-content: center;    /* Centraliza horizontalmente */
+    
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    border: 3px solid #2d3436;
+    border-radius: 12px;
+    
+    transition: all 0.3s ease;  /* Animação suave */
+}
+
+.container:hover {
+    transform: scale(1.05) rotate(2deg);  /* Aumenta e rotaciona */
+}
+
+/* HTML */
+&lt;div class="container"&gt;
+    &lt;div class="content"&gt;✨ Conteúdo&lt;/div&gt;
+&lt;/div&gt;
+            </div>
+        </section>
+        
+        <!-- ========== EXEMPLO 2: CSS GRID ========== -->
+        <section class="layout-exemplo">
+            <h2>2. Layout com CSS Grid</h2>
+            <p>CSS Grid para layouts responsivos bidimensionais:</p>
+            
+            <div class="grid-container">
+                <!-- 
+                CSS Grid demonstra:
+                - Layout responsivo automático
+                - Colunas que se adaptam ao espaço
+                - Cards uniformes
+                - Efeitos hover
+                -->
+                <div class="card">
+                    <h3>🎯 Card 1</h3>
+                    <p>Este card faz parte de um grid responsivo que se adapta automaticamente ao tamanho da tela.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>🚀 Card 2</h3>
+                    <p>O CSS Grid permite layouts complexos com poucas linhas de código, muito mais flexível que floats.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>💡 Card 3</h3>
+                    <p>Cada card tem efeito hover que o eleva, criando uma experiência interativa moderna.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>⚡ Card 4</h3>
+                    <p>O grid se reorganiza automaticamente em telas menores, mantendo a responsividade.</p>
+                </div>
+            </div>
+            
+            <div class="codigo-exemplo">
+/* CSS Grid responsivo */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* 
+    auto-fit: cria colunas automaticamente
+    minmax(250px, 1fr): mínimo 250px, máximo 1 fração
+    */
+    gap: 1.5rem;  /* Espaçamento entre itens */
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);  /* Move para cima no hover */
+}
+            </div>
+        </section>
+        
+        <!-- ========== EXEMPLO 3: FLEXBOX ========== -->
+        <section class="flex-exemplo">
+            <h2>3. Layout Flexbox Interativo</h2>
+            <p>Flexbox com itens que crescem no hover:</p>
+            
+            <div class="flex-container">
+                <!-- 
+                Flexbox demonstra:
+                - Distribuição uniforme de espaço
+                - Itens que crescem dinamicamente
+                - Quebra de linha automática
+                - Alinhamento flexível
+                -->
+                <div class="flex-item">
+                    <strong>🎨 Design</strong><br>
+                    <small>Hover para expandir</small>
+                </div>
+                
+                <div class="flex-item">
+                    <strong>💻 Código</strong><br>
+                    <small>Hover para expandir</small>
+                </div>
+                
+                <div class="flex-item">
+                    <strong>🚀 Deploy</strong><br>
+                    <small>Hover para expandir</small>
+                </div>
+            </div>
+            
+            <div class="codigo-exemplo">
+/* Flexbox com itens flexíveis */
+.flex-container {
+    display: flex;
+    justify-content: space-between;  /* Distribui espaço */
+    align-items: stretch;            /* Altura uniforme */
+    flex-wrap: wrap;                 /* Permite quebra de linha */
+    gap: 1rem;
+}
+
+.flex-item {
+    flex: 1;              /* Ocupa espaço igual */
+    min-width: 200px;     /* Largura mínima */
+    transition: flex 0.3s ease;
+}
+
+.flex-item:hover {
+    flex: 1.2;            /* Cresce 20% no hover */
+}
+            </div>
+        </section>
+        
+        <!-- ========== EXEMPLO 4: POSICIONAMENTO ========== -->
+        <section class="secao">
+            <h2>4. Tipos de Posicionamento CSS</h2>
+            <p>Demonstração de position: relative, absolute e fixed:</p>
+            
+            <div class="posicionamento-exemplo">
+                <!-- 
+                Posicionamento demonstra:
+                - position: relative no container
+                - position: absolute para posicionamento preciso
+                - Animação CSS com keyframes
+                -->
+                <p style="padding: 20px; color: #666;">
+                    Container com <code>position: relative</code><br>
+                    O elemento laranja tem <code>position: absolute</code> e flutua com animação CSS.
+                </p>
+                
+                <div class="elemento-absoluto">
+                    ABS
+                </div>
+            </div>
+            
+            <div class="codigo-exemplo">
+/* Posicionamento absoluto */
+.posicionamento-exemplo {
+    position: relative;    /* Container de referência */
+    height: 300px;
+}
+
+.elemento-absoluto {
+    position: absolute;    /* Posiciona relativo ao pai */
+    top: 20px;
+    right: 20px;
+    
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+            </div>
+        </section>
+        
+        <!-- ========== RESUMO DAS PROPRIEDADES ========== -->
+        <section class="secao">
+            <h2>📚 Propriedades CSS Essenciais para DIVs</h2>
+            
+            <div class="codigo-exemplo">
+/* DIMENSÕES */
+width: 300px;           /* Largura fixa */
+width: 50%;             /* Largura percentual */
+width: 100vw;           /* 100% da viewport */
+max-width: 800px;       /* Largura máxima */
+min-width: 200px;       /* Largura mínima */
+height: 200px;          /* Altura */
+
+/* ESPAÇAMENTO */
+margin: 20px;           /* Margem externa */
+margin: 10px 20px;      /* Vertical | Horizontal */
+margin: 5px 10px 15px 20px;  /* Top | Right | Bottom | Left */
+padding: 15px;          /* Espaçamento interno */
+
+/* BORDAS */
+border: 2px solid #333; /* Largura | Estilo | Cor */
+border-radius: 10px;    /* Bordas arredondadas */
+border-top: 1px solid red;  /* Borda específica */
+
+/* FUNDO */
+background-color: #f0f0f0;           /* Cor sólida */
+background: linear-gradient(45deg, red, blue);  /* Gradiente */
+background-image: url('imagem.jpg'); /* Imagem */
+
+/* LAYOUT - FLEXBOX */
+display: flex;              /* Ativa Flexbox */
+flex-direction: row;        /* Direção (row, column) */
+justify-content: center;    /* Alinhamento horizontal */
+align-items: center;        /* Alinhamento vertical */
+flex-wrap: wrap;            /* Permite quebra de linha */
+gap: 20px;                  /* Espaçamento entre itens */
+
+/* LAYOUT - CSS GRID */
+display: grid;              /* Ativa Grid */
+grid-template-columns: 1fr 2fr 1fr;  /* Colunas */
+grid-template-rows: auto;   /* Linhas */
+grid-gap: 20px;             /* Espaçamento */
+
+/* POSICIONAMENTO */
+position: static;     /* Padrão - fluxo normal */
+position: relative;   /* Relativo à posição original */
+position: absolute;   /* Relativo ao pai positioned */
+position: fixed;      /* Fixo na viewport */
+position: sticky;     /* Combinação de relative e fixed */
+
+/* COORDENADAS (para position: absolute, relative, fixed) */
+top: 10px;     /* Distância do topo */
+right: 10px;   /* Distância da direita */
+bottom: 10px;  /* Distância de baixo */
+left: 10px;    /* Distância da esquerda */
+
+/* VISIBILIDADE */
+display: block;    /* Padrão das DIVs */
+display: none;     /* Oculta completamente */
+display: inline;   /* Comporta como texto */
+display: inline-block;  /* Híbrido */
+visibility: hidden;     /* Oculta mas ocupa espaço */
+opacity: 0.5;      /* Transparência (0-1) */
+
+/* EFEITOS */
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Sombra */
+transform: rotate(45deg);     /* Rotação */
+transform: scale(1.1);        /* Escala */
+transform: translate(10px, 20px);  /* Movimento */
+transition: all 0.3s ease;   /* Transição suave */
+
+/* Z-INDEX (sobreposição) */
+z-index: 1;        /* Controla qual elemento fica na frente */
+z-index: 999;      /* Valores maiores ficam mais na frente */
+
+/* OVERFLOW (conteúdo que transborda) */
+overflow: visible;  /* Padrão - mostra conteúdo que transborda */
+overflow: hidden;   /* Esconde conteúdo que transborda */
+overflow: scroll;   /* Sempre mostra barras de rolagem */
+overflow: auto;     /* Mostra rolagem apenas quando necessário */
+            </div>
+        </section>
+        
+        <section class="secao">
+            <h2>🎯 Melhores Práticas</h2>
+            <ul style="color: #555; line-height: 1.8;">
+                <li>✅ <strong>Use classes semânticas:</strong> .header, .sidebar, .content ao invés de .div1, .div2</li>
+                <li>✅ <strong>Prefira Flexbox e Grid:</strong> São mais flexíveis que float e position</li>
+                <li>✅ <strong>Mobile First:</strong> Design primeiro para mobile, depois desktop</li>
+                <li>✅ <strong>Use rem/em:</strong> Unidades relativas são mais responsivas que px</li>
+                <li>✅ <strong>Evite div-itis:</strong> Não use DIVs desnecessárias, prefira elementos semânticos</li>
+                <li>✅ <strong>Organize CSS:</strong> Agrupe propriedades relacionadas (layout, aparência, animações)</li>
+                <li>✅ <strong>Use comentários:</strong> Documente seções complexas do CSS</li>
+                <li>✅ <strong>Teste responsividade:</strong> Verifique em diferentes tamanhos de tela</li>
+            </ul>
+        </section>
     </div>
+    
+    <!-- Elemento fixo demonstrativo -->
+    <div class="elemento-fixo" onclick="scrollTo(0, 0)" title="Voltar ao topo">
+        ↑
+    </div>
+    
+    <script>
+        // JavaScript para adicionar interatividade
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona animação aos cards quando carregam
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animado');
+                }, index * 200);
+            });
+            
+            // Feedback visual para elementos clicáveis
+            const container = document.querySelector('.container');
+            container.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+            
+            // Log para demonstrar eventos
+            console.log('🎨 DIV Examples loaded! Interaja com os elementos para ver os efeitos.');
+        });
+    </script>
 </body>
 </html>

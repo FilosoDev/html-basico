@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!-- Exemplo de formulários HTML5 avançados com validação nativa -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários HTML5 Avançados</title>
+    <style>
+        /* Estilos para melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        /* Estilos para validação */
+        input:valid {
+            border-color: #4CAF50;
+        }
+        
+        input:invalid {
+            border-color: #f44336;
+        }
+        
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .info {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulários HTML5 Avançados</h1>
+    <p>Demonstração dos novos tipos de input e funcionalidades do HTML5.</p>
+    
+    <div class="form-container">
+        <h2>Tipos de Input HTML5</h2>
+        
+        <form id="advanced-form">
+            <!-- Input de email com validação automática -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="usuario@exemplo.com">
+                <!-- 
+                type="email": validação automática de formato de email
+                required: campo obrigatório
+                placeholder: texto de exemplo
+                -->
+                <div class="info">O navegador valida automaticamente o formato do email</div>
+            </div>
+            
+            <!-- Input de telefone -->
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" pattern="[0-9\s\(\)\-]+">
+                <!-- 
+                type="tel": otimizado para telefones em dispositivos móveis
+                pattern: regex para validação personalizada
+                -->
+                <div class="info">Em dispositivos móveis, abre teclado numérico</div>
+            </div>
+            
+            <!-- Input de URL -->
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website" placeholder="https://exemplo.com">
+                <!-- type="url": validação automática de URL -->
+                <div class="info">Valida formato de URL automaticamente</div>
+            </div>
+            
+            <!-- Input de número com range -->
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="18" max="120" step="1" value="25">
+                <!-- 
+                type="number": aceita apenas números
+                min/max: valores mínimo e máximo
+                step: incremento (1 em 1)
+                value: valor padrão
+                -->
+                <div class="info">Aceita apenas números entre 18 e 120</div>
+            </div>
+            
+            <!-- Input de range (slider) -->
+            <div class="form-group">
+                <label for="satisfacao">Nível de Satisfação:</label>
+                <input type="range" id="satisfacao" name="satisfacao" min="0" max="10" value="5" 
+                       oninput="document.getElementById('range-value').textContent = this.value">
+                <div>Valor: <span id="range-value">5</span></div>
+                <!-- 
+                type="range": cria um slider
+                oninput: JavaScript que executa quando valor muda
+                -->
+                <div class="info">Slider interativo - mova para ver o valor mudar</div>
+            </div>
+            
+            <!-- Input de data -->
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" max="2006-01-01">
+                <!-- 
+                type="date": abre calendário nativo
+                max: data máxima (apenas maiores de 18)
+                -->
+                <div class="info">Abre calendário nativo do navegador</div>
+            </div>
+            
+            <!-- Input de hora -->
+            <div class="form-group">
+                <label for="horario">Horário Preferido:</label>
+                <input type="time" id="horario" name="horario" min="08:00" max="18:00">
+                <!-- 
+                type="time": seletor de hora
+                min/max: horário mínimo e máximo
+                -->
+                <div class="info">Seletor de hora com validação de intervalo</div>
+            </div>
+            
+            <!-- Input de cor -->
+            <div class="form-group">
+                <label for="cor-favorita">Cor Favorita:</label>
+                <input type="color" id="cor-favorita" name="cor-favorita" value="#007bff">
+                <!-- 
+                type="color": abre seletor de cores
+                value: cor padrão em hexadecimal
+                -->
+                <div class="info">Seletor de cores nativo</div>
+            </div>
+            
+            <!-- Input de busca -->
+            <div class="form-group">
+                <label for="busca">Buscar:</label>
+                <input type="search" id="busca" name="busca" placeholder="Digite sua busca...">
+                <!-- 
+                type="search": otimizado para buscas
+                Em alguns navegadores adiciona botão de limpar
+                -->
+                <div class="info">Otimizado para buscas, pode ter botão X para limpar</div>
+            </div>
+            
+            <!-- Textarea com contador de caracteres -->
+            <div class="form-group">
+                <label for="comentarios">Comentários (máximo 200 caracteres):</label>
+                <textarea id="comentarios" name="comentarios" maxlength="200" rows="4" 
+                          placeholder="Deixe seus comentários..." 
+                          oninput="document.getElementById('char-count').textContent = this.value.length"></textarea>
+                <div>Caracteres: <span id="char-count">0</span>/200</div>
+                <!-- 
+                maxlength: limite de caracteres
+                rows: número de linhas visíveis
+                oninput: atualiza contador em tempo real
+                -->
+            </div>
+            
+            <!-- Select com múltiplas opções -->
+            <div class="form-group">
+                <label for="interesses">Interesses (múltipla escolha):</label>
+                <select id="interesses" name="interesses" multiple size="4">
+                    <!-- multiple: permite seleção múltipla -->
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="esportes">Esportes</option>
+                    <option value="musica">Música</option>
+                    <option value="viagens">Viagens</option>
+                    <option value="culinaria">Culinária</option>
+                </select>
+                <div class="info">Segure Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos</div>
+            </div>
+            
+            <!-- Datalist para autocompletar -->
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" list="cidades" placeholder="Digite ou escolha...">
+                <datalist id="cidades">
+                    <!-- datalist: fornece sugestões de autocompletar -->
+                    <option value="São Paulo">
+                    <option value="Rio de Janeiro">
+                    <option value="Belo Horizonte">
+                    <option value="Salvador">
+                    <option value="Brasília">
+                    <option value="Fortaleza">
+                    <option value="Curitiba">
+                    <option value="Recife">
+                </datalist>
+                <div class="info">Digite para ver sugestões automáticas</div>
+            </div>
+            
+            <!-- Grupos de radio buttons -->
+            <div class="form-group">
+                <label>Experiência com HTML:</label>
+                <div>
+                    <input type="radio" id="iniciante" name="experiencia" value="iniciante" required>
+                    <label for="iniciante">Iniciante</label>
+                </div>
+                <div>
+                    <input type="radio" id="intermediario" name="experiencia" value="intermediario">
+                    <label for="intermediario">Intermediário</label>
+                </div>
+                <div>
+                    <input type="radio" id="avancado" name="experiencia" value="avancado">
+                    <label for="avancado">Avançado</label>
+                </div>
+                <!-- Radio buttons com mesmo name formam um grupo (apenas um selecionável) -->
+            </div>
+            
+            <!-- Checkboxes -->
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="newsletter" value="sim" checked>
+                    Quero receber newsletter
+                </label>
+                <!-- checked: marca por padrão -->
+                
+                <label>
+                    <input type="checkbox" name="termos" value="aceito" required>
+                    Aceito os termos de uso (obrigatório)
+                </label>
+                <!-- required em checkbox torna obrigatório marcar -->
+            </div>
+            
+            <!-- Botões do formulário -->
+            <div class="form-group">
+                <button type="submit" class="btn">Enviar Formulário</button>
+                <!-- type="submit": envia o formulário -->
+                
+                <button type="reset" class="btn" style="background-color: #6c757d; margin-left: 10px;">Limpar</button>
+                <!-- type="reset": limpa todos os campos -->
+            </div>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <h2>Validação Personalizada com JavaScript</h2>
+        <p>Exemplo de validação customizada usando a API de validação do HTML5:</p>
+        
+        <form id="custom-validation">
+            <div class="form-group">
+                <label for="senha">Senha (mínimo 8 caracteres, 1 número, 1 maiúscula):</label>
+                <input type="password" id="senha" name="senha" required>
+                <div id="senha-feedback"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirma-senha">Confirmar Senha:</label>
+                <input type="password" id="confirma-senha" name="confirma-senha" required>
+                <div id="confirma-feedback"></div>
+            </div>
+            
+            <button type="submit" class="btn">Validar Senhas</button>
+        </form>
+    </div>
+    
+    <script>
+        // JavaScript para validação personalizada
+        document.addEventListener('DOMContentLoaded', function() {
+            const senhaInput = document.getElementById('senha');
+            const confirmaSenhaInput = document.getElementById('confirma-senha');
+            const form = document.getElementById('custom-validation');
+            
+            // Validação da senha em tempo real
+            senhaInput.addEventListener('input', function() {
+                const senha = this.value;
+                const feedback = document.getElementById('senha-feedback');
+                
+                // Regex para validar senha forte
+                const temNumero = /\d/.test(senha);
+                const temMaiuscula = /[A-Z]/.test(senha);
+                const temTamanho = senha.length >= 8;
+                
+                if (senha === '') {
+                    feedback.textContent = '';
+                    this.setCustomValidity('');
+                } else if (!temTamanho) {
+                    feedback.textContent = 'Senha deve ter pelo menos 8 caracteres';
+                    this.setCustomValidity('Senha muito curta');
+                } else if (!temNumero) {
+                    feedback.textContent = 'Senha deve conter pelo menos 1 número';
+                    this.setCustomValidity('Senha deve conter número');
+                } else if (!temMaiuscula) {
+                    feedback.textContent = 'Senha deve conter pelo menos 1 letra maiúscula';
+                    this.setCustomValidity('Senha deve conter maiúscula');
+                } else {
+                    feedback.textContent = 'Senha válida ✓';
+                    feedback.style.color = 'green';
+                    this.setCustomValidity('');
+                }
+            });
+            
+            // Validação de confirmação de senha
+            confirmaSenhaInput.addEventListener('input', function() {
+                const senha = senhaInput.value;
+                const confirmaSenha = this.value;
+                const feedback = document.getElementById('confirma-feedback');
+                
+                if (confirmaSenha === '') {
+                    feedback.textContent = '';
+                    this.setCustomValidity('');
+                } else if (senha !== confirmaSenha) {
+                    feedback.textContent = 'Senhas não coincidem';
+                    feedback.style.color = 'red';
+                    this.setCustomValidity('Senhas não coincidem');
+                } else {
+                    feedback.textContent = 'Senhas coincidem ✓';
+                    feedback.style.color = 'green';
+                    this.setCustomValidity('');
+                }
+            });
+            
+            // Previne envio se houver erros de validação
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (this.checkValidity()) {
+                    alert('Formulário válido! Em uma aplicação real, os dados seriam enviados ao servidor.');
+                } else {
+                    alert('Por favor, corrija os erros antes de enviar.');
+                }
+            });
+        });
+        
+        // Exemplo de manipulação do primeiro formulário
+        document.getElementById('advanced-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coleta todos os dados do formulário
+            const formData = new FormData(this);
+            const dados = {};
+            
+            for (let [key, value] of formData.entries()) {
+                dados[key] = value;
+            }
+            
+            console.log('Dados do formulário:', dados);
+            alert('Formulário enviado! Veja o console para ver os dados coletados.');
+        });
+    </script>
+</body>
+</html>
