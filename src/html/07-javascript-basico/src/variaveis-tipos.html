@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Variáveis e Tipos de Dados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .example-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-card h3 {
+            color: #74b9ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .demo-area {
+            background: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .input-group {
+            margin: 1rem 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-group input, 
+        .input-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #74b9ff;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4);
+        }
+
+        .result {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .type-indicator {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .type-string { background: #ffeaa7; color: #2d3436; }
+        .type-number { background: #81ecec; color: #2d3436; }
+        .type-boolean { background: #fab1a0; color: #2d3436; }
+        .type-undefined { background: #ddd; color: #2d3436; }
+        .type-object { background: #fd79a8; color: white; }
+
+        .console-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 2px solid #4a5568;
+        }
+
+        .console-line {
+            margin: 0.5rem 0;
+            padding: 0.3rem 0;
+        }
+
+        .console-input {
+            color: #a0aec0;
+        }
+
+        .console-output {
+            color: #68d391;
+        }
+
+        .console-error {
+            color: #fc8181;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Variáveis e Tipos de Dados</h1>
+            <p>Fundamentos da linguagem JavaScript para armazenar e manipular informações</p>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>📝</span>
+                Declarando Variáveis
+            </h2>
+            <p>Em JavaScript, usamos três palavras-chave para declarar variáveis: <code>var</code>, <code>let</code> e <code>const</code>.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>🔄</span>
+                        let - Variáveis Mutáveis
+                    </h3>
+                    <p>Use <code>let</code> para variáveis que podem mudar de valor.</p>
+                    <div class="code-block">
+let nome = "Maria";
+let idade = 25;
+let ativo = true;
+
+// Podemos alterar o valor
+nome = "Ana";
+idade = 30;
+console.log(nome); // "Ana"</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🔒</span>
+                        const - Constantes
+                    </h3>
+                    <p>Use <code>const</code> para valores que não devem mudar.</p>
+                    <div class="code-block">
+const PI = 3.14159;
+const NOME_EMPRESA = "TechCorp";
+const CORES = ["azul", "verde", "vermelho"];
+
+// ❌ Erro! Não pode alterar
+// PI = 3.14; 
+
+// ✅ Mas podemos alterar conteúdo de arrays/objetos
+CORES.push("amarelo");</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>⚠️</span>
+                        var - Legado
+                    </h3>
+                    <p>Evite usar <code>var</code>. Prefira <code>let</code> e <code>const</code>.</p>
+                    <div class="code-block">
+var antigo = "Não recomendado";
+
+// Problemas do var:
+// - Hoisting confuso
+// - Escopo de função
+// - Pode ser redeclarado</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>🏷️</span>
+                Tipos de Dados Primitivos
+            </h2>
+            <p>JavaScript tem tipos de dados primitivos que representam valores únicos e imutáveis.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>🔤</span>
+                        String (Texto)
+                    </h3>
+                    <div class="code-block">
+let nome = "João";
+let sobrenome = 'Silva';
+let frase = `Olá, ${nome}!`; // Template literal
+
+// Métodos úteis
+nome.length;           // 4
+nome.toUpperCase();    // "JOÃO"
+nome.toLowerCase();    // "joão"</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🔢</span>
+                        Number (Número)
+                    </h3>
+                    <div class="code-block">
+let inteiro = 42;
+let decimal = 3.14159;
+let negativo = -10;
+let cientifico = 1.5e3; // 1500
+
+// Valores especiais
+let infinito = Infinity;
+let naoNumero = NaN; // Not a Number</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>✅</span>
+                        Boolean (Verdadeiro/Falso)
+                    </h3>
+                    <div class="code-block">
+let ativo = true;
+let desabilitado = false;
+
+// Conversão para boolean
+Boolean(1);        // true
+Boolean(0);        // false
+Boolean("texto");  // true
+Boolean("");       // false</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>❓</span>
+                        Undefined e Null
+                    </h3>
+                    <div class="code-block">
+let indefinido;        // undefined
+let nulo = null;       // null
+
+// Diferença:
+// undefined = não foi definido
+// null = intencionalmente vazio
+
+typeof indefinido;     // "undefined"
+typeof nulo;           // "object" (bug histórico)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>📦</span>
+                Tipos de Dados Complexos
+            </h2>
+            <p>Tipos que podem armazenar múltiplos valores ou ter comportamentos mais complexos.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>📋</span>
+                        Array (Lista)
+                    </h3>
+                    <div class="code-block">
+let frutas = ["maçã", "banana", "laranja"];
+let numeros = [1, 2, 3, 4, 5];
+let misto = [1, "texto", true, null];
+
+// Acessando elementos
+frutas[0];        // "maçã"
+frutas.length;    // 3
+
+// Adicionando elementos
+frutas.push("uva");   // Adiciona no final</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🏗️</span>
+                        Object (Objeto)
+                    </h3>
+                    <div class="code-block">
+let pessoa = {
+    nome: "Carlos",
+    idade: 30,
+    profissao: "Desenvolvedor",
+    ativo: true
+};
+
+// Acessando propriedades
+pessoa.nome;           // "Carlos"
+pessoa["idade"];       // 30
+
+// Adicionando propriedades
+pessoa.cidade = "São Paulo";</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>⚙️</span>
+                        Function (Função)
+                    </h3>
+                    <div class="code-block">
+// Declaração de função
+function saudar(nome) {
+    return "Olá, " + nome + "!";
+}
+
+// Função arrow
+const calcular = (a, b) => a + b;
+
+// Função é um objeto!
+typeof saudar; // "function"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h2>🎮 Testador de Tipos</h2>
+            <p>Digite um valor e veja qual é o seu tipo em JavaScript!</p>
+            
+            <div class="demo-area">
+                <div class="input-group">
+                    <label for="valorTeste">Digite um valor:</label>
+                    <input type="text" id="valorTeste" placeholder='Ex: "João", 42, true, [1,2,3]'>
+                </div>
+                
+                <button class="btn" onclick="analisarTipo()">Analisar Tipo</button>
+                
+                <div id="resultadoTipo" style="display: none;">
+                    <h3>📊 Resultado da Análise:</h3>
+                    <div id="valorOriginal"></div>
+                    <div id="valorConvertido"></div>
+                    <div id="tipoDetectado"></div>
+                    <div id="informacaoExtra"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>🔍</span>
+                Console de Demonstração
+            </h2>
+            <p>Veja exemplos executando em tempo real:</p>
+            
+            <div class="console-demo" id="console-output">
+                <div class="console-line console-input">// Executando exemplos...</div>
+            </div>
+            
+            <button class="btn" onclick="executarExemplos()">▶️ Executar Exemplos</button>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>💡</span>
+                Dicas Importantes
+            </h2>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li><strong>🎯 Use nomes descritivos:</strong> <code>idade</code> é melhor que <code>x</code></li>
+                <li><strong>🔒 Prefira const:</strong> Use quando o valor não vai mudar</li>
+                <li><strong>🔄 Use let:</strong> Para variáveis que vão mudar</li>
+                <li><strong>❌ Evite var:</strong> Pode causar problemas de escopo</li>
+                <li><strong>🔍 Use typeof:</strong> Para verificar o tipo de uma variável</li>
+                <li><strong>⚠️ Cuidado com NaN:</strong> <code>NaN !== NaN</code> é <code>true</code>!</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #2d3748; color: white; border-radius: 8px;">
+            <p>
+                📚 <strong>Próximo Passo:</strong> Operadores e Expressões<br>
+                <em>Agora que você conhece os tipos, vamos aprender a manipulá-los!</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Função para analisar tipo de dados
+        function analisarTipo() {
+            const input = document.getElementById('valorTeste').value;
+            const resultDiv = document.getElementById('resultadoTipo');
+            
+            if (!input.trim()) {
+                alert('Por favor, digite um valor!');
+                return;
+            }
+            
+            let valor;
+            let tipoOriginal = typeof input; // Sempre string do input
+            
+            // Tentar converter o input
+            try {
+                // Avaliar como JavaScript (cuidado: só para demo educacional)
+                valor = Function(`"use strict"; return (${input})`)();
+            } catch (e) {
+                valor = input; // Se der erro, manter como string
+            }
+            
+            const tipoConvertido = typeof valor;
+            
+            // Mostrar resultados
+            document.getElementById('valorOriginal').innerHTML = 
+                `<strong>Valor digitado:</strong> "${input}" <span class="type-indicator type-string">string</span>`;
+            
+            document.getElementById('valorConvertido').innerHTML = 
+                `<strong>Valor interpretado:</strong> ${JSON.stringify(valor)} <span class="type-indicator type-${tipoConvertido}">${tipoConvertido}</span>`;
+            
+            document.getElementById('tipoDetectado').innerHTML = 
+                `<strong>Tipo detectado:</strong> ${tipoConvertido}`;
+            
+            // Informação extra baseada no tipo
+            let info = '';
+            switch (tipoConvertido) {
+                case 'string':
+                    info = `Comprimento: ${valor.length} caracteres`;
+                    break;
+                case 'number':
+                    if (Number.isInteger(valor)) {
+                        info = 'É um número inteiro';
+                    } else if (isNaN(valor)) {
+                        info = 'NaN (Not a Number)';
+                    } else {
+                        info = 'É um número decimal';
+                    }
+                    break;
+                case 'boolean':
+                    info = valor ? 'Valor verdadeiro (truthy)' : 'Valor falso (falsy)';
+                    break;
+                case 'object':
+                    if (valor === null) {
+                        info = 'Valor nulo (null)';
+                    } else if (Array.isArray(valor)) {
+                        info = `Array com ${valor.length} elementos`;
+                    } else {
+                        info = `Objeto com ${Object.keys(valor).length} propriedades`;
+                    }
+                    break;
+                case 'undefined':
+                    info = 'Valor não definido';
+                    break;
+                case 'function':
+                    info = 'É uma função executável';
+                    break;
+            }
+            
+            document.getElementById('informacaoExtra').innerHTML = 
+                `<strong>Info adicional:</strong> ${info}`;
+            
+            resultDiv.style.display = 'block';
+        }
+        
+        // Função para executar exemplos no console
+        function executarExemplos() {
+            const console = document.getElementById('console-output');
+            console.innerHTML = '';
+            
+            const exemplos = [
+                '// === DECLARAÇÃO DE VARIÁVEIS ===',
+                'let nome = "JavaScript";',
+                'const versao = "ES2024";',
+                'let ativo = true;',
+                '',
+                '// === VERIFICANDO TIPOS ===',
+                `typeof nome → "${typeof 'JavaScript'}"`,
+                `typeof versao → "${typeof 'ES2024'}"`,
+                `typeof ativo → "${typeof true}"`,
+                '',
+                '// === NÚMEROS ESPECIAIS ===',
+                `typeof 42 → "${typeof 42}"`,
+                `typeof 3.14 → "${typeof 3.14}"`,
+                `typeof NaN → "${typeof NaN}"`,
+                `typeof Infinity → "${typeof Infinity}"`,
+                '',
+                '// === ARRAYS E OBJETOS ===',
+                `typeof [1,2,3] → "${typeof [1,2,3]}"`,
+                `typeof {nome:"João"} → "${typeof {nome:"João"}}"`,
+                `typeof null → "${typeof null}" // Bug histórico!`,
+                '',
+                '// === CONVERSÕES AUTOMÁTICAS ===',
+                `"5" + 3 → "${"5" + 3}" (concatenação)`,
+                `"5" - 3 → ${"5" - 3} (subtração)`,
+                `Boolean("") → ${Boolean("")}`,
+                `Boolean("texto") → ${Boolean("texto")}`,
+                '',
+                '✅ Exemplos executados com sucesso!'
+            ];
+            
+            exemplos.forEach((linha, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'console-line';
+                    
+                    if (linha.startsWith('//')) {
+                        div.className += ' console-input';
+                        div.style.color = '#a0aec0';
+                        div.style.fontWeight = 'bold';
+                    } else if (linha.includes('→')) {
+                        div.className += ' console-output';
+                        div.style.color = '#68d391';
+                    } else if (linha.startsWith('✅')) {
+                        div.style.color = '#48bb78';
+                        div.style.fontWeight = 'bold';
+                    } else {
+                        div.className += ' console-output';
+                    }
+                    
+                    div.textContent = linha;
+                    console.appendChild(div);
+                    console.scrollTop = console.scrollHeight;
+                }, index * 200);
+            });
+        }
+        
+        // Log inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📊 Módulo de Variáveis e Tipos carregado!');
+            console.log('🎯 Conceitos abordados:');
+            console.log('  - Declaração de variáveis (let, const, var)');
+            console.log('  - Tipos primitivos (string, number, boolean, null, undefined)');
+            console.log('  - Tipos complexos (object, array, function)');
+            console.log('  - Operador typeof');
+            console.log('  - Conversões de tipo');
+            
+            // Exemplos práticos no console real
+            let exemploString = "JavaScript";
+            let exemploNumber = 42;
+            let exemploBoolean = true;
+            let exemploArray = [1, 2, 3];
+            let exemploObject = {nome: "Exemplo"};
+            
+            console.log('📝 Variáveis de exemplo criadas:');
+            console.log('exemploString:', exemploString, typeof exemploString);
+            console.log('exemploNumber:', exemploNumber, typeof exemploNumber);
+            console.log('exemploBoolean:', exemploBoolean, typeof exemploBoolean);
+            console.log('exemploArray:', exemploArray, typeof exemploArray);
+            console.log('exemploObject:', exemploObject, typeof exemploObject);
+        });
+        
+        // Permitir Enter no input
+        document.getElementById('valorTeste').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analisarTipo();
+            }
+        });
+    </script>
+</body>
+</html>

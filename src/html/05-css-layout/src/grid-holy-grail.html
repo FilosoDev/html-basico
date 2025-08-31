@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - Layout Holy Grail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f5f7fa;
+        }
+
+        /* ================================
+           LAYOUT HOLY GRAIL COM CSS GRID
+        ================================ */
+        
+        .page-layout {
+            display: grid;
+            min-height: 100vh;
+            
+            /* Definindo a estrutura do grid */
+            grid-template-columns: 250px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            
+            /* Nomeando as áreas do grid */
+            grid-template-areas:
+                "header  header  header"
+                "sidebar main    aside"
+                "footer  footer  footer";
+            
+            /* Espaçamento entre as áreas */
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        /* HEADER */
+        .header {
+            grid-area: header;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* SIDEBAR PRINCIPAL */
+        .sidebar {
+            grid-area: sidebar;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-bottom: 0.8rem;
+        }
+
+        .nav-menu a {
+            color: #4a5568;
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            display: block;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background: #f7fafc;
+            border-left-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .nav-menu a.active {
+            background: #667eea;
+            color: white;
+            border-left-color: #4c51bf;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .main {
+            grid-area: main;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .main h2 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .content-section h3 {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* SIDEBAR SECUNDÁRIA (ASIDE) */
+        .aside {
+            grid-area: aside;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .widget {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .widget h4 {
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .widget ul {
+            list-style: none;
+        }
+
+        .widget li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        .widget li:last-child {
+            border-bottom: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            grid-area: footer;
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ================================
+           RESPONSIVIDADE COM GRID
+        ================================ */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .page-layout {
+                grid-template-columns: 200px 1fr 150px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Mobile Grande */
+        @media (max-width: 768px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "aside"
+                    "footer";
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Pequeno */
+        @media (max-width: 480px) {
+            .page-layout {
+                padding: 0.5rem;
+                gap: 0.5rem;
+            }
+            
+            .main,
+            .sidebar,
+            .aside,
+            .header,
+            .footer {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ================================
+           DEMONSTRAÇÃO VISUAL DO GRID
+        ================================ */
+        
+        .grid-demo {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            max-width: 250px;
+        }
+
+        .grid-demo h4 {
+            margin-bottom: 0.5rem;
+            color: #ffd89b;
+        }
+
+        .grid-visual {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            height: 60px;
+            margin: 0.5rem 0;
+        }
+
+        .grid-cell {
+            background: #4a5568;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .grid-cell.header-cell { background: #667eea; }
+        .grid-cell.sidebar-cell { background: #48bb78; }
+        .grid-cell.main-cell { background: #ed8936; }
+        .grid-cell.aside-cell { background: #9f7aea; }
+        .grid-cell.footer-cell { background: #2d3748; }
+    </style>
+</head>
+<body>
+    <!-- VISUALIZADOR DO GRID -->
+    <div class="grid-demo">
+        <h4>🔲 Grid Layout</h4>
+        <div class="grid-visual">
+            <div class="grid-cell header-cell">H</div>
+            <div class="grid-cell header-cell">H</div>
+            <div class="grid-cell header-cell">H</div>
+            <div class="grid-cell sidebar-cell">S</div>
+            <div class="grid-cell main-cell">M</div>
+            <div class="grid-cell aside-cell">A</div>
+            <div class="grid-cell footer-cell">F</div>
+            <div class="grid-cell footer-cell">F</div>
+            <div class="grid-cell footer-cell">F</div>
+        </div>
+        <p><strong>H:</strong> Header<br>
+        <strong>S:</strong> Sidebar<br>
+        <strong>M:</strong> Main<br>
+        <strong>A:</strong> Aside<br>
+        <strong>F:</strong> Footer</p>
+    </div>
+
+    <!-- LAYOUT HOLY GRAIL -->
+    <div class="page-layout">
+        
+        <!-- HEADER -->
+        <header class="header">
+            <h1>🏛️ Layout Holy Grail</h1>
+            <p>Implementado com CSS Grid de forma simples e responsiva</p>
+        </header>
+
+        <!-- SIDEBAR PRINCIPAL -->
+        <nav class="sidebar">
+            <h3>📋 Navegação</h3>
+            <ul class="nav-menu">
+                <li><a href="#grid" class="active">CSS Grid</a></li>
+                <li><a href="#layout">Layout Holy Grail</a></li>
+                <li><a href="#responsivo">Design Responsivo</a></li>
+                <li><a href="#areas">Grid Areas</a></li>
+                <li><a href="#exemplos">Mais Exemplos</a></li>
+                <li><a href="#documentacao">Documentação</a></li>
+                <li><a href="#exercicios">Exercícios</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main">
+            <h2>🎯 O Que é o Layout Holy Grail?</h2>
+            
+            <div class="content-section">
+                <h3>📚 Definição</h3>
+                <p>
+                    O "Holy Grail Layout" é um padrão clássico de design web que consiste em:
+                    header no topo, footer na base, conteúdo principal no centro, 
+                    sidebar à esquerda e aside à direita. Historicamente era difícil de implementar,
+                    mas com CSS Grid se tornou trivial.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h3>🔧 Implementação com CSS Grid</h3>
+                <p>Com Grid, podemos criar este layout com apenas algumas linhas de CSS:</p>
+                
+                <div class="code-example">
+.page-layout {
+    display: grid;
+    min-height: 100vh;
+    
+    /* Definindo colunas: sidebar, main, aside */
+    grid-template-columns: 250px 1fr 200px;
+    
+    /* Definindo linhas: header, content, footer */
+    grid-template-rows: auto 1fr auto;
+    
+    /* Nomeando as áreas para facilitar */
+    grid-template-areas:
+        "header  header  header"
+        "sidebar main    aside"
+        "footer  footer  footer";
+}
+
+/* Posicionando cada elemento em sua área */
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.aside   { grid-area: aside; }
+.footer  { grid-area: footer; }
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>📱 Responsividade Automática</h3>
+                <p>Para dispositivos móveis, simplesmente reorganizamos as áreas:</p>
+                
+                <div class="code-example">
+@media (max-width: 768px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "aside"
+            "footer";
+    }
+}
+                </div>
+                
+                <p>
+                    <strong>🎯 Teste agora:</strong> Redimensione a janela do navegador para ver 
+                    como o layout se adapta automaticamente aos diferentes tamanhos de tela!
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h3>✨ Vantagens do CSS Grid</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Simplicidade:</strong> Layout complexo com código mínimo</li>
+                    <li><strong>Semântica:</strong> HTML mantém ordem lógica independente do visual</li>
+                    <li><strong>Flexibilidade:</strong> Fácil reorganização para diferentes telas</li>
+                    <li><strong>Manutenibilidade:</strong> Código limpo e fácil de entender</li>
+                    <li><strong>Performance:</strong> Navegadores otimizam grid nativamente</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>🎮 Propriedades Grid Utilizadas</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><code>display: grid</code> - Torna o elemento um container grid</li>
+                    <li><code>grid-template-columns</code> - Define o tamanho das colunas</li>
+                    <li><code>grid-template-rows</code> - Define o tamanho das linhas</li>
+                    <li><code>grid-template-areas</code> - Nomeia áreas do grid</li>
+                    <li><code>grid-area</code> - Posiciona item em área nomeada</li>
+                    <li><code>gap</code> - Espaçamento entre células do grid</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- SIDEBAR SECUNDÁRIA -->
+        <aside class="aside">
+            <div class="widget">
+                <h4>🔥 Conceitos Relacionados</h4>
+                <ul>
+                    <li>Flexbox vs Grid</li>
+                    <li>Grid Template Areas</li>
+                    <li>Fractional Units (fr)</li>
+                    <li>Auto-fit & Auto-fill</li>
+                    <li>Grid Lines</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>📊 Suporte de Navegadores</h4>
+                <ul>
+                    <li>Chrome: ✅ 57+</li>
+                    <li>Firefox: ✅ 52+</li>
+                    <li>Safari: ✅ 10.1+</li>
+                    <li>Edge: ✅ 16+</li>
+                    <li>IE: ⚠️ 11 (parcial)</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>🛠️ Ferramentas Úteis</h4>
+                <ul>
+                    <li>Firefox Grid Inspector</li>
+                    <li>Chrome DevTools</li>
+                    <li>CSS Grid Generator</li>
+                    <li>Grid Garden (Jogo)</li>
+                    <li>MDN Grid Guide</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>🎯 Próximos Passos</h4>
+                <ul>
+                    <li>Grid com Flexbox</li>
+                    <li>Layouts Complexos</li>
+                    <li>Grid Responsivo</li>
+                    <li>Animações com Grid</li>
+                    <li>Subgrids (CSS Level 2)</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 Curso de CSS Grid - Layout Holy Grail</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#docs">Documentação</a>
+                    <a href="#exemplos">Exemplos</a>
+                    <a href="#exercicios">Exercícios</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Demonstração interativa
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🏛️ Layout Holy Grail com CSS Grid carregado!');
+            
+            // Mostra informações do grid no console
+            console.log('📐 Estrutura do Grid:');
+            console.log('Colunas: 250px 1fr 200px');
+            console.log('Linhas: auto 1fr auto');
+            console.log('Áreas: header, sidebar, main, aside, footer');
+            
+            // Destaca área ao passar o mouse
+            const gridAreas = ['header', 'sidebar', 'main', 'aside', 'footer'];
+            
+            gridAreas.forEach(area => {
+                const element = document.querySelector(`.${area}`);
+                if (element) {
+                    element.addEventListener('mouseenter', () => {
+                        element.style.boxShadow = '0 0 20px rgba(102, 126, 234, 0.5)';
+                        console.log(`🎯 Área em foco: ${area}`);
+                    });
+                    
+                    element.addEventListener('mouseleave', () => {
+                        element.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                    });
+                }
+            });
+            
+            // Monitora mudanças de viewport
+            window.addEventListener('resize', () => {
+                const width = window.innerWidth;
+                let breakpoint = 'Desktop';
+                
+                if (width <= 480) breakpoint = 'Mobile Pequeno';
+                else if (width <= 768) breakpoint = 'Mobile';
+                else if (width <= 1024) breakpoint = 'Tablet';
+                
+                console.log(`📱 Viewport: ${width}px (${breakpoint})`);
+            });
+        });
+    </script>
+</body>
+</html>

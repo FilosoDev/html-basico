@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Básico - Fundamentos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #f093fb;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin-top: 1.5rem;
+        }
+
+        .example-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            border-color: #f093fb;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.3);
+        }
+
+        .example-card h3 {
+            color: #f093fb;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-preview {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .demo-area {
+            background: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .input-group {
+            margin: 1rem 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #f093fb;
+        }
+
+        .result {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .progress-section {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span>🚀</span>
+            JavaScript Básico
+            <span>💻</span>
+        </h1>
+        
+        <div class="intro">
+            <h2>Fundamentos da Programação Web</h2>
+            <p>Aprenda JavaScript desde o básico até criar suas primeiras aplicações interativas. JavaScript é a linguagem que dá vida à web!</p>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>🔧</span>
+                Conceitos Fundamentais
+            </h2>
+            <p>Domine os pilares da linguagem JavaScript: variáveis, tipos de dados, operadores e estruturas básicas.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>📊</span>
+                        Variáveis e Tipos
+                    </h3>
+                    <p>Aprenda a declarar variáveis e trabalhar com diferentes tipos de dados.</p>
+                    <div class="code-preview">let nome = "João";
+const idade = 25;
+let ativo = true;</div>
+                    <a href="variaveis-tipos.html" class="btn">Explorar</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🧮</span>
+                        Operadores
+                    </h3>
+                    <p>Operadores aritméticos, de comparação e lógicos para manipular dados.</p>
+                    <div class="code-preview">let soma = 10 + 5;
+let ehMaior = idade >= 18;
+let resultado = x && y;</div>
+                    <a href="operadores.html" class="btn">Praticar</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🔀</span>
+                        Condicionais
+                    </h3>
+                    <p>Estruturas if/else e switch para controlar o fluxo do programa.</p>
+                    <div class="code-preview">if (idade >= 18) {
+    console.log("Adulto");
+} else {
+    console.log("Menor");
+}</div>
+                    <a href="condicionais.html" class="btn">Aprender</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🔄</span>
+                        Loops
+                    </h3>
+                    <p>Estruturas de repetição for e while para automatizar tarefas.</p>
+                    <div class="code-preview">for (let i = 0; i < 5; i++) {
+    console.log(i);
+}</div>
+                    <a href="loops.html" class="btn">Dominar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>⚙️</span>
+                Funções e Estruturas
+            </h2>
+            <p>Organize seu código com funções, arrays e objetos para criar programas mais complexos e reutilizáveis.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>📝</span>
+                        Funções
+                    </h3>
+                    <p>Criar e usar funções para organizar e reutilizar código.</p>
+                    <div class="code-preview">function saudar(nome) {
+    return "Olá, " + nome;
+}
+
+const somar = (a, b) => a + b;</div>
+                    <a href="funcoes.html" class="btn">Criar</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>📋</span>
+                        Arrays
+                    </h3>
+                    <p>Listas para armazenar e manipular coleções de dados.</p>
+                    <div class="code-preview">let frutas = ["maçã", "banana"];
+frutas.push("laranja");
+frutas.map(f => f.toUpperCase());</div>
+                    <a href="arrays.html" class="btn">Manipular</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🏗️</span>
+                        Objetos
+                    </h3>
+                    <p>Estruturas para organizar dados relacionados em propriedades.</p>
+                    <div class="code-preview">let pessoa = {
+    nome: "Ana",
+    idade: 30,
+    falar: function() {
+        return "Olá!";
+    }
+};</div>
+                    <a href="objetos.html" class="btn">Construir</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>⚡</span>
+                        Eventos
+                    </h3>
+                    <p>Introdução a eventos para interação com o usuário.</p>
+                    <div class="code-preview">function clicar() {
+    alert("Botão clicado!");
+}
+
+button.onclick = clicar;</div>
+                    <a href="eventos.html" class="btn">Interagir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h2>🎮 Calculadora Interativa</h2>
+            <p>Teste seus conhecimentos com esta calculadora construída em JavaScript!</p>
+            
+            <div class="demo-area">
+                <div class="input-group">
+                    <label for="num1">Primeiro Número:</label>
+                    <input type="number" id="num1" value="10">
+                </div>
+                
+                <div class="input-group">
+                    <label for="operacao">Operação:</label>
+                    <select id="operacao">
+                        <option value="+">Adição (+)</option>
+                        <option value="-">Subtração (-)</option>
+                        <option value="*">Multiplicação (×)</option>
+                        <option value="/">Divisão (÷)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="num2">Segundo Número:</label>
+                    <input type="number" id="num2" value="5">
+                </div>
+                
+                <button class="btn" onclick="calcular()">Calcular</button>
+                
+                <div id="resultado" class="result" style="display: none;">
+                    <strong>Resultado: </strong><span id="valorResultado"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>🎯</span>
+                Projetos Práticos
+            </h2>
+            <p>Aplique seus conhecimentos em projetos reais que demonstram o poder do JavaScript.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>
+                        <span>🎲</span>
+                        Jogo de Adivinhação
+                    </h3>
+                    <p>Jogo onde o usuário tenta adivinhar um número gerado aleatoriamente.</p>
+                    <a href="projeto-adivinhacao.html" class="btn">Jogar</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>📝</span>
+                        Lista de Tarefas
+                    </h3>
+                    <p>Sistema para adicionar, remover e marcar tarefas como concluídas.</p>
+                    <a href="projeto-tarefas.html" class="btn">Organizar</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>🌡️</span>
+                        Conversor de Temperatura
+                    </h3>
+                    <p>Aplicação para converter entre Celsius, Fahrenheit e Kelvin.</p>
+                    <a href="projeto-conversor.html" class="btn">Converter</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span>⏱️</span>
+                        Cronômetro
+                    </h3>
+                    <p>Cronômetro digital com funções de start, pause e reset.</p>
+                    <a href="projeto-cronometro.html" class="btn">Cronometrar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>📈 Trilha de Aprendizado</h2>
+            <p>Siga esta sequência para dominar JavaScript de forma progressiva:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>1️⃣ Básico</h3>
+                    <p>Variáveis, tipos, operadores</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>2️⃣ Controle</h3>
+                    <p>Condicionais e loops</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>3️⃣ Funções</h3>
+                    <p>Declaração e uso</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>4️⃣ Estruturas</h3>
+                    <p>Arrays e objetos</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>5️⃣ Eventos</h3>
+                    <p>Interação básica</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>6️⃣ Projetos</h3>
+                    <p>Aplicação prática</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span>🎯</span>
+                Próximos Passos
+            </h2>
+            <p>Após dominar estes fundamentos, você estará pronto para:</p>
+            <ul style="font-size: 1.1rem; line-height: 2; margin-top: 1rem;">
+                <li><strong>🎨 Manipular o DOM:</strong> Modificar páginas dinamicamente</li>
+                <li><strong>📡 Trabalhar com APIs:</strong> Consumir dados externos</li>
+                <li><strong>🔄 Programação assíncrona:</strong> Promises e async/await</li>
+                <li><strong>⚛️ Frameworks modernos:</strong> React, Vue, Angular</li>
+                <li><strong>🖥️ JavaScript no backend:</strong> Node.js</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #2d3748; color: white; border-radius: 8px;">
+            <p>
+                📚 <strong>Módulo 07: JavaScript Básico</strong><br>
+                Fundamentos essenciais para programação web<br>
+                <em>A jornada de mil milhas começa com um simples passo!</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Função da calculadora interativa
+        function calcular() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            const operacao = document.getElementById('operacao').value;
+            
+            let resultado;
+            
+            switch (operacao) {
+                case '+':
+                    resultado = num1 + num2;
+                    break;
+                case '-':
+                    resultado = num1 - num2;
+                    break;
+                case '*':
+                    resultado = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        resultado = 'Erro: Divisão por zero!';
+                    } else {
+                        resultado = num1 / num2;
+                    }
+                    break;
+                default:
+                    resultado = 'Operação inválida';
+            }
+            
+            // Mostra o resultado
+            document.getElementById('valorResultado').textContent = 
+                typeof resultado === 'number' ? resultado.toFixed(2) : resultado;
+            document.getElementById('resultado').style.display = 'block';
+        }
+
+        // Demonstração de conceitos básicos
+        console.log('🚀 JavaScript carregado com sucesso!');
+        console.log('📊 Exemplo de variáveis:');
+        
+        let exemploVariavel = "Olá, JavaScript!";
+        const exemploConstante = 42;
+        let exemploBoolean = true;
+        
+        console.log('String:', exemploVariavel);
+        console.log('Number:', exemploConstante);
+        console.log('Boolean:', exemploBoolean);
+        
+        // Exemplo de função
+        function exemploFuncao(nome) {
+            return `Bem-vindo ao JavaScript, ${nome}!`;
+        }
+        
+        console.log('🎯 Função:', exemploFuncao('Estudante'));
+        
+        // Exemplo de array
+        let exemploArray = ['HTML', 'CSS', 'JavaScript'];
+        console.log('📋 Array:', exemploArray);
+        console.log('📋 Array manipulado:', exemploArray.map(tech => `${tech} ✅`));
+        
+        // Exemplo de objeto
+        let exemploObjeto = {
+            curso: 'Desenvolvimento Web',
+            modulo: 'JavaScript Básico',
+            concluido: false,
+            marcarConcluido: function() {
+                this.concluido = true;
+                return `${this.curso} - ${this.modulo} concluído!`;
+            }
+        };
+        
+        console.log('🏗️ Objeto:', exemploObjeto);
+        console.log('✅ Método do objeto:', exemploObjeto.marcarConcluido());
+    </script>
+</body>
+</html>
