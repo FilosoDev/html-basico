@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout - Flexbox e Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        .example-list {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .example-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .progress-section {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        .progress-section h2 {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #2d3748;
+            color: white;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .example-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 CSS Layout: Flexbox e Grid</h1>
+        
+        <div class="section">
+            <h2>
+                <span class="icon">📐</span>
+                Exemplos Práticos de Flexbox
+            </h2>
+            <p>Aprenda Flexbox através de exemplos reais e casos de uso práticos para criar layouts responsivos e profissionais.</p>
+            
+            <div class="example-list">
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🔗</span>
+                        Navbar Responsiva
+                    </h3>
+                    <p>Criação de uma barra de navegação que se adapta a diferentes tamanhos de tela usando flexbox.</p>
+                    <a href="flexbox-navbar.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🃏</span>
+                        Cards Layout
+                    </h3>
+                    <p>Sistema de cards flexível que se reorganiza automaticamente conforme o espaço disponível.</p>
+                    <a href="flexbox-cards.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🎯</span>
+                        Centralização Perfeita
+                    </h3>
+                    <p>Técnicas para centralizar elementos vertical e horizontalmente de forma simples e eficaz.</p>
+                    <a href="flexbox-center.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">📱</span>
+                        Sidebar Responsiva
+                    </h3>
+                    <p>Layout com sidebar que se adapta entre mobile e desktop usando propriedades do flexbox.</p>
+                    <a href="flexbox-sidebar.html" class="btn">Ver Exemplo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span class="icon">🔲</span>
+                Exemplos Práticos de CSS Grid
+            </h2>
+            <p>Domine CSS Grid com exemplos que mostram o poder dos layouts bidimensionais e sistemas de grade avançados.</p>
+            
+            <div class="example-list">
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🏠</span>
+                        Layout Holy Grail
+                    </h3>
+                    <p>O famoso layout "Holy Grail" implementado com CSS Grid de forma simples e responsiva.</p>
+                    <a href="grid-holy-grail.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🛍️</span>
+                        Grid de Produtos
+                    </h3>
+                    <p>Layout de produtos responsivo que ajusta automaticamente o número de colunas.</p>
+                    <a href="grid-products.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">📊</span>
+                        Dashboard Layout
+                    </h3>
+                    <p>Interface de dashboard complexa usando grid areas e posicionamento avançado.</p>
+                    <a href="grid-dashboard.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">📰</span>
+                        Layout Revista
+                    </h3>
+                    <p>Layout editorial complexo no estilo revista com múltiplas seções e hierarquia visual.</p>
+                    <a href="grid-magazine.html" class="btn">Ver Exemplo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span class="icon">⚡</span>
+                Combinando Flexbox e Grid
+            </h2>
+            <p>Aprenda quando e como combinar as duas técnicas para criar layouts ainda mais poderosos e flexíveis.</p>
+            
+            <div class="example-list">
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🎮</span>
+                        Componente Card Avançado
+                    </h3>
+                    <p>Card complexo usando grid para estrutura geral e flexbox para componentes internos.</p>
+                    <a href="hybrid-card.html" class="btn">Ver Exemplo</a>
+                </div>
+                
+                <div class="example-card">
+                    <h3>
+                        <span class="icon">🌐</span>
+                        Site Completo
+                    </h3>
+                    <p>Exemplo de site completo combinando grid para layout e flexbox para componentes.</p>
+                    <a href="hybrid-complete.html" class="btn">Ver Exemplo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section progress-section">
+            <h2>
+                <span class="icon">🎯</span>
+                Objetivos de Aprendizado
+            </h2>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>🔧 Flexbox</h3>
+                    <p>Dominar propriedades do container e itens, entender eixos principal e cruzado</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>🔲 CSS Grid</h3>
+                    <p>Criar layouts bidimensionais, usar grid areas e posicionamento avançado</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>📱 Responsividade</h3>
+                    <p>Implementar design mobile-first com ambas as técnicas</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h3>🎨 Design</h3>
+                    <p>Escolher a técnica certa para cada situação de layout</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>
+                <span class="icon">📚</span>
+                Ordem de Estudo Recomendada
+            </h2>
+            <ol style="font-size: 1.1rem; line-height: 2;">
+                <li><strong>Comece com Flexbox:</strong> Navbar e Cards para entender os conceitos básicos</li>
+                <li><strong>Pratique Alinhamento:</strong> Centralização e layouts simples</li>
+                <li><strong>Avance para Grid:</strong> Holy Grail e layouts bidimensionais</li>
+                <li><strong>Explore Responsividade:</strong> Adapte os exemplos para mobile</li>
+                <li><strong>Combine Técnicas:</strong> Use os exemplos híbridos para casos complexos</li>
+            </ol>
+        </div>
+
+        <div class="footer-info">
+            <p>
+                📚 <strong>Módulo 05: CSS Layout</strong><br>
+                Fundamentos de Flexbox e CSS Grid para layouts modernos<br>
+                <em>Continue praticando e experimentando com os exemplos!</em>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

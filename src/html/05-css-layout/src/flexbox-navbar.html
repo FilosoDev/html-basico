@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Navbar Responsiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f5f7fa;
+        }
+
+        /* ================================
+           NAVBAR COM FLEXBOX
+        ================================ */
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            
+            /* FLEXBOX CONTAINER */
+            display: flex;
+            justify-content: space-between;  /* Distribui espaço entre logo e menu */
+            align-items: center;             /* Alinha verticalmente */
+            min-height: 70px;
+        }
+
+        /* LOGO */
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* MENU PRINCIPAL */
+        .nav-menu {
+            /* FLEXBOX PARA OS LINKS */
+            display: flex;
+            gap: 2rem;               /* Espaçamento entre links */
+            align-items: center;     /* Alinha verticalmente */
+            list-style: none;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* BOTÃO CTA */
+        .nav-cta {
+            background: #ffd89b;
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white !important;
+            padding: 0.7rem 1.5rem !important;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* TOGGLE MOBILE (inicialmente escondido) */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* ================================
+           CONTEÚDO DE DEMONSTRAÇÃO
+        ================================ */
+
+        .hero {
+            padding: 4rem 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           MEDIA QUERIES - RESPONSIVIDADE
+        ================================ */
+
+        @media (max-width: 768px) {
+            /* Mostra o botão toggle */
+            .nav-toggle {
+                display: flex;
+            }
+
+            /* Esconde o menu inicialmente no mobile */
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                
+                /* Muda para coluna no mobile */
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 3rem;
+                
+                transition: left 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            /* Mostra o menu quando ativo */
+            .nav-menu.active {
+                left: 0;
+            }
+
+            /* Ajusta links no mobile */
+            .nav-link {
+                width: 200px;
+                text-align: center;
+                margin: 0.5rem 0;
+                padding: 1rem;
+            }
+
+            /* Animação do toggle quando ativo */
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            /* Ajustes para mobile */
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR COM FLEXBOX -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- LOGO -->
+            <a href="#" class="nav-logo">
+                🎯 FlexNav
+            </a>
+
+            <!-- MENU PRINCIPAL -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+                <li><a href="#cta" class="nav-link nav-cta">Começar Agora</a></li>
+            </ul>
+
+            <!-- TOGGLE MOBILE -->
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>🚀 Navbar Responsiva com Flexbox</h1>
+        <p>Demonstração prática de como criar uma navegação moderna e responsiva</p>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="content">
+        <div class="demo-section">
+            <h2>📐 Como Funciona o Flexbox na Navbar</h2>
+            <p>Esta navbar utiliza Flexbox para criar um layout responsivo e profissional. Vamos analisar as principais propriedades:</p>
+
+            <h3>🔧 Container Principal (.nav-container)</h3>
+            <div class="code-block">
+.nav-container {
+    display: flex;
+    justify-content: space-between;  /* Logo à esquerda, menu à direita */
+    align-items: center;             /* Alinhamento vertical central */
+    min-height: 70px;
+}
+            </div>
+
+            <h3>🔗 Menu de Navegação (.nav-menu)</h3>
+            <div class="code-block">
+.nav-menu {
+    display: flex;
+    gap: 2rem;               /* Espaçamento uniforme entre links */
+    align-items: center;     /* Alinha verticalmente */
+    list-style: none;
+}
+            </div>
+
+            <h3>📱 Responsividade Mobile</h3>
+            <div class="code-block">
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        flex-direction: column;      /* Muda para vertical */
+        justify-content: flex-start; /* Alinha no topo */
+        align-items: center;         /* Centraliza horizontalmente */
+    }
+}
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Vantagens do Flexbox para Navbars</h2>
+            <ul style="font-size: 1.1rem; line-height: 2;">
+                <li><strong>🎯 Alinhamento Fácil:</strong> <code>align-items: center</code> centraliza verticalmente</li>
+                <li><strong>📏 Distribuição de Espaço:</strong> <code>justify-content: space-between</code> distribui elementos</li>
+                <li><strong>🔄 Flexibilidade:</strong> <code>flex-direction</code> permite mudança de orientação</li>
+                <li><strong>📱 Responsividade:</strong> Fácil adaptação para mobile com media queries</li>
+                <li><strong>⚡ Performance:</strong> Não requer JavaScript para layout básico</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Teste a Responsividade</h2>
+            <p>Experimente redimensionar a janela do navegador ou usar as ferramentas de desenvolvedor para ver como a navbar se adapta:</p>
+            <ul style="margin: 1rem 0; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Desktop (>768px):</strong> Menu horizontal com logo à esquerda</li>
+                <li><strong>Mobile (≤768px):</strong> Menu hamburger com overlay full-screen</li>
+                <li><strong>Tablet (769px-1024px):</strong> Menu ajustado com espaçamentos menores</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔧 Propriedades Flexbox Utilizadas</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                    <h4>justify-content</h4>
+                    <p>Controla alinhamento no eixo principal (horizontal)</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                    <h4>align-items</h4>
+                    <p>Controla alinhamento no eixo cruzado (vertical)</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                    <h4>flex-direction</h4>
+                    <p>Define a direção dos itens (row/column)</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                    <h4>gap</h4>
+                    <p>Espaçamento uniforme entre elementos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para toggle do menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Fecha menu ao clicar em um link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+
+            // Fecha menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

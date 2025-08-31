@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Desenvolvimento Web - HTML, CSS e JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .module-card.html {
+            --color-primary: #e34f26;
+            --color-secondary: #f06529;
+            border-left-color: #e34f26;
+        }
+
+        .module-card.css {
+            --color-primary: #1572b6;
+            --color-secondary: #33a9dc;
+            border-left-color: #1572b6;
+        }
+
+        .module-card.js {
+            --color-primary: #f7df1e;
+            --color-secondary: #ffed4e;
+            border-left-color: #f7df1e;
+        }
+
+        .module-card.framework {
+            --color-primary: #7952b3;
+            --color-secondary: #9d72d3;
+            border-left-color: #7952b3;
+        }
+
+        .module-card.advanced {
+            --color-primary: #6f42c1;
+            --color-secondary: #8f5bff;
+            border-left-color: #6f42c1;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 12px;
+            color: white;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin: 0;
+        }
+
+        .module-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .module-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .topics-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .topics-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-check {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .progress-section {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .progress-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .learning-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .path-step {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .path-arrow {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-info {
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .learning-path {
+                flex-direction: column;
+            }
+            
+            .path-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>📚</span>
+                <span>Desenvolvimento Web</span>
+                <span>🚀</span>
+            </h1>
+            <p>Curso completo de HTML, CSS e JavaScript - Do básico ao avançado</p>
+        </div>
+
+        <div class="modules-grid">
+            <!-- Módulo 1: HTML Básico -->
+            <div class="module-card html">
+                <div class="module-header">
+                    <div class="module-icon">🏠</div>
+                    <div>
+                        <h3 class="module-title">01. HTML Básico</h3>
+                        <p class="module-subtitle">Fundamentos da Estrutura Web</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Aprenda os conceitos fundamentais do HTML, a linguagem que estrutura toda a web. 
+                    Domine tags, elementos e a base de qualquer página web.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Estrutura básica do HTML</li>
+                    <li><span class="topic-check">✓</span> Tags essenciais</li>
+                    <li><span class="topic-check">✓</span> Elementos de texto e links</li>
+                    <li><span class="topic-check">✓</span> Listas e tabelas</li>
+                </ul>
+                <a href="01-html-basico/index.html" class="btn">Começar Módulo</a>
+            </div>
+
+            <!-- Módulo 2: HTML Estrutura e Semântica -->
+            <div class="module-card html">
+                <div class="module-header">
+                    <div class="module-icon">🏗️</div>
+                    <div>
+                        <h3 class="module-title">02. HTML Estrutura e Semântica</h3>
+                        <p class="module-subtitle">Metadados e SEO</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Aprofunde-se na estrutura semântica do HTML, metadados importantes e 
+                    técnicas de SEO para otimizar suas páginas.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Meta tags e SEO</li>
+                    <li><span class="topic-check">✓</span> HTML semântico</li>
+                    <li><span class="topic-check">✓</span> Acessibilidade</li>
+                    <li><span class="topic-check">✓</span> Estruturas avançadas</li>
+                </ul>
+                <a href="02-html-estrutura-semantica/src/index.html" class="btn">Explorar</a>
+            </div>
+
+            <!-- Módulo 3: CSS Fundamentos -->
+            <div class="module-card css">
+                <div class="module-header">
+                    <div class="module-icon">🎨</div>
+                    <div>
+                        <h3 class="module-title">03. CSS Fundamentos</h3>
+                        <p class="module-subtitle">Estilização e Design</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Descubra o poder do CSS para transformar páginas simples em 
+                    designs atraentes e profissionais.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Seletores e propriedades</li>
+                    <li><span class="topic-check">✓</span> Box model e posicionamento</li>
+                    <li><span class="topic-check">✓</span> Tipografia e texto</li>
+                    <li><span class="topic-check">✓</span> Cascata e especificidade</li>
+                </ul>
+                <a href="03-css-fundamentos/" class="btn">Estilizar</a>
+            </div>
+
+            <!-- Módulo 4: CSS Cores e Medidas -->
+            <div class="module-card css">
+                <div class="module-header">
+                    <div class="module-icon">📐</div>
+                    <div>
+                        <h3 class="module-title">04. CSS Cores e Medidas</h3>
+                        <p class="module-subtitle">Design Visual Profissional</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Domine sistemas de cores, unidades de medida e técnicas para 
+                    criar designs responsivos e acessíveis.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Sistemas de cores (HEX, RGB, HSL)</li>
+                    <li><span class="topic-check">✓</span> Unidades absolutas e relativas</li>
+                    <li><span class="topic-check">✓</span> Design responsivo</li>
+                    <li><span class="topic-check">✓</span> Teoria das cores</li>
+                </ul>
+                <a href="04-css-cores-medidas/docs/README.md" class="btn">Aprender</a>
+            </div>
+
+            <!-- Módulo 5: CSS Layout -->
+            <div class="module-card css">
+                <div class="module-header">
+                    <div class="module-icon">📏</div>
+                    <div>
+                        <h3 class="module-title">05. CSS Layout</h3>
+                        <p class="module-subtitle">Flexbox e Grid</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Aprenda as técnicas modernas de layout com Flexbox e CSS Grid 
+                    para criar estruturas complexas e responsivas.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Flexbox completo</li>
+                    <li><span class="topic-check">✓</span> CSS Grid avançado</li>
+                    <li><span class="topic-check">✓</span> Layouts responsivos</li>
+                    <li><span class="topic-check">✓</span> Combinação de técnicas</li>
+                </ul>
+                <a href="05-css-layout/src/index.html" class="btn">Dominar</a>
+            </div>
+
+            <!-- Módulo 6: CSS Avançado -->
+            <div class="module-card css">
+                <div class="module-header">
+                    <div class="module-icon">✨</div>
+                    <div>
+                        <h3 class="module-title">06. CSS Avançado</h3>
+                        <p class="module-subtitle">Animações e Efeitos</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Eleve suas habilidades com animações, transformações e 
+                    efeitos visuais avançados em CSS.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Animações e transitions</li>
+                    <li><span class="topic-check">✓</span> Transformações 2D/3D</li>
+                    <li><span class="topic-check">✓</span> Efeitos visuais</li>
+                    <li><span class="topic-check">✓</span> CSS moderno</li>
+                </ul>
+                <a href="06-css-avancado/" class="btn">Explorar</a>
+            </div>
+
+            <!-- Módulo 7: JavaScript Básico -->
+            <div class="module-card js">
+                <div class="module-header">
+                    <div class="module-icon">⚡</div>
+                    <div>
+                        <h3 class="module-title">07. JavaScript Básico</h3>
+                        <p class="module-subtitle">Programação e Lógica</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Entre no mundo da programação com JavaScript, a linguagem 
+                    que adiciona interatividade às suas páginas.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Variáveis e tipos de dados</li>
+                    <li><span class="topic-check">✓</span> Funções e estruturas</li>
+                    <li><span class="topic-check">✓</span> Arrays e objetos</li>
+                    <li><span class="topic-check">✓</span> Eventos básicos</li>
+                </ul>
+                <a href="07-javascript-basico/src/index.html" class="btn">Programar</a>
+            </div>
+
+            <!-- Módulo 8: JavaScript DOM -->
+            <div class="module-card js">
+                <div class="module-header">
+                    <div class="module-icon">🎮</div>
+                    <div>
+                        <h3 class="module-title">08. JavaScript DOM</h3>
+                        <p class="module-subtitle">Manipulação Dinâmica</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Aprenda a manipular o DOM para criar páginas dinâmicas e 
+                    interativas que respondem às ações do usuário.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Seleção de elementos</li>
+                    <li><span class="topic-check">✓</span> Manipulação de conteúdo</li>
+                    <li><span class="topic-check">✓</span> Eventos avançados</li>
+                    <li><span class="topic-check">✓</span> Projetos práticos</li>
+                </ul>
+                <a href="08-javascript-dom/" class="btn">Interagir</a>
+            </div>
+
+            <!-- Módulo 9: Bootstrap Framework -->
+            <div class="module-card framework">
+                <div class="module-header">
+                    <div class="module-icon">🅱️</div>
+                    <div>
+                        <h3 class="module-title">09. Bootstrap Framework</h3>
+                        <p class="module-subtitle">Desenvolvimento Rápido</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Acelere seu desenvolvimento com Bootstrap, o framework CSS 
+                    mais popular para criar interfaces responsivas rapidamente.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> Sistema de grid</li>
+                    <li><span class="topic-check">✓</span> Componentes prontos</li>
+                    <li><span class="topic-check">✓</span> Responsividade automática</li>
+                    <li><span class="topic-check">✓</span> Customização</li>
+                </ul>
+                <a href="09-frameworks-bootstrap/" class="btn">Acelerar</a>
+            </div>
+
+            <!-- Módulo 10: HTML5 Avançado -->
+            <div class="module-card advanced">
+                <div class="module-header">
+                    <div class="module-icon">🔥</div>
+                    <div>
+                        <h3 class="module-title">10. HTML5 Avançado</h3>
+                        <p class="module-subtitle">Recursos Modernos</p>
+                    </div>
+                </div>
+                <p class="module-description">
+                    Explore os recursos mais avançados do HTML5: APIs, multimídia, 
+                    formulários avançados e tecnologias modernas.
+                </p>
+                <ul class="topics-list">
+                    <li><span class="topic-check">✓</span> APIs do HTML5</li>
+                    <li><span class="topic-check">✓</span> Formulários avançados</li>
+                    <li><span class="topic-check">✓</span> Multimídia nativa</li>
+                    <li><span class="topic-check">✓</span> Web Components</li>
+                </ul>
+                <a href="10-html5-avancado/" class="btn">Avançar</a>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>🎯 Trilha de Aprendizado Recomendada</h2>
+            <p>Siga esta sequência para obter o máximo aproveitamento do curso</p>
+            
+            <div class="learning-path">
+                <div class="path-step">
+                    <strong>1-2</strong><br>
+                    HTML Básico
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <strong>3-6</strong><br>
+                    CSS Completo
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <strong>7-8</strong><br>
+                    JavaScript
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step">
+                    <strong>9-10</strong><br>
+                    Avançado
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <h3>🎓 Sobre o Curso</h3>
+            <p>
+                Este curso completo de desenvolvimento web foi reorganizado para proporcionar 
+                uma experiência de aprendizado progressiva e estruturada. Cada módulo foi 
+                cuidadosamente planejado para construir conhecimento sólido passo a passo.
+            </p>
+            <br>
+            <p>
+                <strong>📚 Total:</strong> 10 Módulos Estruturados | 
+                <strong>⏱️ Duração:</strong> Seu próprio ritmo | 
+                <strong>🎯 Objetivo:</strong> Desenvolvedor Web Completo
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Adiciona interatividade básica
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Curso de Desenvolvimento Web carregado!');
+            
+            // Animação suave para cards
+            const cards = document.querySelectorAll('.module-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideInUp 0.6s ease-out';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Log de estatísticas do curso
+            console.log('📊 Estatísticas do curso:');
+            console.log(`📚 Total de módulos: ${cards.length}`);
+            console.log('🎯 Tecnologias: HTML5, CSS3, JavaScript ES6+, Bootstrap 5');
+            console.log('🌟 Curso reorganizado para melhor experiência de aprendizado!');
+        });
+
+        // Adiciona animação CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
