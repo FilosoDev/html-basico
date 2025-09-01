@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Navegação (nav)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #28a745;
+            margin-top: 30px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .code {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        /* Estilos para os exemplos de navegação */
+        .nav-example-1 {
+            background: #343a40;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-example-1 a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        
+        .nav-example-1 a:hover {
+            color: #ffc107;
+        }
+        
+        .nav-example-2 {
+            background: #007bff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .nav-example-2 ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .nav-example-2 li {
+            margin-right: 20px;
+        }
+        
+        .nav-example-2 a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .nav-example-2 a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .breadcrumb {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧭 Navegação em HTML (nav)</h1>
+        
+        <p>O elemento <strong>&lt;nav&gt;</strong> é uma tag semântica do HTML5 que define uma seção de navegação, contendo links para outras páginas ou seções dentro da mesma página.</p>
+        
+        <h2>1. Navegação Básica</h2>
+        <p>O elemento nav é ideal para menus principais, menus laterais e qualquer conjunto de links de navegação.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Menu Principal Simples</h3>
+            <nav class="nav-example-1">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+        
+        <div class="code">
+            &lt;nav&gt;<br>
+            &nbsp;&nbsp;&lt;a href="#home"&gt;Home&lt;/a&gt;<br>
+            &nbsp;&nbsp;&lt;a href="#sobre"&gt;Sobre&lt;/a&gt;<br>
+            &nbsp;&nbsp;&lt;a href="#servicos"&gt;Serviços&lt;/a&gt;<br>
+            &nbsp;&nbsp;&lt;a href="#contato"&gt;Contato&lt;/a&gt;<br>
+            &lt;/nav&gt;
+        </div>
+        
+        <h2>2. Navegação com Lista</h2>
+        <p>Uma abordagem comum é usar listas (ul/li) dentro do elemento nav para melhor estruturação semântica.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Menu com Lista</h3>
+            <nav class="nav-example-2">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="code">
+            &lt;nav&gt;<br>
+            &nbsp;&nbsp;&lt;ul&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#inicio"&gt;Início&lt;/a&gt;&lt;/li&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#produtos"&gt;Produtos&lt;/a&gt;&lt;/li&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;/ul&gt;<br>
+            &lt;/nav&gt;
+        </div>
+        
+        <h2>3. Breadcrumb (Migalhas de Pão)</h2>
+        <p>Breadcrumbs mostram o caminho hierárquico até a página atual, facilitando a navegação.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Breadcrumb</h3>
+            <nav class="breadcrumb">
+                <a href="#home">Home</a> > 
+                <a href="#produtos">Produtos</a> > 
+                <a href="#eletronicos">Eletrônicos</a> > 
+                <span>Smartphones</span>
+            </nav>
+        </div>
+        
+        <div class="code">
+            &lt;nav&gt;<br>
+            &nbsp;&nbsp;&lt;a href="#home"&gt;Home&lt;/a&gt; &gt; <br>
+            &nbsp;&nbsp;&lt;a href="#produtos"&gt;Produtos&lt;/a&gt; &gt; <br>
+            &nbsp;&nbsp;&lt;a href="#eletronicos"&gt;Eletrônicos&lt;/a&gt; &gt; <br>
+            &nbsp;&nbsp;&lt;span&gt;Smartphones&lt;/span&gt;<br>
+            &lt;/nav&gt;
+        </div>
+        
+        <h2>4. Navegação Completa de Website</h2>
+        <p>Exemplo de como usar múltiplos elementos nav em uma página completa.</p>
+        
+        <div class="example">
+            <h3>Estrutura Completa com Header</h3>
+            <div style="border: 2px solid #ddd; padding: 15px; border-radius: 5px;">
+                <header style="background: #f8f9fa; padding: 10px; margin-bottom: 10px;">
+                    <h1 style="margin: 0; font-size: 1.5em;">Meu Site</h1>
+                    <nav style="margin-top: 10px;">
+                        <a href="#home" style="margin-right: 15px;">Home</a>
+                        <a href="#sobre" style="margin-right: 15px;">Sobre</a>
+                        <a href="#servicos" style="margin-right: 15px;">Serviços</a>
+                        <a href="#contato">Contato</a>
+                    </nav>
+                </header>
+                
+                <main style="padding: 10px;">
+                    <nav class="breadcrumb" style="margin-bottom: 10px;">
+                        <a href="#home">Home</a> > <span>Página Atual</span>
+                    </nav>
+                    <p>Conteúdo principal da página...</p>
+                </main>
+            </div>
+        </div>
+        
+        <div class="code">
+            &lt;header&gt;<br>
+            &nbsp;&nbsp;&lt;h1&gt;Meu Site&lt;/h1&gt;<br>
+            &nbsp;&nbsp;&lt;nav&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#home"&gt;Home&lt;/a&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#sobre"&gt;Sobre&lt;/a&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#servicos"&gt;Serviços&lt;/a&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#contato"&gt;Contato&lt;/a&gt;<br>
+            &nbsp;&nbsp;&lt;/nav&gt;<br>
+            &lt;/header&gt;<br><br>
+            &lt;main&gt;<br>
+            &nbsp;&nbsp;&lt;nav&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#home"&gt;Home&lt;/a&gt; &gt; &lt;span&gt;Página Atual&lt;/span&gt;<br>
+            &nbsp;&nbsp;&lt;/nav&gt;<br>
+            &nbsp;&nbsp;&lt;p&gt;Conteúdo principal...&lt;/p&gt;<br>
+            &lt;/main&gt;
+        </div>
+        
+        <h2>💡 Boas Práticas para Navegação:</h2>
+        <ul>
+            <li><strong>Use &lt;nav&gt;</strong> apenas para blocos principais de navegação</li>
+            <li><strong>Combine com listas</strong> (ul/li) para melhor semântica</li>
+            <li><strong>Use links descritivos</strong> - evite "clique aqui"</li>
+            <li><strong>Torne acessível</strong> - use aria-labels quando necessário</li>
+            <li><strong>Mantenha consistente</strong> - mesmo estilo em todas as páginas</li>
+            <li><strong>Considere mobile</strong> - menu responsivo para dispositivos móveis</li>
+            <li><strong>Indique página atual</strong> - destaque onde o usuário está</li>
+        </ul>
+        
+        <h2>🎯 Tipos Comuns de Navegação:</h2>
+        <ul>
+            <li><strong>Menu Principal</strong> - navegação primária do site</li>
+            <li><strong>Menu Lateral</strong> - navegação secundária</li>
+            <li><strong>Breadcrumb</strong> - caminho hierárquico</li>
+            <li><strong>Paginação</strong> - navegação entre páginas de resultados</li>
+            <li><strong>Menu de Rodapé</strong> - links adicionais no final da página</li>
+        </ul>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666;">
+            <p>🧭 HTML Básico - Navegação (nav) | Curso de Desenvolvimento Web</p>
+        </footer>
+    </div>
+</body>
+</html>

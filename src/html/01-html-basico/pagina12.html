@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Div (Divisões)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #6f42c1;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #6f42c1;
+            margin-top: 30px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #6f42c1;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .code {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        
+        /* Estilos para demonstrar div */
+        .demo-div-1 {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .demo-div-2 {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .demo-div-3 {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        /* Layout com divs */
+        .layout-demo {
+            border: 2px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .header-demo {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .content-demo {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .main-demo {
+            background: #f0f0f0;
+            padding: 15px;
+            flex: 2;
+            border-radius: 5px;
+        }
+        
+        .sidebar-demo {
+            background: #e9ecef;
+            padding: 15px;
+            flex: 1;
+            border-radius: 5px;
+        }
+        
+        .footer-demo {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        /* Grid com divs */
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        /* Cards com divs */
+        .cards-demo {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .card h4 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Div em HTML (Divisões)</h1>
+        
+        <p>O elemento <strong>&lt;div&gt;</strong> é um dos mais importantes e versáteis do HTML. É um container genérico usado para agrupar outros elementos e criar estruturas de layout.</p>
+        
+        <h2>1. O que é uma Div?</h2>
+        <p>A div (division) é um elemento de bloco que por si só não tem significado semântico, mas é fundamental para organizar o layout e aplicar estilos CSS.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Divs Básicas</h3>
+            <div class="demo-div-1">
+                Esta é uma div com fundo azul claro
+            </div>
+            <div class="demo-div-2">
+                Esta é uma div com fundo roxo claro
+            </div>
+            <div class="demo-div-3">
+                Esta é uma div com fundo verde claro
+            </div>
+        </div>
+        
+        <div class="code">
+            &lt;div class="demo-div-1"&gt;<br>
+            &nbsp;&nbsp;Esta é uma div com fundo azul claro<br>
+            &lt;/div&gt;<br>
+            &lt;div class="demo-div-2"&gt;<br>
+            &nbsp;&nbsp;Esta é uma div com fundo roxo claro<br>
+            &lt;/div&gt;<br>
+            &lt;div class="demo-div-3"&gt;<br>
+            &nbsp;&nbsp;Esta é uma div com fundo verde claro<br>
+            &lt;/div&gt;
+        </div>
+        
+        <h2>2. Criando Layout com Divs</h2>
+        <p>As divs são frequentemente usadas para criar a estrutura principal de uma página web.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Layout Clássico</h3>
+            <div class="layout-demo">
+                <div class="header-demo">
+                    CABEÇALHO
+                </div>
+                <div class="content-demo">
+                    <div class="main-demo">
+                        <h4>Conteúdo Principal</h4>
+                        <p>Aqui fica o conteúdo principal da página, como artigos, produtos, etc.</p>
+                    </div>
+                    <div class="sidebar-demo">
+                        <h4>Barra Lateral</h4>
+                        <p>Menu lateral, publicidade, links relacionados.</p>
+                    </div>
+                </div>
+                <div class="footer-demo">
+                    RODAPÉ
+                </div>
+            </div>
+        </div>
+        
+        <div class="code">
+            &lt;div class="layout"&gt;<br>
+            &nbsp;&nbsp;&lt;div class="header"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;CABEÇALHO<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="content"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="main"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Conteúdo Principal&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Conteúdo da página...&lt;/p&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="sidebar"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Barra Lateral&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Menu lateral...&lt;/p&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="footer"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;RODAPÉ<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &lt;/div&gt;
+        </div>
+        
+        <h2>3. Grid de Conteúdo com Divs</h2>
+        <p>Use divs para criar layouts em grade, ideais para galerias, portfólios e catálogos de produtos.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Grid de 3 Colunas</h3>
+            <div class="grid-demo">
+                <div class="grid-item">
+                    <h4>Item 1</h4>
+                    <p>Primeiro item do grid</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Item 2</h4>
+                    <p>Segundo item do grid</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Item 3</h4>
+                    <p>Terceiro item do grid</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="code">
+            &lt;div class="grid"&gt;<br>
+            &nbsp;&nbsp;&lt;div class="grid-item"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Item 1&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Primeiro item do grid&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="grid-item"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Item 2&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Segundo item do grid&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="grid-item"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Item 3&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Terceiro item do grid&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &lt;/div&gt;
+        </div>
+        
+        <h2>4. Cards com Divs</h2>
+        <p>Cards são uma forma popular de apresentar conteúdo. São facilmente criados com divs.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Cards Responsivos</h3>
+            <div class="cards-demo">
+                <div class="card">
+                    <h4>🚀 Curso HTML</h4>
+                    <p>Aprenda HTML do básico ao avançado com exemplos práticos e projetos reais.</p>
+                </div>
+                <div class="card">
+                    <h4>🎨 Curso CSS</h4>
+                    <p>Domine CSS e crie designs incríveis para seus sites e aplicações web.</p>
+                </div>
+                <div class="card">
+                    <h4>⚡ Curso JavaScript</h4>
+                    <p>Programação web moderna com JavaScript, DOM, eventos e muito mais.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="code">
+            &lt;div class="cards"&gt;<br>
+            &nbsp;&nbsp;&lt;div class="card"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;🚀 Curso HTML&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Aprenda HTML do básico ao avançado...&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="card"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;🎨 Curso CSS&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Domine CSS e crie designs incríveis...&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &nbsp;&nbsp;&lt;div class="card"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;⚡ Curso JavaScript&lt;/h4&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Programação web moderna...&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/div&gt;<br>
+            &lt;/div&gt;
+        </div>
+        
+        <h2>5. Div vs Elementos Semânticos</h2>
+        <p>Com HTML5, temos elementos semânticos que devem ser preferidos quando apropriado:</p>
+        
+        <div class="example">
+            <h3>Comparação: Div vs Semântico</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h4>❌ Usando apenas DIVs</h4>
+                    <div class="code" style="font-size: 12px;">
+                        &lt;div class="header"&gt;...&lt;/div&gt;<br>
+                        &lt;div class="nav"&gt;...&lt;/div&gt;<br>
+                        &lt;div class="main"&gt;...&lt;/div&gt;<br>
+                        &lt;div class="sidebar"&gt;...&lt;/div&gt;<br>
+                        &lt;div class="footer"&gt;...&lt;/div&gt;
+                    </div>
+                </div>
+                <div>
+                    <h4>✅ Usando Elementos Semânticos</h4>
+                    <div class="code" style="font-size: 12px;">
+                        &lt;header&gt;...&lt;/header&gt;<br>
+                        &lt;nav&gt;...&lt;/nav&gt;<br>
+                        &lt;main&gt;...&lt;/main&gt;<br>
+                        &lt;aside&gt;...&lt;/aside&gt;<br>
+                        &lt;footer&gt;...&lt;/footer&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>💡 Características da Div:</h2>
+        <ul>
+            <li><strong>Elemento de bloco</strong> - ocupa toda a largura disponível</li>
+            <li><strong>Neutro semanticamente</strong> - não tem significado específico</li>
+            <li><strong>Container genérico</strong> - agrupa outros elementos</li>
+            <li><strong>Estilizável</strong> - aceita qualquer CSS</li>
+            <li><strong>Aninhável</strong> - divs podem conter outras divs</li>
+        </ul>
+        
+        <h2>🎯 Quando Usar Divs:</h2>
+        <ul>
+            <li><strong>Agrupamento de estilo</strong> - quando precisa aplicar CSS a um grupo</li>
+            <li><strong>Layout complexo</strong> - estruturas que não têm elementos semânticos específicos</li>
+            <li><strong>Containers auxiliares</strong> - quando elementos semânticos não se aplicam</li>
+            <li><strong>Wrapping de conteúdo</strong> - para criar containers ou limitadores</li>
+            <li><strong>Componentes visuais</strong> - cards, modais, painéis</li>
+        </ul>
+        
+        <h2>✅ Boas Práticas com Divs:</h2>
+        <ul>
+            <li>Use elementos semânticos quando apropriado (header, main, section, etc.)</li>
+            <li>Sempre use classes ou IDs para identificar divs importantes</li>
+            <li>Evite divs desnecessárias - não crie "div-itis"</li>
+            <li>Use nomes de classes descritivos (header, sidebar, card, etc.)</li>
+            <li>Mantenha a estrutura simples e organizada</li>
+            <li>Considere acessibilidade ao estruturar com divs</li>
+            <li>Use div como último recurso quando elementos semânticos não se aplicam</li>
+        </ul>
+        
+        <h2>🚀 Casos de Uso Comuns:</h2>
+        <ul>
+            <li><strong>Layouts</strong> - estrutura principal da página</li>
+            <li><strong>Cards</strong> - blocos de conteúdo destacados</li>
+            <li><strong>Modais</strong> - janelas de diálogo</li>
+            <li><strong>Grids</strong> - layouts em grade</li>
+            <li><strong>Wrappers</strong> - containers de conteúdo</li>
+            <li><strong>Componentes</strong> - elementos de interface</li>
+        </ul>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666;">
+            <p>📦 HTML Básico - Div (Divisões) | Curso de Desenvolvimento Web</p>
+        </footer>
+    </div>
+</body>
+</html>
