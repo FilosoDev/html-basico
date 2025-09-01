@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Listas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .code {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Listas em HTML</h1>
+        
+        <p>As listas são elementos fundamentais para organizar informações de forma estruturada. O HTML oferece três tipos principais de listas.</p>
+        
+        <h2>1. Lista Não Ordenada (ul - unordered list)</h2>
+        <p>Utilizada quando a ordem dos itens não é importante. Os itens são marcados com bullets (marcadores).</p>
+        
+        <div class="example">
+            <h3>Exemplo: Lista de Compras</h3>
+            <ul>
+                <li>Arroz</li>
+                <li>Feijão</li>
+                <li>Açúcar</li>
+                <li>Café</li>
+                <li>Leite</li>
+            </ul>
+        </div>
+        
+        <div class="code">
+            &lt;ul&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Arroz&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Feijão&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Açúcar&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Café&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Leite&lt;/li&gt;<br>
+            &lt;/ul&gt;
+        </div>
+        
+        <h2>2. Lista Ordenada (ol - ordered list)</h2>
+        <p>Utilizada quando a ordem dos itens é importante. Os itens são numerados automaticamente.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Receita de Bolo</h3>
+            <ol>
+                <li>Pré-aqueça o forno a 180°C</li>
+                <li>Misture os ingredientes secos</li>
+                <li>Adicione os ingredientes líquidos</li>
+                <li>Bata a massa por 5 minutos</li>
+                <li>Asse por 30 minutos</li>
+            </ol>
+        </div>
+        
+        <div class="code">
+            &lt;ol&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Pré-aqueça o forno a 180°C&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Misture os ingredientes secos&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Adicione os ingredientes líquidos&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Bata a massa por 5 minutos&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Asse por 30 minutos&lt;/li&gt;<br>
+            &lt;/ol&gt;
+        </div>
+        
+        <h2>3. Lista de Definição (dl - description list)</h2>
+        <p>Utilizada para criar listas de termos e suas definições, como glossários.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Glossário de Tecnologia</h3>
+            <dl>
+                <dt><strong>HTML</strong></dt>
+                <dd>HyperText Markup Language - linguagem de marcação para criar páginas web</dd>
+                
+                <dt><strong>CSS</strong></dt>
+                <dd>Cascading Style Sheets - linguagem para estilizar páginas web</dd>
+                
+                <dt><strong>JavaScript</strong></dt>
+                <dd>Linguagem de programação para adicionar interatividade às páginas web</dd>
+            </dl>
+        </div>
+        
+        <div class="code">
+            &lt;dl&gt;<br>
+            &nbsp;&nbsp;&lt;dt&gt;&lt;strong&gt;HTML&lt;/strong&gt;&lt;/dt&gt;<br>
+            &nbsp;&nbsp;&lt;dd&gt;HyperText Markup Language - linguagem de marcação para criar páginas web&lt;/dd&gt;<br>
+            &nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&lt;dt&gt;&lt;strong&gt;CSS&lt;/strong&gt;&lt;/dt&gt;<br>
+            &nbsp;&nbsp;&lt;dd&gt;Cascading Style Sheets - linguagem para estilizar páginas web&lt;/dd&gt;<br>
+            &lt;/dl&gt;
+        </div>
+        
+        <h2>4. Listas Aninhadas (Listas dentro de Listas)</h2>
+        <p>É possível criar listas dentro de outras listas para organizar informações hierárquicas.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Estrutura de um Curso</h3>
+            <ol>
+                <li>HTML Básico
+                    <ul>
+                        <li>Estrutura do documento</li>
+                        <li>Tags essenciais</li>
+                        <li>Listas e tabelas</li>
+                    </ul>
+                </li>
+                <li>CSS Fundamentos
+                    <ul>
+                        <li>Seletores</li>
+                        <li>Propriedades</li>
+                        <li>Layout</li>
+                    </ul>
+                </li>
+                <li>JavaScript
+                    <ul>
+                        <li>Variáveis</li>
+                        <li>Funções</li>
+                        <li>DOM</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <h2>💡 Dicas Importantes:</h2>
+        <ul>
+            <li><strong>&lt;ul&gt;</strong> para listas sem ordem específica</li>
+            <li><strong>&lt;ol&gt;</strong> para listas sequenciais/numeradas</li>
+            <li><strong>&lt;li&gt;</strong> para cada item da lista</li>
+            <li><strong>&lt;dl&gt;</strong> para listas de definições</li>
+            <li><strong>&lt;dt&gt;</strong> para o termo</li>
+            <li><strong>&lt;dd&gt;</strong> para a definição</li>
+            <li>Listas podem ser aninhadas para criar hierarquias</li>
+            <li>Use CSS para personalizar o estilo dos marcadores</li>
+        </ul>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666;">
+            <p>📚 HTML Básico - Listas | Curso de Desenvolvimento Web</p>
+        </footer>
+    </div>
+</body>
+</html>

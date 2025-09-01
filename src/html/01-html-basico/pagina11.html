@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #dc3545;
+            margin-top: 30px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .code {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        
+        /* Estilos para as tabelas de exemplo */
+        .example-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .example-table th,
+        .example-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .example-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .example-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .styled-table {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .styled-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .styled-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .styled-table tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Tabelas em HTML</h1>
+        
+        <p>As tabelas em HTML são fundamentais para apresentar dados estruturados de forma organizada em linhas e colunas. Elas são ideais para exibir informações como relatórios, listas de preços, horários, etc.</p>
+        
+        <h2>1. Estrutura Básica de uma Tabela</h2>
+        <p>Uma tabela HTML é composta pelos elementos: <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (linhas), <code>&lt;th&gt;</code> (cabeçalhos) e <code>&lt;td&gt;</code> (células).</p>
+        
+        <div class="example">
+            <h3>Exemplo: Tabela Simples</h3>
+            <table class="example-table">
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Cidade</th>
+                </tr>
+                <tr>
+                    <td>João</td>
+                    <td>25</td>
+                    <td>São Paulo</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>30</td>
+                    <td>Rio de Janeiro</td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>28</td>
+                    <td>Belo Horizonte</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="code">
+            &lt;table&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nome&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Idade&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Cidade&lt;/th&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;João&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;25&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;São Paulo&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Maria&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;30&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Rio de Janeiro&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &lt;/table&gt;
+        </div>
+        
+        <h2>2. Estrutura Semântica Completa</h2>
+        <p>Para melhor organização e acessibilidade, use <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> e <code>&lt;tfoot&gt;</code>.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Relatório de Vendas</h3>
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>2</td>
+                        <td>R$ 2.500,00</td>
+                        <td>R$ 5.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Mouse</td>
+                        <td>5</td>
+                        <td>R$ 50,00</td>
+                        <td>R$ 250,00</td>
+                    </tr>
+                    <tr>
+                        <td>Teclado</td>
+                        <td>3</td>
+                        <td>R$ 150,00</td>
+                        <td>R$ 450,00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Total Geral</th>
+                        <th>R$ 5.700,00</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="code">
+            &lt;table&gt;<br>
+            &nbsp;&nbsp;&lt;thead&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Produto&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Quantidade&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Preço Unitário&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Total&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;/thead&gt;<br>
+            &nbsp;&nbsp;&lt;tbody&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Notebook&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R$ 2.500,00&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;R$ 5.000,00&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;/tbody&gt;<br>
+            &nbsp;&nbsp;&lt;tfoot&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th colspan="3"&gt;Total Geral&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;R$ 5.700,00&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;/tfoot&gt;<br>
+            &lt;/table&gt;
+        </div>
+        
+        <h2>3. Atributos Importantes</h2>
+        <p>Os atributos <code>colspan</code> e <code>rowspan</code> permitem que células ocupem múltiplas colunas ou linhas.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Horário Escolar</h3>
+            <table class="example-table">
+                <tr>
+                    <th>Horário</th>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th>Sexta</th>
+                </tr>
+                <tr>
+                    <td>08:00 - 09:00</td>
+                    <td>Matemática</td>
+                    <td>História</td>
+                    <td>Português</td>
+                    <td>Geografia</td>
+                    <td>Educação Física</td>
+                </tr>
+                <tr>
+                    <td>09:00 - 10:00</td>
+                    <td>Ciências</td>
+                    <td>Inglês</td>
+                    <td>Matemática</td>
+                    <td>Ciências</td>
+                    <td>Artes</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:30</td>
+                    <td colspan="5" style="text-align: center; background: #e9ecef;"><strong>INTERVALO</strong></td>
+                </tr>
+                <tr>
+                    <td>10:30 - 11:30</td>
+                    <td>História</td>
+                    <td>Matemática</td>
+                    <td>Geografia</td>
+                    <td>Português</td>
+                    <td>História</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="code">
+            &lt;tr&gt;<br>
+            &nbsp;&nbsp;&lt;td&gt;10:00 - 10:30&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;td colspan="5"&gt;INTERVALO&lt;/td&gt;<br>
+            &lt;/tr&gt;
+        </div>
+        
+        <h2>4. Tabela Estilizada</h2>
+        <p>Com CSS, você pode criar tabelas mais atraentes e profissionais.</p>
+        
+        <div class="example">
+            <h3>Exemplo: Tabela com Design Moderno</h3>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Time</th>
+                        <th>Pontos</th>
+                        <th>Jogos</th>
+                        <th>Vitórias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1º</td>
+                        <td>Flamengo</td>
+                        <td>58</td>
+                        <td>25</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>2º</td>
+                        <td>Palmeiras</td>
+                        <td>55</td>
+                        <td>25</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>3º</td>
+                        <td>São Paulo</td>
+                        <td>52</td>
+                        <td>25</td>
+                        <td>15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>💡 Elementos de Tabela:</h2>
+        <ul>
+            <li><strong>&lt;table&gt;</strong> - container principal da tabela</li>
+            <li><strong>&lt;thead&gt;</strong> - cabeçalho da tabela</li>
+            <li><strong>&lt;tbody&gt;</strong> - corpo da tabela</li>
+            <li><strong>&lt;tfoot&gt;</strong> - rodapé da tabela</li>
+            <li><strong>&lt;tr&gt;</strong> - linha da tabela (table row)</li>
+            <li><strong>&lt;th&gt;</strong> - célula de cabeçalho (table header)</li>
+            <li><strong>&lt;td&gt;</strong> - célula de dados (table data)</li>
+            <li><strong>&lt;caption&gt;</strong> - título da tabela</li>
+        </ul>
+        
+        <h2>🎯 Atributos Importantes:</h2>
+        <ul>
+            <li><strong>colspan</strong> - faz a célula ocupar múltiplas colunas</li>
+            <li><strong>rowspan</strong> - faz a célula ocupar múltiplas linhas</li>
+            <li><strong>scope</strong> - indica o escopo de cabeçalhos (col, row, colgroup, rowgroup)</li>
+            <li><strong>headers</strong> - associa células com cabeçalhos específicos</li>
+        </ul>
+        
+        <h2>✅ Boas Práticas:</h2>
+        <ul>
+            <li>Use tabelas apenas para dados tabulares, não para layout</li>
+            <li>Sempre inclua cabeçalhos (&lt;th&gt;) para acessibilidade</li>
+            <li>Use &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt; para melhor estrutura</li>
+            <li>Adicione &lt;caption&gt; para descrever o conteúdo da tabela</li>
+            <li>Use CSS para estilização, não atributos HTML deprecados</li>
+            <li>Torne as tabelas responsivas para dispositivos móveis</li>
+            <li>Use scope e headers para melhorar a acessibilidade</li>
+        </ul>
+        
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666;">
+            <p>📊 HTML Básico - Tabelas | Curso de Desenvolvimento Web</p>
+        </footer>
+    </div>
+</body>
+</html>
