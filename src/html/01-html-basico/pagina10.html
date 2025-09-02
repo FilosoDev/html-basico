@@ -118,6 +118,32 @@
         
         <p>O elemento <strong>&lt;nav&gt;</strong> é uma tag semântica do HTML5 que define uma seção de navegação, contendo links para outras páginas ou seções dentro da mesma página.</p>
         
+        <h2>🎯 Por que usar o elemento &lt;nav&gt;?</h2>
+        <div class="example">
+            <h3>Benefícios da Tag &lt;nav&gt;</h3>
+            <ul>
+                <li><strong>Semântica:</strong> Navegadores e leitores de tela sabem que é uma seção de navegação</li>
+                <li><strong>Acessibilidade:</strong> Usuários com deficiências visuais podem pular direto para a navegação</li>
+                <li><strong>SEO:</strong> Motores de busca entendem a estrutura e importância dos links</li>
+                <li><strong>Organização:</strong> Código mais limpo e estruturado</li>
+                <li><strong>CSS/JS:</strong> Mais fácil de estilizar e manipular</li>
+            </ul>
+        </div>
+        
+        <h2>🔍 Quando usar &lt;nav&gt;?</h2>
+        <p>Use &lt;nav&gt; apenas para blocos principais de navegação:</p>
+        <div class="example">
+            <ul>
+                <li>✅ <strong>Menu principal</strong> do site</li>
+                <li>✅ <strong>Menu lateral</strong> ou secundário</li>
+                <li>✅ <strong>Breadcrumbs</strong> (migalhas de pão)</li>
+                <li>✅ <strong>Paginação</strong> de resultados</li>
+                <li>❌ Links avulsos no texto</li>
+                <li>❌ Links de redes sociais no rodapé</li>
+                <li>❌ Botões de ação (comprar, enviar)</li>
+            </ul>
+        </div>
+        
         <h2>1. Navegação Básica</h2>
         <p>O elemento nav é ideal para menus principais, menus laterais e qualquer conjunto de links de navegação.</p>
         
@@ -229,6 +255,73 @@
             &nbsp;&nbsp;&lt;/nav&gt;<br>
             &nbsp;&nbsp;&lt;p&gt;Conteúdo principal...&lt;/p&gt;<br>
             &lt;/main&gt;
+        </div>
+        
+        <h2>5. Navegação Responsiva (Mobile-First)</h2>
+        <p>Exemplo de navegação que se adapta a diferentes tamanhos de tela:</p>
+        
+        <div class="example">
+            <h3>Menu Hambúrguer para Mobile</h3>
+            <div style="border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #333; color: white; padding: 10px; border-radius: 4px;">
+                    <h4 style="margin: 0; color: white;">Logo</h4>
+                    <button style="background: none; border: none; color: white; font-size: 18px;">☰</button>
+                </div>
+                <nav style="background: #f8f9fa; padding: 10px; margin-top: 5px; border-radius: 4px;">
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #ddd;"><a href="#" style="text-decoration: none; color: #333;">📱 Home</a></li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #ddd;"><a href="#" style="text-decoration: none; color: #333;">💼 Serviços</a></li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #ddd;"><a href="#" style="text-decoration: none; color: #333;">📞 Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>6. Navegação Acessível</h2>
+        <p>Exemplo de navegação otimizada para acessibilidade:</p>
+        
+        <div class="example">
+            <h3>Menu com ARIA e Skip Links</h3>
+            <div class="code">
+                &lt;!-- Link para pular navegação --&gt;<br>
+                &lt;a href="#main-content" class="skip-link"&gt;Pular para conteúdo principal&lt;/a&gt;<br><br>
+                
+                &lt;nav aria-label="Navegação principal" role="navigation"&gt;<br>
+                &nbsp;&nbsp;&lt;ul&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;<br>
+                &nbsp;&nbsp;&lt;/ul&gt;<br>
+                &lt;/nav&gt;<br><br>
+                
+                &lt;main id="main-content"&gt;<br>
+                &nbsp;&nbsp;&lt;h1&gt;Conteúdo Principal&lt;/h1&gt;<br>
+                &lt;/main&gt;
+            </div>
+        </div>
+        
+        <h2>7. Casos de Uso Reais</h2>
+        <div class="example">
+            <h3>🌐 Exemplos do Mundo Real</h3>
+            
+            <h4>E-commerce - Categorias de Produtos</h4>
+            <nav style="background: #007bff; color: white; padding: 10px; border-radius: 4px; margin: 10px 0;">
+                <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 20px;">
+                    <li><a href="#" style="color: white; text-decoration: none;">🏠 Home</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">👕 Roupas</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">👟 Calçados</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">📱 Eletrônicos</a></li>
+                </ul>
+            </nav>
+            
+            <h4>Blog - Navegação por Categorias</h4>
+            <nav style="background: #28a745; color: white; padding: 10px; border-radius: 4px; margin: 10px 0;">
+                <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 15px; flex-wrap: wrap;">
+                    <li><a href="#" style="color: white; text-decoration: none; padding: 5px 10px; background: rgba(255,255,255,0.2); border-radius: 3px;">🌐 Tecnologia</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none; padding: 5px 10px; background: rgba(255,255,255,0.2); border-radius: 3px;">🎨 Design</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none; padding: 5px 10px; background: rgba(255,255,255,0.2); border-radius: 3px;">💼 Negócios</a></li>
+                </ul>
+            </nav>
         </div>
         
         <h2>💡 Boas Práticas para Navegação:</h2>
