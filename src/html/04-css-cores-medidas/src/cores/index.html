@@ -3,18 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Aula de Cores em CSS</title>
     <link rel="stylesheet" href="css/styles2.css">
+    <style>
+        .color-example {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .color-section {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Bem-vindo à Página Inicial</h1>
+        <div class="container"></div>
+            <h1>Aula de Cores em CSS</h1>
+            <p>Explorando diferentes representações de cores e seus usos</p>
         </div>
     </header>
     <nav>
         <div class="container">
-            <ul>
+            <h2>Navegação:</h2>
+            <ul id="fileList">
+                <li><a href="00ExemploCoresNomeadas.html"><strong>Exemplos sobre Cores</a></strong></li>
+                <li><a href="00exemploHtmlCss.html"></a></li>
+                <li><a href="01exemploCoresCss.html"></a></li>
+                <li><a href="02exemploCores.html">Exemplo de Cores Básicas</a></li>
+                <li><a href="03exemploOpacidade.html">Exemplo de Opacidade e Transparência</a></li>
+                <li><a href="04a_exemploMonocromatica.html">Esquema de Cores Monocromáticas</a></li>
+                <li><a href="04b_exemploAnalogo.html">Esquema de Cores Análogas</a></li>
+                <li><a href="04c_exemploComplementar.html">Esquema de Cores Complementares</a></li>
+                <li><a href="05exemploAcessibiidade.html">Cores e Acessibilidade</a></li>
+                <li><a href="06exemploPropriedade.html">Propriedades de Cores em CSS</a></li>
+                <li><a href="07a_exemploGradienteLinear.html">Gradientes Lineares</a></li>
+                <li><a href="07b_exemploGradienteLinearEspecifico.html">Gradientes Lineares Específicos</a></li>
+                <li><a href="07c_exemploGradienteRadial.html">Gradientes Radiais</a></li>
+                <li><a href="08exemploTransicaoCores.html">Transição entre Cores</a></li>
+                <li><a href="09bexemploshadow.html">Efeitos de Sombra</a></li>
+                <li><a href="09exemploHerancaCores.html">Herança de Cores em CSS</a></li>
+                <li><a href="10bexemploManejoCores.html">Gerenciamento de Cores</a></li>
+                <li><a href="10cexemploTema.html">Sistema de Temas de Cores</a></li>
+                <li><a href="10exemploManejoCoresVariaveis.html">Variáveis CSS para Cores</a></li>
+                <li><a href="11exemploCoresImagem.html">Cores em Imagens</a></li>
+                <li><a href="12exemplopicker.html">Seletor de Cores Interativo</a></li>
+                <!-- Links serão adicionados via JavaScript -->
                 <li><a href="exemploHtmlCss.html">Exemplo sintaxe</a></li>
                 <li><a href="exemploPropriedades.html">Exemplo propriedades</a></li>
                 <li><a href="exemploIFormaAdicionar.html">Exemplo adicionar CSS</a></li>
@@ -23,10 +59,72 @@
             </ul>
         </div>
     </nav>
+    
+    <main>
+        <div class="container">
+            <section class="color-section">
+                <h2>Representações de Cores</h2>
+                <div>
+                    <h3>Nomes de Cores</h3>
+                    <div><span class="color-example" style="background-color: red;"></span> red</div>
+                    <div><span class="color-example" style="background-color: blue;"></span> blue</div>
+                    <div><span class="color-example" style="background-color: green;"></span> green</div>
+                </div>
+                
+                <div>
+                    <h3>Valores Hexadecimais</h3>
+                    <div><span class="color-example" style="background-color: #FF0000;"></span> #FF0000</div>
+                    <div><span class="color-example" style="background-color: #0000FF;"></span> #0000FF</div>
+                    <div><span class="color-example" style="background-color: #008000;"></span> #008000</div>
+                </div>
+                
+                <div>
+                    <h3>Valores RGB</h3>
+                    <div><span class="color-example" style="background-color: rgb(255,0,0);"></span> rgb(255,0,0)</div>
+                    <div><span class="color-example" style="background-color: rgb(0,0,255);"></span> rgb(0,0,255)</div>
+                    <div><span class="color-example" style="background-color: rgb(0,128,0);"></span> rgb(0,128,0)</div>
+                </div>
+                
+                <div>
+                    <h3>Valores HSL</h3>
+                    <div><span class="color-example" style="background-color: hsl(0,100%,50%);"></span> hsl(0,100%,50%)</div>
+                    <div><span class="color-example" style="background-color: hsl(240,100%,50%);"></span> hsl(240,100%,50%)</div>
+                    <div><span class="color-example" style="background-color: hsl(120,100%,25%);"></span> hsl(120,100%,25%)</div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
     <footer>
         <div class="container">
-            <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Aula de CSS - Cores e Representações. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <script>
+        // Este script escaneia o diretório atual buscando arquivos HTML
+        // Nota: Este método funciona apenas quando hospedado em um servidor
+        // Para desenvolvimento local, você precisará adicionar os arquivos manualmente
+        
+        // Lista conhecida de exemplos sobre cores
+        const colorExamples = [
+            { name: "Cores RGB", file: "cores-rgb.html" },
+            { name: "Cores Hexadecimal", file: "cores-hex.html" },
+            { name: "Cores HSL", file: "cores-hsl.html" },
+            { name: "Transparência RGBA", file: "cores-rgba.html" },
+            { name: "Cores por Nome", file: "cores-nomes.html" }
+        ];
+        
+        // Adiciona os exemplos à lista
+        const fileList = document.getElementById('fileList');
+        colorExamples.forEach(example => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = example.file;
+            a.textContent = example.name;
+            li.appendChild(a);
+            fileList.prepend(li);
+        });
+    </script>
 </body>
 </html>
