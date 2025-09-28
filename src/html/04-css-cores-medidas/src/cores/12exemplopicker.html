@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Color Picker Simples</title>
+    <style>
+    
+      :root {
+        --bg: #f4f6f8;
+        --card: #ffffff;
+        --accent: #0ea5a4;
+      }
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: var(--bg);
+        margin: 0;
+        padding: 32px;
+        color: #0f172a;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 20px;
+      }
+      p.lead {
+        margin: 0 0 20px;
+        color: #334155;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 16px;
+      }
+      .picker-column {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      label {
+        font-size: 13px;
+        color: #475569;
+      }
+      input[type="color"] {
+        width: 100%;
+        height: 54px;
+        border: 0;
+        padding: 0;
+        background: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .preview {
+        height: 160px;
+        border-radius: 8px;
+        border: 1px solid #e6eef4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+      .info {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .chip {
+        background: #f1f5f9;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-family: monospace;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      button {
+        background: var(--accent);
+        color: white;
+        border: 0;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #0f172a22;
+        color: var(--accent);
+      }
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        font-family: monospace;
+      }
+      .history {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .swatch {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 1px solid #e2e8f0;
+      }
+      footer {
+        margin-top: 14px;
+        color: #64748b;
+        font-size: 13px;
+      }
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Color Picker</h1>
+        <p class="lead">
+          Escolha uma cor, copie o valor HEX/RGB e salve swatches para
+          reutilizar.
+        </p>
+
+        <div class="grid">
+          <div class="picker-column">
+            <label for="colorInput">Seletor de cor</label>
+            <input id="colorInput" type="color" value="#0ea5a4" />
+
+            <label for="hexInput">HEX</label>
+            <input id="hexInput" type="text" value="#0ea5a4" />
+
+            <label for="rgbInput">RGB</label>
+            <input id="rgbInput" type="text" value="rgb(14,165,164)" />
+
+            <div class="controls">
+              <button id="copyHex">Copiar HEX</button>
+              <button id="copyRgb" class="secondary">Copiar RGB</button>
+              <button id="addSwatch" class="secondary">Salvar swatch</button>
+            </div>
+
+            <label>Swatches salvos</label>
+            <div id="swatches" class="history"></div>
+          </div>
+
+          <div>
+            <label>Pré-visualização</label>
+            <div id="preview" class="preview">#0EA5A4</div>
+
+            <div class="info">
+              <div class="chip">HEX: <span id="chipHex">#0EA5A4</span></div>
+              <div class="chip">
+                RGB: <span id="chipRgb">rgb(14,165,164)</span>
+              </div>
+              <div class="chip">
+                HSL: <span id="chipHsl">hsl(179,90%,35%)</span>
+              </div>
+            </div>
+
+            <label style="margin-top: 12px">Gerador de escala (5 tons)</label>
+            <div
+              id="scale"
+              style="display: flex; gap: 8px; margin-top: 8px"
+            ></div>
+
+            <footer>
+              Pressione um swatch para copiar. Swatches são salvos no
+              localStorage do navegador.
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    // ============ UTILITÁRIOS DE CORES ============
+    // Função auxiliar para limitar valores dentro de um intervalo - usada para garantir valores RGB válidos (0-255)
+    const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+
+    // Converte cores do formato hexadecimal para RGB
+    // Impacto: permite manipulação matemática das cores e conversões para outros formatos
+    function hexToRgb(hex) {
+      hex = hex.replace("#", "");
+      // Expande cores no formato curto #RGB para #RRGGBB
+      if (hex.length === 3)
+        hex = hex
+        .split("")
+        .map((c) => c + c)
+        .join("");
+      const bigint = parseInt(hex, 16);
+      return {
+        r: (bigint >> 16) & 255, // Extrai componente vermelho usando deslocamento de bits
+        g: (bigint >> 8) & 255,  // Extrai componente verde
+        b: bigint & 255,         // Extrai componente azul
+      };
+    }
+
+    // Converte componentes RGB para formato hexadecimal
+    // Impacto: permite exibir as cores no formato web padrão (#RRGGBB)
+    function rgbToHex(r, g, b) {
+      return (
+        "#" +
+        [r, g, b]
+        .map((x) => x.toString(16).padStart(2, "0")) // Converte para hex e garante 2 dígitos
+        .join("")
+        .toUpperCase()
+      );
+    }
+
+    // Formata objeto RGB para string CSS utilizável
+    // Impacto: permite aplicar cores diretamente em estilos CSS
+    function rgbToCss(rgb) {
+      return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+    }
+
+    // Converte RGB para HSL (Hue, Saturation, Lightness)
+    // Impacto: permite manipular cores por matiz/saturação/luminosidade para criar variações
+    function rgbToHsl({ r, g, b }) {
+      // Normaliza valores RGB para intervalo 0-1
+      r /= 255;
+      g /= 255;
+      b /= 255;
+      
+      const max = Math.max(r, g, b),
+          min = Math.min(r, g, b);
+      let h = 0,
+        s = 0,
+        l = (max + min) / 2; // Cálculo da luminosidade
+
+      if (max !== min) {
+        const d = max - min;
+        // Cálculo da saturação baseado na luminosidade
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        
+        // Cálculo da matiz (hue) baseado no componente dominante
+        switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0);
+          break;
+        case g:
+          h = (b - r) / d + 2;
+          break;
+        case b:
+          h = (r - g) / d + 4;
+          break;
+        }
+        h = Math.round(h * 60); // Converte para graus (0-360)
+      }
+      
+      s = Math.round((s || 0) * 100); // Converte para porcentagem
+      l = Math.round(l * 100);        // Converte para porcentagem
+      
+      return `hsl(${h},${s}%,${l}%)`; // Retorna string CSS HSL
+    }
+
+    // ============ REFERÊNCIAS A ELEMENTOS DOM ============
+    // Obtém todas as referências aos elementos HTML que serão manipulados
+    // Impacto: permite interagir com a interface sem repetir seletores
+    const colorInput = document.getElementById("colorInput");
+    const hexInput = document.getElementById("hexInput");
+    const rgbInput = document.getElementById("rgbInput");
+    const preview = document.getElementById("preview");
+    const chipHex = document.getElementById("chipHex");
+    const chipRgb = document.getElementById("chipRgb");
+    const chipHsl = document.getElementById("chipHsl");
+    const copyHexBtn = document.getElementById("copyHex");
+    const copyRgbBtn = document.getElementById("copyRgb");
+    const addSwatchBtn = document.getElementById("addSwatch");
+    const swatchesDiv = document.getElementById("swatches");
+    const scaleDiv = document.getElementById("scale");
+
+    // ============ GERENCIAMENTO DE SWATCHES (PERSISTÊNCIA) ============
+    // Carrega amostras de cores salvas do armazenamento local
+    // Impacto: permite persistência das cores entre sessões do navegador
+    function loadSwatches() {
+      const raw = localStorage.getItem("colorpicker-swatches");
+      return raw ? JSON.parse(raw) : [];
+    }
+    
+    // Salva amostras de cores no localStorage
+    // Impacto: persiste as cores selecionadas pelo usuário
+    function saveSwatches(list) {
+      localStorage.setItem("colorpicker-swatches", JSON.stringify(list));
+    }
+
+    // Renderiza as amostras de cores salvas na interface
+    // Impacto: permite reutilização rápida de cores previamente selecionadas
+    function renderSwatches() {
+      swatchesDiv.innerHTML = "";
+      const list = loadSwatches();
+      
+      // Exibe mensagem quando não há swatches salvos
+      if (list.length === 0) {
+        swatchesDiv.innerHTML =
+        '<small style="color:#94a3b8">(nenhum)</small>';
+        return;
+      }
+      
+      // Cria elemento visual para cada cor salva
+      list.forEach((hex) => {
+        const el = document.createElement("div");
+        el.className = "swatch";
+        el.title = hex;
+        el.style.background = hex;
+        
+        // Ao clicar, seleciona a cor e copia para o clipboard
+        el.addEventListener("click", () => {
+        setColor(hex);
+        copyToClipboard(hex);
+        showToast(`Copiado ${hex}`);
+        });
+        
+        // Permite remover cor com clique direito
+        el.addEventListener("contextmenu", (e) => {
+        e.preventDefault(); // previne menu de contexto
+        if (confirm("Remover swatch " + hex + "?")) {
+          const newList = loadSwatches().filter((h) => h !== hex);
+          saveSwatches(newList);
+          renderSwatches();
+        }
+        });
+        
+        swatchesDiv.appendChild(el);
+      });
+    }
+
+    // ============ ATUALIZAÇÃO DA INTERFACE ============
+    // Define a cor atual e atualiza todos os elementos da interface
+    // Impacto: mantém sincronizadas todas as representações visuais da cor
+    function setColor(hex) {
+      const rgb = hexToRgb(hex);
+      // Atualiza campos de entrada
+      colorInput.value = hex;
+      hexInput.value = hex.toUpperCase();
+      rgbInput.value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      
+      // Atualiza elementos visuais
+      preview.style.background = hex;
+      preview.textContent = hex.toUpperCase();
+      chipHex.textContent = hex.toUpperCase();
+      chipRgb.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      chipHsl.textContent = rgbToHsl(rgb);
+      
+      // Gera escala de cores relacionadas
+      renderScale(hex);
+    }
+
+    // Copia texto para a área de transferência do sistema
+    // Impacto: melhora usabilidade permitindo uso das cores em outros aplicativos
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+
+    // Exibe notificação temporária para feedback ao usuário
+    // Impacto: melhora experiência do usuário fornecendo feedback visual das ações
+    function showToast(msg) {
+      const t = document.createElement("div");
+      t.textContent = msg;
+      t.style.position = "fixed";
+      t.style.right = "18px";
+      t.style.bottom = "18px";
+      t.style.padding = "10px 14px";
+      t.style.background = "#111827cc";
+      t.style.color = "white";
+      t.style.borderRadius = "8px";
+      t.style.zIndex = 9999;
+      document.body.appendChild(t);
+      
+      // Remove toast após um delay com animação de fade out
+      setTimeout(() => {
+        t.style.transition = "opacity 300ms";
+        t.style.opacity = 0;
+        setTimeout(() => t.remove(), 300);
+      }, 1200);
+    }
+
+    // Gera e renderiza escala de 5 tons da cor atual (variando luminosidade)
+    // Impacto: ajuda na seleção de cores complementares para design harmônico
+    function renderScale(hex) {
+      scaleDiv.innerHTML = "";
+      const rgb = hexToRgb(hex);
+      
+      // Converte para HSL para manipular apenas luminosidade
+      const r = rgb.r / 255,
+          g = rgb.g / 255,
+          b = rgb.b / 255;
+      const max = Math.max(r, g, b),
+          min = Math.min(r, g, b);
+      let h = 0,
+        s = 0,
+        l = (max + min) / 2;
+        
+      // Cálculo de HSL (similar à função rgbToHsl, mas mantém componentes separados)
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0);
+          break;
+        case g:
+          h = (b - r) / d + 2;
+          break;
+        case b:
+          h = (r - g) / d + 4;
+          break;
+        }
+        h = h * 60;
+      }
+      
+      // Cria 5 variações de luminosidade (-20%, -10%, original, +10%, +20%)
+      for (let i = -2; i <= 2; i++) {
+        const li = clamp(Math.round(l * 100 + i * 10), 6, 94); // limita entre 6% e 94% para cores visíveis
+        const btn = document.createElement("div");
+        btn.className = "swatch";
+        btn.style.width = "60px";
+        btn.style.height = "60px";
+        btn.style.borderRadius = "6px";
+        btn.style.background = `hsl(${Math.round(h)}, ${Math.round(
+        s * 100
+        )}%, ${li}%)`;
+        btn.title = `hsl(${Math.round(h)}, ${Math.round(s * 100)}%, ${li}%)`;
+        
+        // Permite copiar a cor ao clicar
+        btn.addEventListener("click", () => {
+        const computed = window.getComputedStyle(btn).backgroundColor;
+        copyToClipboard(computed);
+        showToast(computed);
+        });
+        
+        scaleDiv.appendChild(btn);
+      }
+    }
+
+    // ============ HANDLERS DE EVENTOS ============
+    // Atualiza a cor quando o color picker é ajustado
+    // Impacto: permite seleção visual direta das cores
+    colorInput.addEventListener("input", () => setColor(colorInput.value));
+
+    // Processa entrada manual de código HEX
+    // Impacto: permite especificação precisa de valores de cor
+    hexInput.addEventListener("change", () => {
+      let v = hexInput.value.trim();
+      if (!v.startsWith("#")) v = "#" + v;
+      // Valida formato HEX (3 ou 6 dígitos)
+      if (/^#[0-9A-Fa-f]{3}$/.test(v) || /^#[0-9A-Fa-f]{6}$/.test(v))
+        setColor(v.toUpperCase());
+      else alert("HEX inválido");
+    });
+
+    // Processa entrada manual de código RGB
+    // Impacto: oferece forma alternativa de especificar cores
+    rgbInput.addEventListener("change", () => {
+      // Extrai valores numéricos da string RGB
+      const m = rgbInput.value.match(/(\d{1,3})\D+(\d{1,3})\D+(\d{1,3})/);
+      if (!m) {
+        alert("RGB inválido. Use formato: rgb(255, 0, 0) ou 255,0,0");
+        return;
+      }
+      // Converte para valores RGB válidos e atualiza cor
+      const r = clamp(parseInt(m[1]), 0, 255),
+          g = clamp(parseInt(m[2]), 0, 255),
+          b = clamp(parseInt(m[3]), 0, 255);
+      setColor(rgbToHex(r, g, b));
+    });
+
+    // Handlers para botões de copiar valores
+    // Impacto: facilita uso dos códigos de cor em outras aplicações
+    copyHexBtn.addEventListener("click", () => {
+      copyToClipboard(chipHex.textContent);
+      showToast("HEX copiado: " + chipHex.textContent);
+    });
+    copyRgbBtn.addEventListener("click", () => {
+      copyToClipboard(chipRgb.textContent);
+      showToast("RGB copiado: " + chipRgb.textContent);
+    });
+
+    // Adiciona cor atual à lista de swatches
+    // Impacto: permite salvar cores para uso posterior
+    addSwatchBtn.addEventListener("click", () => {
+      const hex = chipHex.textContent;
+      const list = loadSwatches();
+      
+      // Evita duplicatas
+      if (list.includes(hex)) {
+        showToast("Já existe");
+        return;
+      }
+      
+      // Adiciona no início da lista e limita a 24 cores
+      list.unshift(hex);
+      if (list.length > 24) list.pop();
+      saveSwatches(list);
+      renderSwatches();
+      showToast("Salvo " + hex);
+    });
+
+    // ============ INICIALIZAÇÃO ============
+    // Configura a aplicação no carregamento da página
+    // Impacto: prepara interface para uso imediato
+    (function init() {
+      renderSwatches();
+      setColor(colorInput.value);
+      
+      // Adiciona handler global para colar valores de cores (Ctrl+V)
+      // Impacto: melhora usabilidade permitindo entrada rápida de valores
+      window.addEventListener("paste", (e) => {
+        const text = (e.clipboardData || window.clipboardData).getData(
+        "text"
+        );
+        if (!text) return;
+        
+        // Tenta detectar formato HEX ou RGB no texto colado
+        const hexMatch = text.match(/#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})/);
+        const rgbMatch = text.match(/(\d{1,3})\D+(\d{1,3})\D+(\d{1,3})/);
+        
+        if (hexMatch) {
+        setColor(hexMatch[0]);
+        } else if (rgbMatch) {
+        const r = clamp(parseInt(rgbMatch[1]), 0, 255);
+        const g = clamp(parseInt(rgbMatch[2]), 0, 255);
+        const b = clamp(parseInt(rgbMatch[3]), 0, 255);
+        setColor(rgbToHex(r, g, b));
+        }
+      });
+    })();
+    </script>
+  </body>
+</html>

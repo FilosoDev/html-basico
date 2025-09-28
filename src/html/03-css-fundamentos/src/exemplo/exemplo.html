@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Apresentação</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3366cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        section {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #3366cc;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* === LISTA ESTILIZADA === */
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        ul li {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3366cc;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* === BOTÃO BÁSICO === */
+        .botao {
+            display: inline-block;
+            background-color: #3366cc;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #264d99;
+        }
+
+        /* === ESTILO DO AVATAR === */
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* deixa a imagem redonda */
+            object-fit: cover;  /* ajusta proporção */
+            border: 4px solid #3366cc;
+            opacity: 0;
+            animation: aparecerImagem 2s ease-out forwards;
+        }
+
+        /* === ANIMAÇÃO DO AVATAR === */
+        @keyframes aparecerImagem {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minha Página</h1>
+        <p>Uma apresentação simples com CSS básico</p>
+    </header>
+
+    <div class="container" class="fade-in">
+        <section class="fade-in">
+            <h2>👤 Meu Avatar</h2>
+            <!-- Alunos devem colocar a imagem avatar.jpg na mesma pasta -->
+            <img src="caminho-sua-imagem.extencao" alt="Meu Avatar" class="avatar">
+            <p>Este é meu avatar escolhido para me representar na apresentação.</p>
+        </section>
+
+        <section class="fade-in">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou um entusiasta de tecnologia e gosto de aprender novas ferramentas de programação e design. 
+               Esta página é um exemplo simples de HTML + CSS básico.</p>
+        </section>
+
+        <section class="fade-in">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>HTML e CSS</li>
+                <li>JavaScript Básico</li>
+                <li>Python e Análise de Dados</li>
+                <li>Banco de Dados SQL</li>
+            </ul>
+        </section>
+    </div>
+    
+    <section class="fade-in">
+        <h2>Contato</h2>
+        <p>Se quiser entrar em contato, clique no botão abaixo:</p>
+        <a href="mailto:meuemail@exemplo.com" class="botao">Enviar E-mail</a>
+    </section>
+
+    <footer>
+        <p>© 2025 - Minha Página Pessoal</p>
+    </footer>
+</body>
+</html>

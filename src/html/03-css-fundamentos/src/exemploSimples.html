@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz com que a página seja responsiva em dispositivos móveis -->
+    <title>Página de Apresentação</title>
+    <style>
+        /* === ESTILO GLOBAL === */
+        body {
+            font-family: Arial, Helvetica, sans-serif; /* Define a fonte da página */
+            background-color: #f0f0f0; /* Cor de fundo da página */
+            margin: 0; /* Remove margens padrão do navegador */
+            padding: 0; /* Remove padding padrão */
+            color: #333; /* Cor padrão do texto */
+            line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+        }
+
+        /* === CABEÇALHO === */
+        header {
+            background-color: #3366cc; /* Cor de fundo do cabeçalho */
+            color: white; /* Cor do texto no cabeçalho */
+            padding: 2rem; /* Espaçamento interno do cabeçalho */
+            text-align: center; /* Centraliza o conteúdo */
+        }
+
+        header h1 {
+            margin: 0; /* Remove a margem padrão do título */
+            font-size: 2rem; /* Define tamanho da fonte do título */
+        }
+
+        /* === CONTAINER PRINCIPAL === */
+        .container {
+            max-width: 900px; /* Largura máxima da área do conteúdo */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            padding: 1.5rem; /* Espaçamento interno */
+        }
+
+        /* === SEÇÕES === */
+        section {
+            background-color: white; /* Fundo branco para cada seção */
+            padding: 1.5rem; /* Espaçamento interno das seções */
+            margin-bottom: 1.5rem; /* Espaço entre as seções */
+            border-radius: 5px; /* Bordas arredondadas */
+            border: 1px solid #ddd; /* Borda leve para destaque */
+            text-align: center; /* Centraliza o conteúdo dentro da seção */
+        }
+
+        /* === TÍTULOS DAS SEÇÕES === */
+        h2 {
+            color: #3366cc; /* Cor azul para títulos */
+        }
+
+        /* === LISTAS ESTILIZADAS === */
+        ul {
+            padding-left: 1.2rem; /* Espaço à esquerda da lista */
+        }
+
+        ul li {
+            background-color: #f9f9f9; /* Fundo claro para cada item */
+            border-left: 4px solid #3366cc; /* Barra colorida à esquerda */
+            padding: 0.5rem; /* Espaçamento interno do item */
+            margin-bottom: 0.5rem; /* Espaço entre os itens */
+            border-radius: 3px; /* Bordas levemente arredondadas */
+        }
+
+        /* === ANIMAÇÃO DE ENTRADA PARA AS SEÇÕES === */
+        .fade-in {
+            opacity: 0; /* Inicia invisível */
+            animation: aparecer 1.5s ease-out forwards; /* Define a animação de entrada */
+        }
+
+        /* Define atrasos diferentes para cada seção, criando efeito em sequência */
+        section.fade-in:nth-of-type(1) { animation-delay: 0.1s; }
+        section.fade-in:nth-of-type(2) { animation-delay: 0.3s; }
+        section.fade-in:nth-of-type(3) { animation-delay: 0.6s; }
+        section.fade-in:nth-of-type(4) { animation-delay: 0.8s; }
+
+        /* === DEFINIÇÃO DA ANIMAÇÃO === */
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); } /* Começa invisível e levemente deslocado para baixo */
+            to   { opacity: 1; transform: translateY(0); }     /* Termina totalmente visível na posição original */
+        }
+
+        /* === ESTILO DO AVATAR === */
+        .avatar {
+            width: 150px; /* Largura da imagem */
+            height: 150px; /* Altura da imagem */
+            border-radius: 50%; /* Torna a imagem redonda */
+            object-fit: cover;  /* Mantém a proporção da imagem sem distorcer */
+            border: 4px solid #3366cc; /* Borda azul ao redor da imagem */
+        }
+
+        /* === RODAPÉ === */
+        footer {
+            text-align: center; /* Centraliza o conteúdo do rodapé */
+            padding: 1rem; /* Espaçamento interno */
+            background-color: #eee; /* Fundo cinza claro */
+            color: #666; /* Cor do texto mais clara */
+            font-size: 0.9rem; /* Tamanho menor da fonte */
+        }
+
+        /* === BOTÃO (usado no contato) === */
+        .botao {
+            display: inline-block; /* Permite definir tamanho e espaçamento */
+            background-color: #3366cc; /* Cor de fundo */
+            color: white; /* Cor do texto */
+            padding: 0.7rem 1.2rem; /* Espaçamento interno do botão */
+            border: none; /* Sem borda */
+            border-radius: 4px; /* Bordas arredondadas */
+            text-decoration: none; /* Remove sublinhado do link */
+            transition: background-color 0.3s; /* Efeito suave ao passar o mouse */
+        }
+
+        .botao:hover {
+            background-color: #264d99; /* Muda a cor quando o mouse passa por cima */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Minha Página</h1>
+        <p>Uma apresentação simples com CSS básico</p>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container">
+
+        <!-- SEÇÃO DO AVATAR -->
+        <section class="fade-in">
+            <h2>👤 Meu Avatar</h2>
+            <!-- Alunos devem colocar a imagem avatar.jpg na mesma pasta -->
+            <img src="avatar.jpg" alt="Meu Avatar" class="avatar">
+            <p>Este é meu avatar escolhido para me representar na apresentação.</p>
+        </section>
+
+        <!-- SEÇÃO SOBRE MIM -->
+        <section class="fade-in">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou um entusiasta de tecnologia e gosto de aprender novas ferramentas de programação e design. 
+               Esta página é um exemplo simples de HTML + CSS básico.</p>
+        </section>
+
+        <!-- SEÇÃO DE HABILIDADES -->
+        <section class="fade-in">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>HTML e CSS</li>
+                <li>JavaScript Básico</li>
+                <li>Python e Análise de Dados</li>
+                <li>Banco de Dados SQL</li>
+            </ul>
+        </section>
+
+        <!-- SEÇÃO DE CONTATO -->
+        <section class="fade-in">
+            <h2>Contato</h2>
+            <p>Se quiser entrar em contato, clique no botão abaixo:</p>
+            <a href="mailto:meuemail@exemplo.com" class="botao">Enviar E-mail</a>
+        </section>
+    </div>
+    
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2025 - Minha Página Pessoal</p>
+    </footer>
+</body>
+</html>
