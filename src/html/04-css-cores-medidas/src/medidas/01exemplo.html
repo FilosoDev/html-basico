@@ -3,110 +3,676 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidades de Medida em CSS</title>
+    <title>Unidades de Medida em CSS - Guia Completo</title>
+    
+    <!--
+        GUIA COMPLETO DE UNIDADES DE MEDIDA EM CSS
+        
+        Este exemplo demonstra todas as principais unidades de medida CSS:
+        
+        UNIDADES ABSOLUTAS (Tamanho fixo):
+        - px (pixels): Mais comum para web
+        - pt (pontos): Para impressão
+        - pc (picas): Para tipografia impressa
+        - in (polegadas): Para impressão
+        - cm (centímetros): Para impressão
+        - mm (milímetros): Para impressão
+        
+        UNIDADES RELATIVAS (Tamanho dinâmico):
+        - % (porcentagem): Relativa ao elemento pai
+        - em: Relativa ao font-size do elemento
+        - rem: Relativa ao font-size do elemento raiz (html)
+        - vw/vh: Relativa à largura/altura da viewport
+        - vmin/vmax: Menor/maior dimensão da viewport
+        - ch: Largura do caractere "0"
+        - ex: Altura do "x" minúsculo
+        
+        QUANDO USAR CADA UMA:
+        ✅ px: Bordas, sombras, valores pequenos fixos
+        ✅ rem: Tipografia, espaçamento, layouts
+        ✅ em: Espaçamento interno de componentes
+        ✅ %: Larguras, layouts fluidos
+        ✅ vw/vh: Hero sections, elementos full-screen
+        ✅ pt/cm/mm: CSS para impressão
+    -->
+    
     <style>
+        /* 
+            BASE DO SISTEMA
+            Definindo font-size padrão para calcular rem
+            1rem = 16px (padrão do navegador)
+        */
+        html {
+            font-size: 16px; /* Base para rem */
+        }
+        
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Estilo base para exemplos */
+        .example {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .example:hover {
+            transform: translateX(5px);
+        }
+        
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .explanation {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 3px solid #667eea;
         }
 
-        /* Pixels (px) */
+        /* 
+            PIXELS (px) - UNIDADE ABSOLUTA
+            ✅ VANTAGENS:
+            - Controle preciso e previsível
+            - Ideal para bordas, sombras, valores pequenos
+            - Suporte universal
+            
+            ❌ DESVANTAGENS:
+            - Não responsivo naturalmente
+            - Não respeita preferências de zoom do usuário
+            - Pode quebrar em telas muito pequenas
+            
+            📍 ONDE USAR:
+            - Bordas (1px, 2px)
+            - Border radius
+            - Box shadows
+            - Media queries (breakpoints)
+            
+            ⏰ QUANDO USAR:
+            - Valores pequenos e fixos (1-10px)
+            - Elementos que devem ter tamanho exato
+            - Breakpoints responsivos
+        */
         .px {
             font-size: 20px;
             background-color: lightblue;
             padding: 10px;
+            border: 2px solid #0066cc;
+            border-radius: 4px;
         }
 
-        /* Em (em) */
+        /* 
+            EM - UNIDADE RELATIVA AO ELEMENTO
+            ✅ VANTAGENS:
+            - Escalável com o contexto
+            - Ideal para espaçamento proporcional ao texto
+            - Componentes que escalam juntos
+            
+            ❌ DESVANTAGENS:
+            - Efeito cascata pode ser confuso
+            - Valores se multiplicam em elementos aninhados
+            - Difícil rastrear tamanho final
+            
+            📍 ONDE USAR:
+            - Padding/margin dentro de componentes
+            - Media objects
+            - Componentes modulares
+            
+            ⏰ QUANDO USAR:
+            - Quando quer que espaçamento escale com texto
+            - Componentes isolados
+            
+            ⚠️ NOTA: 2em = 2 × font-size do pai (se pai tem 16px, será 32px)
+        */
         .em {
-            font-size: 2em; /* 2 vezes o tamanho da fonte do elemento pai */
+            font-size: 2em; /* 2 × 16px = 32px */
             background-color: lightcoral;
-            padding: 1em;
+            padding: 1em; /* 1 × 32px = 32px */
+            border: 2px solid #dc3545;
+            border-radius: 0.25em; /* 0.25 × 32px = 8px */
         }
 
-        /* Rem (rem) */
+        /* 
+            REM - UNIDADE RELATIVA À RAIZ
+            ✅ VANTAGENS:
+            - Previsível (sempre relativo ao html)
+            - Respeita preferências do usuário
+            - Fácil manutenção
+            - Recomendação moderna
+            
+            ❌ DESVANTAGENS:
+            - Não se adapta ao contexto local
+            - Suporte limitado em IE8-
+            
+            📍 ONDE USAR:
+            - Tipografia (SEMPRE!)
+            - Espaçamento entre seções
+            - Tamanhos de componentes
+            
+            ⏰ QUANDO USAR:
+            - Font-sizes
+            - Margins e paddings globais
+            - Sistema de design
+            
+            💡 MELHOR PRÁTICA: Use rem para tipografia e espaçamento!
+            1.5rem = 1.5 × 16px = 24px (sempre, não importa onde)
+        */
         .rem {
-            font-size: 1.5rem; /* 1.5 vezes o tamanho da fonte raiz (default: 16px) */
+            font-size: 1.5rem; /* 1.5 × 16px = 24px */
             background-color: lightgreen;
-            padding: 1rem;
+            padding: 1rem; /* 1 × 16px = 16px */
+            border: 2px solid #28a745;
+            border-radius: 0.5rem; /* 0.5 × 16px = 8px */
         }
 
-        /* Percentuais (%) */
+        /* 
+            PORCENTAGEM (%) - UNIDADE RELATIVA AO PAI
+            ✅ VANTAGENS:
+            - Layouts fluidos naturalmente
+            - Responsivo sem media queries
+            - Fácil distribuição de espaço
+            
+            ❌ DESVANTAGENS:
+            - Depende do tamanho do pai
+            - height: 100% requer pai com altura definida
+            - Padding/margin baseados em largura (confuso!)
+            
+            📍 ONDE USAR:
+            - Larguras de layout
+            - Imagens responsivas
+            - Grid systems
+            
+            ⏰ QUANDO USAR:
+            - Layouts fluidos
+            - Colunas que devem dividir espaço
+            - Elementos que preenchem container
+            
+            ⚠️ NOTA: 50% = metade da largura do elemento pai
+        */
         .percentual {
-            width: 50%;
+            width: 50%; /* 50% da largura do pai */
             background-color: lightgoldenrodyellow;
-            padding: 2%;
+            padding: 2%; /* 2% da largura do pai (não altura!) */
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            box-sizing: border-box; /* Inclui padding e border na largura */
         }
 
-        /* Viewport Width (vw) e Viewport Height (vh) */
+        /* 
+            VIEWPORT UNITS (vw/vh) - RELATIVAS À JANELA
+            ✅ VANTAGENS:
+            - Responsivo imediato
+            - Ideal para full-screen
+            - Não precisa de media queries para casos básicos
+            
+            ❌ DESVANTAGENS:
+            - Problemas com barra de endereço mobile
+            - Não respeita zoom de texto
+            - Pode causar overflow horizontal
+            
+            📍 ONDE USAR:
+            - Hero sections (height: 100vh)
+            - Modais e overlays
+            - Tipografia fluida (com clamp)
+            
+            ⏰ QUANDO USAR:
+            - Elementos full-screen
+            - Overlays que cobrem tela
+            - Tipografia que escala com tela
+            
+            💡 DICA: Use calc() com vh para compensar headers
+            Ex: height: calc(100vh - 60px)
+        */
         .viewport {
-            width: 50vw; /* 50% da largura da viewport */
-            height: 20vh; /* 20% da altura da viewport */
+            width: 50vw; /* 50% da largura da janela */
+            height: 20vh; /* 20% da altura da janela */
             background-color: lightpink;
-            padding: 1vw;
+            padding: 1vw; /* 1% da largura da janela */
+            border: 2px solid #e91e63;
+            border-radius: 8px;
+            box-sizing: border-box;
         }
 
-        /* Pontos (pt), Picas (pc), Inches (in), Centímetros (cm) e Milímetros (mm) */
+        /* 
+            PONTOS (pt) - UNIDADE PARA IMPRESSÃO
+            ✅ VANTAGENS:
+            - Padrão para tipografia impressa
+            - Tamanho físico consistente
+            
+            ❌ DESVANTAGENS:
+            - Não apropriado para telas
+            - Difícil criar designs responsivos
+            
+            📍 ONDE USAR:
+            - CSS para impressão (@media print)
+            - Documentos que serão impressos
+            
+            ⏰ QUANDO USAR:
+            - Apenas em estilos de impressão!
+            
+            💡 NOTA: 1pt = 1/72 de polegada
+            Comum: 11pt ou 12pt para documentos
+        */
         .pt {
             font-size: 15pt;
             background-color: lightgray;
             padding: 5pt;
+            border: 2px solid #6c757d;
+            border-radius: 4px;
         }
 
+        /* 
+            PICAS (pc) - UNIDADE TIPOGRÁFICA
+            ✅ VANTAGENS:
+            - Usada em tipografia profissional
+            
+            ❌ DESVANTAGENS:
+            - Raramente necessária na web
+            
+            📍 ONDE USAR:
+            - Layouts de impressão complexos
+            
+            💡 NOTA: 1pc = 12pt
+        */
         .pc {
-            font-size: 2pc; /* 1pc = 12pt */
+            font-size: 2pc; /* 2pc = 24pt */
             background-color: lightsteelblue;
             padding: 1pc;
+            border: 2px solid #17a2b8;
+            border-radius: 4px;
         }
 
+        /* 
+            POLEGADAS (in) - UNIDADE PARA IMPRESSÃO
+            💡 NOTA: 1in = 96px CSS (não pixels físicos!)
+            Raramente usado na web
+        */
         .inch {
-            font-size: 1in; /* 1in = 96px */
+            font-size: 0.25in; /* Muito grande se fosse 1in! */
             background-color: lightseagreen;
-            padding: 0.5in;
+            padding: 0.1in;
+            border: 2px solid #20c997;
+            border-radius: 4px;
         }
 
+        /* 
+            CENTÍMETROS (cm) - UNIDADE PARA IMPRESSÃO
+            💡 NOTA: 1cm ≈ 37.8px CSS
+            Usado em CSS de impressão
+        */
         .cm {
-            font-size: 2cm;
+            font-size: 0.5cm;
             background-color: lightsalmon;
-            padding: 1cm;
+            padding: 0.3cm;
+            border: 2px solid #fd7e14;
+            border-radius: 4px;
         }
 
+        /* 
+            MILÍMETROS (mm) - UNIDADE PARA IMPRESSÃO
+            💡 NOTA: 1mm ≈ 3.78px CSS
+            Usado em CSS de impressão
+        */
         .mm {
-            font-size: 20mm;
+            font-size: 6mm;
             background-color: lightcyan;
-            padding: 5mm;
+            padding: 2mm;
+            border: 2px solid #17a2b8;
+            border-radius: 4px;
         }
 
-        /* Ex (ex) e Ch (ch) */
+        /* 
+            EX - UNIDADE TIPOGRÁFICA
+            ✅ VANTAGENS:
+            - Útil para ajustes tipográficos finos
+            
+            ❌ DESVANTAGENS:
+            - Uso muito específico
+            - Pouco intuitivo
+            
+            📍 ONDE USAR:
+            - Alinhamento vertical de subscripts/superscripts
+            - Ajustes tipográficos profissionais
+            
+            💡 NOTA: 1ex = altura do "x" minúsculo na fonte atual
+            Varia com a fonte escolhida
+        */
         .ex {
-            font-size: 2ex; /* Altura relativa à altura do 'x' da fonte */
+            font-size: 3ex;
             background-color: lightskyblue;
             padding: 1ex;
+            border: 2px solid #0dcaf0;
+            border-radius: 4px;
         }
 
+        /* 
+            CH - UNIDADE TIPOGRÁFICA MODERNA
+            ✅ VANTAGENS:
+            - Perfeito para largura de texto legível
+            - Ideal para campos de input com caracteres fixos
+            - Útil para código e fontes monoespaçadas
+            
+            ❌ DESVANTAGENS:
+            - Varia entre fontes
+            - Baseado no "0", não na média
+            
+            📍 ONDE USAR:
+            - max-width de conteúdo de texto (45-75ch)
+            - Inputs para códigos/números
+            - Blocos de código
+            
+            ⏰ QUANDO USAR:
+            - Para largura de texto legível
+            - Campos com quantidade específica de caracteres
+            
+            💡 MELHOR PRÁTICA:
+            max-width: 65ch; /* Largura ideal para leitura */
+            
+            💡 NOTA: 1ch = largura do caractere "0" na fonte atual
+        */
         .ch {
-            font-size: 10ch; /* Largura baseada no caractere "0" da fonte */
+            /* Não use ch para font-size! Use para width */
+            width: 30ch; /* Largura de 30 caracteres */
             background-color: lightgoldenrodyellow;
             padding: 1ch;
+            border: 2px solid #ffc107;
+            border-radius: 4px;
+            font-family: monospace; /* Melhor visualização com monospace */
+        }
+        
+        /* Seção de comparação */
+        .comparison-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-card h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .comparison-card ul {
+            line-height: 1.8;
+            padding-left: 1.5rem;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
         }
     </style>
 </head>
 <body>
-
-    <h2>Unidades de Medida em CSS</h2>
-
-    <div class="px">Este texto tem tamanho definido em pixels (px).</div>
-    <div class="em">Este texto usa unidade relativa em (em).</div>
-    <div class="rem">Este texto usa rem, baseado na raiz.</div>
-    <div class="percentual">Este bloco tem largura e padding em percentual (%).</div>
-    <div class="viewport">Este bloco usa viewport width (vw) e height (vh).</div>
-    <div class="pt">Este texto tem tamanho definido em pontos (pt).</div>
-    <div class="pc">Este texto usa picas (pc).</div>
-    <div class="inch">Este texto tem tamanho definido em polegadas (in).</div>
-    <div class="cm">Este texto tem tamanho em centímetros (cm).</div>
-    <div class="mm">Este texto tem tamanho em milímetros (mm).</div>
-    <div class="ex">Este texto usa ex (altura do 'x').</div>
-    <div class="ch">Este texto usa ch (largura do '0').</div>
+    <div class="container">
+        <h1>🎯 Guia Completo de Unidades de Medida em CSS</h1>
+        
+        <!-- UNIDADES ABSOLUTAS -->
+        <section>
+            <h2>📐 Unidades Absolutas (Tamanho Fixo)</h2>
+            
+            <div class="example px">
+                <div class="example-title">PIXELS (px) - Unidade mais comum para web</div>
+                Este texto tem font-size: 20px com padding: 10px
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> Bordas (1px), sombras, breakpoints, valores pequenos<br>
+                    <strong>❌ Evite para:</strong> Tipografia principal, espaçamento grande<br>
+                    <strong>💡 Dica:</strong> 1px CSS ≠ 1px físico em telas Retina!
+                </div>
+            </div>
+            
+            <div class="example pt">
+                <div class="example-title">PONTOS (pt) - Para impressão</div>
+                Este texto tem font-size: 15pt com padding: 5pt
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> CSS de impressão (@media print)<br>
+                    <strong>❌ Evite para:</strong> Design de telas/web<br>
+                    <strong>💡 Conversão:</strong> 1pt = 1/72 polegada
+                </div>
+            </div>
+            
+            <div class="example pc">
+                <div class="example-title">PICAS (pc) - Tipografia impressa</div>
+                Este texto tem font-size: 2pc com padding: 1pc
+                <div class="explanation">
+                    <strong>💡 Conversão:</strong> 1pc = 12pt = 1/6 polegada<br>
+                    Raramente usado mesmo em impressão
+                </div>
+            </div>
+            
+            <div class="example inch">
+                <div class="example-title">POLEGADAS (in) - Impressão</div>
+                Este texto tem font-size: 0.25in
+                <div class="explanation">
+                    <strong>💡 Nota:</strong> 1in = 96px CSS (não pixels físicos!)<br>
+                    Usado apenas para impressão física
+                </div>
+            </div>
+            
+            <div class="example cm">
+                <div class="example-title">CENTÍMETROS (cm) - Impressão</div>
+                Este texto tem font-size: 0.5cm
+                <div class="explanation">
+                    <strong>💡 Conversão:</strong> 1cm ≈ 37.8px CSS
+                </div>
+            </div>
+            
+            <div class="example mm">
+                <div class="example-title">MILÍMETROS (mm) - Impressão</div>
+                Este texto tem font-size: 6mm
+                <div class="explanation">
+                    <strong>💡 Conversão:</strong> 1mm ≈ 3.78px CSS
+                </div>
+            </div>
+        </section>
+        
+        <!-- UNIDADES RELATIVAS -->
+        <section style="margin-top: 3rem;">
+            <h2>📊 Unidades Relativas (Tamanho Dinâmico)</h2>
+            
+            <div class="example rem">
+                <div class="example-title">REM - Relativa ao elemento raiz (html) ⭐ RECOMENDADO</div>
+                Este texto tem font-size: 1.5rem com padding: 1rem
+                <div class="explanation">
+                    <strong>✅ SEMPRE use para:</strong> Font-sizes, espaçamento global<br>
+                    <strong>💡 Cálculo:</strong> 1rem = 16px (padrão), então 1.5rem = 24px<br>
+                    <strong>🎯 Melhor prática:</strong> Use rem para tipografia e espaçamento!
+                </div>
+            </div>
+            
+            <div class="example em">
+                <div class="example-title">EM - Relativa ao font-size do elemento</div>
+                Este texto tem font-size: 2em com padding: 1em
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> Espaçamento interno de componentes<br>
+                    <strong>❌ Evite para:</strong> Tipografia aninhada (efeito cascata)<br>
+                    <strong>⚠️ Atenção:</strong> Valores se multiplicam em elementos aninhados!
+                </div>
+            </div>
+            
+            <div class="example percentual">
+                <div class="example-title">PORCENTAGEM (%) - Relativa ao elemento pai</div>
+                Este bloco tem width: 50% com padding: 2%
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> Larguras, layouts fluidos, imagens responsivas<br>
+                    <strong>💡 Nota:</strong> Padding/margin em % são baseados na LARGURA do pai<br>
+                    <strong>⚠️ Atenção:</strong> height: 100% só funciona se pai tiver altura definida
+                </div>
+            </div>
+            
+            <div class="example viewport">
+                <div class="example-title">VIEWPORT (vw/vh) - Relativa à janela do navegador</div>
+                Este bloco tem width: 50vw e height: 20vh
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> Hero sections (100vh), modais, overlays<br>
+                    <strong>❌ Cuidado:</strong> Barra de endereço mobile pode causar problemas<br>
+                    <strong>💡 Dica:</strong> Use calc(100vh - altura-do-header) para compensar
+                </div>
+            </div>
+            
+            <div class="example ch">
+                <div class="example-title">CH - Largura do caractere "0"</div>
+                Este bloco tem width: 30ch (largura de 30 caracteres)
+                <div class="explanation">
+                    <strong>✅ Use para:</strong> max-width de texto (45-75ch ideal para leitura)<br>
+                    <strong>💡 Exemplo prático:</strong> <code>.article { max-width: 65ch; }</code><br>
+                    <strong>⚠️ Nota:</strong> Varia com a fonte escolhida
+                </div>
+            </div>
+            
+            <div class="example ex">
+                <div class="example-title">EX - Altura do "x" minúsculo</div>
+                Este texto tem font-size: 3ex com padding: 1ex
+                <div class="explanation">
+                    <strong>📍 Uso:</strong> Ajustes tipográficos muito específicos<br>
+                    <strong>💡 Exemplo:</strong> Subscripts, superscripts, alinhamento vertical
+                </div>
+            </div>
+        </section>
+        
+        <!-- COMPARAÇÃO E GUIA -->
+        <div class="comparison-section">
+            <h2>🎯 Guia de Decisão Rápida</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>📱 Para Web/Mobile</h3>
+                    <ul>
+                        <li><strong>Tipografia:</strong> rem</li>
+                        <li><strong>Espaçamento:</strong> rem</li>
+                        <li><strong>Bordas:</strong> px</li>
+                        <li><strong>Larguras:</strong> % ou max-width</li>
+                        <li><strong>Layouts:</strong> rem, %, vw/vh</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>🖨️ Para Impressão</h3>
+                    <ul>
+                        <li><strong>Texto:</strong> pt (11-12pt)</li>
+                        <li><strong>Margens:</strong> cm ou mm</li>
+                        <li><strong>Layouts:</strong> cm, mm, in</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>⭐ Recomendações</h3>
+                    <ul>
+                        <li><strong>SEMPRE:</strong> Use rem para texto</li>
+                        <li><strong>EVITE:</strong> px para tipografia</li>
+                        <li><strong>COMBINE:</strong> px (bordas) + rem (espaço)</li>
+                        <li><strong>PREFIRA:</strong> Unidades relativas</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>💡 Dicas Práticas</h3>
+                    <ul>
+                        <li><code>1rem = 16px</code> (padrão)</li>
+                        <li><code>max-width: 65ch</code> para texto</li>
+                        <li><code>height: 100vh</code> para full-screen</li>
+                        <li><code>border: 1px</code> sempre em px</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TABELA DE CONVERSÃO -->
+        <div class="comparison-section" style="margin-top: 2rem;">
+            <h2>📊 Tabela de Conversão</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <thead>
+                    <tr style="background: #667eea; color: white;">
+                        <th style="padding: 12px; text-align: left;">Unidade</th>
+                        <th style="padding: 12px; text-align: left;">Equivalência</th>
+                        <th style="padding: 12px; text-align: left;">Melhor Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: white;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>1rem</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">16px (padrão)</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">✅ Tipografia, espaçamento</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>1em</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">= font-size do elemento</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">⚠️ Padding/margin interno</td>
+                    </tr>
+                    <tr style="background: white;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>100%</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">= Largura do pai</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">✅ Larguras, layouts</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>100vw</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">= Largura da janela</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">✅ Full-screen, modais</td>
+                    </tr>
+                    <tr style="background: white;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>1px</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">1 pixel CSS</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">✅ Bordas, sombras</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>1ch</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">= Largura do "0"</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">✅ Largura de texto</td>
+                    </tr>
+                    <tr style="background: white;">
+                        <td style="padding: 12px; border: 1px solid #ddd;"><code>12pt</code></td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">1/6 polegada</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">🖨️ Apenas impressão</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>
