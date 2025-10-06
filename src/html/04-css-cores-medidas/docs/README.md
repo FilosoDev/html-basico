@@ -1391,7 +1391,11 @@ Valor fluido com limites? → clamp()
 
 ## 🎨 Teoria das Cores no Design
 
+A teoria das cores é fundamental para criar designs visualmente atraentes, harmoniosos e eficazes. Compreender como as cores funcionam juntas ajuda a criar experiências visuais profissionais e agradáveis.
+
 ### 🔄 Círculo Cromático e Harmonias
+
+O círculo cromático é a base da teoria das cores, organizando cores em um círculo que mostra suas relações. Entender essas relações permite criar paletas harmônicas e eficazes.
 
 ```css
 /* Cores Primárias */
@@ -1430,7 +1434,325 @@ Valor fluido com limites? → clamp()
 }
 ```
 
+---
+
+### 🎨 Esquemas de Cores - Detalhado
+
+#### 1. 🎭 Cores Complementares
+
+**O que são:** Cores opostas no círculo cromático (180° de diferença).
+
+**Por que usar:** Criam contraste máximo e vibração visual. O contraste natural atrai atenção e cria energia.
+
+**Vantagens:**
+- Contraste forte e vibrante
+- Destaca elementos importantes
+- Cria designs energéticos e dinâmicos
+- Fácil diferenciar elementos
+
+**Desvantagens:**
+- Pode ser visualmente cansativo se usadas em grandes áreas
+- Difícil equilibrar sem que uma domine
+- Pode parecer agressivo ou infantil se mal usadas
+- Requer cuidado com saturação
+
+**Onde usar:**
+- Call-to-actions (CTAs) que precisam se destacar
+- Botões sobre fundos
+- Ícones de atenção e alertas
+- Marcação de elementos interativos
+
+**Quando usar:**
+- Quando precisa de máximo contraste
+- Para destacar elementos cruciais
+- Em designs energéticos e jovens
+- Para criar pontos focais
+
+**Exemplos Práticos:**
+```css
+/* Esquema Azul-Laranja (comum em sites) */
+:root {
+    --primary: hsl(220, 100%, 50%);    /* Azul - cor principal */
+    --accent: hsl(40, 100%, 50%);      /* Laranja - destaque */
+}
+
+.button-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.button-cta {
+    background: var(--accent);         /* Destaca do resto */
+    color: var(--primary);             /* Texto na cor primária */
+}
+
+/* Esquema Roxo-Amarelo */
+:root {
+    --background: hsl(270, 50%, 95%);  /* Roxo muito claro */
+    --primary: hsl(270, 70%, 40%);     /* Roxo escuro */
+    --highlight: hsl(60, 100%, 50%);   /* Amarelo para destaques */
+}
+```
+
+---
+
+#### 2. 🌈 Cores Análogas
+
+**O que são:** Cores adjacentes no círculo cromático (30-60° de diferença).
+
+**Por que usar:** Criam harmonia natural e conforto visual. Ocorrem naturalmente na natureza.
+
+**Vantagens:**
+- Harmonia visual natural e agradável
+- Fácil criar variações e hierarquia
+- Aparência profissional e sofisticada
+- Menor cansaço visual que complementares
+- Versátil e fácil de implementar
+
+**Desvantagens:**
+- Pode faltar contraste para acessibilidade
+- Difícil criar hierarquia visual clara
+- Pode parecer monótono se mal executado
+- Requer cuidado com legibilidade
+
+**Onde usar:**
+- Fundos e seções de página
+- Gradientes suaves
+- Temas corporativos profissionais
+- Interfaces calmas e focadas
+- Sites de bem-estar e saúde
+
+**Quando usar:**
+- Para designs harmoniosos e calmos
+- Quando precisa de múltiplas variações de cor
+- Em interfaces que exigem longas sessões
+- Para transmitir profissionalismo
+
+**Exemplos Práticos:**
+```css
+/* Paleta Análoga Azul (comum em corporativo) */
+:root {
+    --blue-light: hsl(200, 70%, 60%);   /* Azul-ciano claro */
+    --blue-main: hsl(220, 70%, 50%);    /* Azul principal */
+    --blue-deep: hsl(240, 70%, 40%);    /* Azul-violeta */
+}
+
+.header {
+    background: linear-gradient(
+        135deg,
+        var(--blue-light),
+        var(--blue-main),
+        var(--blue-deep)
+    );
+}
+
+/* Paleta Análoga Verde-Amarelo (natureza) */
+:root {
+    --yellow-green: hsl(80, 60%, 50%);  /* Verde-amarelado */
+    --green: hsl(120, 60%, 40%);        /* Verde */
+    --blue-green: hsl(160, 60%, 40%);   /* Verde-azulado */
+}
+
+.eco-section {
+    background: var(--green);
+    border-top: 4px solid var(--yellow-green);
+    border-bottom: 4px solid var(--blue-green);
+}
+```
+
+---
+
+#### 3. 🔺 Cores Triádicas
+
+**O que são:** Três cores igualmente espaçadas no círculo (120° entre cada uma).
+
+**Por que usar:** Balanceiam vibração e harmonia. Versáteis e equilibradas.
+
+**Vantagens:**
+- Equilibradas e vibrantes simultaneamente
+- Oferecem variedade mantendo harmonia
+- Versáteis para diferentes contextos
+- Criam designs interessantes e dinâmicos
+
+**Desvantagens:**
+- Difícil balancear três cores igualmente
+- Pode parecer muito colorido se saturadas
+- Requer habilidade para usar bem
+- Risco de parecer amador
+
+**Onde usar:**
+- Dashboards e visualização de dados
+- Sites infantis e educacionais
+- Branding que precisa transmitir diversidade
+- Ícones e ilustrações
+
+**Quando usar:**
+- Quando precisa de três cores distintas
+- Para criar designs alegres e energéticos
+- Em visualizações de dados com categorias
+- Para marcas jovens e criativas
+
+**Exemplos Práticos:**
+```css
+/* Esquema Triádico Primário */
+:root {
+    --red: hsl(0, 80%, 50%);           /* Vermelho */
+    --yellow: hsl(120, 80%, 50%);      /* Verde */
+    --blue: hsl(240, 80%, 50%);        /* Azul */
+}
+
+.chart-category-1 { background: var(--red); }
+.chart-category-2 { background: var(--yellow); }
+.chart-category-3 { background: var(--blue); }
+
+/* Esquema Triádico Secundário */
+:root {
+    --orange: hsl(30, 80%, 50%);       /* Laranja */
+    --green: hsl(150, 80%, 40%);       /* Verde */
+    --purple: hsl(270, 80%, 50%);      /* Roxo */
+}
+```
+
+---
+
+#### 4. ⚫ Cores Monocromáticas
+
+**O que são:** Variações de uma única cor (mesma matiz, diferentes saturação/luminosidade).
+
+**Por que usar:** Cria unidade visual máxima e elegância minimalista.
+
+**Vantagens:**
+- Máxima harmonia visual
+- Aparência elegante e sofisticada
+- Fácil criar hierarquia com luminosidade
+- Menos confusão visual
+- Profissional e limpo
+
+**Desvantagens:**
+- Pode ser monótono e sem vida
+- Difícil criar contraste suficiente
+- Falta de variedade pode ser entediante
+- Requer cores neutras para equilíbrio
+
+**Onde usar:**
+- Interfaces minimalistas
+- Sites de luxo e premium
+- Portfolios e galerias
+- Aplicações focadas e profissionais
+- Documentações técnicas
+
+**Quando usar:**
+- Para designs elegantes e sofisticados
+- Quando quer focar em conteúdo, não em cor
+- Em marcas minimalistas
+- Para criar sensação de unidade
+
+**Exemplos Práticos:**
+```css
+/* Sistema Monocromático Azul */
+:root {
+    --primary-100: hsl(220, 70%, 95%); /* Muito claro */
+    --primary-200: hsl(220, 70%, 85%);
+    --primary-300: hsl(220, 70%, 75%);
+    --primary-400: hsl(220, 70%, 65%);
+    --primary-500: hsl(220, 70%, 50%); /* Base */
+    --primary-600: hsl(220, 70%, 40%);
+    --primary-700: hsl(220, 70%, 30%);
+    --primary-800: hsl(220, 70%, 20%);
+    --primary-900: hsl(220, 70%, 10%); /* Muito escuro */
+}
+
+/* Uso em componentes */
+.card {
+    background: var(--primary-100);
+    border: 1px solid var(--primary-300);
+}
+
+.card-title {
+    color: var(--primary-900);
+}
+
+.card-text {
+    color: var(--primary-700);
+}
+
+.card-footer {
+    background: var(--primary-200);
+    color: var(--primary-800);
+}
+```
+
+---
+
+#### 5. ⬜ Cores Tetrádicas (Quadradas)
+
+**O que são:** Quatro cores igualmente espaçadas no círculo (90° entre cada).
+
+**Por que usar:** Oferecem máxima variedade mantendo equilíbrio.
+
+**Vantagens:**
+- Grande variedade de cores
+- Equilibrado se bem executado
+- Permite categorização clara
+- Dinâmico e interessante
+
+**Desvantagens:**
+- Muito complexo para iniciantes
+- Fácil sobrecarregar visualmente
+- Requer domínio de teoria das cores
+- Difícil manter coerência
+
+**Onde usar:**
+- Dashboards complexos
+- Sites com múltiplas categorias
+- Aplicações com muitos tipos de dados
+
+**Quando usar:**
+- Quando precisa de quatro ou mais cores distintas
+- Em visualizações de dados complexas
+- Para aplicações com muitas categorias
+
+```css
+/* Esquema Tetrádico */
+:root {
+    --color-1: hsl(0, 70%, 50%);     /* Vermelho */
+    --color-2: hsl(90, 70%, 50%);    /* Verde-amarelo */
+    --color-3: hsl(180, 70%, 50%);   /* Ciano */
+    --color-4: hsl(270, 70%, 50%);   /* Roxo */
+}
+```
+
+---
+
+### 📊 Tabela Comparativa de Esquemas:
+
+| Esquema | Cores | Harmonia | Contraste | Dificuldade | Melhor Para |
+|---------|-------|----------|-----------|-------------|-------------|
+| **Complementar** | 2 | Média | Máximo | Fácil | CTAs, Destaques |
+| **Análogo** | 3-5 | Máxima | Baixo | Fácil | Corporativo, Calmo |
+| **Triádico** | 3 | Alta | Alto | Médio | Dados, Jovem |
+| **Monocromático** | 1 | Máxima | Médio | Fácil | Elegante, Mínimo |
+| **Tetrádico** | 4 | Média | Alto | Difícil | Dashboards |
+
+### 🎯 Guia de Decisão Rápida:
+
+```
+Precisa de contraste máximo? → Complementares
+Quer harmonia e calma? → Análogas
+Precisa de 3 cores distintas? → Triádicas
+Quer elegância minimalista? → Monocromáticas
+Tem múltiplas categorias? → Tetrádicas
+
+Site corporativo? → Análogas ou Monocromáticas
+Landing page de conversão? → Complementares
+Dashboard de dados? → Triádicas ou Tetrádicas
+Portfolio/Galeria? → Monocromáticas
+Site infantil/jovem? → Triádicas
+```
+
 ### ♿ Contraste e Acessibilidade
+
+A acessibilidade de cores é crucial para garantir que todos os usuários, incluindo aqueles com deficiências visuais, possam usar sua interface efetivamente. Seguir as diretrizes WCAG (Web Content Accessibility Guidelines) é essencial e, em muitos casos, legalmente obrigatório.
 
 ```css
 /* WCAG Guidelines para contraste */
@@ -1456,6 +1778,966 @@ Valor fluido com limites? → clamp()
     --fundo-secundario: #f8f9fa;
     
     /* Verificar contraste em tools.webaim.org */
+}
+```
+
+---
+
+#### 🤔 Por que Acessibilidade de Cores é Importante?
+
+1. **Legal e Ético**: Muitos países exigem acessibilidade web por lei (ADA nos EUA, EAA na Europa).
+2. **Inclusão**: Aproximadamente 8% dos homens e 0.5% das mulheres têm daltonismo.
+3. **Usabilidade Universal**: Melhora experiência para todos, não só para pessoas com deficiências.
+4. **SEO e Reputação**: Sites acessíveis ranqueiam melhor e têm melhor reputação.
+5. **Contextos Diversos**: Telas ao sol, monitores de baixa qualidade, etc.
+
+---
+
+#### 📏 Níveis de Conformidade WCAG
+
+##### **Nível A** (Mínimo)
+- Requisitos mais básicos de acessibilidade
+- Raramente suficiente sozinho
+
+##### **Nível AA** (Recomendado) ✅
+- Padrão amplamente aceito
+- Exigido por muitas leis e regulamentações
+- **Texto Normal**: Contraste mínimo de 4.5:1
+- **Texto Grande** (18pt+/14pt+ bold): Contraste mínimo de 3:1
+- **Elementos UI**: Contraste mínimo de 3:1 para componentes interativos
+
+##### **Nível AAA** (Máximo)
+- Nível mais alto de acessibilidade
+- Recomendado para interfaces críticas (saúde, governo)
+- **Texto Normal**: Contraste mínimo de 7:1
+- **Texto Grande**: Contraste mínimo de 4.5:1
+
+---
+
+#### ✅ Vantagens de Seguir WCAG:
+
+1. **Conformidade Legal**: Evita processos e multas.
+2. **Maior Alcance**: Alcança mais usuários.
+3. **Melhor UX**: Interfaces mais claras para todos.
+4. **SEO**: Google favorece sites acessíveis.
+5. **Reputação**: Demonstra responsabilidade social.
+6. **Flexibilidade**: Funciona em mais contextos (luz solar, telas ruins).
+
+---
+
+#### ❌ Consequências de Ignorar Acessibilidade:
+
+1. **Exclusão**: Impede pessoas com deficiências de usar o site.
+2. **Processos Legais**: Risco de multas e ações judiciais.
+3. **Reputação Negativa**: Má imagem da marca.
+4. **Perda de Usuários**: Frustra usuários que não conseguem ler o conteúdo.
+5. **SEO Prejudicado**: Rankings mais baixos nos buscadores.
+
+---
+
+#### 📍 Onde Aplicar Contraste Adequado:
+
+```css
+/* ✅ TEXTO NORMAL - Mínimo 4.5:1 (AA) */
+.text-normal-aa {
+    color: #212529;              /* Quase preto */
+    background: #ffffff;         /* Branco */
+    /* Contraste: 16.1:1 - Excelente! */
+}
+
+/* ✅ TEXTO NORMAL - Nível AAA (7:1) */
+.text-normal-aaa {
+    color: #000000;              /* Preto puro */
+    background: #ffffff;         /* Branco */
+    /* Contraste: 21:1 - Máximo! */
+}
+
+/* ✅ TEXTO GRANDE - Mínimo 3:1 (AA) */
+.text-large-aa {
+    font-size: 18pt;             /* Ou 24px */
+    color: #6c757d;              /* Cinza médio */
+    background: #ffffff;         /* Branco */
+    /* Contraste: 4.5:1 - Adequado para texto grande */
+}
+
+/* ⚠️ LIMITE - Texto normal AA */
+.text-minimum-aa {
+    color: #767676;              /* Cinza */
+    background: #ffffff;         /* Branco */
+    /* Contraste: 4.54:1 - No limite do AA */
+}
+
+/* ❌ FALHA - Insuficiente para AA */
+.text-fail {
+    color: #999999;              /* Cinza claro */
+    background: #ffffff;         /* Branco */
+    /* Contraste: 2.8:1 - Falha AA! */
+}
+
+/* ✅ BOTÕES E COMPONENTES - Mínimo 3:1 */
+.button-accessible {
+    background: #0d6efd;         /* Azul */
+    color: #ffffff;              /* Branco */
+    border: 2px solid #0d6efd;
+    /* Contraste texto: 8.6:1 - Excelente */
+    /* Contraste borda: 3:1+ - Adequado */
+}
+
+/* ✅ LINKS - Distinguíveis do texto */
+.link-accessible {
+    color: #0d6efd;              /* Azul para link */
+    text-decoration: underline;  /* Sempre sublinhado */
+}
+
+.link-accessible:hover {
+    color: #0a58ca;              /* Azul mais escuro */
+    text-decoration: underline;
+}
+```
+
+---
+
+#### 🎨 Paletas Acessíveis por Tipo:
+
+```css
+/* 🌑 Dark Mode Acessível */
+:root[data-theme="dark"] {
+    --bg-primary: #1a1a1a;       /* Fundo escuro */
+    --bg-secondary: #2d2d2d;     /* Fundo secundário */
+    --text-primary: #ffffff;     /* Texto principal: 18.6:1 */
+    --text-secondary: #b8b8b8;   /* Texto secundário: 7.8:1 */
+    --accent: #4da6ff;           /* Azul claro: 7.2:1 */
+    --success: #4cd964;          /* Verde: 9.1:1 */
+    --error: #ff453a;            /* Vermelho: 5.5:1 */
+}
+
+/* ☀️ Light Mode Acessível */
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;       /* Fundo claro */
+    --bg-secondary: #f5f5f5;     /* Fundo secundário */
+    --text-primary: #1a1a1a;     /* Texto principal: 18.6:1 */
+    --text-secondary: #4a4a4a;   /* Texto secundário: 10.1:1 */
+    --accent: #0066cc;           /* Azul: 8.2:1 */
+    --success: #28a745;          /* Verde: 4.8:1 */
+    --error: #dc3545;            /* Vermelho: 5.9:1 */
+}
+
+/* 🎯 Sistema de Status Acessível */
+.status-system {
+    --success-bg: #d4edda;       /* Verde claro */
+    --success-text: #155724;     /* Verde escuro: 8.1:1 */
+    --success-border: #c3e6cb;
+    
+    --warning-bg: #fff3cd;       /* Amarelo claro */
+    --warning-text: #856404;     /* Marrom escuro: 5.6:1 */
+    --warning-border: #ffeeba;
+    
+    --danger-bg: #f8d7da;        /* Vermelho claro */
+    --danger-text: #721c24;      /* Vermelho escuro: 9.4:1 */
+    --danger-border: #f5c6cb;
+    
+    --info-bg: #d1ecf1;          /* Azul claro */
+    --info-text: #0c5460;        /* Azul escuro: 7.2:1 */
+    --info-border: #bee5eb;
+}
+```
+
+---
+
+#### 🔍 Ferramentas para Testar Contraste:
+
+1. **WebAIM Contrast Checker**: https://webaim.org/resources/contrastchecker/
+2. **Coolors Contrast Checker**: https://coolors.co/contrast-checker
+3. **Chrome DevTools**: Inspetor de elementos mostra avisos de contraste
+4. **WAVE**: Extensão do navegador para teste de acessibilidade
+5. **axe DevTools**: Plugin para testes automatizados
+6. **Color Oracle**: Simula daltonismo
+
+---
+
+#### 🎨 Considerações para Daltonismo:
+
+```css
+/* ❌ EVITE: Depender apenas de cor */
+.status-error {
+    color: red;  /* Daltônicos podem não distinguir */
+}
+
+/* ✅ BOM: Use ícones + cor */
+.status-error {
+    color: #dc3545;
+}
+
+.status-error::before {
+    content: "⚠️ ";  /* Ícone visível */
+}
+
+/* ✅ MELHOR: Use padrões + cor + ícones */
+.status-error {
+    color: #dc3545;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(220, 53, 69, 0.1) 10px,
+        rgba(220, 53, 69, 0.1) 20px
+    );
+    border-left: 4px solid #dc3545;
+}
+
+.status-error::before {
+    content: "⚠️ ";
+}
+```
+
+---
+
+#### 📝 Tipos Comuns de Daltonismo e Soluções:
+
+| Tipo | Afeta | Confunde | Solução |
+|------|-------|----------|---------|
+| **Protanopia** | ~1% homens | Vermelho-Verde | Use azul-amarelo + padrões |
+| **Deuteranopia** | ~6% homens | Vermelho-Verde | Use azul-amarelo + ícones |
+| **Tritanopia** | Raro | Azul-Amarelo | Use vermelho-verde + contraste |
+| **Acromatopsia** | Muito raro | Todas | Dependa de contraste, não cor |
+
+---
+
+#### 💡 Melhores Práticas de Acessibilidade:
+
+```css
+/* 1. Use contraste adequado sempre */
+.good-contrast {
+    background: #ffffff;
+    color: #212529;           /* 16.1:1 - Excelente */
+}
+
+/* 2. Não use apenas cor para informação */
+.error-message {
+    color: #dc3545;           /* Cor */
+    border-left: 4px solid #dc3545;  /* Visual adicional */
+}
+
+.error-message::before {
+    content: "❌ ";           /* Ícone */
+}
+
+/* 3. Links devem ser distinguíveis */
+a {
+    color: #0066cc;
+    text-decoration: underline;  /* Sempre sublinhado */
+}
+
+/* 4. Elementos focados devem ser visíveis */
+button:focus {
+    outline: 3px solid #4da6ff;
+    outline-offset: 2px;
+}
+
+/* 5. Texto deve ser redimensionável */
+body {
+    font-size: 1rem;          /* Use rem, não px */
+}
+
+/* 6. Evite texto em imagens */
+.hero-text {
+    /* Use HTML + CSS, não imagem com texto */
+}
+
+/* 7. Forneça alternativas para conteúdo visual */
+.chart {
+    /* Sempre tenha dados tabulares alternativos */
+}
+
+/* 8. Modo de alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --text: #000000;
+        --background: #ffffff;
+        --border: #000000;
+    }
+}
+
+/* 9. Respeite preferências de cor */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1a1a1a;
+        --text: #ffffff;
+    }
+}
+
+/* 10. Animações e movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+```
+
+---
+
+#### 🧪 Teste Sua Interface:
+
+1. **Use simuladores de daltonismo** no Chrome DevTools
+2. **Teste com leitores de tela** (NVDA, JAWS, VoiceOver)
+3. **Valide com ferramentas automatizadas** (Lighthouse, axe)
+4. **Teste em diferentes dispositivos** e condições de luz
+5. **Aumente o zoom do navegador** para 200%
+6. **Navegue apenas com teclado** (Tab, Enter, Esc)
+7. **Desative CSS** para verificar estrutura HTML
+
+---
+
+#### 📊 Exemplo Completo de Sistema Acessível:
+
+```css
+/* Sistema completo com acessibilidade AA */
+:root {
+    /* Cores base - todas passam AA */
+    --primary: #0066cc;        /* 8.2:1 no branco */
+    --secondary: #6c757d;      /* 4.5:1 no branco */
+    --success: #28a745;        /* 4.8:1 no branco */
+    --danger: #dc3545;         /* 5.9:1 no branco */
+    --warning: #856404;        /* 5.6:1 no branco */
+    --info: #0c5460;          /* 7.2:1 no branco */
+    
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    
+    /* Texto */
+    --text-primary: #212529;   /* 16.1:1 */
+    --text-secondary: #6c757d; /* 4.5:1 */
+    --text-muted: #868e96;     /* 3.8:1 - apenas texto grande */
+}
+
+/* Componentes acessíveis */
+.button {
+    background: var(--primary);
+    color: white;               /* Contraste: 8.2:1 */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.button:focus:not(:focus-visible) {
+    outline: none;  /* Remove outline para mouse */
+}
+
+.button:focus-visible {
+    outline: 3px solid var(--primary);  /* Mantém para teclado */
+}
+
+.alert {
+    padding: 1rem;
+    border-left: 4px solid;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;             /* 8.1:1 */
+    border-color: #28a745;
+}
+
+.alert-success::before {
+    content: "✓ ";              /* Ícone visual */
+    font-weight: bold;
+}
+
+.link {
+    color: var(--primary);      /* 8.2:1 */
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #0052a3;             /* Ainda mais escuro */
+}
+
+.link:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+```
+
+---
+
+## 🌈 Gradientes em CSS
+
+Gradientes são transições suaves entre duas ou mais cores, criando efeitos visuais sofisticados sem necessidade de imagens. São fundamentais no design moderno.
+
+### 📐 Gradientes Lineares
+
+**O que são:** Transições de cor em linha reta em qualquer direção.
+
+```css
+/* Sintaxe básica */
+.gradient-basic {
+    background: linear-gradient(direção, cor1, cor2, ...);
+}
+
+/* Exemplos práticos */
+.gradient-top-bottom {
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.gradient-left-right {
+    background: linear-gradient(to right, #f093fb, #f5576c);
+}
+
+.gradient-diagonal {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Com múltiplas cores */
+.gradient-multi {
+    background: linear-gradient(
+        to right,
+        #ff0000,     /* Vermelho */
+        #ff7f00,     /* Laranja */
+        #ffff00,     /* Amarelo */
+        #00ff00,     /* Verde */
+        #0000ff,     /* Azul */
+        #4b0082,     /* Índigo */
+        #9400d3      /* Violeta */
+    );
+}
+
+/* Com pontos de parada (color stops) */
+.gradient-stops {
+    background: linear-gradient(
+        to right,
+        #667eea 0%,      /* Início */
+        #764ba2 50%,     /* Meio */
+        #667eea 100%     /* Fim */
+    );
+}
+```
+
+#### ✅ Vantagens dos Gradientes:
+
+1. **Sem Imagens**: Não precisa carregar arquivos externos.
+2. **Performance**: Renderizado pelo navegador, muito rápido.
+3. **Escalável**: Não perde qualidade em qualquer tamanho.
+4. **Responsivo**: Adapta-se automaticamente ao container.
+5. **Editável**: Fácil modificar cores via CSS.
+6. **Efeitos Modernos**: Cria designs contemporâneos.
+
+#### ❌ Desvantagens:
+
+1. **Compatibilidade**: Requer prefixos para navegadores antigos.
+2. **Complexidade**: Gradientes complexos podem ser difíceis de manter.
+3. **Performance**: Muitos gradientes podem afetar performance.
+
+#### 📍 Onde e Quando Usar Gradientes Lineares:
+
+```css
+/* ✅ Fundos de Hero Sections */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* ✅ Botões com Efeito */
+.button-gradient {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.button-gradient:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);  /* Inverte */
+}
+
+/* ✅ Overlays sobre Imagens */
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+/* ✅ Texto com Gradiente */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* ✅ Bordas com Gradiente */
+.gradient-border {
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    background-image: 
+        linear-gradient(white, white),
+        linear-gradient(135deg, #667eea, #764ba2);
+    background-origin: padding-box, border-box;
+}
+```
+
+---
+
+### ⭕ Gradientes Radiais
+
+**O que são:** Transições de cor que irradiam de um ponto central em forma circular ou elíptica.
+
+```css
+/* Sintaxe básica */
+.gradient-radial {
+    background: radial-gradient(forma tamanho at posição, cor1, cor2);
+}
+
+/* Exemplos práticos */
+.radial-center {
+    background: radial-gradient(circle, #667eea, #764ba2);
+}
+
+.radial-ellipse {
+    background: radial-gradient(ellipse, #f093fb, #f5576c);
+}
+
+.radial-positioned {
+    background: radial-gradient(
+        circle at top left,
+        #667eea,
+        #764ba2
+    );
+}
+
+/* Com múltiplas cores e paradas */
+.radial-complex {
+    background: radial-gradient(
+        circle at center,
+        #ffffff 0%,
+        #667eea 50%,
+        #764ba2 100%
+    );
+}
+```
+
+#### 📍 Onde Usar Gradientes Radiais:
+
+```css
+/* ✅ Spotlight Effects */
+.spotlight {
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 70%
+    );
+}
+
+/* ✅ Botões com Brilho */
+.button-glow {
+    position: relative;
+    background: #667eea;
+}
+
+.button-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent 70%
+    );
+}
+
+/* ✅ Loading Spinners */
+.spinner {
+    background: radial-gradient(
+        circle,
+        transparent 40%,
+        #667eea 40%,
+        #667eea 60%,
+        transparent 60%
+    );
+}
+```
+
+---
+
+### 🔁 Gradientes Cônicos
+
+**O que são:** Transições de cor que giram em torno de um ponto central.
+
+```css
+.gradient-conic {
+    background: conic-gradient(
+        from 0deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #9400d3,
+        #ff0000
+    );
+}
+
+/* Pie chart */
+.pie-chart {
+    background: conic-gradient(
+        #667eea 0deg 120deg,
+        #764ba2 120deg 240deg,
+        #f093fb 240deg 360deg
+    );
+    border-radius: 50%;
+}
+```
+
+---
+
+## 🎨 Variáveis CSS (Custom Properties)
+
+Variáveis CSS permitem armazenar valores reutilizáveis, facilitando manutenção e criação de temas dinâmicos.
+
+### 🤔 Por que usar Variáveis CSS?
+
+1. **Manutenção**: Altere um valor e aplique em todo o site.
+2. **Temas**: Crie dark mode e variações facilmente.
+3. **Consistência**: Garante valores padronizados.
+4. **Legibilidade**: Nomes descritivos em vez de valores mágicos.
+5. **Dinâmico**: Pode ser alterado via JavaScript.
+6. **Cascata**: Herdam e podem ser sobreescritas.
+
+```css
+/* Definindo variáveis na raiz */
+:root {
+    /* Cores primárias */
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-accent: #f093fb;
+    
+    /* Cores de texto */
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #868e96;
+    
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-dark: #1a1a1a;
+    
+    /* Espaçamento */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    
+    /* Tipografia */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    
+    /* Bordas */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-width: 1px;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+    /* Transições */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+}
+
+/* Usando variáveis */
+.button {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-base);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.button:hover {
+    background: var(--color-secondary);
+    box-shadow: var(--shadow-lg);
+}
+```
+
+### 🌓 Sistema de Temas com Variáveis
+
+```css
+/* Tema claro (padrão) */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+}
+
+/* Componentes usam as variáveis */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.card {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* JavaScript para alternar tema */
+/* 
+document.documentElement.setAttribute('data-theme', 'dark');
+*/
+```
+
+### 📍 Variáveis CSS com Fallback:
+
+```css
+/* Variável com valor padrão */
+.element {
+    color: var(--text-color, #212529);  /* Se --text-color não existir, usa #212529 */
+}
+
+/* Variáveis aninhadas */
+:root {
+    --primary-hue: 220;
+    --primary-saturation: 70%;
+    --primary-lightness: 50%;
+    --primary: hsl(
+        var(--primary-hue),
+        var(--primary-saturation),
+        var(--primary-lightness)
+    );
+}
+
+/* Variações dinâmicas */
+:root {
+    --primary: hsl(220, 70%, 50%);
+}
+
+.light-version {
+    background: hsl(220, 70%, 90%);  /* Versão clara */
+}
+
+.dark-version {
+    background: hsl(220, 70%, 20%);  /* Versão escura */
+}
+```
+
+### 💡 Exemplos Avançados:
+
+```css
+/* Sistema completo de design */
+:root {
+    /* Base de cores */
+    --primary-h: 220;
+    --primary-s: 70%;
+    --primary-l: 50%;
+    
+    /* Variações automáticas */
+    --primary-100: hsl(var(--primary-h), var(--primary-s), 95%);
+    --primary-200: hsl(var(--primary-h), var(--primary-s), 85%);
+    --primary-300: hsl(var(--primary-h), var(--primary-s), 75%);
+    --primary-400: hsl(var(--primary-h), var(--primary-s), 65%);
+    --primary-500: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-600: hsl(var(--primary-h), var(--primary-s), 40%);
+    --primary-700: hsl(var(--primary-h), var(--primary-s), 30%);
+    --primary-800: hsl(var(--primary-h), var(--primary-s), 20%);
+    --primary-900: hsl(var(--primary-h), var(--primary-s), 10%);
+}
+
+/* Responsivo com variáveis */
+:root {
+    --container-padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --container-padding: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-padding: 3rem;
+    }
+}
+
+.container {
+    padding: var(--container-padding);
+}
+
+/* Cálculos com variáveis */
+:root {
+    --header-height: 60px;
+}
+
+.main-content {
+    height: calc(100vh - var(--header-height));
+}
+
+/* Animações com variáveis */
+:root {
+    --rotation: 0deg;
+}
+
+.rotating-element {
+    transform: rotate(var(--rotation));
+    transition: transform var(--transition-base);
+}
+
+/* Alterar via JavaScript:
+document.documentElement.style.setProperty('--rotation', '180deg');
+*/
+```
+
+---
+
+## 🎯 Casos de Uso Práticos Completos
+
+### 1. 🏢 Site Corporativo
+
+```css
+:root {
+    /* Cores corporativas */
+    --brand-blue: #0066cc;
+    --brand-light: #4da6ff;
+    --brand-dark: #004080;
+    
+    /* Tons neutros */
+    --gray-50: #f8f9fa;
+    --gray-100: #e9ecef;
+    --gray-900: #212529;
+    
+    /* Sistema de espaçamento */
+    --space-unit: 0.5rem;
+}
+
+.header {
+    background: var(--brand-blue);
+    padding: calc(var(--space-unit) * 4);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--brand-blue), var(--brand-dark));
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+```
+
+### 2. 🎨 Portfolio Criativo
+
+```css
+:root {
+    /* Paleta vibrante */
+    --purple: hsl(270, 70%, 50%);
+    --pink: hsl(330, 80%, 60%);
+    --blue: hsl(220, 80%, 60%);
+}
+
+.hero {
+    background: radial-gradient(
+        ellipse at top,
+        var(--purple),
+        var(--pink),
+        var(--blue)
+    );
+    min-height: 100vh;
+}
+
+.project-card {
+    background: var(--gray-50);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+```
+
+### 3. 🛍️ E-commerce
+
+```css
+:root {
+    /* Cores de status */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+}
+
+.product-badge-new {
+    background: var(--success);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.price-discount {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    background: var(--success);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
 }
 ```
 
