@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de Transparência em CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    /* Fundo com imagem */
+    .fundo-imagem {
+      width: 100%;
+      height: 400px;
+      background-image: url("https://picsum.photos/1200/400?blur=1"); /* imagem exemplo */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .box {
+      width: 140px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 10px;
+      color: #000;
+    }
+
+    /* Exemplos RGBA */
+    .rgba1 { background-color: rgba(255, 0, 0, 1); }
+    .rgba2 { background-color: rgba(255, 0, 0, 0.6); }
+    .rgba3 { background-color: rgba(255, 0, 0, 0.3); }
+
+    /* Exemplos HSLA */
+    .hsla1 { background-color: hsla(200, 80%, 50%, 1); }
+    .hsla2 { background-color: hsla(200, 80%, 50%, 0.5); }
+    .hsla3 { background-color: hsla(200, 80%, 50%, 0.2); }
+  </style>
+</head>
+<body>
+  <h1>Exemplo de Transparência em CSS</h1>
+  <p>Agora as caixas coloridas estão sobre uma <strong>imagem de fundo</strong>, o que evidencia bem os diferentes níveis de transparência.</p>
+
+  <div class="fundo-imagem">
+    <div class="container">
+      <div class="box rgba1">RGBA 1.0</div>
+      <div class="box rgba2">RGBA 0.6</div>
+      <div class="box rgba3">RGBA 0.3</div>
+      <div class="box hsla1">HSLA 1.0</div>
+      <div class="box hsla2">HSLA 0.5</div>
+      <div class="box hsla3">HSLA 0.2</div>
+    </div>
+  </div>
+</body>
+</html>
