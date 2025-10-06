@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Cores HSL</title>
+  <style>
+    /* Sistema de Cores Baseado em HSL */
+    :root {
+      --primary-hue: 220;
+      --primary: hsl(var(--primary-hue), 70%, 50%);
+      --primary-light: hsl(var(--primary-hue), 70%, 70%);
+      --primary-lighter: hsl(var(--primary-hue), 70%, 85%);
+      --primary-dark: hsl(var(--primary-hue), 70%, 35%);
+      --primary-darker: hsl(var(--primary-hue), 70%, 20%);
+    }
+
+    /* Tema Claro e Escuro */
+    .light-theme {
+      --bg-color: hsl(0, 0%, 100%);
+      --text-color: hsl(0, 0%, 10%);
+    }
+
+    .dark-theme {
+      --bg-color: hsl(0, 0%, 10%);
+      --text-color: hsl(0, 0%, 100%);
+    }
+
+    /* Reset e Base */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    section {
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      background-color: var(--primary-lighter);
+    }
+
+    /* Botão Primário */
+    .button-primary {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      background: var(--primary);
+      transition: background 0.2s;
+      margin: 5px;
+    }
+
+    .button-primary:hover {
+      background: hsl(220, 70%, 45%);
+    }
+
+    .button-primary:active {
+      background: hsl(220, 70%, 40%);
+    }
+
+    .button-primary:disabled {
+      background: hsl(220, 30%, 60%);
+      cursor: not-allowed;
+    }
+
+    /* Paleta Análoga */
+    .palette {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .palette div {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .color-1 { background-color: hsl(200, 70%, 50%); }
+    .color-2 { background-color: hsl(220, 70%, 50%); }
+    .color-3 { background-color: hsl(240, 70%, 50%); }
+
+    /* Escala de cores para gráficos */
+    .chart-scale {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .chart-scale div {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .chart-1 { background-color: hsl(0, 70%, 50%); }
+    .chart-2 { background-color: hsl(30, 70%, 50%); }
+    .chart-3 { background-color: hsl(60, 70%, 50%); color: black; }
+    .chart-4 { background-color: hsl(90, 70%, 50%); color: black; }
+    .chart-5 { background-color: hsl(120, 70%, 50%); }
+
+    /* Toggle de Tema */
+    .theme-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body class="light-theme">
+
+  <div class="theme-toggle">
+    <button class="button-primary" id="toggle-theme">Alternar Tema</button>
+  </div>
+
+  <section>
+    <h2>Botões Primários</h2>
+    <button class="button-primary">Normal</button>
+    <button class="button-primary" disabled>Disabled</button>
+  </section>
+
+  <section>
+    <h2>Paleta Análoga</h2>
+    <div class="palette">
+      <div class="color-1">Azul-ciano</div>
+      <div class="color-2">Azul</div>
+      <div class="color-3">Azul-violeta</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Escala de Cores para Gráficos</h2>
+    <div class="chart-scale">
+      <div class="chart-1">R</div>
+      <div class="chart-2">O</div>
+      <div class="chart-3">A</div>
+      <div class="chart-4">V</div>
+      <div class="chart-5">V</div>
+    </div>
+  </section>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      body.classList.toggle('dark-theme');
+    });
+  </script>
+</body>
+</html>
