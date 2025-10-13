@@ -23,7 +23,7 @@
         .pc { font-size: 1pc; background-color: lightgreen; }
         .in { font-size: 1in; background-color: lightcoral; }
         .cm { font-size: 1cm; background-color: lightgoldenrodyellow; }
-        .mm { font-size: 10mm; background-color: lightgray; }
+        .mm { font-size: 1mm; background-color: lightgray; }
     </style>
 </head>
 <body>
@@ -41,7 +41,21 @@
         <p style="font-size: 2em;">
             Texto com tamanho em em (2em = 2 vezes o tamanho da fonte do elemento pai, que é 16px, resultando em 32px).
         </p>
-
     </div>
+    <div class="linha">
+        <div class="box tamanho pt">12pt</div>
+        <div class="box tamanho pc">1pc</div>
+        <div class="box tamanho in">1in</div>
+    </div>
+    <div class="linha">
+        <div class="box tamanho cm">1cm</div>
+        <div class="box tamanho mm">10mm</div>
+    </div>
+    <div style="font-size: 16px;">
+        <p style="font-size: 2em;">
+            Texto com tamanho em em (2em = 2 vezes o tamanho da fonte do elemento pai, que é 16px, resultando em 32px).
+        </p>
+    </div>
+    
 </body>
 </html>

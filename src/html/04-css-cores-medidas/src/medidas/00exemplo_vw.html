@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo: px vs viewport</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .caixa-px {
+      width: 96px; /* 1 polegada lógica */
+      height: 96px;
+      background-color: royalblue;
+      color: white;
+      line-height: 96px;
+      margin: 10px auto;
+    }
+
+    .caixa-vw {
+      width: 10vw; /* 10% da largura da tela */
+      height: 10vw;
+      background-color: coral;
+      color: white;
+      line-height: 10vw;
+      margin: 10px auto;
+    }
+
+    .descricao {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diferença entre px e viewport (vw)</h1>
+
+  <div class="caixa-px">96px</div>
+  <div class="caixa-vw">10vw</div>
+
+  <div class="descricao">
+    <p>
+      A caixa azul mede exatamente <b>96px</b>, o que significa <b>1/96 de polegada × 96</b>, ou seja, <b>1 polegada lógica</b>.
+      Seu tamanho visual é fixo, independentemente do tamanho da tela.
+    </p>
+    <p>
+      Já a caixa laranja usa <b>10vw</b>, o que representa <b>10% da largura da viewport</b>.
+      Assim, ela <b>aumenta ou diminui conforme a tela</b> (por exemplo, em celulares ela fica menor, em monitores grandes, maior).
+    </p>
+  </div>
+</body>
+</html>
