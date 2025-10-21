@@ -1,7 +1,3 @@
-Aqui está um texto detalhado explicando o que são HTML e CSS, suas funções e sua importância no desenvolvimento web.
-
----
-
 # O Que é HTML e CSS? 
 
 ## Introdução
@@ -857,7 +853,3 @@ projeto/
 - **Can I Use** - Compatibilidade de recursos web
 - **W3C Validator** - Validação de HTML/CSS
 - **GTmetrix** - Análise de performance
-
----
-
-Se quiser mais detalhes sobre algum tópico específico ou um exemplo mais aprofundado, me avise!
